@@ -1,0 +1,10 @@
+assets:
+- receivable(売掛金)
+- (事業主貸)
+- deposit(預金)
+liabilities:
+- (事業主借)
+equity:
+revenue:
+- sales(売上)
+expenses:
