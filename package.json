@@ -1,0 +1,18 @@
+{
+  "name": "bookkeeper",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kt3k/account.git"
+  },
+  "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^3.2.5"
+  }
+}
