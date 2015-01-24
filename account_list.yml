@@ -1,10 +1,11 @@
 assets:
-- receivable(売掛金)
-- (事業主貸)
-- deposit(預金)
+- 売掛金
+- 事業主貸
+- 預金
 liabilities:
-- (事業主借)
+- 事業主借
 equity:
+- 元入金
 revenue:
-- sales(売上)
+- 売上
 expenses:
