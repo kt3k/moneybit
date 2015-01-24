@@ -1,23 +1,37 @@
-equity:
+預金:
 - date: 2015-01-05
-  cr:
-  - 元入金, 2400
-
-assets:
-- date: 2015-01-20
-  dr:
-  - 売掛金, 926640
+  name: 開業
+  dr: 2400
+  cr: -
+  cor: 元入金
 - date: 2015-01-23
-  cr:
-  - 売掛金, 926640
+  name: 振込 開発費 CureApp Inc.
+  dr: 926640
+  cr: -
+  cor: 売掛金
+
+元入金:
 - date: 2015-01-05
-  dr:
-  - 預金, 2400
-- date: 2015-01-23
-  dr:
-  - 預金, 926640
+  name: 開業
+  dr: -
+  cr: 2400
+  cor: 預金
 
-revenue:
+売掛金:
 - date: 2015-01-20
-  cr:
-  - 売上, 926640
+  name: 請求 開発費 CureApp Inc.
+  dr: 926640
+  cr: -
+  cor: 売上
+- date: 2015-01-23
+  name: 振込 開発費 CureApp Inc.
+  dr: -
+  cr: 926640
+  cor: 預金
+
+売上:
+- date: 2015-01-20
+  name: 請求 開発費 CureApp Inc.
+  dr: -
+  cr: 926640
+  cor: 売掛金
