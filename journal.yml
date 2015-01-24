@@ -1,11 +1,20 @@
 - date: 2015-01-05
   name: 開業
-  debit: 預金
-  credit: 元入金
-  amount: 2400
+  dr:
+  - 預金, 2400
+  cr:
+  - 元入金, 2400
 
 - date: 2015-01-20
-  name: CureApp Inc. へ請求 1月分
-  debit: 売掛金
-  credit: 売上
-  amount: 926640
+  name: 請求 CureApp Inc. 1月分
+  dr:
+  - 売掛金, 926640
+  cr:
+  - 売上, 926640
+
+- date: 2015-01-23
+  name: 振込 CureApp Inc.
+  dr:
+  - 預金, 926640
+  cr:
+  - 売掛金, 926640
