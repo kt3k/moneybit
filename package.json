@@ -13,6 +13,8 @@
   "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
   "license": "MIT",
   "dependencies": {
-    "js-yaml": "^3.2.5"
+    "function-branch": "^1.0.0",
+    "js-yaml": "^3.2.5",
+    "minimist": "^1.1.0"
   }
 }
