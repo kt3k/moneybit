@@ -1,7 +1,5 @@
 #! /usr/bin/env node
 
-require('function-branch');
-
 var fs = require('fs');
 var yaml = require('js-yaml');
 
@@ -35,4 +33,4 @@ var journalFactory = new JournalFactory();
 
 journal = journalFactory.createFromArray(journal);
 
-console.log(JSON.stringify(journal, null, 4));
+console.log(journal);
