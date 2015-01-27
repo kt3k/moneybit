@@ -26,11 +26,17 @@ try {
 
 }
 
-console.log(journal);
-
 var JournalFactory = require('./lib/domain/journal-factory');
 var journalFactory = new JournalFactory();
 
 journal = journalFactory.createFromArray(journal);
 
-console.log(journal);
+var LedgerFactory = require('./lib/domain/ledger-factory');
+var ledgerFactory = new LedgerFactory();
+
+var ledger = ledgerFactory.createFromJournal(journal);
+
+var LedgerRepository = require('./lib/domain/ledger-repository');
+var ledgerRepo = new LedgerRepository();
+
+console.log(ledgerRepo.toYaml(ledger));
