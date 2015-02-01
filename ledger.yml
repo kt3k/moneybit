@@ -11,12 +11,18 @@
     cr: "-"
     cor: "-"
     ref: 2
+  - date: "2015-01-24"
+    desc: MIカード年会費
+    dr: "-"
+    cr: 2000
+    cor: "-"
+    ref: 3
   - date: "2015-01-26"
     desc: 生活費
     dr: "-"
     cr: 320000
     cor: "-"
-    ref: 3
+    ref: 4
 元入金:
   - date: "2015-01-05"
     desc: 開業
@@ -45,10 +51,16 @@
     cor: "-"
     ref: 1
 事業主貸:
+  - date: "2015-01-24"
+    desc: MIカード年会費
+    dr: 2000
+    cr: "-"
+    cor: "-"
+    ref: 3
   - date: "2015-01-26"
     desc: 生活費
     dr: 320000
     cr: "-"
     cor: "-"
-    ref: 3
+    ref: 4
 
