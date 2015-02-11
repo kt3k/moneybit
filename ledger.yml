@@ -87,4 +87,18 @@
     cr: "-"
     cor: "-"
     ref: 6
+新聞図書費:
+  - date: "2015-02-07"
+    desc: 参考書 ドメイン駆動開発 Eric Evans 著 翔泳社
+    dr: 5616
+    cr: "-"
+    cor: "-"
+    ref: 7
+事業主借:
+  - date: "2015-02-07"
+    desc: 参考書 ドメイン駆動開発 Eric Evans 著 翔泳社
+    dr: "-"
+    cr: 5616
+    cor: "-"
+    ref: 7
 
