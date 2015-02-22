@@ -1,8 +1,5 @@
 
-
-var JournalEntry = require('../../lib/domain/journal-entry');
-var Money = require('../../lib/domain/money');
-
+require('./helper');
 
 
 describe('JournalEntry', function () {
@@ -47,6 +44,29 @@ describe('JournalEntry', function () {
 
         });
 
+    });
+
+
+    describe('getCorrespondingTitles', function () {
+
+        it('gets the titles of corresponding debit/credit entries', function () {
+
+
+            var d0 = new JournalEntry(null, 'debit', 'A', new Money(1));
+            var d1 = new JournalEntry(null, 'debit', 'B', new Money(1));
+            var c0 = new JournalEntry(null, 'credit', 'C', new Money(1));
+            var c1 = new JournalEntry(null, 'credit', 'D', new Money(1));
+
+            var account = new Account(null, [d0, d1], [c0, c1]);
+
+            d0.setAccount(account);
+            d1.setAccount(account);
+            c0.setAccount(account);
+            c1.setAccount(account);
+
+            expect(d0.getCorrespondingTitles()).to.eql(['C', 'D']);
+
+        });
     });
 
 });
