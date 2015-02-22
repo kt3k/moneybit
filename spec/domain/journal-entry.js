@@ -65,6 +65,9 @@ describe('JournalEntry', function () {
             c1.setAccount(account);
 
             expect(d0.getCorrespondingTitles()).to.eql(['C', 'D']);
+            expect(d1.getCorrespondingTitles()).to.eql(['C', 'D']);
+            expect(c0.getCorrespondingTitles()).to.eql(['A', 'B']);
+            expect(c1.getCorrespondingTitles()).to.eql(['A', 'B']);
 
         });
     });
