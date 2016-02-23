@@ -9,6 +9,7 @@
   "scripts": {
     "test": "mocha --require babel-register spec/**",
     "lint": "souffle",
+    "dist": "babel src -d lib",
     "sample": "bin/ledger.js > ledger.yml"
   },
   "repository": {
