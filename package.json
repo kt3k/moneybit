@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "mocha spec/**",
+    "lint": "souffle",
     "sample": "bin/ledger.js > ledger.yml"
   },
   "repository": {
@@ -24,7 +25,8 @@
   },
   "devDependencies": {
     "chai": "^1.10.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "souffle-cli": "^3.1.0"
   },
   "souffle": {
     "globals": [
