@@ -7,7 +7,8 @@
     "ledger": "bin/ledger.js"
   },
   "scripts": {
-    "test": "mocha spec/**"
+    "test": "mocha spec/**",
+    "sample": "bin/ledger.js > ledger.yml"
   },
   "repository": {
     "type": "git",
