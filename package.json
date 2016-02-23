@@ -2,7 +2,10 @@
   "name": "accounting-tool",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "bin": {
+    "ledger": "bin/ledger.js"
+  },
   "scripts": {
     "test": "mocha spec/**"
   },
