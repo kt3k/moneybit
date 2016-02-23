@@ -1,6 +1,8 @@
 
 require('./helper');
 
+var expect = require('chai').expect
+
 
 describe('JournalEntry', function () {
 
