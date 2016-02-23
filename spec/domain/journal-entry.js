@@ -1,8 +1,8 @@
-require('./helper')
+var JournalEntryFactory = require('../../lib/domain/journal-entry-factory')
+var Money = require('../../lib/domain/money')
+var Account = require('../../lib/domain/account')
 
-var JournalEntry = require('../../src/domain/journal-entry')
-var Money = require('../../src/domain/money')
-var Account = require('../../src/domain/account')
+var factory = new JournalEntryFactory()
 
 var expect = require('chai').expect
 
@@ -13,7 +13,7 @@ describe('JournalEntry', function () {
 
         it('returns the amount of debit if it is debit entry', function () {
 
-            var entry = new JournalEntry(null, 'debit', null, new Money(500), null, null)
+            var entry = factory.createFromParams('title', 500, {}, 'debit')
 
             expect(entry.getDebitAmount()).to.be.instanceof(Money)
             expect(entry.getDebitAmount().amount).to.equal(500)
@@ -22,7 +22,7 @@ describe('JournalEntry', function () {
 
         it('returns null if it is credit entry', function () {
 
-            var entry = new JournalEntry(null, 'credit', null, new Money(500), null, null)
+            var entry = factory.createFromParams('title', 500, {}, 'credit')
 
             expect(entry.getDebitAmount()).to.be.null
 
@@ -34,7 +34,7 @@ describe('JournalEntry', function () {
 
         it('returns the amount of credit if it is credit entry', function () {
 
-            var entry = new JournalEntry(null, 'credit', null, new Money(500), null, null)
+            var entry = factory.createFromParams('title', 500, {}, 'credit')
 
             expect(entry.getCreditAmount()).to.be.instanceof(Money)
             expect(entry.getCreditAmount().amount).to.equal(500)
@@ -43,7 +43,7 @@ describe('JournalEntry', function () {
 
         it('returns null if it is debit entry', function () {
 
-            var entry = new JournalEntry(null, 'debit', null, new Money(500), null, null)
+            var entry = factory.createFromParams('title', 500, {}, 'debit')
 
             expect(entry.getCreditAmount()).to.be.null
 
@@ -57,10 +57,10 @@ describe('JournalEntry', function () {
         it('gets the titles of corresponding debit/credit entries', function () {
 
 
-            var d0 = new JournalEntry(null, 'debit', 'A', new Money(1))
-            var d1 = new JournalEntry(null, 'debit', 'B', new Money(1))
-            var c0 = new JournalEntry(null, 'credit', 'C', new Money(1))
-            var c1 = new JournalEntry(null, 'credit', 'D', new Money(1))
+            var d0 = factory.createFromParams('A', 1, {}, 'debit')
+            var d1 = factory.createFromParams('B', 1, {}, 'debit')
+            var c0 = factory.createFromParams('C', 1, {}, 'credit')
+            var c1 = factory.createFromParams('D', 1, {}, 'credit')
 
             var account = new Account(null, [d0, d1], [c0, c1])
 
