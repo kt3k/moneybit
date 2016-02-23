@@ -7,7 +7,7 @@
     "ledger": "bin/ledger.js"
   },
   "scripts": {
-    "test": "mocha spec/**",
+    "test": "mocha --require babel-register spec/**",
     "lint": "souffle",
     "sample": "bin/ledger.js > ledger.yml"
   },
@@ -24,6 +24,9 @@
     "subclassjs": "^1.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.5.2",
     "chai": "^1.10.0",
     "mocha": "^2.1.0",
     "souffle-cli": "^3.1.0"
@@ -33,6 +36,11 @@
       "describe",
       "expect",
       "it"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
     ]
   }
 }

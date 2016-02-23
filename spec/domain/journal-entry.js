@@ -1,26 +1,26 @@
-var JournalEntryFactory = require('../../lib/domain/journal-entry-factory')
-var Money = require('../../lib/domain/money')
-var Account = require('../../lib/domain/account')
+const JournalEntryFactory = require('../../lib/domain/journal-entry-factory')
+const Money = require('../../lib/domain/money')
+const Account = require('../../lib/domain/account')
 
-var factory = new JournalEntryFactory()
+const factory = new JournalEntryFactory()
 
-var expect = require('chai').expect
+const expect = require('chai').expect
 
 
-describe('JournalEntry', function () {
+describe('JournalEntry', () => {
 
-    describe('getDebitAmount', function () {
+    describe('getDebitAmount', () => {
 
-        it('returns the amount of debit if it is debit entry', function () {
+        it('returns the amount of debit if it is debit entry', () => {
 
-            var entry = factory.createFromParams('title', 500, {}, 'debit')
+            const entry = factory.createFromParams('title', 500, {}, 'debit')
 
             expect(entry.getDebitAmount()).to.be.instanceof(Money)
             expect(entry.getDebitAmount().amount).to.equal(500)
 
         })
 
-        it('returns null if it is credit entry', function () {
+        it('returns null if it is credit entry', () => {
 
             var entry = factory.createFromParams('title', 500, {}, 'credit')
 
@@ -30,20 +30,20 @@ describe('JournalEntry', function () {
 
     })
 
-    describe('getCreditAmount', function () {
+    describe('getCreditAmount', () => {
 
-        it('returns the amount of credit if it is credit entry', function () {
+        it('returns the amount of credit if it is credit entry', () => {
 
-            var entry = factory.createFromParams('title', 500, {}, 'credit')
+            const entry = factory.createFromParams('title', 500, {}, 'credit')
 
             expect(entry.getCreditAmount()).to.be.instanceof(Money)
             expect(entry.getCreditAmount().amount).to.equal(500)
 
         })
 
-        it('returns null if it is debit entry', function () {
+        it('returns null if it is debit entry', () => {
 
-            var entry = factory.createFromParams('title', 500, {}, 'debit')
+            const entry = factory.createFromParams('title', 500, {}, 'debit')
 
             expect(entry.getCreditAmount()).to.be.null
 
@@ -52,17 +52,17 @@ describe('JournalEntry', function () {
     })
 
 
-    describe('getCorrespondingTitles', function () {
+    describe('getCorrespondingTitles', () => {
 
-        it('gets the titles of corresponding debit/credit entries', function () {
+        it('gets the titles of corresponding debit/credit entries', () => {
 
 
-            var d0 = factory.createFromParams('A', 1, {}, 'debit')
-            var d1 = factory.createFromParams('B', 1, {}, 'debit')
-            var c0 = factory.createFromParams('C', 1, {}, 'credit')
-            var c1 = factory.createFromParams('D', 1, {}, 'credit')
+            const d0 = factory.createFromParams('A', 1, {}, 'debit')
+            const d1 = factory.createFromParams('B', 1, {}, 'debit')
+            const c0 = factory.createFromParams('C', 1, {}, 'credit')
+            const c1 = factory.createFromParams('D', 1, {}, 'credit')
 
-            var account = new Account(null, [d0, d1], [c0, c1])
+            const account = new Account(null, [d0, d1], [c0, c1])
 
             d0.setAccount(account)
             d1.setAccount(account)
@@ -75,6 +75,7 @@ describe('JournalEntry', function () {
             expect(c1.getCorrespondingTitles()).to.eql(['A', 'B'])
 
         })
+
     })
 
 })
