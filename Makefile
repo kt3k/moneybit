@@ -1,2 +1,2 @@
 ledger.yml: journal.yml
-	./index.js > ledger.yml
+	bin/ledger.js > ledger.yml
