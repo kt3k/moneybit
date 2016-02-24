@@ -1,11 +1,11 @@
-const JournalEntryFactory = require('../../src/domain/journal-entry-factory')
-const Money = require('../../src/domain/money')
-const Account = require('../../src/domain/account')
+import AccountTypeChart from '../../src/domain/account-type-chart'
+import AccountTypeFactory from '../../src/domain/account-type-factory'
+import JournalEntryFactory from '../../src/domain/journal-entry-factory'
+import Money from '../../src/domain/money'
+import Account from '../../src/domain/account'
 
-const factory = new JournalEntryFactory()
-
+const factory = new JournalEntryFactory(new AccountTypeFactory(new AccountTypeChart()))
 const expect = require('chai').expect
-
 
 describe('JournalEntry', () => {
 

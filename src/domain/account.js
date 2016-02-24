@@ -32,23 +32,23 @@ export default class Account {
      * Gets the titles of entries.
      *
      * @private
-     * @param {Array} entries The array of JournalEntries
-     * @return {Array}
+     * @param {Array<JournalEntry>} entries The array of JournalEntries
+     * @return {Array<AccountType>}
      */
-    getTitles(entries) {
+    getAccountTypes(entries) {
 
-        return entries.map(entry =>  entry.title)
+        return entries.map(entry =>  entry.type)
     }
 
 
     /**
      * Gets the debit titles.
      *
-     * @return {Array}
+     * @return {Array<AccountType>}
      */
-    debitTitles() {
+    debitTypes() {
 
-        return this.getTitles(this.debits)
+        return this.getAccountTypes(this.debits)
 
     }
 
@@ -56,11 +56,11 @@ export default class Account {
     /**
      * Gets the credit titles.
      *
-     * @return {Array}
+     * @return {Array<AccountType>}
      */
-    creditTitles() {
+    creditTypes() {
 
-        return this.getTitles(this.credits)
+        return this.getAccountTypes(this.credits)
 
     }
 

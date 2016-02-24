@@ -10,15 +10,15 @@ export default class JournalEntry {
 
     /**
      * @constructor
-     * @param {Date} date
-     * @param {String} title
-     * @param {Money} amount
-     * @param {String} description
-     * @param {Account} account
+     * @param {Date} date The date of the entry
+     * @param {AccountType} type The type of the entry
+     * @param {Money} amount The amount of the entry
+     * @param {String} description The description of the entry
+     * @param {Account} account The account the entry belongs
      */
-    constructor(date, title, amount, description, account) {
+    constructor(date, type, amount, description, account) {
         this.date = date
-        this.title = title
+        this.type = type
         this.amount = amount
         this.description = description
         this.account = account
@@ -73,17 +73,17 @@ export default class JournalEntry {
     /**
      * Gets the corresponding titles
      *
-     * @return {Array}
+     * @return {Array<AccountType>}
      */
-    getCorrespondingTitles() {
+    getCorrespondingAccountTypes() {
 
         if (this.isCredit()) {
 
-            return this.account.debitTitles()
+            return this.account.debitTypes()
 
         } else {
 
-            return this.account.creditTitles()
+            return this.account.creditTypes()
 
         }
 

@@ -23,19 +23,13 @@ export default class LedgerFactory {
 
         entries.forEach(entry => {
 
-            subledgers[entry.title] = subledgers[entry.title] || []
+            subledgers[entry.type.name] = subledgers[entry.type.name] || new Subledger(entry.type, [])
 
-            subledgers[entry.title].push(entry)
-
-        })
-
-        subledgers = Object.keys(subledgers).map(title => {
-
-            const entries = subledgers[title]
-
-            return new Subledger(title, entries)
+            subledgers[entry.type.name].add(entry)
 
         })
+
+        subledgers = Object.keys(subledgers).map(typeName => subledgers[typeName])
 
         return new Ledger(subledgers)
 

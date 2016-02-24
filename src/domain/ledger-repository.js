@@ -83,7 +83,7 @@ export default class LedgerRepository {
             desc: entry.description,
             dr: debit ? debit.amount : '-',
             cr: credit ? credit.amount : '-',
-            cor: entry.getCorrespondingTitles().join(' '),
+            cor: entry.getCorrespondingAccountTypes().map(type => type.name).join(' '),
             ref: entry.account.id
         }
 

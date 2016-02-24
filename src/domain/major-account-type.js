@@ -1,6 +1,14 @@
-export default class MajorAccountType {}
-MajorAccountType.ASSET = new MajorAccountType()
-MajorAccountType.LIABILITY = new MajorAccountType()
-MajorAccountType.OWNERS_EQUITY = new MajorAccountType()
-MajorAccountType.REVENUE = new MajorAccountType()
-MajorAccountType.EXPENSE = new MajorAccountType()
+export default class MajorAccountType {
+
+    /**
+     * @param {string} name The name
+     */
+    constructor(name) {
+        this.name = name
+    }
+}
+MajorAccountType.ASSETS = new MajorAccountType('ASSETS')
+MajorAccountType.LIABILITIES = new MajorAccountType('LIABILITIES')
+MajorAccountType.OWNERS_EQUITY = new MajorAccountType('OWNERS_EQUITY')
+MajorAccountType.REVENUE = new MajorAccountType('REVENUE')
+MajorAccountType.EXPENSES = new MajorAccountType('EXPENSES')

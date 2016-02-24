@@ -4,7 +4,7 @@ assets:
 - 預金
 liabilities:
 - 事業主借
-equity:
+owners_equity:
 - 元入金
 revenue:
 - 売上
