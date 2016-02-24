@@ -9,6 +9,7 @@
   "scripts": {
     "test": "mocha --require babel-register spec/**",
     "lint": "souffle",
+    "clean": "rimraf lib",
     "dist": "babel src -d lib",
     "sample": "bin/ledger.js > ledger.yml"
   },
@@ -30,6 +31,7 @@
     "babel-register": "^6.5.2",
     "chai": "^1.10.0",
     "mocha": "^2.1.0",
+    "rimraf": "^2.5.2",
     "souffle-cli": "^3.1.0"
   },
   "souffle": {

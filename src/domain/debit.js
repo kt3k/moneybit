@@ -1,20 +1,18 @@
-var subclass = require('subclassjs')
-var JournalEntry = require('./journal-entry')
+import JournalEntry from './journal-entry'
 
 /**
  * The debit model.
  *
  * A debit is one side of account entry.
  */
-module.exports = subclass(JournalEntry, function (pt) {
-    'use strict'
+export default class Debit extends JournalEntry {
 
-    pt.isDebit = function () {
+    isDebit() {
         return true
     }
 
-    pt.isCredit = function () {
+    isCredit() {
         return false
     }
 
-})
+}

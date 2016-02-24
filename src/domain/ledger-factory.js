@@ -1,27 +1,27 @@
-
-
-var subclass = require('subclassjs')
-
-var Ledger = require('./ledger')
-var Subledger = require('./subledger')
+import Ledger from './ledger'
+import Subledger from './subledger'
 
 /**
  * The factory class for the ledger model.
  */
-module.exports = subclass(Object, function (pt) {
-    'use strict'
+export default class LedgerFactory {
 
-    pt.createFromJournal = function (journal) {
+    createFromJournal(journal) {
 
         return this.createFromJournalEntries(journal.entries())
 
     }
 
-    pt.createFromJournalEntries = function (entries) {
+    /**
+     * Creates the ledger from the list of journal entries.
+     *
+     * @param {Array<JournalEntry>} entries The journal entries.
+     */
+    createFromJournalEntries(entries) {
 
-        var subledgers = {}
+        let subledgers = {}
 
-        entries.forEach(function (entry) {
+        entries.forEach(entry => {
 
             subledgers[entry.title] = subledgers[entry.title] || []
 
@@ -29,9 +29,9 @@ module.exports = subclass(Object, function (pt) {
 
         })
 
-        subledgers = Object.keys(subledgers).map(function (title) {
+        subledgers = Object.keys(subledgers).map(title => {
 
-            var entries = subledgers[title]
+            const entries = subledgers[title]
 
             return new Subledger(title, entries)
 
@@ -41,4 +41,4 @@ module.exports = subclass(Object, function (pt) {
 
     }
 
-})
+}

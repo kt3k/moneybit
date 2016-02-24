@@ -1,19 +1,13 @@
-
-
-var subclass = require('subclassjs')
-
-
 /**
  * Money model.
  */
-module.exports = subclass(Object, function (pt) {
-    'use strict'
+export default class Money {
 
     /**
      * @constructor
      * @param {Number} amount
      */
-    pt.constructor = function (amount) {
+    constructor(amount) {
         this.amount = amount
     }
-})
+}

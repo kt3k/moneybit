@@ -1,14 +1,12 @@
-#! /usr/bin/env node
+const yaml = require('js-yaml')
 
-var yaml = require('js-yaml')
+import JournalFactory from './domain/journal-factory'
+import LedgerFactory from './domain/ledger-factory'
+import LedgerRepository from './domain/ledger-repository'
 
-var JournalFactory = require('./domain/journal-factory')
-var LedgerFactory = require('./domain/ledger-factory')
-var LedgerRepository = require('./domain/ledger-repository')
-
-var journalFactory = new JournalFactory()
-var ledgerFactory = new LedgerFactory()
-var ledgerRepo = new LedgerRepository()
+const journalFactory = new JournalFactory()
+const ledgerFactory = new LedgerFactory()
+const ledgerRepo = new LedgerRepository()
 
 /**
  * Convert journal yml string to ledger
@@ -16,13 +14,11 @@ var ledgerRepo = new LedgerRepository()
  * @return {string}
  * @throws {Exeption} when the input yaml is broken
  */
-var createLedgerYml = function (journalYml) {
+export default function createLedgerYml(journalYml) {
 
-    var journal = journalFactory.createFromArray(yaml.safeLoad(journalYml))
+    const journal = journalFactory.createFromArray(yaml.safeLoad(journalYml))
 
-    var ledger = ledgerFactory.createFromJournal(journal)
+    const ledger = ledgerFactory.createFromJournal(journal)
 
     return ledgerRepo.toYaml(ledger)
 }
-
-module.exports = createLedgerYml

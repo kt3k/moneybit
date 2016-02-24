@@ -1,22 +1,16 @@
-
-
-var subclass = require('subclassjs')
-
-
 /**
  * The ledger model.
  */
-module.exports = subclass(Object, function (pt) {
-    'use strict'
+export default class Ledger {
 
     /**
      * @constructor
-     * @param {Array} subledgers
+     * @param {Array<Subledger>} subledgers
      */
-    pt.constructor = function (subledgers) {
+    constructor(subledgers) {
 
         this.subledgers = subledgers
 
     }
 
-})
+}

@@ -1,6 +1,6 @@
-const JournalEntryFactory = require('../../lib/domain/journal-entry-factory')
-const Money = require('../../lib/domain/money')
-const Account = require('../../lib/domain/account')
+const JournalEntryFactory = require('../../src/domain/journal-entry-factory')
+const Money = require('../../src/domain/money')
+const Account = require('../../src/domain/account')
 
 const factory = new JournalEntryFactory()
 

@@ -1,20 +1,16 @@
-
-var subclass = require('subclassjs')
-
 /**
  * The account model.
  *
  * An account is a pair of debit and credit.
  */
-module.exports = subclass(Object, function (pt) {
-    'use strict'
+export default class Account {
 
     /**
      * @constructor
      * @param {Array<JournalEntry>} debits
      * @param {Array<JournalEntry>} credits
      */
-    pt.constructor = function (id, debits, credits) {
+    constructor(id, debits, credits) {
         this.id = id
         this.debits = debits
         this.credits = credits
@@ -25,7 +21,7 @@ module.exports = subclass(Object, function (pt) {
      *
      * @return {Array<JournalEntry>}
      */
-    pt.entries = function () {
+    entries() {
 
         return this.debits.concat(this.credits)
 
@@ -39,13 +35,9 @@ module.exports = subclass(Object, function (pt) {
      * @param {Array} entries The array of JournalEntries
      * @return {Array}
      */
-    pt.getTitles = function (entries) {
+    getTitles(entries) {
 
-        return entries.map(function (entry) {
-
-            return entry.title
-
-        })
+        return entries.map(entry =>  entry.title)
     }
 
 
@@ -54,7 +46,7 @@ module.exports = subclass(Object, function (pt) {
      *
      * @return {Array}
      */
-    pt.debitTitles = function () {
+    debitTitles() {
 
         return this.getTitles(this.debits)
 
@@ -66,10 +58,10 @@ module.exports = subclass(Object, function (pt) {
      *
      * @return {Array}
      */
-    pt.creditTitles = function () {
+    creditTitles() {
 
         return this.getTitles(this.credits)
 
     }
 
-})
+}

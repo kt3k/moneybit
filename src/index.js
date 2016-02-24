@@ -1,5 +1,3 @@
-module.exports = {
+import createLedgerYml from './create-ledger-yml'
 
-    createLedgerYml: require('create-ledger-yml')
-
-}
+export {createLedgerYml}

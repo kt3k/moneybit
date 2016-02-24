@@ -1,16 +1,17 @@
-var subclass = require('subclassjs')
-
-var fs = require('fs')
-var yaml = require('js-yaml')
-var moment = require('moment')
+import fs from 'fs'
+import yaml from 'js-yaml'
+import moment from 'moment'
 
 /**
  * The repository class of the ledger model.
  */
-module.exports = subclass(Object, function (pt) {
-    'use strict'
+export default class LedgerRepository {
 
-    pt.saveAsYamlToPath = function (ledger, path) {
+    /**
+     * @param {Ledger} ledger The ledger
+     * @param {String} path The path to save
+     */
+    saveAsYamlToPath(ledger, path) {
 
         var yaml = this.toYaml(ledger)
 
@@ -24,7 +25,7 @@ module.exports = subclass(Object, function (pt) {
      * @param {Ledger} ledger
      * @return {String}
      */
-    pt.toYaml = function (ledger) {
+    toYaml(ledger) {
 
         return yaml.safeDump(this.ledgerToObject(ledger))
 
@@ -36,15 +37,15 @@ module.exports = subclass(Object, function (pt) {
      * @param {Ledger} ledger
      * @return {Object}
      */
-    pt.ledgerToObject = function (ledger) {
+    ledgerToObject(ledger) {
 
-        var obj = {}
+        const obj = {}
 
-        ledger.subledgers.forEach(function (subledger) {
+        ledger.subledgers.forEach(subledger => {
 
             obj[subledger.title] = this.subledgerToObject(subledger)
 
-        }, this)
+        })
 
         return obj
 
@@ -55,14 +56,12 @@ module.exports = subclass(Object, function (pt) {
      * @param {Subledger} subleger
      * @return {Object}
      */
-    pt.subledgerToObject = function (subledger) {
+    subledgerToObject(subledger) {
 
         return {
-            dr: subledger.totalDebit(),
-            cr: subledger.totalCredit(),
-            entries: subledger.entries.map(function (entry) {
-                return this.journalEntryToObject(entry)
-            }, this)
+            dr: subledger.totalDebit().amount,
+            cr: subledger.totalCredit().amount,
+            entries: subledger.entries.map(entry => this.journalEntryToObject(entry))
         }
 
     }
@@ -74,10 +73,10 @@ module.exports = subclass(Object, function (pt) {
      * @param {JournalEntry}
      * @return {Object}
      */
-    pt.journalEntryToObject = function (entry) {
+    journalEntryToObject(entry) {
 
-        var debit = entry.getDebitAmount()
-        var credit = entry.getCreditAmount()
+        const debit = entry.getDebitAmount()
+        const credit = entry.getCreditAmount()
 
         return {
             date: moment(entry.date).format('YYYY-MM-DD'),
@@ -90,4 +89,4 @@ module.exports = subclass(Object, function (pt) {
 
     }
 
-})
+}

@@ -1,49 +1,49 @@
-var subclass = require('subclassjs')
+import Money from './money'
 
 /**
  * Subledger model
  */
-var Subledger = subclass(Object, function (pt) {
-    'use strict'
+export default class Subledger {
 
     /**
      * @constructor
      * @param {String} title
      * @param {Array<JournalEntry>} entries
      */
-    pt.constructor = function (title, entries) {
+    constructor(title, entries) {
         this.title = title
         this.entries = entries
     }
 
     /**
      * Returns the total debit amount.
-     * @return {number}
+     * @return {Money}
      */
-    pt.totalDebit = function () {
+    totalDebit() {
 
-        return this.entries
-        .map(function (x) { return x.getDebitAmount() })
-        .filter(function (x) { return x })
-        .map(function (x) { return x.amount })
-        .reduce(function (x, y) { return x + y }, 0)
+        return this.totalAmount(this.entries.filter(x => x.isDebit()))
 
     }
 
     /**
      * Returns the total credit amount.
-     * @return {number}
+     * @return {Money}
      */
-    pt.totalCredit = function () {
+    totalCredit() {
 
-        return this.entries
-        .map(function (x) { return x.getCreditAmount() })
-        .filter(function (x) { return x })
-        .map(function (x) { return x.amount })
-        .reduce(function (x, y) { return x + y }, 0)
+        return this.totalAmount(this.entries.filter(x => x.isCredit()))
 
     }
 
-})
+    /**
+     * Gets the total amount of the entries.
+     * @param {Array<JournalEntry>} entries The entries
+     * @return {Money}
+     */
+    totalAmount(entries) {
 
-module.exports = Subledger
+        return new Money(entries.map(x => x.amount.amount).reduce(((x, y) => x + y), 0))
+
+    }
+
+}

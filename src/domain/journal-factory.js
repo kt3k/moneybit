@@ -1,25 +1,20 @@
-
-var subclass = require('subclassjs')
-
-var Journal = require('./journal')
-var AccountFactory = require('./account-factory')
-var accountFactory = new AccountFactory()
+import Journal from './journal'
+import AccountFactory from './account-factory'
+const accountFactory = new AccountFactory()
 
 /**
  * JournalFactory is the factroy class for Journal model.
  */
-module.exports = subclass(Object, function (pt) {
-    'use strict'
+export default class JournalFactory {
 
-    pt.createFromArray = function (array) {
+    /**
+     * @param {Array<Object>}
+     */
+    createFromArray(array) {
 
-        var accounts = array.map(function (obj) {
-
-            return accountFactory.createFromObject(obj)
-
-        })
+        const accounts = array.map(obj => accountFactory.createFromObject(obj))
 
         return new Journal(accounts)
     }
 
-})
+}

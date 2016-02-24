@@ -1,5 +1,3 @@
-var subclass = require('subclassjs')
-
 /**
  * The journal entry model.
  *
@@ -8,8 +6,7 @@ var subclass = require('subclassjs')
  *
  * @abstract
  */
-module.exports = subclass(function (pt) {
-    'use strict'
+export default class JournalEntry {
 
     /**
      * @constructor
@@ -19,7 +16,7 @@ module.exports = subclass(function (pt) {
      * @param {String} description
      * @param {Account} account
      */
-    pt.constructor = function (date, title, amount, description, account) {
+    constructor(date, title, amount, description, account) {
         this.date = date
         this.title = title
         this.amount = amount
@@ -33,7 +30,7 @@ module.exports = subclass(function (pt) {
      *
      * @param {Account} account
      */
-    pt.setAccount = function (account) {
+    setAccount(account) {
         this.account = account
     }
 
@@ -44,7 +41,7 @@ module.exports = subclass(function (pt) {
      *
      * @return {Money}
      */
-    pt.getDebitAmount = function () {
+    getDebitAmount() {
 
         if (this.isDebit()) {
 
@@ -61,7 +58,7 @@ module.exports = subclass(function (pt) {
      *
      * @return {Money}
      */
-    pt.getCreditAmount = function () {
+    getCreditAmount() {
 
         if (this.isCredit()) {
 
@@ -78,7 +75,7 @@ module.exports = subclass(function (pt) {
      *
      * @return {Array}
      */
-    pt.getCorrespondingTitles = function () {
+    getCorrespondingTitles() {
 
         if (this.isCredit()) {
 
@@ -95,13 +92,13 @@ module.exports = subclass(function (pt) {
     /**
      * @abstract
      */
-    pt.isDebit = function () {
+    isDebit() {
     }
 
     /**
      * @abstract
      */
-    pt.isCredit = function () {
+    isCredit() {
     }
 
-})
+}

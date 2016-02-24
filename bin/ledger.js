@@ -2,8 +2,8 @@
 
 var fs = require('fs')
 var argv = require('minimist')(process.argv.slice(2))
-var Const = require('../lib/const')
-var createLedgerYml = require('../lib/create-ledger-yml')
+var Const = require('../lib/const').default
+var createLedgerYml = require('../').createLedgerYml
 
 var file = argv.file || Const.DEFAULT_JOURNAL_PATH
 

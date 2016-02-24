@@ -1,8 +1,4 @@
-
-
-var subclass = require('subclassjs')
-
-var LedgerFactory = require('./ledger-factory')
+import LedgerFactory from './ledger-factory'
 var ledgerFactory = new LedgerFactory()
 
 /**
@@ -10,14 +6,13 @@ var ledgerFactory = new LedgerFactory()
  *
  * 総勘定元帳
  */
-module.exports = subclass(Object, function (pt) {
-    'use strict'
+export default class Journal {
 
     /**
      * @constructor
-     * @param {Array} accounts The list of accounts
+     * @param {Array<Account>} accounts The list of accounts
      */
-    pt.constructor = function (accounts) {
+    constructor(accounts) {
         this.accounts = accounts
     }
 
@@ -26,24 +21,20 @@ module.exports = subclass(Object, function (pt) {
      *
      * @return {Ledger}
      */
-    pt.ledger = function () {
+    ledger() {
         return ledgerFactory.createFromJournal(this)
     }
 
     /**
      * Returns the list of journal entries.
      *
-     * @return {Array}
+     * @return {Array<JournalEntry>}
      */
-    pt.entries = function () {
+    entries() {
 
-        var entryLists = this.accounts.map(function (account) {
-
-            return account.entries()
-
-        })
+        const entryLists = this.accounts.map(account => account.entries())
 
         return [].concat.apply([], entryLists) // i.e. flatten(entryList)
     }
 
-})
+}
