@@ -3,7 +3,8 @@ import JournalEntry from './journal-entry'
 /**
  * The debit model.
  *
- * A debit is one side of account entry.
+ * A debit belong to one side of account entry.
+ * An acount entry can have multiple credits on in one entry.
  */
 export default class Debit extends JournalEntry {
 

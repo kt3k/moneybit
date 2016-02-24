@@ -1,7 +1,7 @@
 /**
  * The account model.
  *
- * An account is a pair of debit and credit.
+ * An account is a pair of sets of debits and credits which represents an atomic transaction.
  */
 export default class Account {
 
