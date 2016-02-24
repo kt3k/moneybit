@@ -1,6 +1,7 @@
 import Money from './money'
 import Debit from './debit'
 import Credit from './credit'
+import {DEBIT, CREDIT} from './journal-entry-type'
 
 /**
  * JournalEntryFactory is the factory class for JournalEntry model.
@@ -12,13 +13,13 @@ export default class JournalEntryFactory {
      * @param {number} amount The amount of the entry
      * @param {string} date The date of the entry
      * @param {string} desc The description of the entry
-     * @param {string} side The side of the entry ('debit' or 'credit')
+     * @param {JournalEntryType} type The type of the entry (DEBIT or CREDIT)
      */
-    createFromParams(title, amount, {date, desc}, side) {
+    createFromParams(title, amount, {date, desc}, type) {
 
         const money = new Money(amount)
 
-        if (side === 'debit') {
+        if (type === DEBIT) {
 
             return new Debit(date, title, money, desc, null)
 

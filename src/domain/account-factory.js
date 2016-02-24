@@ -1,4 +1,5 @@
 import JournalEntryFactory from './journal-entry-factory'
+import {DEBIT, CREDIT} from './journal-entry-type'
 const journalEntryFactory = new JournalEntryFactory()
 
 import Account from './account'
@@ -14,7 +15,7 @@ export default class AccountFactory {
 
             const amount = obj.dr[title]
 
-            return journalEntryFactory.createFromParams(title, amount, obj, 'debit')
+            return journalEntryFactory.createFromParams(title, amount, obj, DEBIT)
 
         })
 
@@ -22,7 +23,7 @@ export default class AccountFactory {
 
             const amount = obj.cr[title]
 
-            return journalEntryFactory.createFromParams(title, amount, obj, 'credit')
+            return journalEntryFactory.createFromParams(title, amount, obj, CREDIT)
 
         })
 
