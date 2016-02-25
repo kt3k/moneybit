@@ -1,4 +1,4 @@
-const yaml = require('js-yaml')
+import yaml from 'js-yaml'
 
 import JournalFactory from './domain/journal-factory'
 import LedgerFactory from './domain/ledger-factory'
@@ -17,7 +17,8 @@ const ledgerRepo = new LedgerRepository()
  */
 export default function createLedgerYml(journalYml, chartYml = {}) {
 
-    const chart = accountTypeChartFactory.createFromObject(chartYml)
+    const chart = accountTypeChartFactory.createFromObject(yaml.safeLoad(chartYml))
+    console.log(chart)
     const journalFactory = new JournalFactory(chart)
     const journal = journalFactory.createFromArray(yaml.safeLoad(journalYml))
     const ledger = ledgerFactory.createFromJournal(journal)
