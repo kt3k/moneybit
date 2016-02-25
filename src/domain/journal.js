@@ -28,15 +28,15 @@ export default class Journal {
     }
 
     /**
-     * Returns the list of journal entries.
+     * Returns the list of accounts.
      *
-     * @return {Array<JournalEntry>}
+     * @return {Array<Account>}
      */
-    entries() {
+    accounts() {
 
-        const accounts = this.trades.map(trade => trade.entries())
+        const accounts = this.trades.map(trade => trade.accounts())
 
-        return [].concat.apply([], accounts) // i.e. flatten(entryList)
+        return [].concat.apply([], accounts) // i.e. flatten(accounts)
     }
 
 }

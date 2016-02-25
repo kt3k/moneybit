@@ -8,7 +8,7 @@ const chart = new AccountTypeChart()
 const factory = new JournalEntryFactory(chart)
 const expect = require('chai').expect
 
-describe('JournalEntry', () => {
+describe('Account', () => {
 
     describe('getDebitAmount', () => {
 

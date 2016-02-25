@@ -1,5 +1,4 @@
 # TODO
-- rename JournalEntry -> Account
 - rename JournalEntryFactory -> AccountFactory
 - rename Ledger -> GeneralLedger
 - enhance GeneralLedger
@@ -11,6 +10,7 @@
 - create IncomeStatement
 - research CashFlowStatement
 # DONE
+- rename JournalEntry -> Account
 - rename AccountFactory -> TradeFactory
 - rename Account -> Trade
 - rename JournalEntryType -> TradeSide

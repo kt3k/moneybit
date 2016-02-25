@@ -1,12 +1,13 @@
-import JournalEntry from './journal-entry'
+import Account from './account'
 
 /**
  * The debit model.
  *
- * A debit belong to one side of account entry.
- * An acount entry can have multiple credits on in one entry.
+ *
+ * A debit is a kind of account which appears at the left side of the trade record.
+ * A trade can have multiple debit.
  */
-export default class Debit extends JournalEntry {
+export default class Debit extends Account {
 
     isDebit() {
         return true

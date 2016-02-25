@@ -9,8 +9,8 @@ export default class Trade {
 
     /**
      * @constructor
-     * @param {Array<JournalEntry>} debits
-     * @param {Array<JournalEntry>} credits
+     * @param {Array<Debit>} debits The debits
+     * @param {Array<Credit>} credits The credits
      */
     constructor(id, debits, credits) {
         this.id = id
@@ -19,11 +19,11 @@ export default class Trade {
     }
 
     /**
-     * Returns journal entries
+     * Returns all the accounts.
      *
-     * @return {Array<JournalEntry>}
+     * @return {Array<Account>}
      */
-    entries() {
+    accounts() {
 
         return this.debits.concat(this.credits)
 
@@ -31,15 +31,15 @@ export default class Trade {
 
 
     /**
-     * Gets the titles of entries.
+     * Gets the titles of accounts.
      *
      * @private
-     * @param {Array<JournalEntry>} entries The array of JournalEntries
+     * @param {Array<Account>} accounts The array of accounts
      * @return {Array<AccountType>}
      */
-    static getAccountTypes(entries) {
+    static getAccountTypes(accounts) {
 
-        return entries.map(entry =>  entry.type)
+        return accounts.map(account =>  account.type)
     }
 
 

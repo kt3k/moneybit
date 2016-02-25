@@ -61,30 +61,27 @@ export default class LedgerRepository {
         return {
             dr: subledger.totalDebit().amount,
             cr: subledger.totalCredit().amount,
-            entries: subledger.entries.map(entry => this.journalEntryToObject(entry))
+            accounts: subledger.accounts.map(account => this.accountToObject(account))
         }
 
     }
 
 
     /**
-     * Converts the journal entry to the object suitable for yaml serialization.
+     * Converts the account to the object suitable for yaml serialization.
      *
-     * @param {JournalEntry}
+     * @param {Account} account
      * @return {Object}
      */
-    journalEntryToObject(entry) {
-
-        const debit = entry.getDebitAmount()
-        const credit = entry.getCreditAmount()
+    accountToObject(account) {
 
         return {
-            date: moment(entry.date).format('YYYY-MM-DD'),
-            desc: entry.description,
-            dr: debit ? debit.amount : '-',
-            cr: credit ? credit.amount : '-',
-            cor: entry.getCorrespondingAccountTypes().map(type => type.name).join(' '),
-            ref: entry.getTradeId()
+            date: moment(account.date).format('YYYY-MM-DD'),
+            desc: account.description,
+            dr: account.isDebit() ? account.getDebitAmount().amount : '-',
+            cr: account.isCredit() ? account.getCreditAmount().amount : '-',
+            cor: account.getCorrespondingAccountTypes().map(type => type.name).join(' '),
+            ref: account.getTradeId()
         }
 
     }

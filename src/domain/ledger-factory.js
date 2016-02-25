@@ -8,24 +8,24 @@ export default class LedgerFactory {
 
     createFromJournal(journal) {
 
-        return this.createFromJournalEntries(journal.entries())
+        return this.createFromAccounts(journal.accounts())
 
     }
 
     /**
-     * Creates the ledger from the list of journal entries.
+     * Creates the ledger from the list of the accounts.
      *
-     * @param {Array<JournalEntry>} entries The journal entries.
+     * @param {Array<Account>} accounts The accounts
      */
-    createFromJournalEntries(entries) {
+    createFromAccounts(accounts) {
 
         let subledgers = {}
 
-        entries.forEach(entry => {
+        accounts.forEach(account => {
 
-            subledgers[entry.type.name] = subledgers[entry.type.name] || new Subledger(entry.type, [])
+            subledgers[account.type.name] = subledgers[account.type.name] || new Subledger(account.type, [])
 
-            subledgers[entry.type.name].add(entry)
+            subledgers[account.type.name].add(account)
 
         })
 

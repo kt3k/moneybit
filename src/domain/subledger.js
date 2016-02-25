@@ -3,7 +3,7 @@ import Money from './money'
 /**
  * The subledger model.
  *
- * A subledger has a set of journal entries of the same account type.
+ * A subledger has a set of accounts of the same account type.
  * This is a part of leger.
  */
 export default class Subledger {
@@ -11,11 +11,11 @@ export default class Subledger {
     /**
      * @constructor
      * @param {AccountType} type The account type of the subledger
-     * @param {Array<JournalEntry>} entries
+     * @param {Array<Account>} accounts
      */
-    constructor(type, entries) {
+    constructor(type, accounts) {
         this.type = type
-        this.entries = entries
+        this.accounts = accounts
     }
 
     /**
@@ -24,7 +24,7 @@ export default class Subledger {
      */
     totalDebit() {
 
-        return Subledger.totalAmount(this.entries.filter(x => x.isDebit()))
+        return Subledger.totalAmount(this.accounts.filter(x => x.isDebit()))
 
     }
 
@@ -34,30 +34,30 @@ export default class Subledger {
      */
     totalCredit() {
 
-        return Subledger.totalAmount(this.entries.filter(x => x.isCredit()))
+        return Subledger.totalAmount(this.accounts.filter(x => x.isCredit()))
 
     }
 
     /**
-     * Adds the entry.
+     * Adds the account.
      *
-     * @param {JournalEntry} entry The journal entry
+     * @param {Account} account The account
      */
-    add(entry) {
+    add(account) {
 
-        this.entries.push(entry)
+        this.accounts.push(account)
 
     }
 
     /**
-     * Gets the total amount of the entries.
+     * Gets the total amount of the accounts.
      * @private
-     * @param {Array<JournalEntry>} entries The entries
+     * @param {Array<Account>} accounts The accounts
      * @return {Money}
      */
-    static totalAmount(entries) {
+    static totalAmount(accounts) {
 
-        return new Money(entries.map(x => x.amount.amount).reduce(((x, y) => x + y), 0))
+        return new Money(accounts.map(x => x.amount.amount).reduce(((x, y) => x + y), 0))
 
     }
 

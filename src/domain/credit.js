@@ -1,12 +1,12 @@
-import JournalEntry from './journal-entry'
+import Account from './account'
 
 /**
  * The credit model.
  *
- * A credit belong to one side of account entry.
- * An acount entry can have multiple credits on in one entry.
+ * A credit is a kind of account which appears at the right side of the trade record.
+ * A trade can have multiple credits.
  */
-export default class Credit extends JournalEntry {
+export default class Credit extends Account {
 
     isDebit() {
         return false

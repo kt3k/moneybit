@@ -1,11 +1,12 @@
 /**
- * The journal entry model.
+ * The account model.
  *
- * An trade consists of set of credits and debits
+ * An account is either debit or credit.
+ * Account class is the abstract parent of Debit and Credit classes.
  *
  * @abstract
  */
-export default class JournalEntry {
+export default class Account {
 
     /**
      * @constructor
