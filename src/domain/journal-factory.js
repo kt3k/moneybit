@@ -1,5 +1,5 @@
 import Journal from './journal'
-import AccountFactory from './account-factory'
+import TradeFactory from './trade-factory'
 
 /**
  * JournalFactory is the factroy class for Journal model.
@@ -11,7 +11,7 @@ export default class JournalFactory {
      */
     constructor(chart) {
 
-        this.accountFactory = new AccountFactory(chart)
+        this.tradeFactory = new TradeFactory(chart)
 
     }
 
@@ -21,7 +21,7 @@ export default class JournalFactory {
      */
     createFromArray(array) {
 
-        const trades = array.map(obj => this.accountFactory.createFromObject(obj))
+        const trades = array.map(obj => this.tradeFactory.createFromObject(obj))
 
         return new Journal(trades)
     }

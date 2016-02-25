@@ -3,9 +3,9 @@ import Trade from './trade'
 import JournalEntryFactory from './journal-entry-factory'
 
 /**
- * AccountFactory is the factory class for trade model.
+ * The factory class for trade model.
  */
-export default class AccountFactory {
+export default class TradeFactory {
 
     /**
      * @param {AccountTypeChart} chart
