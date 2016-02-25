@@ -1,21 +1,22 @@
 {
-  "name": "accounting-tool",
+  "name": "ledgerman",
   "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
   "bin": {
-    "ledger": "bin/ledger.js"
+    "ldm": "lib/bin/ldm.js"
   },
   "scripts": {
     "test": "mocha --require babel-register spec/**",
     "lint": "souffle",
     "clean": "rimraf lib",
     "dist": "babel src -d lib",
-    "sample": "bin/ledger.js > ledger.yml"
+    "demo": "babel-node src/bin/ldm.js",
+    "sample": "npm run demo > ledger.yml"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kt3k/account.git"
+    "url": "https://github.com/kt3k/ledgerman.git"
   },
   "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
   "license": "MIT",

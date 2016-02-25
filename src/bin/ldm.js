@@ -1,13 +1,21 @@
 #! /usr/bin/env node
 
-var fs = require('fs')
-var argv = require('minimist')(process.argv.slice(2))
-var Const = require('../lib/const').default
-var createLedgerYml = require('../').createLedgerYml
+import fs from 'fs'
+import minimist from 'minimist'
+import * as Const from '../const'
+import {createLedgerYml} from '../'
 
-var journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
-var chartFile = argv.chart || Const.DEFAULT_CHART_FILE
+const argv = minimist(process.argv.slice(2))
 
+const journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
+const chartFile = argv.chart || Const.DEFAULT_CHART_FILE
+
+/**
+ * Reads the given file and returns the contents.
+ *
+ * @param {string} file The file
+ * @return {Buffer}
+ */
 function readFile(file) {
 
     var data
@@ -29,7 +37,7 @@ function readFile(file) {
 
     }
 
-    return data.toString()
+    return data
 }
 
 try {
