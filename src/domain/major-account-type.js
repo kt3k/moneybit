@@ -7,8 +7,14 @@ export default class MajorAccountType {
         this.name = name
     }
 }
-MajorAccountType.ASSETS = new MajorAccountType('ASSETS')
-MajorAccountType.LIABILITIES = new MajorAccountType('LIABILITIES')
-MajorAccountType.OWNERS_EQUITY = new MajorAccountType('OWNERS_EQUITY')
-MajorAccountType.REVENUE = new MajorAccountType('REVENUE')
-MajorAccountType.EXPENSES = new MajorAccountType('EXPENSES')
+export const ASSETS = new MajorAccountType('ASSETS')
+export const LIABILITIES = new MajorAccountType('LIABILITIES')
+export const OWNERS_EQUITY = new MajorAccountType('OWNERS_EQUITY')
+export const REVENUE = new MajorAccountType('REVENUE')
+export const EXPENSES = new MajorAccountType('EXPENSES')
+
+MajorAccountType.ASSETS = ASSETS
+MajorAccountType.LIABILITIES = LIABILITIES
+MajorAccountType.OWNERS_EQUITY = OWNERS_EQUITY
+MajorAccountType.REVENUE = REVENUE
+MajorAccountType.EXPENSES = EXPENSES

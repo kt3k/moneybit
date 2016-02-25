@@ -43,7 +43,7 @@ export default class LedgerRepository {
 
         ledger.subledgers.forEach(subledger => {
 
-            obj[subledger.title] = this.subledgerToObject(subledger)
+            obj[subledger.type.name] = this.subledgerToObject(subledger)
 
         })
 
