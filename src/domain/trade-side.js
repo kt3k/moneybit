@@ -12,6 +12,3 @@ export default class TradeSide {
 }
 export const CREDIT = new TradeSide('CREDIT')
 export const DEBIT = new TradeSide('DEBIT')
-
-TradeSide.CREDIT = CREDIT
-TradeSide.DEBIT = DEBIT

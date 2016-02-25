@@ -61,6 +61,7 @@ export default class LedgerRepository {
         return {
             dr: subledger.totalDebit().amount,
             cr: subledger.totalCredit().amount,
+            type: subledger.type.majorType.name,
             accounts: subledger.accounts.map(account => this.accountToObject(account))
         }
 

@@ -1,4 +1,4 @@
-import MajorAccountType from './major-account-type'
+import {ASSETS, LIABILITIES, OWNERS_EQUITY, REVENUE, EXPENSES} from './major-account-type'
 
 /**
  * The account type chart model.
@@ -7,11 +7,11 @@ export default class AccountTypeChart {
 
     constructor() {
         this.names = {}
-        this.names[MajorAccountType.ASSETS.name] = []
-        this.names[MajorAccountType.LIABILITIES.name] = []
-        this.names[MajorAccountType.OWNERS_EQUITY.name] = []
-        this.names[MajorAccountType.REVENUE.name] = []
-        this.names[MajorAccountType.EXPENSES.name] = []
+        this.names[ASSETS.name] = []
+        this.names[LIABILITIES.name] = []
+        this.names[OWNERS_EQUITY.name] = []
+        this.names[REVENUE.name] = []
+        this.names[EXPENSES.name] = []
 
         this.majorTypes = {}
     }
