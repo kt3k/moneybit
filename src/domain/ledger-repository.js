@@ -84,7 +84,7 @@ export default class LedgerRepository {
             dr: debit ? debit.amount : '-',
             cr: credit ? credit.amount : '-',
             cor: entry.getCorrespondingAccountTypes().map(type => type.name).join(' '),
-            ref: entry.account.id
+            ref: entry.getTradeId()
         }
 
     }

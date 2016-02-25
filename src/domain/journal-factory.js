@@ -17,12 +17,13 @@ export default class JournalFactory {
 
     /**
      * @param {Array<Object>}
+     * @return {Journal}
      */
     createFromArray(array) {
 
-        const accounts = array.map(obj => this.accountFactory.createFromObject(obj))
+        const trades = array.map(obj => this.accountFactory.createFromObject(obj))
 
-        return new Journal(accounts)
+        return new Journal(trades)
     }
 
 }

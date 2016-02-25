@@ -1,8 +1,7 @@
 /**
  * The journal entry model.
  *
- * A journal entry means a side of any account which is a debit or a credit.
- * An account is a pair of debit and credit.
+ * An trade consists of set of credits and debits
  *
  * @abstract
  */
@@ -14,24 +13,24 @@ export default class JournalEntry {
      * @param {AccountType} type The type of the entry
      * @param {Money} amount The amount of the entry
      * @param {String} description The description of the entry
-     * @param {Account} account The account the entry belongs
+     * @param {Trade} trade The trade the account belongs
      */
-    constructor(date, type, amount, description, account) {
+    constructor(date, type, amount, description, trade) {
         this.date = date
         this.type = type
         this.amount = amount
         this.description = description
-        this.account = account
+        this.trade = trade
     }
 
 
     /**
-     * Sets account.
+     * Sets the trade.
      *
-     * @param {Account} account
+     * @param {Trade} trade
      */
-    setAccount(account) {
-        this.account = account
+    setTrade(trade) {
+        this.trade = trade
     }
 
 
@@ -79,13 +78,24 @@ export default class JournalEntry {
 
         if (this.isCredit()) {
 
-            return this.account.debitTypes()
+            return this.trade.debitTypes()
 
         } else {
 
-            return this.account.creditTypes()
+            return this.trade.creditTypes()
 
         }
+
+    }
+
+    /**
+     * Returns the id of the trade.
+     *
+     * @return {string}
+     */
+    getTradeId() {
+
+        return this.trade.id
 
     }
 

@@ -1,7 +1,7 @@
 import AccountTypeChart from '../../src/domain/account-type-chart'
 import JournalEntryFactory from '../../src/domain/journal-entry-factory'
 import Money from '../../src/domain/money'
-import Account from '../../src/domain/account'
+import Trade from '../../src/domain/trade'
 import {DEBIT, CREDIT} from '../../src/domain/trade-side'
 
 const chart = new AccountTypeChart()
@@ -63,12 +63,12 @@ describe('JournalEntry', () => {
             const c0 = factory.createFromParams('C', 1, {}, CREDIT)
             const c1 = factory.createFromParams('D', 1, {}, CREDIT)
 
-            const account = new Account(null, [d0, d1], [c0, c1])
+            const trade = new Trade(null, [d0, d1], [c0, c1])
 
-            d0.setAccount(account)
-            d1.setAccount(account)
-            c0.setAccount(account)
-            c1.setAccount(account)
+            d0.setTrade(trade)
+            d1.setTrade(trade)
+            c0.setTrade(trade)
+            c1.setTrade(trade)
 
             expect(d0.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type])
             expect(d1.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type])

@@ -4,16 +4,18 @@ var ledgerFactory = new LedgerFactory()
 /**
  * The journal model.
  *
+ * A journal consists of a set of trades.
+ *
  * 仕訳帳
  */
 export default class Journal {
 
     /**
      * @constructor
-     * @param {Array<Account>} accounts The list of accounts
+     * @param {Array<Trade>} trades The list of trades
      */
-    constructor(accounts) {
-        this.accounts = accounts
+    constructor(trades) {
+        this.trades = trades
     }
 
     /**
@@ -32,9 +34,9 @@ export default class Journal {
      */
     entries() {
 
-        const entryLists = this.accounts.map(account => account.entries())
+        const accounts = this.trades.map(trade => trade.entries())
 
-        return [].concat.apply([], entryLists) // i.e. flatten(entryList)
+        return [].concat.apply([], accounts) // i.e. flatten(entryList)
     }
 
 }

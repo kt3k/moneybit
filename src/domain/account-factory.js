@@ -1,9 +1,9 @@
 import {DEBIT, CREDIT} from './trade-side'
-import Account from './account'
+import Trade from './trade'
 import JournalEntryFactory from './journal-entry-factory'
 
 /**
- * AccountFactory is the factory class for Account model.
+ * AccountFactory is the factory class for trade model.
  */
 export default class AccountFactory {
 
@@ -16,6 +16,10 @@ export default class AccountFactory {
 
     }
 
+    /**
+     * @param {Object} obj The object
+     * @return {Trade}
+     */
     createFromObject(obj) {
 
         const debits = Object.keys(obj.dr).map(title => {
@@ -34,12 +38,12 @@ export default class AccountFactory {
 
         })
 
-        const account = new Account(obj.id, debits, credits)
+        const trade = new Trade(obj.id, debits, credits)
 
-        account.debits.forEach(entry => entry.setAccount(account))
-        account.credits.forEach(entry => entry.setAccount(account))
+        trade.debits.forEach(entry => entry.setTrade(trade))
+        trade.credits.forEach(entry => entry.setTrade(trade))
 
-        return account
+        return trade
     }
 
 }

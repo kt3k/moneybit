@@ -1,9 +1,11 @@
 /**
- * The account model.
+ * The trade model.
  *
- * An account is a pair of sets of debits and credits which represents an atomic transaction.
+ * A trade consists of set of debits and credits.
+ *
+ * 取引
  */
-export default class Account {
+export default class Trade {
 
     /**
      * @constructor
@@ -35,7 +37,7 @@ export default class Account {
      * @param {Array<JournalEntry>} entries The array of JournalEntries
      * @return {Array<AccountType>}
      */
-    getAccountTypes(entries) {
+    static getAccountTypes(entries) {
 
         return entries.map(entry =>  entry.type)
     }
@@ -48,7 +50,7 @@ export default class Account {
      */
     debitTypes() {
 
-        return this.getAccountTypes(this.debits)
+        return Trade.getAccountTypes(this.debits)
 
     }
 
@@ -60,7 +62,7 @@ export default class Account {
      */
     creditTypes() {
 
-        return this.getAccountTypes(this.credits)
+        return Trade.getAccountTypes(this.credits)
 
     }
 
