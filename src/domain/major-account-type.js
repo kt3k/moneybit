@@ -1,3 +1,8 @@
+/**
+ * The major account types. i.e. Assets, Liabilities, Owner's Equity, Revenue, Expenses
+ *
+ * 主要勘定科目: 資産, 負債, 資本, 収益, 費用
+ */
 export default class MajorAccountType {
 
     /**

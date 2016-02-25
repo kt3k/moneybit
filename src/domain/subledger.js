@@ -4,6 +4,7 @@ import Money from './money'
  * The subledger model.
  *
  * A subledger has a set of journal entries of the same account type.
+ * This is a part of leger.
  */
 export default class Subledger {
 

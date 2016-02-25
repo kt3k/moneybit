@@ -4,7 +4,7 @@ var ledgerFactory = new LedgerFactory()
 /**
  * The journal model.
  *
- * 総勘定元帳
+ * 仕訳帳
  */
 export default class Journal {
 
