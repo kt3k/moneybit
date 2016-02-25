@@ -1,4 +1,4 @@
-import {DEBIT, CREDIT} from './journal-entry-type'
+import {DEBIT, CREDIT} from './trade-side'
 import Account from './account'
 import JournalEntryFactory from './journal-entry-factory'
 

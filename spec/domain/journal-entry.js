@@ -2,7 +2,7 @@ import AccountTypeChart from '../../src/domain/account-type-chart'
 import JournalEntryFactory from '../../src/domain/journal-entry-factory'
 import Money from '../../src/domain/money'
 import Account from '../../src/domain/account'
-import {DEBIT, CREDIT} from '../../src/domain/journal-entry-type'
+import {DEBIT, CREDIT} from '../../src/domain/trade-side'
 
 const chart = new AccountTypeChart()
 const factory = new JournalEntryFactory(chart)

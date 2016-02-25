@@ -1,6 +1,5 @@
 # TODO
 - rename JournalEntry -> Account
-- rename JournalEntryType -> TradeSide
 - rename JournalEntryFactory -> AccountFactory
 - rename Account -> Trade
 - rename AccountFactory -> TradeFactory
@@ -9,6 +8,7 @@
 - create IncomeStatement
 - research CashFlowStatement
 # DONE
+- rename JournalEntryType -> TradeSide
 - creates enum MajorAccountType which represents Asset, Liability, Equity, Revenue, Expense
 - creates enum JournalEntryType.CREDIT, JournalEntryType.DEBIT
 - creates model AccountType which represents sales, cash, deposit

@@ -1,7 +1,7 @@
 import Money from './money'
 import Debit from './debit'
 import Credit from './credit'
-import {DEBIT, CREDIT} from './journal-entry-type'
+import {DEBIT, CREDIT} from './trade-side'
 import AccountTypeFactory from './account-type-factory'
 
 /**
@@ -23,14 +23,14 @@ export default class JournalEntryFactory {
      * @param {number} amount The amount of the entry
      * @param {string} date The date of the entry
      * @param {string} desc The description of the entry
-     * @param {JournalEntryType} entryType The type of the entry (DEBIT or CREDIT)
+     * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
      */
-    createFromParams(typeName, amount, {date, desc}, entryType) {
+    createFromParams(typeName, amount, {date, desc}, side) {
 
         const type = this.accountTypeFactory.createFromName(typeName)
         const money = new Money(amount)
 
-        if (entryType === DEBIT) {
+        if (side === DEBIT) {
 
             return new Debit(date, type, money, desc, null)
 
