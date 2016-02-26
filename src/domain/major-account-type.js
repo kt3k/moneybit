@@ -12,9 +12,9 @@ export default class MajorAccountType {
         this.name = name
     }
 }
-export const ASSET = new MajorAccountType('ASSET')
-export const LIABILITY = new MajorAccountType('LIABILITY')
-export const EQUITY = new MajorAccountType('EQUITY')
-export const REVENUE = new MajorAccountType('REVENUE')
-export const EXPENSE = new MajorAccountType('EXPENSE')
+export const ASSET = new MajorAccountType('asset')
+export const LIABILITY = new MajorAccountType('liability')
+export const EQUITY = new MajorAccountType('equity')
+export const REVENUE = new MajorAccountType('revenue')
+export const EXPENSE = new MajorAccountType('expense')
 export const ALL_TYPES = [ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE]

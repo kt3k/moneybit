@@ -6,13 +6,17 @@ import {ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE} from './major-account-type'
  */
 export default class AccountTypeChartFactory {
 
-    createFromObject({asset, liability, equity, revenue, expense}) {
+    /**
+     * @param {Object} obj The chart object
+     * @return {AccountTypeChart}
+     */
+    createFromObject(obj) {
 
-        const assetNames = asset || []
-        const liabilityNames = liability || []
-        const equityNames = equity || []
-        const revenueNames = revenue || []
-        const expenseNames = expense || []
+        const assetNames = obj[ASSET.name] || []
+        const liabilityNames = obj[LIABILITY.name] || []
+        const equityNames = obj[EQUITY.name] || []
+        const revenueNames = obj[REVENUE.name] || []
+        const expenseNames = obj[EXPENSE.name] || []
 
         const chart = new AccountTypeChart()
 
