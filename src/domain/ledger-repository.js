@@ -94,14 +94,24 @@ export default class LedgerRepository {
      */
     accountToObject(account) {
 
-        return {
+        const obj = {
             date: moment(account.date).format('YYYY-MM-DD'),
             desc: account.description,
-            dr: account.isDebit() ? account.getDebitAmount().amount : '-',
-            cr: account.isCredit() ? account.getCreditAmount().amount : '-',
             cor: account.getCorrespondingAccountTypes().map(type => type.name).join(' '),
             ref: account.getTradeId()
         }
+
+        if (account.isDebit()) {
+
+            obj.dr = account.getDebitAmount().amount
+
+        } else {
+
+            obj.cr = account.getCreditAmount().amount
+
+        }
+
+        return obj
 
     }
 
