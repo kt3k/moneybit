@@ -1,6 +1,6 @@
 # TODO
-- rename JournalEntryFactory -> AccountFactory
 - rename Ledger -> GeneralLedger
+- rename LedgerRepository -> GeneralLedgerRepository
 - enhance GeneralLedger
   - calculate total of each subledger by account type
   - separate the section by MajorAccountType
@@ -10,6 +10,7 @@
 - create IncomeStatement
 - research CashFlowStatement
 # DONE
+- rename JournalEntryFactory -> AccountFactory
 - rename JournalEntry -> Account
 - rename AccountFactory -> TradeFactory
 - rename Account -> Trade

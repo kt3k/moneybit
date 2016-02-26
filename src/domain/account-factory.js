@@ -5,9 +5,9 @@ import {DEBIT, CREDIT} from './trade-side'
 import AccountTypeFactory from './account-type-factory'
 
 /**
- * JournalEntryFactory is the factory class for Account model.
+ * The factory class for Account model.
  */
-export default class JournalEntryFactory {
+export default class AccountFactory {
 
     /**
      * @param {AccountTypeChart} chart

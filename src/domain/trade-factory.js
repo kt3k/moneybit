@@ -1,6 +1,6 @@
 import {DEBIT, CREDIT} from './trade-side'
 import Trade from './trade'
-import JournalEntryFactory from './journal-entry-factory'
+import AccountFactory from './account-factory'
 
 /**
  * The factory class for trade model.
@@ -12,7 +12,7 @@ export default class TradeFactory {
      */
     constructor(chart) {
 
-        this.journalEntryFactory = new JournalEntryFactory(chart)
+        this.journalEntryFactory = new AccountFactory(chart)
 
     }
 

@@ -1,11 +1,11 @@
 import AccountTypeChart from '../../src/domain/account-type-chart'
-import JournalEntryFactory from '../../src/domain/journal-entry-factory'
+import AccountFactory from '../../src/domain/account-factory'
 import Money from '../../src/domain/money'
 import Trade from '../../src/domain/trade'
 import {DEBIT, CREDIT} from '../../src/domain/trade-side'
 
 const chart = new AccountTypeChart()
-const factory = new JournalEntryFactory(chart)
+const factory = new AccountFactory(chart)
 const expect = require('chai').expect
 
 describe('Account', () => {
