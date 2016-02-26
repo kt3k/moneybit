@@ -7,3 +7,7 @@
 
 # esdoc
 /doc
+
+# nyc
+/coverage
+/.nyc_output
