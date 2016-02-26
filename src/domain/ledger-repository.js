@@ -3,6 +3,7 @@ import yaml from 'js-yaml'
 import moment from 'moment'
 
 import {ALL_TYPES} from './major-account-type'
+import {DEBIT} from './trade-side'
 
 /**
  * The repository class of the ledger model.
@@ -77,11 +78,19 @@ export default class LedgerRepository {
      */
     subledgerToObject(subledger) {
 
-        return {
-            dr: subledger.totalDebit().amount,
-            cr: subledger.totalCredit().amount,
-            accounts: subledger.accounts.map(account => this.accountToObject(account))
+        const obj = {total: subledger.total().amount}
+
+        if (subledger.side() === DEBIT) {
+            obj.dr = subledger.totalDebit().amount
+            obj.cr = subledger.totalCredit().amount
+        } else {
+            obj.cr = subledger.totalCredit().amount
+            obj.dr = subledger.totalDebit().amount
         }
+
+        obj.accounts = subledger.accounts.map(account => this.accountToObject(account))
+
+        return obj
 
     }
 

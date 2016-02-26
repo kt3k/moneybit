@@ -14,4 +14,15 @@ export default class AccountType {
         this.majorType = majorType
     }
 
+    /**
+     * Returns the side on which this account has positive value.
+     *
+     * @param {TradeSide}
+     */
+    side() {
+
+        return this.majorType.side
+
+    }
+
 }

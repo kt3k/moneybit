@@ -1,6 +1,4 @@
 # TODO
-- enhance GeneralLedger
-  - calculate total of each subledger by account type
 - enhance AccountTypeChart warns when unknown account types are given
 - cli to validate all account types are in the chart
 - create BalanceSheet
@@ -9,6 +7,7 @@
 # DONE
 - enhance GeneralLedger
   - separate the section by MajorAccountType
+  - calculate total of each subledger by account type
 - rename JournalEntryFactory -> AccountFactory
 - rename JournalEntry -> Account
 - rename AccountFactory -> TradeFactory

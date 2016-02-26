@@ -1,10 +1,10 @@
 import Money from './money'
+import {DEBIT} from './trade-side'
 
 /**
  * The subledger model.
  *
- * A subledger has a set of accounts of the same account type.
- * This is a part of leger.
+ * A subledger is a subset of a ledger which consists of the accounts of the same type.
  */
 export default class Subledger {
 
@@ -16,6 +16,40 @@ export default class Subledger {
     constructor(type, accounts) {
         this.type = type
         this.accounts = accounts
+    }
+
+    /**
+     * Returns the total of the subledger.
+     *
+     * @return {Money}
+     */
+    total() {
+
+        if (this.side() === DEBIT) {
+
+            // If the account type is debit type (i.e. Asset or Revenue)
+            // the debit is positive amount and the credit is negative amount.
+            return new Money(this.totalDebit().amount - this.totalCredit().amount)
+
+        } else {
+
+            // If the account type is credit type (i.e. Liability, Equity or Revenue)
+            // the credit is positive amount and the credit is negative amount.
+            return new Money(this.totalCredit().amount - this.totalDebit().amount)
+
+        }
+
+    }
+
+    /**
+     * Returns the side of the trade on which this subledger has the positive value.
+     *
+     * @return {TradeSide}
+     */
+    side() {
+
+        return this.type.side()
+
     }
 
     /**
