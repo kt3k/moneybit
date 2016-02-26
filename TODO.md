@@ -1,15 +1,14 @@
 # TODO
-- rename Ledger -> GeneralLedger
-- rename LedgerRepository -> GeneralLedgerRepository
 - enhance GeneralLedger
   - calculate total of each subledger by account type
-  - separate the section by MajorAccountType
 - enhance AccountTypeChart warns when unknown account types are given
 - cli to validate all account types are in the chart
 - create BalanceSheet
 - create IncomeStatement
 - research CashFlowStatement
 # DONE
+- enhance GeneralLedger
+  - separate the section by MajorAccountType
 - rename JournalEntryFactory -> AccountFactory
 - rename JournalEntry -> Account
 - rename AccountFactory -> TradeFactory
