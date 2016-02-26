@@ -1,4 +1,4 @@
-# ledgerman v0.2.5
+# ledgerman v0.2.6
 
 > A Cli tool for creating a general ledger from the journal.
 
