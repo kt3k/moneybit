@@ -1,13 +1,13 @@
-assets:
+asset:
 - 売掛金
 - 事業主貸
 - 預金
-liabilities:
+liability:
 - 事業主借
-owners_equity:
+equity:
 - 元入金
 revenue:
 - 売上
-expenses:
+expense:
 - 新聞図書費
 - 旅費交通費

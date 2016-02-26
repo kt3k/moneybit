@@ -1,26 +1,26 @@
 import AccountTypeChart from './account-type-chart'
-import {ASSETS, LIABILITIES, OWNERS_EQUITY, REVENUE, EXPENSES} from './major-account-type'
+import {ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE} from './major-account-type'
 
 /**
  * The factory class of the account type chart.
  */
 export default class AccountTypeChartFactory {
 
-    createFromObject({assets, liabilities, owners_equity, revenue, expenses}) {
+    createFromObject({asset, liability, equity, revenue, expense}) {
 
-        assets = assets || []
-        liabilities = liabilities || []
-        owners_equity = owners_equity || []
-        revenue = revenue || []
-        expenses = expenses || []
+        const assetNames = asset || []
+        const liabilityNames = liability || []
+        const equityNames = equity || []
+        const revenueNames = revenue || []
+        const expenseNames = expense || []
 
         const chart = new AccountTypeChart()
 
-        assets.forEach(name => chart.addNameByMajorType(name, ASSETS))
-        liabilities.forEach(name => chart.addNameByMajorType(name, LIABILITIES))
-        owners_equity.forEach(name => chart.addNameByMajorType(name, OWNERS_EQUITY))
-        revenue.forEach(name => chart.addNameByMajorType(name, REVENUE))
-        expenses.forEach(name => chart.addNameByMajorType(name, EXPENSES))
+        assetNames.forEach(name => chart.addNameByMajorType(name, ASSET))
+        liabilityNames.forEach(name => chart.addNameByMajorType(name, LIABILITY))
+        equityNames.forEach(name => chart.addNameByMajorType(name, EQUITY))
+        revenueNames.forEach(name => chart.addNameByMajorType(name, REVENUE))
+        expenseNames.forEach(name => chart.addNameByMajorType(name, EXPENSE))
 
         return chart
 
