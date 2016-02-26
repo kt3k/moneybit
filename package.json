@@ -1,6 +1,6 @@
 {
   "name": "ledgerman",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A Cli tool for creating a general ledger from the journal.",
   "main": "lib/index.js",
   "bin": {
@@ -11,6 +11,7 @@
     "lint": "souffle",
     "clean": "rimraf lib",
     "dist": "babel src -d lib",
+    "prepublish": "npm run clean && npm run dist",
     "demo": "babel-node src/bin/ldm.js",
     "sample": "npm run demo > ledger.yml"
   },
