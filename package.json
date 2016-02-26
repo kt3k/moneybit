@@ -9,8 +9,9 @@
   "scripts": {
     "test": "mocha --require babel-register spec/**",
     "lint": "souffle",
-    "clean": "rimraf lib doc",
+    "clean": "rimraf lib doc coverage",
     "dist": "babel src -d lib",
+    "cov": "nyc --reporter=lcov npm test",
     "prepublish": "npm run clean && npm run dist",
     "demo": "babel-node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml"
   },
@@ -46,6 +47,11 @@
   "babel": {
     "presets": [
       "es2015"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "spec"
     ]
   }
 }
