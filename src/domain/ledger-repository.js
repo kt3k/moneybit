@@ -2,6 +2,8 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import moment from 'moment'
 
+import {ALL_TYPES} from './major-account-type'
+
 /**
  * The repository class of the ledger model.
  */
@@ -41,7 +43,24 @@ export default class LedgerRepository {
 
         const obj = {}
 
-        ledger.subledgers.forEach(subledger => {
+        ALL_TYPES.forEach(majorType => {
+
+            obj[majorType.name] = this.subledgerListToObject(ledger.getSubledgersByMajorType(majorType))
+
+        })
+
+        return obj
+
+    }
+
+    /**
+     *
+     */
+    subledgerListToObject(subledgers) {
+
+        const obj = {}
+
+        subledgers.forEach(subledger => {
 
             obj[subledger.type.name] = this.subledgerToObject(subledger)
 
@@ -53,7 +72,7 @@ export default class LedgerRepository {
 
     /**
      * Converts the subledger to an object.
-     * @param {Subledger} subleger
+     * @param {Subledger} subledger
      * @return {Object}
      */
     subledgerToObject(subledger) {
@@ -61,7 +80,6 @@ export default class LedgerRepository {
         return {
             dr: subledger.totalDebit().amount,
             cr: subledger.totalCredit().amount,
-            type: subledger.type.majorType.name,
             accounts: subledger.accounts.map(account => this.accountToObject(account))
         }
 

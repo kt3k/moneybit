@@ -17,3 +17,4 @@ export const LIABILITY = new MajorAccountType('LIABILITY')
 export const EQUITY = new MajorAccountType('EQUITY')
 export const REVENUE = new MajorAccountType('REVENUE')
 export const EXPENSE = new MajorAccountType('EXPENSE')
+export const ALL_TYPES = [ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE]
