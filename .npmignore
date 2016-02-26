@@ -1,0 +1,9 @@
+# es6
+/src
+/spec
+
+# irrelevant resources
+TODO.md
+esdoc.json
+/doc
+/*.yml
