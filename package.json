@@ -24,8 +24,7 @@
   "dependencies": {
     "js-yaml": "^3.2.5",
     "minimist": "^1.1.0",
-    "moment": "^2.9.0",
-    "subclassjs": "^1.1.0"
+    "moment": "^2.9.0"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",
