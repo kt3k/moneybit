@@ -1,6 +1,6 @@
 {
   "name": "ledgerman",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A Cli tool for creating a general ledger from the journal.",
   "main": "lib/index.js",
   "bin": {
