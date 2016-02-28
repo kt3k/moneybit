@@ -4,6 +4,7 @@ import moment from 'moment'
 
 import {ALL_TYPES} from './major-account-type'
 import {DEBIT} from './trade-side'
+import {sum} from '../util'
 
 /**
  * The repository class of the ledger model.
@@ -59,7 +60,9 @@ export default class LedgerRepository {
      */
     subledgerListToObject(subledgers) {
 
-        const obj = {}
+        const obj = {
+            total: sum(subledgers.map(subledger => subledger.total().amount))
+        }
 
         subledgers.forEach(subledger => {
 
