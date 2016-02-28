@@ -4,7 +4,7 @@
 
 # How to use
 
-First, install the cli from the following command:
+First, install the cli by the following command:
 
     npm install -g ledgerman
 
