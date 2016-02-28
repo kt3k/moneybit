@@ -10,6 +10,8 @@ First, install the cli by the following command:
 
 This installs `ldm` command.
 
+Then:
+
     ldm --chart chart.yml --journal journal.yml
 
 This outputs the general ledger in yaml format to stdout. See the below for the detail of the format.
@@ -66,7 +68,7 @@ expense:
 
 This is the output of this cli and represents the general ledger. The accounts in the input journal are collected by its account type and its major type. It has the following format.
 
-```
+```yml
 asset:
   Cash in bank:
     total:
