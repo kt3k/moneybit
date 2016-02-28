@@ -4,6 +4,7 @@
 - create BalanceSheet
 - create IncomeStatement
 - research CashFlowStatement
+
 # DONE
 - enhance GeneralLedger
   - separate the section by MajorAccountType
