@@ -10,9 +10,10 @@ const ledgerFactory = new LedgerFactory()
 const ledgerRepo = new LedgerRepository()
 
 /**
- * Convert journal yml string to ledger
- * @param {string} journalYml The journal yml
- * @return {string}
+ * Takes journal.yml and chart.yml and converts them to ledger.yml.
+ *
+ * @param {string} journalYml The journal.yml
+ * @return {string} The ledger.yml string
  * @throws {Exeption} when the input yaml is broken
  */
 export default function createLedgerYml(journalYml, chartYml = {}) {
@@ -23,4 +24,5 @@ export default function createLedgerYml(journalYml, chartYml = {}) {
     const ledger = ledgerFactory.createFromJournal(journal)
 
     return ledgerRepo.toYaml(ledger)
+
 }
