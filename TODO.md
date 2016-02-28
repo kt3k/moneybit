@@ -1,8 +1,11 @@
 # TODO
+- enhance Ledger show total by major type
 - enhance AccountTypeChart warns when unknown account types are given
-- cli to validate all account types are in the chart
-- create BalanceSheet
-- create IncomeStatement
+- enhance cli to validate all account types are in the chart
+- enhance cli to check each trade is valid
+- enhance cli to check each id is unique
+- create BalanceSheet contains Equity, Asset and Liability
+- create IncomeStatement contains Revenue, Expense
 - research CashFlowStatement
 
 # DONE
