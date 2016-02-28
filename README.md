@@ -16,7 +16,7 @@ This outputs the general ledger in yaml format to stdout. See the below for the 
 
 # Journal YAML
 
-The journal is the series of trades in chronological order. Each trade have to have following format
+The journal is the series of trades in chronological order. Each trade has to have the following format
 
 ```yml
 - id: 1001
@@ -32,16 +32,16 @@ The journal is the series of trades in chronological order. Each trade have to h
 - `date` is the date of the trade.
 - `desc` is the description of the trade.
 - `dr` means the debits of the trade.
-  - `dr` has at least one account. In this case, it has `Cash in bank` account with the amount 1000.
+  - `dr` has at least one account. In this case, it has `Cash in bank` account with the amount `1000`.
   - `dr` can have multiple accounts.
 - `cr` means the credits of the trade.
-  - `cr` has at least one account. In this case, it has `Capital` account with the amount 1000.
+  - `cr` has at least one account. In this case, it has `Capital` account with the amount `1000`.
   - `cr` can have multiple accounts.
-- The total amount of the credits and debits must be the same.
+- The total amount of the credits and debits must be the same in a account.
 
 # Chart YAML
 
-This file defines which account belongs to which account type. For example, the account `Sales` belongs `Revenue`, `Cash` belongs to `Asset` etc.
+This file defines which account belongs to which major account type. For example, the account `Sales` belongs `Revenue`, `Cash` belongs to `Asset` etc.
 
 The format is like the following:
 
@@ -64,7 +64,7 @@ expense:
 
 # Ledger YAML
 
-This represents the general ledger. The accounts in the input journal are collected by its account type and its major type. It has the following format.
+This is the output of this cli and represents the general ledger. The accounts in the input journal are collected by its account type and its major type. It has the following format.
 
 ```
 asset:
@@ -83,6 +83,12 @@ expense: ...
 ```
 
 # CLI
+
+The usage of cli is as follows:
+
+    ldm --journal path/to/journal.yml --chart path/to/chart.yml
+
+The default value for `--journal` option is `journal.yml` and the default for `--chart` is `chart.yml`.
 
 # LICENSE
 
