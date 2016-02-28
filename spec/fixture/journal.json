@@ -1,0 +1,13 @@
+[{
+  "id": 1,
+  "date": "2015-01-01",
+  "desc": "Start the business",
+  "dr": [{"Deposit": 1000}],
+  "cr": [{"Capital": 1000}]
+}, {
+  "id": 2,
+  "date": "2015-01-31",
+  "desc": "Did job",
+  "dr": [{"Account receivable": 1000}],
+  "cr": [{"Sales": 1000}]
+}]

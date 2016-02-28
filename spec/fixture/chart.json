@@ -1,0 +1,7 @@
+{
+  "asset": ["A"],
+  "liability": ["B"],
+  "equity": ["C"],
+  "revenue": ["D"],
+  "expense": ["E"]
+}
