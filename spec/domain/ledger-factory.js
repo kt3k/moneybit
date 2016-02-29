@@ -16,9 +16,13 @@ describe('LedgerFactory', () => {
 
     describe('createFromJournal', () => {
 
-        const ledger = factory.createFromJournal(journal)
+        it('creates a ledger from the journal', () => {
 
-        expect(ledger).to.be.instanceof(Ledger)
+            const ledger = factory.createFromJournal(journal)
+
+            expect(ledger).to.be.instanceof(Ledger)
+
+        })
 
     })
 

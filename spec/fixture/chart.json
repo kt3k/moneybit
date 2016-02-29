@@ -1,7 +1,7 @@
 {
-  "asset": ["A"],
+  "asset": ["Deposit", "Account receivable"],
   "liability": ["B"],
-  "equity": ["C"],
-  "revenue": ["D"],
+  "equity": ["Capital"],
+  "revenue": ["Sales"],
   "expense": ["E"]
 }
