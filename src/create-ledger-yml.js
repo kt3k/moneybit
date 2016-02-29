@@ -21,8 +21,7 @@ export default function createLedgerYml(journalYml, chartYml = {}) {
     const chart = accountTypeChartFactory.createFromObject(yaml.safeLoad(chartYml))
     const journalFactory = new JournalFactory(chart)
     const journal = journalFactory.createFromArray(yaml.safeLoad(journalYml))
-    const ledger = ledgerFactory.createFromJournal(journal)
 
-    return ledgerRepo.toYaml(ledger)
+    return ledgerRepo.toYaml(journal.toLedger())
 
 }

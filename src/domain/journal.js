@@ -19,11 +19,11 @@ export default class Journal {
     }
 
     /**
-     * Creates ledger
+     * Creates a ledger.
      *
      * @return {Ledger}
      */
-    ledger() {
+    toLedger() {
         return ledgerFactory.createFromJournal(this)
     }
 
