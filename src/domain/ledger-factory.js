@@ -35,14 +35,4 @@ export default class LedgerFactory {
 
     }
 
-    /**
-     * Creates a ledger from the subledgers.
-     *
-     * @param {Array<Subledger>} subledgers The subledgers
-     */
-    createFromSubledgers(subledgers) {
-
-        new Ledger()
-    }
-
 }
