@@ -26,10 +26,31 @@ describe('Journal', () => {
 
         it('adds a trade', () => {
 
-            const trade = new TradeFactory(chart).createFromObject(journalObj[0])
+            const trade = new TradeFactory(chart).createFromObject({
+                id: 99,
+                desc: 'Foo',
+                date: '2015-02-15',
+                dr: {
+                    'Deposit': 500
+                },
+                cr: {
+                    'Sales': 500
+                }
+            })
 
             journal.addTrade(trade)
 
+        })
+
+        it('throws when the id is already taken', () => {
+
+            const trade = new TradeFactory(chart).createFromObject(journalObj[0])
+
+            expect(() => {
+
+                journal.addTrade(trade)
+
+            }).to.throw()
         })
 
     })

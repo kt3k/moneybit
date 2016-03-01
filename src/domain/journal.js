@@ -17,6 +17,7 @@ export default class Journal {
     constructor(trades = []) {
 
         this.trades = []
+        this.ids = {}
 
         this.addTrades(trades)
 
@@ -28,7 +29,9 @@ export default class Journal {
      * @return {Ledger}
      */
     toLedger() {
+
         return ledgerFactory.createFromJournal(this)
+
     }
 
     /**
@@ -37,15 +40,24 @@ export default class Journal {
      */
     addTrades(trades) {
 
-        this.trades.push(...trades)
+        trades.forEach(trade => this.addTrade(trade))
 
     }
 
     /**
      * Adds the trade.
      * @param {Trade}
+     * @throws {Error} when the id of the trade already exists.
      */
     addTrade(trade) {
+
+        if (this.ids[trade.id] != null) {
+
+            throw new Error('The trade of the same id already exists: ' + trade.id)
+
+        }
+
+        this.ids[trade.id] = trade
 
         this.trades.push(trade)
 
@@ -61,6 +73,7 @@ export default class Journal {
         const accounts = this.trades.map(trade => trade.accounts())
 
         return [].concat(...accounts) // i.e. flatten(accounts)
+
     }
 
 }
