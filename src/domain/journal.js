@@ -15,7 +15,11 @@ export default class Journal {
      * @param {Array<Trade>} trades The list of trades
      */
     constructor(trades) {
-        this.trades = trades
+
+        this.trades = []
+
+        this.addTrades(trades)
+
     }
 
     /**
@@ -28,6 +32,26 @@ export default class Journal {
     }
 
     /**
+     * Adds the trades.
+     * @param {Array<Trade>}
+     */
+    addTrades(trades) {
+
+        this.trades.push(...trades)
+
+    }
+
+    /**
+     * Adds the trade.
+     * @param {Trade}
+     */
+    addTrade(trade) {
+
+        this.trades.push(trade)
+
+    }
+
+    /**
      * Returns the list of accounts.
      *
      * @return {Array<Account>}
@@ -36,7 +60,7 @@ export default class Journal {
 
         const accounts = this.trades.map(trade => trade.accounts())
 
-        return [].concat.apply([], accounts) // i.e. flatten(accounts)
+        return [].concat(...accounts) // i.e. flatten(accounts)
     }
 
 }
