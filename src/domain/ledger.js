@@ -32,7 +32,7 @@ export default class Ledger {
      */
     add(subledger) {
 
-        switch(subledger.type.majorType) {
+        switch (subledger.type.majorType) {
             case ASSET:
                 this.subledgers[ASSET.name].push(subledger)
                 break

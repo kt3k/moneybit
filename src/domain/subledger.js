@@ -91,7 +91,7 @@ export default class Subledger {
      */
     static totalAmount(accounts) {
 
-        return new Money(accounts.map(x => x.amount.amount).reduce(((x, y) => x + y), 0))
+        return new Money(accounts.map(x => x.amount.amount).reduce((x, y) => x + y, 0))
 
     }
 

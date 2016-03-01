@@ -39,7 +39,8 @@ export default class Trade {
      */
     static getAccountTypes(accounts) {
 
-        return accounts.map(account =>  account.type)
+        return accounts.map(account => account.type)
+
     }
 
 

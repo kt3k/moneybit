@@ -1,12 +1,10 @@
 import yaml from 'js-yaml'
 
 import JournalFactory from './domain/journal-factory'
-import LedgerFactory from './domain/ledger-factory'
 import LedgerRepository from './domain/ledger-repository'
 import AccountTypeChartFactory from './domain/account-type-chart-factory'
 
 const accountTypeChartFactory = new AccountTypeChartFactory()
-const ledgerFactory = new LedgerFactory()
 const ledgerRepo = new LedgerRepository()
 
 /**

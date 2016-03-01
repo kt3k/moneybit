@@ -1,7 +1,7 @@
 import Money from './money'
 import Debit from './debit'
 import Credit from './credit'
-import {DEBIT, CREDIT} from './trade-side'
+import {DEBIT} from './trade-side'
 import AccountTypeFactory from './account-type-factory'
 
 /**
