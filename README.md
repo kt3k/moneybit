@@ -18,16 +18,16 @@ This outputs the general ledger in yaml format to stdout. See the below for the 
 
 # Journal YAML
 
-The journal is the series of trades in chronological order. Each trade has to have the following format
+The journal is the series of trades in chronological order. Each trade should have the following format
 
 ```yml
-- id: 1001
-  date: 2015-01-05
-  desc: Start the business
-  dr:
-    Cash in bank: 1000
-  cr:
-    Capital: 1000
+id: 1001
+date: 2015-01-05
+desc: Start the business
+dr:
+  Cash in bank: 1000
+cr:
+  Capital: 1000
 ```
 
 - `id` is an arbitrary number and has to be unique in the journal.
@@ -40,6 +40,30 @@ The journal is the series of trades in chronological order. Each trade has to ha
   - `cr` has at least one account. In this case, it has `Capital` account with the amount `1000`.
   - `cr` can have multiple accounts.
 - The total amount of the credits and debits must be the same in a account.
+
+Multiple entry journal looks like the following:
+
+```yml
+id: 1
+date: 2015-01-05
+desc: Start the business
+dr:
+  Cash in bank: 1000
+cr:
+  Capital: 1000
+---
+id: 2
+date: 2015-01-30
+desc: Sold the item
+dr:
+  Cash in bank: 1000
+cr:
+  Sales: 1000
+---
+...
+```
+
+Each document in a yaml represents a trade.
 
 # Chart YAML
 

@@ -14,7 +14,7 @@ export default class Journal {
      * @constructor
      * @param {Array<Trade>} trades The list of trades
      */
-    constructor(trades) {
+    constructor(trades = []) {
 
         this.trades = []
 
