@@ -34,10 +34,17 @@ export default class AccountTypeChart {
      *
      * @param {string} name The name of account type
      * @return {MajorAccountType}
+     * @throws {Error} when the account type name is not found in the chart
      */
     getMajorTypeByAccountTypeName(name) {
 
-        return this.majorTypes[name]
+        const majorType = this.majorTypes[name]
+
+        if (majorType == null) {
+            throw Error('The account type name is not found in the chart: ' + name)
+        }
+
+        return majorType
 
     }
 }
