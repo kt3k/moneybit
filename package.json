@@ -13,7 +13,8 @@
     "dist": "babel src -d lib",
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
     "prepublish": "npm run clean && npm run dist",
-    "demo": "babel-node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml"
+    "demo": "babel-node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml",
+    "demo-update": "babel-node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
   },
   "repository": {
     "type": "git",

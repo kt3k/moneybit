@@ -1,146 +1,136 @@
-
-> ledgerman@0.1.0 demo /Users/kt3k/Dropbox/kt3k.com/account
-> babel-node src/bin/ldm.js
-
-ASSET:
+asset:
+  total: 929072
   預金:
+    total: 37072
     dr: 929072
     cr: 892000
     accounts:
       - date: '2015-01-05'
         desc: 開業
-        dr: 2432
-        cr: '-'
         cor: 元入金
         ref: 0
+        dr: 2432
       - date: '2015-01-23'
         desc: 振込 開発費 __C0__
-        dr: 926640
-        cr: '-'
         cor: 売掛金
         ref: 2
+        dr: 926640
       - date: '2015-01-24'
         desc: MIカード年会費
-        dr: '-'
-        cr: 2000
         cor: 事業主貸
         ref: 3
+        cr: 2000
       - date: '2015-01-26'
         desc: 生活費
-        dr: '-'
-        cr: 320000
         cor: 事業主貸
         ref: 4
+        cr: 320000
       - date: '2015-02-02'
         desc: 生活費
-        dr: '-'
-        cr: 200000
         cor: 事業主貸
         ref: 5
+        cr: 200000
       - date: '2015-02-05'
         desc: 生活費
-        dr: '-'
-        cr: 340000
         cor: 事業主貸
         ref: 6
-      - date: '2016-02-26'
+        cr: 340000
+      - date: '2015-02-22'
         desc: 生活費
-        dr: '-'
-        cr: 30000
         cor: 事業主貸
         ref: 8
+        cr: 30000
   売掛金:
+    total: 0
     dr: 926640
     cr: 926640
     accounts:
       - date: '2015-01-20'
         desc: 請求 開発費 __C0__
-        dr: 926640
-        cr: '-'
         cor: 売上
         ref: 1
+        dr: 926640
       - date: '2015-01-23'
         desc: 振込 開発費 __C0__
-        dr: '-'
-        cr: 926640
         cor: 預金
         ref: 2
+        cr: 926640
   事業主貸:
+    total: 892000
     dr: 892000
     cr: 0
     accounts:
       - date: '2015-01-24'
         desc: MIカード年会費
-        dr: 2000
-        cr: '-'
         cor: 預金
         ref: 3
+        dr: 2000
       - date: '2015-01-26'
         desc: 生活費
-        dr: 320000
-        cr: '-'
         cor: 預金
         ref: 4
+        dr: 320000
       - date: '2015-02-02'
         desc: 生活費
-        dr: 200000
-        cr: '-'
         cor: 預金
         ref: 5
+        dr: 200000
       - date: '2015-02-05'
         desc: 生活費
-        dr: 340000
-        cr: '-'
         cor: 預金
         ref: 6
-      - date: '2016-02-26'
+        dr: 340000
+      - date: '2015-02-22'
         desc: 生活費
-        dr: 30000
-        cr: '-'
         cor: 預金
         ref: 8
-LIABILITY:
+        dr: 30000
+liability:
+  total: 5616
   事業主借:
-    dr: 0
+    total: 5616
     cr: 5616
+    dr: 0
     accounts:
       - date: '2015-02-07'
         desc: 参考書 ドメイン駆動開発 Eric Evans 著 翔泳社
-        dr: '-'
-        cr: 5616
         cor: 新聞図書費
         ref: 7
-EQUITY:
+        cr: 5616
+equity:
+  total: 2432
   元入金:
-    dr: 0
+    total: 2432
     cr: 2432
+    dr: 0
     accounts:
       - date: '2015-01-05'
         desc: 開業
-        dr: '-'
-        cr: 2432
         cor: 預金
         ref: 0
-REVENUE:
+        cr: 2432
+revenue:
+  total: 926640
   売上:
-    dr: 0
+    total: 926640
     cr: 926640
+    dr: 0
     accounts:
       - date: '2015-01-20'
         desc: 請求 開発費 __C0__
-        dr: '-'
-        cr: 926640
         cor: 売掛金
         ref: 1
-EXPENSE:
+        cr: 926640
+expense:
+  total: 5616
   新聞図書費:
+    total: 5616
     dr: 5616
     cr: 0
     accounts:
       - date: '2015-02-07'
         desc: 参考書 ドメイン駆動開発 Eric Evans 著 翔泳社
-        dr: 5616
-        cr: '-'
         cor: 事業主借
         ref: 7
+        dr: 5616
 
