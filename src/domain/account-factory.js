@@ -30,6 +30,18 @@ export default class AccountFactory {
         const type = this.accountTypeFactory.createFromName(typeName)
         const money = new Money(amount)
 
+        if (typeof amount !== 'number') {
+
+            throw new Error('The amount of an account has to be a number: amount=' + amount + ' type=' + typeName + ' desc=' + desc)
+
+        }
+
+        if (date == null) {
+
+            throw new Error('No date for the account: type=' + typeName + ' desc=' + desc)
+
+        }
+
         if (side === DEBIT) {
 
             return new Debit(date, type, money, desc, null)
