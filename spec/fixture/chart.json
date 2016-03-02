@@ -1,6 +1,6 @@
 {
-  "asset": ["Deposit", "Account receivable"],
-  "liability": ["Account payable"],
+  "asset": ["Deposit", "Accounts receivable"],
+  "liability": ["Accounts payable"],
   "equity": ["Capital"],
   "revenue": ["Sales"],
   "expense": ["Communications"]

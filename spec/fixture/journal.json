@@ -8,12 +8,12 @@
   "id": 2,
   "date": "2015-01-31",
   "desc": "Did job",
-  "dr": {"Account receivable": 1000},
+  "dr": {"Accounts receivable": 1000},
   "cr": {"Sales": 1000}
 }, {
   "id": 3,
   "date": "2015-02-29",
   "desc": "Internet Service Provider fee",
   "dr": {"Communications": 50},
-  "cr": {"Account payable": 50}
+  "cr": {"Accounts payable": 50}
 }]

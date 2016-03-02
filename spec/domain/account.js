@@ -15,7 +15,7 @@ describe('Account', () => {
 
         it('returns the amount of debit if it is debit entry', () => {
 
-            const entry = factory.createFromParams('Deposit', 500, {}, DEBIT)
+            const entry = factory.createFromParams('Deposit', 500, {date: '2015-01-01'}, DEBIT)
 
             expect(entry.getDebitAmount()).to.be.instanceof(Money)
             expect(entry.getDebitAmount().amount).to.equal(500)
@@ -24,7 +24,7 @@ describe('Account', () => {
 
         it('returns null if it is credit entry', () => {
 
-            var entry = factory.createFromParams('Sales', 500, {}, CREDIT)
+            var entry = factory.createFromParams('Sales', 500, {date: '2015-01-01'}, CREDIT)
 
             expect(entry.getDebitAmount()).to.be.null
 
@@ -36,7 +36,7 @@ describe('Account', () => {
 
         it('returns the amount of credit if it is credit entry', () => {
 
-            const entry = factory.createFromParams('Sales', 500, {}, CREDIT)
+            const entry = factory.createFromParams('Sales', 500, {date: '2015-01-01'}, CREDIT)
 
             expect(entry.getCreditAmount()).to.be.instanceof(Money)
             expect(entry.getCreditAmount().amount).to.equal(500)
@@ -45,7 +45,7 @@ describe('Account', () => {
 
         it('returns null if it is debit entry', () => {
 
-            const entry = factory.createFromParams('Deposit', 500, {}, DEBIT)
+            const entry = factory.createFromParams('Deposit', 500, {date: '2015-01-01'}, DEBIT)
 
             expect(entry.getCreditAmount()).to.be.null
 
@@ -59,10 +59,10 @@ describe('Account', () => {
         it('gets the titles of corresponding debit/credit entries', () => {
 
 
-            const d0 = factory.createFromParams('Deposit', 1, {}, DEBIT)
-            const d1 = factory.createFromParams('Account receivable', 1, {}, DEBIT)
-            const c0 = factory.createFromParams('Sales', 1, {}, CREDIT)
-            const c1 = factory.createFromParams('Sales', 1, {}, CREDIT)
+            const d0 = factory.createFromParams('Deposit', 1, {date: '2015-01-01'}, DEBIT)
+            const d1 = factory.createFromParams('Accounts receivable', 1, {date: '2015-01-01'}, DEBIT)
+            const c0 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
+            const c1 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
 
             const trade = new Trade(null, [d0, d1], [c0, c1])
 
