@@ -1,5 +1,7 @@
 import LedgerFactory from './ledger-factory'
-var ledgerFactory = new LedgerFactory()
+import BalanceSheet from './balance-sheet'
+
+const ledgerFactory = new LedgerFactory()
 
 /**
  * The journal model.
@@ -31,6 +33,15 @@ export default class Journal {
     toLedger() {
 
         return ledgerFactory.createFromJournal(this)
+
+    }
+
+    /**
+     * @return {BalanceSheet}
+     */
+    toBalanceSheet() {
+
+        return new BalanceSheet(this.toLedger())
 
     }
 

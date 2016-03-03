@@ -14,8 +14,10 @@ export default class Subledger {
      * @param {Array<Account>} accounts
      */
     constructor(type, accounts) {
+
         this.type = type
         this.accounts = accounts
+
     }
 
     /**
@@ -80,6 +82,16 @@ export default class Subledger {
     add(account) {
 
         this.accounts.push(account)
+
+    }
+
+    /**
+     * Retruns the account type name of the subledger.
+     * @return {string}
+     */
+    typeName() {
+
+        return this.type.name
 
     }
 
