@@ -1,11 +1,13 @@
 # TODO
-- enhance cli to validate all account types are in the chart
-- enhance cli to check each trade is valid
-- create BalanceSheet which contains the summuries of Equity, Asset and Liability
+- enhance cli to show monthly sales (Japanese tax declaration format requires these numbers)
+- create TradeValidationService
+- create `ldm validate` to check all trades are valid
 - create IncomeStatement which contains the summaries of Revenue, Expense
+- create `ldm income` to show income statement as yaml
 - research CashFlowStatement
 
 # DONE
+- create BalanceSheet which contains the summuries of Equity, Asset and Liability
 - enhance AccountFactory to throw error when it has no date
 - enhance AccountFactory to throw error when its account type does not have the entry in the chart
 - enhance AccountTypeChart warns when unknown account types are given
