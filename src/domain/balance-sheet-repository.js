@@ -22,6 +22,8 @@ export default class BalanceSheetRepository {
         this.insertBSDataByMajorType(balanceSheet, obj, LIABILITY)
         this.insertBSDataByMajorType(balanceSheet, obj, EQUITY)
 
+        obj.total = balanceSheet.totalByMajorType(ASSET).amount
+
         return obj
 
     }
@@ -39,17 +41,22 @@ export default class BalanceSheetRepository {
 
         balanceSheet.subledgers(majorType).forEach(subledger => {
 
-            subObj[subledger.typeName()] = subledger.total()
+            subObj[subledger.typeName()] = subledger.total().amount
 
         })
 
         if (majorType === EQUITY) {
 
-            subObj.retainedEarnings = balanceSheet.retainedEarnings()
+            const retainedEarnings = balanceSheet.retainedEarnings().amount
+
+            subObj['Retained earnings'] = retainedEarnings
+            subObj.total = balanceSheet.totalByMajorType(majorType).amount + retainedEarnings
+
+        } else {
+
+            subObj.total = balanceSheet.totalByMajorType(majorType).amount
 
         }
-
-        subObj.total = balanceSheet.totalByMajorType(majorType).amount
 
     }
 

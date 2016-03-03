@@ -1,12 +1,9 @@
 import fs from 'fs'
 import minimist from 'minimist'
 import * as Const from '../const'
-import {createLedgerYml} from '../'
+import createLedgerYaml from '../cmd/create-ledger-yaml'
+import createBalanceSheetYaml from '../cmd/create-balance-sheet-yaml'
 
-const argv = minimist(process.argv.slice(2))
-
-const journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
-const chartFile = argv.chart || Const.DEFAULT_CHART_FILE
 
 /**
  * Reads the given file and returns the contents.
@@ -16,7 +13,7 @@ const chartFile = argv.chart || Const.DEFAULT_CHART_FILE
  */
 function readFile(file) {
 
-    var data
+    let data
 
     try {
 
@@ -38,14 +35,55 @@ function readFile(file) {
     return data
 }
 
-try {
+/**
+ * Invokes the command by the name with the arguments journal and chart.
+ *
+ * @param {string} name The command name
+ * @param {Buffer} journal The journal data
+ * @param {Buffer} chart The chart data
+ */
+function invokeCommand(name, journal, chart) {
 
-    console.log(createLedgerYml(readFile(journalFile), readFile(chartFile)))
+    switch (name) {
 
-} catch (e) {
+        case Const.DEFAULT_COMMAND_NAME:
+            console.log(createLedgerYaml(journal, chart))
+            break
 
-    console.error(e)
-    console.error(e.stack)
-    process.exit()
+        case Const.COMMAND_BALANCE_SHEET:
+            console.log(createBalanceSheetYaml(journal, chart))
+            break
+
+        default:
+            console.log('Command not found: ' + name)
+            break
+
+    }
 
 }
+
+(function main() {
+
+    const argv = minimist(process.argv.slice(2))
+
+    const journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
+    const chartFile = argv.chart || Const.DEFAULT_CHART_FILE
+    const commandName = argv._[0] || Const.DEFAULT_COMMAND_NAME
+
+    const journal = readFile(journalFile)
+    const chart = readFile(chartFile)
+
+    try {
+
+
+        invokeCommand(commandName, journal, chart)
+
+    } catch (e) {
+
+        console.error(e)
+        console.error(e.stack)
+        process.exit()
+
+    }
+
+})()

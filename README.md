@@ -95,7 +95,7 @@ This is the output of this cli and represents the general ledger. The accounts i
 ```yml
 asset:
   Cash in bank:
-    total:
+    total: 1050
     accounts:
       - date: 2015-01-01
         desc: Start the business
@@ -115,6 +115,27 @@ The usage of cli is as follows:
     ldm --journal path/to/journal.yml --chart path/to/chart.yml
 
 The default value for `--journal` option is `journal.yml` and the default for `--chart` is `chart.yml`.
+
+## ldm bs
+
+`bs` subcommand outputs the balance sheet as yaml.
+
+```
+$ ldm bs
+asset:
+  Cash in hand: 37072
+  Accounts receivable: 0
+  Cash in bank: 892000
+  total: 929072
+liability:
+  Accounts payable: 5616
+  total: 5616
+equity:
+  Capital: 2432
+  Retained earnings: 921024
+  total: 923456
+total: 929072
+```
 
 # LICENSE
 
