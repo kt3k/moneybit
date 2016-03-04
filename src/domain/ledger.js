@@ -22,6 +22,8 @@ export default class Ledger {
         this.subledgers[REVENUE.name] = []
         this.subledgers[EXPENSE.name] = []
 
+        this.subledgerList = []
+
         subledgers.forEach(subledger => this.add(subledger))
     }
 
@@ -50,6 +52,8 @@ export default class Ledger {
                 break
         }
 
+        this.subledgerList.push(subledger)
+
     }
 
     /**
@@ -61,6 +65,25 @@ export default class Ledger {
     getSubledgersByMajorType(majorType) {
 
         return this.subledgers[majorType.name]
+
+    }
+
+    /**
+     * @param {AccountType} type The account type
+     * @return {Subledger}
+     * @throws {Error} when the subledger of the given type is not found.
+     */
+    getSubledgerByAccountType(type) {
+
+        const subledgers = this.subledgerList.filter(subledger => subledger.type.equals(type))
+
+        if (subledgers.length === 0) {
+
+            throw new Error('No such account: ' + type.name)
+
+        }
+
+        return subledgers[0]
 
     }
 

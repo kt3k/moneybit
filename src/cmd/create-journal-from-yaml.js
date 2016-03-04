@@ -2,24 +2,22 @@ import yaml from 'js-yaml'
 
 import Journal from '../domain/journal'
 import TradeFactory from '../domain/trade-factory'
-import AccountTypeChartFactory from '../domain/account-type-chart-factory'
-
-const accountTypeChartFactory = new AccountTypeChartFactory()
+import createChartFromYaml from './create-chart-from-yaml'
 
 /**
  * Takes journal.yml and chart.yml and converts them to ledger.yml.
  *
- * @param {string} journalYml The journal.yml
+ * @param {string} journalYaml The journal.yml
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-export default function createJournalFromYaml(journalYml, chartYml = {}) {
+export default function createJournalFromYaml(journalYaml, chartYaml = {}) {
 
-    const chart = accountTypeChartFactory.createFromObject(yaml.safeLoad(chartYml))
+    const chart = createChartFromYaml(chartYaml)
     const tradeFactory = new TradeFactory(chart)
     const journal = new Journal()
 
-    yaml.safeLoadAll(journalYml, (data) => {
+    yaml.safeLoadAll(journalYaml, (data) => {
         journal.addTrade(tradeFactory.createFromObject(data))
     })
 

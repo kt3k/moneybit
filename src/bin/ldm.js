@@ -3,6 +3,7 @@ import minimist from 'minimist'
 import * as Const from '../const'
 import createLedgerYaml from '../cmd/create-ledger-yaml'
 import createBalanceSheetYaml from '../cmd/create-balance-sheet-yaml'
+import monthly from '../cmd/monthly'
 
 
 /**
@@ -42,7 +43,7 @@ function readFile(file) {
  * @param {Buffer} journal The journal data
  * @param {Buffer} chart The chart data
  */
-function invokeCommand(name, journal, chart) {
+function invokeCommand(name, journal, chart, args) {
 
     switch (name) {
 
@@ -52,6 +53,10 @@ function invokeCommand(name, journal, chart) {
 
         case Const.COMMAND_BALANCE_SHEET:
             console.log(createBalanceSheetYaml(journal, chart))
+            break
+
+        case Const.COMMAND_MONTHLY:
+            console.log(monthly(journal, chart, ...args))
             break
 
         default:
@@ -68,7 +73,7 @@ function invokeCommand(name, journal, chart) {
 
     const journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
     const chartFile = argv.chart || Const.DEFAULT_CHART_FILE
-    const commandName = argv._[0] || Const.DEFAULT_COMMAND_NAME
+    const commandName = argv._.shift() || Const.DEFAULT_COMMAND_NAME
 
     const journal = readFile(journalFile)
     const chart = readFile(chartFile)
@@ -76,7 +81,7 @@ function invokeCommand(name, journal, chart) {
     try {
 
 
-        invokeCommand(commandName, journal, chart)
+        invokeCommand(commandName, journal, chart, argv._)
 
     } catch (e) {
 

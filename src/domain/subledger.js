@@ -16,7 +16,7 @@ export default class Subledger {
     constructor(type, accounts) {
 
         this.type = type
-        this.accounts = accounts
+        this.accounts = accounts.sort((x, y) => x.dateDiff(y))
 
     }
 
@@ -92,6 +92,39 @@ export default class Subledger {
     typeName() {
 
         return this.type.name
+
+    }
+
+    /**
+     * Filters the trades by the given month.
+     *
+     * @param {moment} month The month
+     */
+    filterByMonth(month) {
+
+        return new Subledger(this.type, this.accounts.filter(account => account.isInMonth(month)))
+
+    }
+
+    /**
+     * Returns the first account in the chronological order.
+     *
+     * @return {Account}
+     */
+    firstAccount() {
+
+        return this.accounts[0]
+
+    }
+
+    /**
+     * Returns the last account in the chronological order.
+     *
+     * @return {Account}
+     */
+    lastAccount() {
+
+        return this.accounts[this.accounts.length - 1]
 
     }
 

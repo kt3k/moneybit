@@ -1,3 +1,4 @@
+import moment from 'moment'
 import Money from './money'
 import Debit from './debit'
 import Credit from './credit'
@@ -29,6 +30,8 @@ export default class AccountFactory {
 
         const type = this.accountTypeFactory.createFromName(typeName)
         const money = new Money(amount)
+
+        date = moment(date)
 
         if (typeof amount !== 'number') {
 

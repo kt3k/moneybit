@@ -1,6 +1,5 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
-import moment from 'moment'
 
 import {ALL_TYPES} from './major-account-type'
 import {DEBIT} from './trade-side'
@@ -107,7 +106,7 @@ export default class LedgerRepository {
     accountToObject(account) {
 
         const obj = {
-            date: moment(account.date).format('YYYY-MM-DD'),
+            date: account.date.format('YYYY/MM/DD'),
             desc: account.description,
             cor: account.getCorrespondingAccountTypes().map(type => type.name).join(' '),
             ref: account.getTradeId()

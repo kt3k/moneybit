@@ -25,4 +25,16 @@ export default class AccountType {
 
     }
 
+    /**
+     * Returns true when the target is the same type, otherwise false.
+     *
+     * @param {AccountType}
+     * @return {boolean}
+     */
+    equals(type) {
+
+        return this.name === type.name && this.majorType === type.majorType
+
+    }
+
 }

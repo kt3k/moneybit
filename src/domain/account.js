@@ -10,7 +10,7 @@ export default class Account {
 
     /**
      * @constructor
-     * @param {Date} date The date of the entry
+     * @param {moment} date The date of the entry
      * @param {AccountType} type The type of the entry
      * @param {Money} amount The amount of the entry
      * @param {String} description The description of the entry
@@ -97,6 +97,29 @@ export default class Account {
     getTradeId() {
 
         return this.trade.id
+
+    }
+
+    /**
+     * Returns true when the account is in the given month.
+     *
+     * @param {moment} month The month to check
+     * @return {boolean}
+     */
+    isInMonth(month) {
+
+        return this.date.isSame(month, 'month')
+
+    }
+
+    /**
+     * Returns the difference of the date of the account.
+     * @param {Account}
+     * @return {number}
+     */
+    dateDiff(account) {
+
+        return this.date.diff(account.date)
 
     }
 
