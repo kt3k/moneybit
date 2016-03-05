@@ -1,5 +1,4 @@
 import LedgerRepository from '../domain/ledger-repository'
-
 import createJournalFromYaml from './create-journal-from-yaml'
 
 const ledgerRepo = new LedgerRepository()
@@ -12,7 +11,7 @@ const ledgerRepo = new LedgerRepository()
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-export default function createLedgerYml(journalYaml, chartYaml = {}) {
+export default (journalYaml, chartYaml = {}) => {
 
     const journal = createJournalFromYaml(journalYaml, chartYaml)
 

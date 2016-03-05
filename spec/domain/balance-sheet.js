@@ -1,7 +1,7 @@
 import BalanceSheet from '../../src/domain/balance-sheet'
 import Money from '../../src/domain/money'
 
-import AccountTypeChartFactory  from '../../src/domain/account-type-chart-factory'
+import AccountTypeChartFactory from '../../src/domain/account-type-chart-factory'
 import JournalFactory from '../../src/domain/journal-factory'
 
 import journalObj from '../fixture/journal'

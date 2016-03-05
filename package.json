@@ -41,6 +41,7 @@
   "souffle": {
     "globals": [
       "describe",
+      "beforeEach",
       "expect",
       "it"
     ]
