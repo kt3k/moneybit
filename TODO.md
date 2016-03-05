@@ -1,5 +1,4 @@
 # TODO
-- enhance cli to show monthly sales (Japanese tax declaration format requires these numbers)
 - create TradeValidationService
 - create `ldm validate` to check all trades are valid
 - create IncomeStatement which contains the summaries of Revenue, Expense
@@ -7,6 +6,7 @@
 - research CashFlowStatement
 
 # DONE
+- enhance cli to show monthly sales (Japanese tax declaration format requires these numbers)
 - create BalanceSheet which contains the summuries of Equity, Asset and Liability
 - enhance AccountFactory to throw error when it has no date
 - enhance AccountFactory to throw error when its account type does not have the entry in the chart
