@@ -3,6 +3,7 @@
 - create `ldm validate` to check all trades are valid
 - create IncomeStatement which contains the summaries of Revenue, Expense
 - create `ldm income` to show income statement as yaml
+- create Deduction model, deduction.yml
 - research CashFlowStatement
 
 # DONE
