@@ -1,10 +1,16 @@
 # TODO
 - create TradeValidationService
+  - Check a trade balances i.e. total dr = total cr
+  - Check account type is in the chart
+  - Check date is valid
+  - Check desc is not empty
+  - Check trade has an id
 - create `ldm validate` to check all trades are valid
 - create IncomeStatement which contains the summaries of Revenue, Expense
 - create `ldm income` to show income statement as yaml
 - create Deduction model, deduction.yml
 - research CashFlowStatement
+- Change journal.yml as first parameter, not --journal option
 
 # DONE
 - enhance cli to show monthly sales (Japanese tax declaration format requires these numbers)
