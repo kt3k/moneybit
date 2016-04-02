@@ -1,10 +1,12 @@
 # TODO
+
 - create TradeValidationService
   - Check a trade balances i.e. total dr = total cr
   - Check account type is in the chart
   - Check date is valid
   - Check desc is not empty
   - Check trade has an id
+
 - create `ldm validate` to check all trades are valid
 - create IncomeStatement which contains the summaries of Revenue, Expense
 - create `ldm income` to show income statement as yaml
