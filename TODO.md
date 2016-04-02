@@ -1,4 +1,6 @@
 # TODO
+
+
 - create TradeValidationService
   - Check a trade balances i.e. total dr = total cr
   - Check account type is in the chart
