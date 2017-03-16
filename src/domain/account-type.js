@@ -1,7 +1,7 @@
 /**
  * The account type model.
  *
- * An account type represents the detailed type of account. e.g. sales, debosit etc
+ * An account type represents the detailed type of account. e.g. sales, deposit etc
  */
 export default class AccountType {
 
