@@ -1,5 +1,7 @@
 # TODO
 
+- switch the linter to standard
+- separate cli from this repo or separate core domain from this repo
 - create TradeValidationService
   - Check a trade balances i.e. total dr = total cr
   - Check account type is in the chart

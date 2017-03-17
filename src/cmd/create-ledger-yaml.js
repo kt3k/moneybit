@@ -12,9 +12,7 @@ const ledgerRepo = new LedgerRepository()
  * @throws {Error} when the input yaml is broken
  */
 export default (journalYaml, chartYaml = {}) => {
+  const journal = createJournalFromYaml(journalYaml, chartYaml)
 
-    const journal = createJournalFromYaml(journalYaml, chartYaml)
-
-    return ledgerRepo.toYaml(journal.toLedger())
-
+  return ledgerRepo.toYaml(journal.toLedger())
 }

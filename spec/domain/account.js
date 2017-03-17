@@ -10,74 +10,54 @@ const factory = new AccountFactory(chart)
 const expect = require('chai').expect
 
 describe('Account', () => {
+  describe('getDebitAmount', () => {
+    it('returns the amount of debit if it is debit entry', () => {
+      const entry = factory.createFromParams('Deposit', 500, {date: '2015-01-01'}, DEBIT)
 
-    describe('getDebitAmount', () => {
-
-        it('returns the amount of debit if it is debit entry', () => {
-
-            const entry = factory.createFromParams('Deposit', 500, {date: '2015-01-01'}, DEBIT)
-
-            expect(entry.getDebitAmount()).to.be.instanceof(Money)
-            expect(entry.getDebitAmount().amount).to.equal(500)
-
-        })
-
-        it('returns null if it is credit entry', () => {
-
-            var entry = factory.createFromParams('Sales', 500, {date: '2015-01-01'}, CREDIT)
-
-            expect(entry.getDebitAmount()).to.be.null
-
-        })
-
+      expect(entry.getDebitAmount()).to.be.instanceof(Money)
+      expect(entry.getDebitAmount().amount).to.equal(500)
     })
 
-    describe('getCreditAmount', () => {
+    it('returns null if it is credit entry', () => {
+      var entry = factory.createFromParams('Sales', 500, {date: '2015-01-01'}, CREDIT)
 
-        it('returns the amount of credit if it is credit entry', () => {
+      expect(entry.getDebitAmount()).to.be.null()
+    })
+  })
 
-            const entry = factory.createFromParams('Sales', 500, {date: '2015-01-01'}, CREDIT)
+  describe('getCreditAmount', () => {
+    it('returns the amount of credit if it is credit entry', () => {
+      const entry = factory.createFromParams('Sales', 500, {date: '2015-01-01'}, CREDIT)
 
-            expect(entry.getCreditAmount()).to.be.instanceof(Money)
-            expect(entry.getCreditAmount().amount).to.equal(500)
-
-        })
-
-        it('returns null if it is debit entry', () => {
-
-            const entry = factory.createFromParams('Deposit', 500, {date: '2015-01-01'}, DEBIT)
-
-            expect(entry.getCreditAmount()).to.be.null
-
-        })
-
+      expect(entry.getCreditAmount()).to.be.instanceof(Money)
+      expect(entry.getCreditAmount().amount).to.equal(500)
     })
 
+    it('returns null if it is debit entry', () => {
+      const entry = factory.createFromParams('Deposit', 500, {date: '2015-01-01'}, DEBIT)
 
-    describe('getCorrespondingTitles', () => {
-
-        it('gets the titles of corresponding debit/credit entries', () => {
-
-
-            const d0 = factory.createFromParams('Deposit', 1, {date: '2015-01-01'}, DEBIT)
-            const d1 = factory.createFromParams('Accounts receivable', 1, {date: '2015-01-01'}, DEBIT)
-            const c0 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
-            const c1 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
-
-            const trade = new Trade(null, [d0, d1], [c0, c1])
-
-            d0.setTrade(trade)
-            d1.setTrade(trade)
-            c0.setTrade(trade)
-            c1.setTrade(trade)
-
-            expect(d0.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type])
-            expect(d1.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type])
-            expect(c0.getCorrespondingAccountTypes()).to.eql([d0.type, d1.type])
-            expect(c1.getCorrespondingAccountTypes()).to.eql([d0.type, d1.type])
-
-        })
-
+      expect(entry.getCreditAmount()).to.be.null()
     })
+  })
 
+  describe('getCorrespondingTitles', () => {
+    it('gets the titles of corresponding debit/credit entries', () => {
+      const d0 = factory.createFromParams('Deposit', 1, {date: '2015-01-01'}, DEBIT)
+      const d1 = factory.createFromParams('Accounts receivable', 1, {date: '2015-01-01'}, DEBIT)
+      const c0 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
+      const c1 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
+
+      const trade = new Trade(null, [d0, d1], [c0, c1])
+
+      d0.setTrade(trade)
+      d1.setTrade(trade)
+      c0.setTrade(trade)
+      c1.setTrade(trade)
+
+      expect(d0.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type])
+      expect(d1.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type])
+      expect(c0.getCorrespondingAccountTypes()).to.eql([d0.type, d1.type])
+      expect(c1.getCorrespondingAccountTypes()).to.eql([d0.type, d1.type])
+    })
+  })
 })

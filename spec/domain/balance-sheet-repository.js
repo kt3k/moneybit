@@ -8,23 +8,18 @@ import {journal} from '../helper'
 const repository = new BalanceSheetRepository()
 
 describe('BalanceSheetRepository', () => {
+  describe('saveYamlToPath', () => {
+    it('saves the yaml to the path', () => {
+      const path = `${__dirname}/bs.yml`
 
-    describe('saveYamlToPath', () => {
+      repository.saveYamlToPath(journal.toBalanceSheet(), path)
 
-        it('saves the yaml to the path', () => {
+      const yaml = fs.readFileSync(path).toString()
 
-            const path = __dirname + '/bs.yml'
+      expect(yaml).to.be.a('string')
+      expect(yaml.length).to.gt(0)
 
-            repository.saveYamlToPath(journal.toBalanceSheet(), path)
-
-            const yaml = fs.readFileSync(path).toString()
-
-            expect(yaml).to.be.a('string')
-            expect(yaml.length).to.gt(0)
-
-            rimraf.sync(path)
-
-        })
+      rimraf.sync(path)
     })
-
+  })
 })

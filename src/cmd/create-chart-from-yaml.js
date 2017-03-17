@@ -9,7 +9,5 @@ import AccountTypeChartFactory from '../domain/account-type-chart-factory'
  * @return {AccountTypeChart}
  */
 export default (chartYaml) => {
-
-    return new AccountTypeChartFactory().createFromObject(yaml.safeLoad(chartYaml))
-
+  return new AccountTypeChartFactory().createFromObject(yaml.safeLoad(chartYaml))
 }

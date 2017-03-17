@@ -12,28 +12,22 @@ const chart = new AccountTypeChartFactory().createFromObject(chartObj)
 const journal = new JournalFactory(chart).createFromArray(journalObj)
 
 describe('LedgerRepository', () => {
+  const repository = new LedgerRepository()
 
-    const repository = new LedgerRepository()
+  describe('saveAsYamlToPath', () => {
+    it('saves the ledger to the given path', () => {
+      const ledger = new LedgerFactory().createFromJournal(journal)
 
-    describe('saveAsYamlToPath', () => {
+      const path = `${__dirname}/ledger.yml`
 
-        it('saves the ledger to the given path', () => {
+      repository.saveAsYamlToPath(ledger, path)
 
-            const ledger = new LedgerFactory().createFromJournal(journal)
+      const yaml = fs.readFileSync(path).toString()
 
-            const path = __dirname + '/ledger.yml'
+      expect(yaml).to.be.a('string')
+      expect(yaml.length).to.be.gt(0)
 
-            repository.saveAsYamlToPath(ledger, path)
-
-            const yaml = fs.readFileSync(path).toString()
-
-            expect(yaml).to.be.a('string')
-            expect(yaml.length).to.be.gt(0)
-
-            rimraf.sync(path)
-
-        })
-
+      rimraf.sync(path)
     })
-
+  })
 })

@@ -5,34 +5,26 @@ import Subledger from './subledger'
  * The factory class for the ledger model.
  */
 export default class LedgerFactory {
-
-    createFromJournal(journal) {
-
-        return this.createFromAccounts(journal.accounts())
-
-    }
+  createFromJournal (journal) {
+    return this.createFromAccounts(journal.accounts())
+  }
 
     /**
      * Creates the ledger from the list of the accounts.
      *
      * @param {Array<Account>} accounts The accounts
      */
-    createFromAccounts(accounts) {
+  createFromAccounts (accounts) {
+    let subledgers = {}
 
-        let subledgers = {}
+    accounts.forEach(account => {
+      subledgers[account.type.name] = subledgers[account.type.name] || new Subledger(account.type, [])
 
-        accounts.forEach(account => {
+      subledgers[account.type.name].add(account)
+    })
 
-            subledgers[account.type.name] = subledgers[account.type.name] || new Subledger(account.type, [])
+    subledgers = Object.keys(subledgers).map(typeName => subledgers[typeName])
 
-            subledgers[account.type.name].add(account)
-
-        })
-
-        subledgers = Object.keys(subledgers).map(typeName => subledgers[typeName])
-
-        return new Ledger(subledgers)
-
-    }
-
+    return new Ledger(subledgers)
+  }
 }

@@ -7,26 +7,23 @@ import {ASSET, LIABILITY, EQUITY} from './major-account-type'
  * The repository class of the balance sheet model.
  */
 export default class BalanceSheetRepository {
-
     /**
      * Coverts the balance sheet to the object.
      *
      * @param {BalanceSheet} balanceSheet The balance sheet
      * @return {Object}
      */
-    toObject(balanceSheet) {
+  toObject (balanceSheet) {
+    const obj = {}
 
-        const obj = {}
+    this.insertBSDataByMajorType(balanceSheet, obj, ASSET)
+    this.insertBSDataByMajorType(balanceSheet, obj, LIABILITY)
+    this.insertBSDataByMajorType(balanceSheet, obj, EQUITY)
 
-        this.insertBSDataByMajorType(balanceSheet, obj, ASSET)
-        this.insertBSDataByMajorType(balanceSheet, obj, LIABILITY)
-        this.insertBSDataByMajorType(balanceSheet, obj, EQUITY)
+    obj.total = balanceSheet.totalByMajorType(ASSET).amount
 
-        obj.total = balanceSheet.totalByMajorType(ASSET).amount
-
-        return obj
-
-    }
+    return obj
+  }
 
     /**
      * Inserts the balance sheet data to the object by the given type.
@@ -35,30 +32,22 @@ export default class BalanceSheetRepository {
      * @param {Object} obj The object to insert the data
      * @param {MajorAccountType} majorType The type
      */
-    insertBSDataByMajorType(balanceSheet, obj, majorType) {
+  insertBSDataByMajorType (balanceSheet, obj, majorType) {
+    const subObj = obj[majorType.name] = {}
 
-        const subObj = obj[majorType.name] = {}
+    balanceSheet.subledgers(majorType).forEach(subledger => {
+      subObj[subledger.typeName()] = subledger.total().amount
+    })
 
-        balanceSheet.subledgers(majorType).forEach(subledger => {
+    if (majorType === EQUITY) {
+      const retainedEarnings = balanceSheet.retainedEarnings().amount
 
-            subObj[subledger.typeName()] = subledger.total().amount
-
-        })
-
-        if (majorType === EQUITY) {
-
-            const retainedEarnings = balanceSheet.retainedEarnings().amount
-
-            subObj['Retained earnings'] = retainedEarnings
-            subObj.total = balanceSheet.totalByMajorType(majorType).amount + retainedEarnings
-
-        } else {
-
-            subObj.total = balanceSheet.totalByMajorType(majorType).amount
-
-        }
-
+      subObj['Retained earnings'] = retainedEarnings
+      subObj.total = balanceSheet.totalByMajorType(majorType).amount + retainedEarnings
+    } else {
+      subObj.total = balanceSheet.totalByMajorType(majorType).amount
     }
+  }
 
     /**
      * Converts the balance sheet to the yaml.
@@ -66,21 +55,16 @@ export default class BalanceSheetRepository {
      * @param {BalanceSheet} balanceSheet The balance sheet
      * @return {string} The yaml representation
      */
-    toYaml(balanceSheet) {
-
-        return yaml.safeDump(this.toObject(balanceSheet))
-
-    }
+  toYaml (balanceSheet) {
+    return yaml.safeDump(this.toObject(balanceSheet))
+  }
 
     /**
      * Saves the balance sheet as the yaml string to the path.
      * @param {BalanceSheet} balanceSheet The balance sheet
      * @param {string} path The path to save
      */
-    saveYamlToPath(balanceSheet, path) {
-
-        fs.writeFileSync(path, this.toYaml(balanceSheet))
-
-    }
-
+  saveYamlToPath (balanceSheet, path) {
+    fs.writeFileSync(path, this.toYaml(balanceSheet))
+  }
 }

@@ -7,13 +7,11 @@ import Account from './account'
  * A trade can have multiple credits.
  */
 export default class Credit extends Account {
+  isDebit () {
+    return false
+  }
 
-    isDebit() {
-        return false
-    }
-
-    isCredit() {
-        return true
-    }
-
+  isCredit () {
+    return true
+  }
 }

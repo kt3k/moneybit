@@ -9,18 +9,15 @@ import {sum} from '../util'
  * The repository class of the ledger model.
  */
 export default class LedgerRepository {
-
     /**
      * @param {Ledger} ledger The ledger
      * @param {String} path The path to save
      */
-    saveAsYamlToPath(ledger, path) {
+  saveAsYamlToPath (ledger, path) {
+    var yaml = this.toYaml(ledger)
 
-        var yaml = this.toYaml(ledger)
-
-        fs.writeFileSync(path, yaml)
-
-    }
+    fs.writeFileSync(path, yaml)
+  }
 
     /**
      * Converts the ledger to yaml format.
@@ -28,11 +25,9 @@ export default class LedgerRepository {
      * @param {Ledger} ledger
      * @return {String}
      */
-    toYaml(ledger) {
-
-        return yaml.safeDump(this.ledgerToObject(ledger))
-
-    }
+  toYaml (ledger) {
+    return yaml.safeDump(this.ledgerToObject(ledger))
+  }
 
     /**
      * Converts the ledger to object suitable for yaml serialization.
@@ -40,62 +35,51 @@ export default class LedgerRepository {
      * @param {Ledger} ledger
      * @return {Object}
      */
-    ledgerToObject(ledger) {
+  ledgerToObject (ledger) {
+    const obj = {}
 
-        const obj = {}
+    ALL_TYPES.forEach(majorType => {
+      obj[majorType.name] = this.subledgerListToObject(ledger.getSubledgersByMajorType(majorType))
+    })
 
-        ALL_TYPES.forEach(majorType => {
-
-            obj[majorType.name] = this.subledgerListToObject(ledger.getSubledgersByMajorType(majorType))
-
-        })
-
-        return obj
-
-    }
+    return obj
+  }
 
     /**
      *
      */
-    subledgerListToObject(subledgers) {
-
-        const obj = {
-            total: sum(subledgers.map(subledger => subledger.total().amount))
-        }
-
-        subledgers.forEach(subledger => {
-
-            obj[subledger.type.name] = this.subledgerToObject(subledger)
-
-        })
-
-        return obj
-
+  subledgerListToObject (subledgers) {
+    const obj = {
+      total: sum(subledgers.map(subledger => subledger.total().amount))
     }
+
+    subledgers.forEach(subledger => {
+      obj[subledger.type.name] = this.subledgerToObject(subledger)
+    })
+
+    return obj
+  }
 
     /**
      * Converts the subledger to an object.
      * @param {Subledger} subledger
      * @return {Object}
      */
-    subledgerToObject(subledger) {
+  subledgerToObject (subledger) {
+    const obj = {total: subledger.total().amount}
 
-        const obj = {total: subledger.total().amount}
-
-        if (subledger.side() === DEBIT) {
-            obj.dr = subledger.totalDebit().amount
-            obj.cr = subledger.totalCredit().amount
-        } else {
-            obj.cr = subledger.totalCredit().amount
-            obj.dr = subledger.totalDebit().amount
-        }
-
-        obj.accounts = subledger.accounts.map(account => this.accountToObject(account))
-
-        return obj
-
+    if (subledger.side() === DEBIT) {
+      obj.dr = subledger.totalDebit().amount
+      obj.cr = subledger.totalCredit().amount
+    } else {
+      obj.cr = subledger.totalCredit().amount
+      obj.dr = subledger.totalDebit().amount
     }
 
+    obj.accounts = subledger.accounts.map(account => this.accountToObject(account))
+
+    return obj
+  }
 
     /**
      * Converts the account to the object suitable for yaml serialization.
@@ -103,27 +87,20 @@ export default class LedgerRepository {
      * @param {Account} account
      * @return {Object}
      */
-    accountToObject(account) {
-
-        const obj = {
-            date: account.date.format('YYYY/MM/DD'),
-            desc: account.description,
-            cor: account.getCorrespondingAccountTypes().map(type => type.name).join(' '),
-            ref: account.getTradeId()
-        }
-
-        if (account.isDebit()) {
-
-            obj.dr = account.getDebitAmount().amount
-
-        } else {
-
-            obj.cr = account.getCreditAmount().amount
-
-        }
-
-        return obj
-
+  accountToObject (account) {
+    const obj = {
+      date: account.date.format('YYYY/MM/DD'),
+      desc: account.description,
+      cor: account.getCorrespondingAccountTypes().map(type => type.name).join(' '),
+      ref: account.getTradeId()
     }
 
+    if (account.isDebit()) {
+      obj.dr = account.getDebitAmount().amount
+    } else {
+      obj.cr = account.getCreditAmount().amount
+    }
+
+    return obj
+  }
 }
