@@ -1,6 +1,6 @@
 # TODO
 
-- switch the linter to standard
+- stop babel, use node v6
 - separate cli from this repo or separate core domain from this repo
 - create TradeValidationService
   - Check a trade balances i.e. total dr = total cr
@@ -17,6 +17,7 @@
 - Change journal.yml as first parameter, not --journal option
 
 # DONE
+- switch the linter to standard
 - enhance cli to show monthly sales (Japanese tax declaration format requires these numbers)
 - create BalanceSheet which contains the summuries of Equity, Asset and Liability
 - enhance AccountFactory to throw error when it has no date
