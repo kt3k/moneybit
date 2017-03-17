@@ -6,44 +6,35 @@ import AccountFactory from './account-factory'
  * The factory class for trade model.
  */
 export default class TradeFactory {
-
     /**
      * @param {AccountTypeChart} chart
      */
-    constructor(chart) {
-
-        this.journalEntryFactory = new AccountFactory(chart)
-
-    }
+  constructor (chart) {
+    this.journalEntryFactory = new AccountFactory(chart)
+  }
 
     /**
      * @param {Object} obj The object
      * @return {Trade}
      */
-    createFromObject(obj) {
+  createFromObject (obj) {
+    const debits = Object.keys(obj.dr).map(title => {
+      const amount = obj.dr[title]
 
-        const debits = Object.keys(obj.dr).map(title => {
+      return this.journalEntryFactory.createFromParams(title, amount, obj, DEBIT)
+    })
 
-            const amount = obj.dr[title]
+    const credits = Object.keys(obj.cr).map(title => {
+      const amount = obj.cr[title]
 
-            return this.journalEntryFactory.createFromParams(title, amount, obj, DEBIT)
+      return this.journalEntryFactory.createFromParams(title, amount, obj, CREDIT)
+    })
 
-        })
+    const trade = new Trade(obj.id, debits, credits)
 
-        const credits = Object.keys(obj.cr).map(title => {
+    trade.debits.forEach(entry => entry.setTrade(trade))
+    trade.credits.forEach(entry => entry.setTrade(trade))
 
-            const amount = obj.cr[title]
-
-            return this.journalEntryFactory.createFromParams(title, amount, obj, CREDIT)
-
-        })
-
-        const trade = new Trade(obj.id, debits, credits)
-
-        trade.debits.forEach(entry => entry.setTrade(trade))
-        trade.credits.forEach(entry => entry.setTrade(trade))
-
-        return trade
-    }
-
+    return trade
+  }
 }

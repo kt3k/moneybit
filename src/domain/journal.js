@@ -11,80 +11,64 @@ const ledgerFactory = new LedgerFactory()
  * 仕訳帳
  */
 export default class Journal {
-
     /**
      * @constructor
      * @param {Array<Trade>} trades The list of trades
      */
-    constructor(trades = []) {
+  constructor (trades = []) {
+    this.trades = []
+    this.ids = {}
 
-        this.trades = []
-        this.ids = {}
-
-        this.addTrades(trades)
-
-    }
+    this.addTrades(trades)
+  }
 
     /**
      * Creates a ledger.
      *
      * @return {Ledger}
      */
-    toLedger() {
-
-        return ledgerFactory.createFromJournal(this)
-
-    }
+  toLedger () {
+    return ledgerFactory.createFromJournal(this)
+  }
 
     /**
      * @return {BalanceSheet}
      */
-    toBalanceSheet() {
-
-        return new BalanceSheet(this.toLedger())
-
-    }
+  toBalanceSheet () {
+    return new BalanceSheet(this.toLedger())
+  }
 
     /**
      * Adds the trades.
      * @param {Array<Trade>}
      */
-    addTrades(trades) {
-
-        trades.forEach(trade => this.addTrade(trade))
-
-    }
+  addTrades (trades) {
+    trades.forEach(trade => this.addTrade(trade))
+  }
 
     /**
      * Adds the trade.
      * @param {Trade}
      * @throws {Error} when the id of the trade already exists.
      */
-    addTrade(trade) {
-
-        if (this.ids[trade.id] != null) {
-
-            throw new Error('The trade of the same id already exists: ' + trade.id)
-
-        }
-
-        this.ids[trade.id] = trade
-
-        this.trades.push(trade)
-
+  addTrade (trade) {
+    if (this.ids[trade.id] != null) {
+      throw new Error('The trade of the same id already exists: ' + trade.id)
     }
+
+    this.ids[trade.id] = trade
+
+    this.trades.push(trade)
+  }
 
     /**
      * Returns the list of accounts.
      *
      * @return {Array<Account>}
      */
-    accounts() {
+  accounts () {
+    const accounts = this.trades.map(trade => trade.accounts())
 
-        const accounts = this.trades.map(trade => trade.accounts())
-
-        return [].concat(...accounts) // i.e. flatten(accounts)
-
-    }
-
+    return [].concat(...accounts) // i.e. flatten(accounts)
+  }
 }

@@ -11,16 +11,14 @@ import createChartFromYaml from './create-chart-from-yaml'
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-export default function createJournalFromYaml(journalYaml, chartYaml = {}) {
+export default function createJournalFromYaml (journalYaml, chartYaml = {}) {
+  const chart = createChartFromYaml(chartYaml)
+  const tradeFactory = new TradeFactory(chart)
+  const journal = new Journal()
 
-    const chart = createChartFromYaml(chartYaml)
-    const tradeFactory = new TradeFactory(chart)
-    const journal = new Journal()
+  yaml.safeLoadAll(journalYaml, (data) => {
+    journal.addTrade(tradeFactory.createFromObject(data))
+  })
 
-    yaml.safeLoadAll(journalYaml, (data) => {
-        journal.addTrade(tradeFactory.createFromObject(data))
-    })
-
-    return journal
-
+  return journal
 }

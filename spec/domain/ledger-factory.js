@@ -11,19 +11,13 @@ const chart = new AccountTypeChartFactory().createFromObject(chartObj)
 const journal = new JournalFactory(chart).createFromArray(journalObj)
 
 describe('LedgerFactory', () => {
+  const factory = new LedgerFactory()
 
-    const factory = new LedgerFactory()
+  describe('createFromJournal', () => {
+    it('creates a ledger from the journal', () => {
+      const ledger = factory.createFromJournal(journal)
 
-    describe('createFromJournal', () => {
-
-        it('creates a ledger from the journal', () => {
-
-            const ledger = factory.createFromJournal(journal)
-
-            expect(ledger).to.be.instanceof(Ledger)
-
-        })
-
+      expect(ledger).to.be.instanceof(Ledger)
     })
-
+  })
 })

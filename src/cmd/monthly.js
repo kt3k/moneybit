@@ -16,46 +16,38 @@ const detailFlag = false
  * @param {string} typeName
  */
 export default (journalYaml, chartYaml, typeName) => {
+  const chart = createChartFromYaml(chartYaml)
 
-    const chart = createChartFromYaml(chartYaml)
+  const type = new AccountTypeFactory(chart).createFromName(typeName)
 
-    const type = new AccountTypeFactory(chart).createFromName(typeName)
+  const ledger = createJournalFromYaml(journalYaml, chartYaml).toLedger()
 
-    const ledger = createJournalFromYaml(journalYaml, chartYaml).toLedger()
+  const subledger = ledger.getSubledgerByAccountType(type)
 
-    const subledger = ledger.getSubledgerByAccountType(type)
+  const first = subledger.firstAccount().date
+  const last = subledger.lastAccount().date
 
-    const first = subledger.firstAccount().date
-    const last = subledger.lastAccount().date
+  let month = moment(first)
+  let currentTotal = 0
+  const buffer = {}
 
-    let month = moment(first)
-    let currentTotal = 0
-    const buffer = {}
+  while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {
+    const subledgerByMonth = subledger.filterByMonth(month)
 
-    while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {
-
-        const subledgerByMonth = subledger.filterByMonth(month)
-
-        if (detailFlag) {
-
-            buffer[month.format('YYYY/MM')] = ledgerRepository.subledgerToObject(subledgerByMonth)
-
-        } else {
-
-            const obj = buffer[month.format('YYYY/MM')] = {}
-            const total = subledgerByMonth.total().amount
-            obj[subledger.type.name] = total
-            currentTotal += total
-            obj.total = currentTotal
-
-        }
-
-        month.add(1, 'month')
-
+    if (detailFlag) {
+      buffer[month.format('YYYY/MM')] = ledgerRepository.subledgerToObject(subledgerByMonth)
+    } else {
+      const obj = buffer[month.format('YYYY/MM')] = {}
+      const total = subledgerByMonth.total().amount
+      obj[subledger.type.name] = total
+      currentTotal += total
+      obj.total = currentTotal
     }
 
-    buffer.total = subledger.total().amount
+    month.add(1, 'month')
+  }
 
-    return yaml.safeDump(buffer)
+  buffer.total = subledger.total().amount
 
+  return yaml.safeDump(buffer)
 }

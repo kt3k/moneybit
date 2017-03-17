@@ -12,10 +12,8 @@ const bsRepo = new BalanceSheetRepository()
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-export default function createLedgerYml(journalYaml, chartYaml = {}) {
+export default function createLedgerYml (journalYaml, chartYaml = {}) {
+  const journal = createJournalFromYaml(journalYaml, chartYaml)
 
-    const journal = createJournalFromYaml(journalYaml, chartYaml)
-
-    return bsRepo.toYaml(journal.toBalanceSheet())
-
+  return bsRepo.toYaml(journal.toBalanceSheet())
 }

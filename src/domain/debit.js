@@ -8,13 +8,11 @@ import Account from './account'
  * A trade can have multiple debit.
  */
 export default class Debit extends Account {
+  isDebit () {
+    return true
+  }
 
-    isDebit() {
-        return true
-    }
-
-    isCredit() {
-        return false
-    }
-
+  isCredit () {
+    return false
+  }
 }

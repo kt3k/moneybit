@@ -11,22 +11,13 @@ import {expect} from 'chai'
 
 const ledger = new JournalFactory(new AccountTypeChartFactory().createFromObject(chartObj)).createFromArray(journalObj).toLedger()
 
-
 describe('BalanceSheet', () => {
+  describe('retainedEarnings', () => {
+    it('returns the retained earning of the balance sheet', () => {
+      const bs = new BalanceSheet(ledger)
 
-    describe('retainedEarnings', () => {
-
-        it('returns the retained earning of the balance sheet', () => {
-
-            const bs = new BalanceSheet(ledger)
-
-            expect(bs.retainedEarnings()).to.be.instanceof(Money)
-            expect(bs.retainedEarnings().amount).to.equal(950)
-
-        })
-
+      expect(bs.retainedEarnings()).to.be.instanceof(Money)
+      expect(bs.retainedEarnings().amount).to.equal(950)
     })
-
+  })
 })
-
-

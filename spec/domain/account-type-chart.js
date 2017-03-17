@@ -7,32 +7,22 @@ import {expect} from 'chai'
 const factory = new AccountTypeChartFactory()
 
 describe('AccountTypeChart', () => {
+  let chart
 
-    let chart
+  beforeEach(() => {
+    chart = factory.createFromObject(chartObj)
+  })
 
-    beforeEach(() => {
+  describe('getMajorTypeByAccountTypeName', () => {
+    it('gets the major type when the type name is found in the chart', () => {
+      const majorType = chart.getMajorTypeByAccountTypeName('Capital')
 
-        chart = factory.createFromObject(chartObj)
-
+      expect(majorType).to.be.instanceof(MajorAccountType)
+      expect(majorType).to.equal(EQUITY)
     })
 
-    describe('getMajorTypeByAccountTypeName', () => {
-
-        it('gets the major type when the type name is found in the chart', () => {
-
-            const majorType = chart.getMajorTypeByAccountTypeName('Capital')
-
-            expect(majorType).to.be.instanceof(MajorAccountType)
-            expect(majorType).to.equal(EQUITY)
-
-        })
-
-        it('throws when the type name is not found by the chart', () => {
-
-            expect(() => chart.getMajorTypeByAccountTypeName('A')).to.throw()
-
-        })
-
+    it('throws when the type name is not found by the chart', () => {
+      expect(() => chart.getMajorTypeByAccountTypeName('A')).to.throw()
     })
-
+  })
 })
