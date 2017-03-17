@@ -2,6 +2,10 @@
 
 > A Cli tool for creating a general ledger from the journal.
 
+[![CircleCI](https://circleci.com/gh/kt3k/ledgerman.svg?style=svg)](https://circleci.com/gh/kt3k/ledgerman)
+[![codecov](https://codecov.io/gh/kt3k/ledgerman/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/ledgerman)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
+
 # How to use
 
 First, install the cli by the following command:
