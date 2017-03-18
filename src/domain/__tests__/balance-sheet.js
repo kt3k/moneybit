@@ -1,8 +1,4 @@
-const BalanceSheet = require('../balance-sheet')
-const Money = require('../money')
-
-const AccountTypeChartFactory = require('../account-type-chart-factory')
-const JournalFactory = require('../journal-factory')
+const { BalanceSheet, Money, AccountTypeChartFactory, JournalFactory } = require('../')
 
 const journalObj = require('../../__mocks__/journal')
 const chartObj = require('../../__mocks__/chart')

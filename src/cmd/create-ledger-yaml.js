@@ -1,4 +1,5 @@
-const LedgerRepository = require('../domain/ledger-repository')
+const { LedgerRepository } = require('../domain')
+
 const createJournalFromYaml = require('./create-journal-from-yaml')
 
 const ledgerRepo = new LedgerRepository()

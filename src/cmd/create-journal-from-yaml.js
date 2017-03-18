@@ -1,7 +1,6 @@
 const yaml = require('js-yaml')
+const { Journal, TradeFactory } = require('../domain')
 
-const Journal = require('../domain/journal')
-const TradeFactory = require('../domain/trade-factory')
 const createChartFromYaml = require('./create-chart-from-yaml')
 
 /**

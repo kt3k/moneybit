@@ -1,5 +1,4 @@
-const AccountTypeChartFactory = require('../account-type-chart-factory')
-const MajorAccountType = require('../major-account-type')
+const { AccountTypeChartFactory, MajorAccountType } = require('../')
 const { EQUITY } = MajorAccountType
 const chartObj = require('../../__mocks__/chart')
 

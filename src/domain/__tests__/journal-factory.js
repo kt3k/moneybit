@@ -1,11 +1,8 @@
-const JournalFactory = require('../journal-factory')
-const AccountTypeChartFactory = require('../account-type-chart-factory')
-const Journal = require('../journal')
+const { Journal, JournalFactory, AccountTypeChartFactory } = require('../')
+const { expect } = require('chai')
 
 const journalObj = require('../../__mocks__/journal')
 const chartObj = require('../../__mocks__/chart')
-
-const { expect } = require('chai')
 
 const chart = new AccountTypeChartFactory().createFromObject(chartObj)
 

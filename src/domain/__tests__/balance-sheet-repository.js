@@ -1,8 +1,8 @@
 const fs = require('fs')
 const rimraf = require('rimraf')
-const {expect} = require('chai')
+const { expect } = require('chai')
 
-const BalanceSheetRepository = require('../balance-sheet-repository')
+const { BalanceSheetRepository } = require('../')
 const { journal } = require('../../__tests__/helper')
 
 const repository = new BalanceSheetRepository()

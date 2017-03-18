@@ -1,5 +1,5 @@
-const AccountTypeChartFactory = require('../account-type-chart-factory')
-const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('../major-account-type')
+const { AccountTypeChartFactory, MajorAccountType } = require('../')
+const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = MajorAccountType
 const { expect } = require('chai')
 
 const factory = new AccountTypeChartFactory()

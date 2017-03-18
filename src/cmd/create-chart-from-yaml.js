@@ -1,5 +1,5 @@
 const yaml = require('js-yaml')
-const AccountTypeChartFactory = require('../domain/account-type-chart-factory')
+const { AccountTypeChartFactory } = require('../domain')
 
 /**
  * Creates the chart model from the yaml buffer.

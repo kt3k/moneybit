@@ -3,8 +3,8 @@ const moment = require('moment')
 
 const createJournalFromYaml = require('./create-journal-from-yaml')
 const createChartFromYaml = require('./create-chart-from-yaml')
-const AccountTypeFactory = require('../domain/account-type-factory')
-const LedgerRepository = require('../domain/ledger-repository')
+
+const { AccountTypeFactory, LedgerRepository } = require('../domain')
 
 const ledgerRepository = new LedgerRepository()
 const detailFlag = false

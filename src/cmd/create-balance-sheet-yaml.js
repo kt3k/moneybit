@@ -1,4 +1,4 @@
-const BalanceSheetRepository = require('../domain/balance-sheet-repository')
+const { BalanceSheetRepository } = require('../domain')
 
 const createJournalFromYaml = require('./create-journal-from-yaml')
 
