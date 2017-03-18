@@ -1,4 +1,4 @@
-import Account from './account'
+const Account = require('./account')
 
 /**
  * The credit model.
@@ -6,7 +6,7 @@ import Account from './account'
  * A credit is a kind of account which appears at the right side of the trade record.
  * A trade can have multiple credits.
  */
-export default class Credit extends Account {
+class Credit extends Account {
   isDebit () {
     return false
   }
@@ -15,3 +15,5 @@ export default class Credit extends Account {
     return true
   }
 }
+
+module.exports = Credit

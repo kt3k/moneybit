@@ -1,14 +1,14 @@
-import moment from 'moment'
-import Money from './money'
-import Debit from './debit'
-import Credit from './credit'
-import {DEBIT} from './trade-side'
-import AccountTypeFactory from './account-type-factory'
+const moment = require('moment')
+const Money = require('./money')
+const Debit = require('./debit')
+const Credit = require('./credit')
+const { DEBIT } = require('./trade-side')
+const AccountTypeFactory = require('./account-type-factory')
 
 /**
  * The factory class for Account model.
  */
-export default class AccountFactory {
+class AccountFactory {
     /**
      * @param {AccountTypeChart} chart
      */
@@ -44,3 +44,5 @@ export default class AccountFactory {
     }
   }
 }
+
+module.exports = AccountFactory

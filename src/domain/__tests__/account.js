@@ -1,13 +1,13 @@
-import AccountTypeChartFactory from '../../src/domain/account-type-chart-factory'
-import AccountFactory from '../../src/domain/account-factory'
-import Money from '../../src/domain/money'
-import Trade from '../../src/domain/trade'
-import {DEBIT, CREDIT} from '../../src/domain/trade-side'
-import chartObj from '../fixture/chart'
+const AccountTypeChartFactory = require('../account-type-chart-factory')
+const AccountFactory = require('../account-factory')
+const Money = require('../money')
+const Trade = require('../trade')
+const { DEBIT, CREDIT } = require('../trade-side')
+const chartObj = require('../../__mocks__/chart')
 
 const chart = new AccountTypeChartFactory().createFromObject(chartObj)
 const factory = new AccountFactory(chart)
-const expect = require('chai').expect
+const { expect } = require('chai')
 
 describe('Account', () => {
   describe('getDebitAmount', () => {

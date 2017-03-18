@@ -1,6 +1,6 @@
-import {sum} from '../src/util'
+const { sum } = require('../util')
 
-import {expect} from 'chai'
+const { expect } = require('chai')
 
 describe('sum', () => {
   it('adds up the given numbers', () => {

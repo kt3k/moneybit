@@ -1,19 +1,20 @@
-import Ledger from './ledger'
-import Subledger from './subledger'
+const Ledger = require('./ledger')
+const Subledger = require('./subledger')
 
 /**
  * The factory class for the ledger model.
  */
-export default class LedgerFactory {
+class LedgerFactory {
+
   createFromJournal (journal) {
     return this.createFromAccounts(journal.accounts())
   }
 
-    /**
-     * Creates the ledger from the list of the accounts.
-     *
-     * @param {Array<Account>} accounts The accounts
-     */
+  /**
+   * Creates the ledger from the list of the accounts.
+   *
+   * @param {Array<Account>} accounts The accounts
+   */
   createFromAccounts (accounts) {
     let subledgers = {}
 
@@ -28,3 +29,5 @@ export default class LedgerFactory {
     return new Ledger(subledgers)
   }
 }
+
+module.exports = LedgerFactory

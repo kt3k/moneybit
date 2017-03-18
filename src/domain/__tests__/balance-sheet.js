@@ -1,13 +1,13 @@
-import BalanceSheet from '../../src/domain/balance-sheet'
-import Money from '../../src/domain/money'
+const BalanceSheet = require('../balance-sheet')
+const Money = require('../money')
 
-import AccountTypeChartFactory from '../../src/domain/account-type-chart-factory'
-import JournalFactory from '../../src/domain/journal-factory'
+const AccountTypeChartFactory = require('../account-type-chart-factory')
+const JournalFactory = require('../journal-factory')
 
-import journalObj from '../fixture/journal'
-import chartObj from '../fixture/chart'
+const journalObj = require('../../__mocks__/journal')
+const chartObj = require('../../__mocks__/chart')
 
-import {expect} from 'chai'
+const { expect } = require('chai')
 
 const ledger = new JournalFactory(new AccountTypeChartFactory().createFromObject(chartObj)).createFromArray(journalObj).toLedger()
 

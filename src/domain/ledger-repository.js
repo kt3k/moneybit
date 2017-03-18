@@ -1,14 +1,14 @@
-import fs from 'fs'
-import yaml from 'js-yaml'
+const fs = require('fs')
+const yaml = require('js-yaml')
 
-import {ALL_TYPES} from './major-account-type'
-import {DEBIT} from './trade-side'
-import {sum} from '../util'
+const { ALL_TYPES } = require('./major-account-type')
+const { DEBIT } = require('./trade-side')
+const { sum } = require('../util')
 
 /**
  * The repository class of the ledger model.
  */
-export default class LedgerRepository {
+class LedgerRepository {
     /**
      * @param {Ledger} ledger The ledger
      * @param {String} path The path to save
@@ -104,3 +104,5 @@ export default class LedgerRepository {
     return obj
   }
 }
+
+module.exports = LedgerRepository

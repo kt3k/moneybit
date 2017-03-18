@@ -1,11 +1,11 @@
-import AccountTypeChartFactory from '../../src/domain/account-type-chart-factory'
-import JournalFactory from '../../src/domain/journal-factory'
-import TradeFactory from '../../src/domain/trade-factory'
-import Ledger from '../../src/domain/ledger'
-import chartObj from '../fixture/chart'
-import journalObj from '../fixture/journal'
+const AccountTypeChartFactory = require('../account-type-chart-factory')
+const JournalFactory = require('../journal-factory')
+const TradeFactory = require('../trade-factory')
+const Ledger = require('../ledger')
+const chartObj = require('../../__mocks__/chart')
+const journalObj = require('../../__mocks__/journal')
 
-import {expect} from 'chai'
+const { expect } = require('chai')
 
 const chart = new AccountTypeChartFactory().createFromObject(chartObj)
 const journal = new JournalFactory(chart).createFromArray(journalObj)

@@ -1,22 +1,23 @@
-import {DEBIT, CREDIT} from './trade-side'
-import Trade from './trade'
-import AccountFactory from './account-factory'
+const { DEBIT, CREDIT } = require('./trade-side')
+const Trade = require('./trade')
+const AccountFactory = require('./account-factory')
 
 /**
  * The factory class for trade model.
  */
-export default class TradeFactory {
-    /**
-     * @param {AccountTypeChart} chart
-     */
+class TradeFactory {
+
+  /**
+   * @param {AccountTypeChart} chart
+   */
   constructor (chart) {
     this.journalEntryFactory = new AccountFactory(chart)
   }
 
-    /**
-     * @param {Object} obj The object
-     * @return {Trade}
-     */
+  /**
+   * @param {Object} obj The object
+   * @return {Trade}
+   */
   createFromObject (obj) {
     const debits = Object.keys(obj.dr).map(title => {
       const amount = obj.dr[title]
@@ -38,3 +39,5 @@ export default class TradeFactory {
     return trade
   }
 }
+
+module.exports = TradeFactory

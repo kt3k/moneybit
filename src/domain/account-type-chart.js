@@ -1,9 +1,9 @@
-import {ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE} from './major-account-type'
+const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
 
 /**
  * The account type chart model.
  */
-export default class AccountTypeChart {
+class AccountTypeChart {
   constructor () {
     this.names = {}
     this.names[ASSET.name] = []
@@ -15,24 +15,24 @@ export default class AccountTypeChart {
     this.majorTypes = {}
   }
 
-    /**
-     * Adds the account type name by the major account type.
-     *
-     * @param {string} name The name of the account type
-     * @param {MajorAccountType} majorType The major account type
-     */
+  /**
+   * Adds the account type name by the major account type.
+   *
+   * @param {string} name The name of the account type
+   * @param {MajorAccountType} majorType The major account type
+   */
   addNameByMajorType (name, majorType) {
     this.names[majorType.name].push(name)
     this.majorTypes[name] = majorType
   }
 
-    /**
-     * Gets the major type by the account type name.
-     *
-     * @param {string} name The name of account type
-     * @return {MajorAccountType}
-     * @throws {Error} when the account type name is not found in the chart
-     */
+  /**
+   * Gets the major type by the account type name.
+   *
+   * @param {string} name The name of account type
+   * @return {MajorAccountType}
+   * @throws {Error} when the account type name is not found in the chart
+   */
   getMajorTypeByAccountTypeName (name) {
     const majorType = this.majorTypes[name]
 
@@ -43,3 +43,5 @@ export default class AccountTypeChart {
     return majorType
   }
 }
+
+module.exports = AccountTypeChart

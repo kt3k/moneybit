@@ -6,15 +6,16 @@
  *
  * @abstract
  */
-export default class Account {
-    /**
-     * @constructor
-     * @param {moment} date The date of the entry
-     * @param {AccountType} type The type of the entry
-     * @param {Money} amount The amount of the entry
-     * @param {String} description The description of the entry
-     * @param {Trade} trade The trade the account belongs
-     */
+class Account {
+
+  /**
+   * @constructor
+   * @param {moment} date The date of the entry
+   * @param {AccountType} type The type of the entry
+   * @param {Money} amount The amount of the entry
+   * @param {String} description The description of the entry
+   * @param {Trade} trade The trade the account belongs
+   */
   constructor (date, type, amount, description, trade) {
     this.date = date
     this.type = type
@@ -23,20 +24,20 @@ export default class Account {
     this.trade = trade
   }
 
-    /**
-     * Sets the trade.
-     *
-     * @param {Trade} trade
-     */
+  /**
+   * Sets the trade.
+   *
+   * @param {Trade} trade
+   */
   setTrade (trade) {
     this.trade = trade
   }
 
-    /**
-     * Gets the debit amount.
-     *
-     * @return {Money}
-     */
+  /**
+   * Gets the debit amount.
+   *
+   * @return {Money}
+   */
   getDebitAmount () {
     if (this.isDebit()) {
       return this.amount
@@ -45,11 +46,11 @@ export default class Account {
     return null
   }
 
-    /**
-     * Gets the credit amount.
-     *
-     * @return {Money}
-     */
+  /**
+   * Gets the credit amount.
+   *
+   * @return {Money}
+   */
   getCreditAmount () {
     if (this.isCredit()) {
       return this.amount
@@ -58,11 +59,11 @@ export default class Account {
     return null
   }
 
-    /**
-     * Gets the corresponding titles
-     *
-     * @return {Array<AccountType>}
-     */
+  /**
+   * Gets the corresponding titles
+   *
+   * @return {Array<AccountType>}
+   */
   getCorrespondingAccountTypes () {
     if (this.isCredit()) {
       return this.trade.debitTypes()
@@ -71,43 +72,45 @@ export default class Account {
     }
   }
 
-    /**
-     * Returns the id of the trade.
-     *
-     * @return {string}
-     */
+  /**
+   * Returns the id of the trade.
+   *
+   * @return {string}
+   */
   getTradeId () {
     return this.trade.id
   }
 
-    /**
-     * Returns true when the account is in the given month.
-     *
-     * @param {moment} month The month to check
-     * @return {boolean}
-     */
+  /**
+   * Returns true when the account is in the given month.
+   *
+   * @param {moment} month The month to check
+   * @return {boolean}
+   */
   isInMonth (month) {
     return this.date.isSame(month, 'month')
   }
 
-    /**
-     * Returns the difference of the date of the account.
-     * @param {Account}
-     * @return {number}
-     */
+  /**
+   * Returns the difference of the date of the account.
+   * @param {Account}
+   * @return {number}
+   */
   dateDiff (account) {
     return this.date.diff(account.date)
   }
 
-    /**
-     * @abstract
-     */
+  /**
+   * @abstract
+   */
   isDebit () {
   }
 
-    /**
-     * @abstract
-     */
+  /**
+   * @abstract
+   */
   isCredit () {
   }
 }
+
+module.exports = Account

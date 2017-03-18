@@ -1,5 +1,5 @@
-import LedgerFactory from './ledger-factory'
-import BalanceSheet from './balance-sheet'
+const LedgerFactory = require('./ledger-factory')
+const BalanceSheet = require('./balance-sheet')
 
 const ledgerFactory = new LedgerFactory()
 
@@ -10,11 +10,12 @@ const ledgerFactory = new LedgerFactory()
  *
  * 仕訳帳
  */
-export default class Journal {
-    /**
-     * @constructor
-     * @param {Array<Trade>} trades The list of trades
-     */
+class Journal {
+
+  /**
+   * @constructor
+   * @param {Array<Trade>} trades The list of trades
+   */
   constructor (trades = []) {
     this.trades = []
     this.ids = {}
@@ -22,35 +23,35 @@ export default class Journal {
     this.addTrades(trades)
   }
 
-    /**
-     * Creates a ledger.
-     *
-     * @return {Ledger}
-     */
+  /**
+   * Creates a ledger.
+   *
+   * @return {Ledger}
+   */
   toLedger () {
     return ledgerFactory.createFromJournal(this)
   }
 
-    /**
-     * @return {BalanceSheet}
-     */
+  /**
+   * @return {BalanceSheet}
+   */
   toBalanceSheet () {
     return new BalanceSheet(this.toLedger())
   }
 
-    /**
-     * Adds the trades.
-     * @param {Array<Trade>}
-     */
+  /**
+   * Adds the trades.
+   * @param {Array<Trade>}
+   */
   addTrades (trades) {
     trades.forEach(trade => this.addTrade(trade))
   }
 
-    /**
-     * Adds the trade.
-     * @param {Trade}
-     * @throws {Error} when the id of the trade already exists.
-     */
+  /**
+   * Adds the trade.
+   * @param {Trade}
+   * @throws {Error} when the id of the trade already exists.
+   */
   addTrade (trade) {
     if (this.ids[trade.id] != null) {
       throw new Error('The trade of the same id already exists: ' + trade.id)
@@ -61,14 +62,16 @@ export default class Journal {
     this.trades.push(trade)
   }
 
-    /**
-     * Returns the list of accounts.
-     *
-     * @return {Array<Account>}
-     */
+  /**
+   * Returns the list of accounts.
+   *
+   * @return {Array<Account>}
+   */
   accounts () {
     const accounts = this.trades.map(trade => trade.accounts())
 
     return [].concat(...accounts) // i.e. flatten(accounts)
   }
 }
+
+module.exports = Journal

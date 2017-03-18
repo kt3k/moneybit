@@ -1,9 +1,9 @@
-import fs from 'fs'
-import rimraf from 'rimraf'
-import {expect} from 'chai'
+const fs = require('fs')
+const rimraf = require('rimraf')
+const {expect} = require('chai')
 
-import BalanceSheetRepository from '../../src/domain/balance-sheet-repository'
-import {journal} from '../helper'
+const BalanceSheetRepository = require('../balance-sheet-repository')
+const { journal } = require('../../__tests__/helper')
 
 const repository = new BalanceSheetRepository()
 

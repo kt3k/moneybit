@@ -1,14 +1,15 @@
-import AccountTypeChart from './account-type-chart'
-import {ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE} from './major-account-type'
+const AccountTypeChart = require('./account-type-chart')
+const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
 
 /**
  * The factory class of the account type chart.
  */
-export default class AccountTypeChartFactory {
-    /**
-     * @param {Object} obj The chart object
-     * @return {AccountTypeChart}
-     */
+class AccountTypeChartFactory {
+
+  /**
+   * @param {Object} obj The chart object
+   * @return {AccountTypeChart}
+   */
   createFromObject (obj) {
     const assetNames = obj[ASSET.name] || []
     const liabilityNames = obj[LIABILITY.name] || []
@@ -27,3 +28,5 @@ export default class AccountTypeChartFactory {
     return chart
   }
 }
+
+module.exports = AccountTypeChartFactory

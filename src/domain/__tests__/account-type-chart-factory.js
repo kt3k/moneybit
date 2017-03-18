@@ -1,6 +1,6 @@
-import AccountTypeChartFactory from '../../src/domain/account-type-chart-factory'
-import {ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE} from '../../src/domain/major-account-type'
-import {expect} from 'chai'
+const AccountTypeChartFactory = require('../account-type-chart-factory')
+const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('../major-account-type')
+const { expect } = require('chai')
 
 const factory = new AccountTypeChartFactory()
 

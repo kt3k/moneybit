@@ -1,4 +1,4 @@
-import {ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE} from './major-account-type'
+const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
 
 /**
  * The ledger model.
@@ -7,11 +7,12 @@ import {ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE} from './major-account-type'
  *
  * 総勘定元帳
  */
-export default class Ledger {
-    /**
-     * @constructor
-     * @param {Array<Subledger>} subledgers
-     */
+class Ledger {
+
+  /**
+   * @constructor
+   * @param {Array<Subledger>} subledgers
+   */
   constructor (subledgers) {
     this.subledgers = {}
     this.subledgers[ASSET.name] = []
@@ -25,11 +26,11 @@ export default class Ledger {
     subledgers.forEach(subledger => this.add(subledger))
   }
 
-    /**
-     * Adds the subledger.
-     *
-     * @param {Subledger} subledger The subledger
-     */
+  /**
+   * Adds the subledger.
+   *
+   * @param {Subledger} subledger The subledger
+   */
   add (subledger) {
     switch (subledger.type.majorType) {
       case ASSET:
@@ -52,21 +53,21 @@ export default class Ledger {
     this.subledgerList.push(subledger)
   }
 
-    /**
-     * Gets the subledgers by the major account type.
-     *
-     * @param {MajorAccountType} majorType The major account type
-     * @return {Array<Subledger>}
-     */
+  /**
+   * Gets the subledgers by the major account type.
+   *
+   * @param {MajorAccountType} majorType The major account type
+   * @return {Array<Subledger>}
+   */
   getSubledgersByMajorType (majorType) {
     return this.subledgers[majorType.name]
   }
 
-    /**
-     * @param {AccountType} type The account type
-     * @return {Subledger}
-     * @throws {Error} when the subledger of the given type is not found.
-     */
+  /**
+   * @param {AccountType} type The account type
+   * @return {Subledger}
+   * @throws {Error} when the subledger of the given type is not found.
+   */
   getSubledgerByAccountType (type) {
     const subledgers = this.subledgerList.filter(subledger => subledger.type.equals(type))
 
@@ -77,3 +78,5 @@ export default class Ledger {
     return subledgers[0]
   }
 }
+
+module.exports = Ledger

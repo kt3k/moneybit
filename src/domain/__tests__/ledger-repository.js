@@ -1,12 +1,12 @@
-import fs from 'fs'
-import rimraf from 'rimraf'
-import AccountTypeChartFactory from '../../src/domain/account-type-chart-factory'
-import JournalFactory from '../../src/domain/journal-factory'
-import LedgerRepository from '../../src/domain/ledger-repository'
-import LedgerFactory from '../../src/domain/ledger-factory'
-import chartObj from '../fixture/chart'
-import journalObj from '../fixture/journal'
-import {expect} from 'chai'
+const fs = require('fs')
+const rimraf = require('rimraf')
+const AccountTypeChartFactory = require('../account-type-chart-factory')
+const JournalFactory = require('../journal-factory')
+const LedgerRepository = require('../ledger-repository')
+const LedgerFactory = require('../ledger-factory')
+const chartObj = require('../../__mocks__/chart')
+const journalObj = require('../../__mocks__/journal')
+const { expect } = require('chai')
 
 const chart = new AccountTypeChartFactory().createFromObject(chartObj)
 const journal = new JournalFactory(chart).createFromArray(journalObj)

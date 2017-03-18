@@ -1,8 +1,9 @@
-import AccountTypeChartFactory from '../../src/domain/account-type-chart-factory'
-import MajorAccountType, {EQUITY} from '../../src/domain/major-account-type'
-import chartObj from '../fixture/chart'
+const AccountTypeChartFactory = require('../account-type-chart-factory')
+const MajorAccountType = require('../major-account-type')
+const { EQUITY } = MajorAccountType
+const chartObj = require('../../__mocks__/chart')
 
-import {expect} from 'chai'
+const { expect } = require('chai')
 
 const factory = new AccountTypeChartFactory()
 
