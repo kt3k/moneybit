@@ -1,13 +1,12 @@
-import yaml from 'js-yaml'
-import moment from 'moment'
+const yaml = require('js-yaml')
+const moment = require('moment')
 
-import createJournalFromYaml from './create-journal-from-yaml'
-import createChartFromYaml from './create-chart-from-yaml'
-import AccountTypeFactory from '../domain/account-type-factory'
-import LedgerRepository from '../domain/ledger-repository'
+const createJournalFromYaml = require('./create-journal-from-yaml')
+const createChartFromYaml = require('./create-chart-from-yaml')
+const AccountTypeFactory = require('../domain/account-type-factory')
+const LedgerRepository = require('../domain/ledger-repository')
 
 const ledgerRepository = new LedgerRepository()
-
 const detailFlag = false
 
 /**
@@ -15,7 +14,7 @@ const detailFlag = false
  * @param {Buffer} chartYaml
  * @param {string} typeName
  */
-export default (journalYaml, chartYaml, typeName) => {
+module.exports = (journalYaml, chartYaml, typeName) => {
   const chart = createChartFromYaml(chartYaml)
 
   const type = new AccountTypeFactory(chart).createFromName(typeName)

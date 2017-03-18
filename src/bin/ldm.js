@@ -1,13 +1,12 @@
-import fs from 'fs'
-import minimist from 'minimist'
-import * as Const from '../const'
-import createLedgerYaml from '../cmd/create-ledger-yaml'
-import createBalanceSheetYaml from '../cmd/create-balance-sheet-yaml'
-import monthly from '../cmd/monthly'
+const fs = require('fs')
+const minimist = require('minimist')
+const Const = require('../const')
+const createLedgerYaml = require('../cmd/create-ledger-yaml')
+const createBalanceSheetYaml = require('../cmd/create-balance-sheet-yaml')
+const monthly = require('../cmd/monthly')
 
 /**
  * Reads the given file and returns the contents.
- *
  * @param {string} file The file
  * @return {Buffer}
  */
@@ -32,7 +31,6 @@ function readFile (file) {
 
 /**
  * Invokes the command by the name with the arguments journal and chart.
- *
  * @param {string} name The command name
  * @param {Buffer} journal The journal data
  * @param {Buffer} chart The chart data
@@ -57,7 +55,7 @@ function invokeCommand (name, journal, chart, args) {
   }
 }
 
-(function main () {
+function main () {
   const argv = minimist(process.argv.slice(2))
 
   const journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
@@ -74,4 +72,6 @@ function invokeCommand (name, journal, chart, args) {
     console.error(e.stack)
     process.exit()
   }
-})()
+}
+
+main()

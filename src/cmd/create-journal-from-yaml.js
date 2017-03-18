@@ -1,17 +1,16 @@
-import yaml from 'js-yaml'
+const yaml = require('js-yaml')
 
-import Journal from '../domain/journal'
-import TradeFactory from '../domain/trade-factory'
-import createChartFromYaml from './create-chart-from-yaml'
+const Journal = require('../domain/journal')
+const TradeFactory = require('../domain/trade-factory')
+const createChartFromYaml = require('./create-chart-from-yaml')
 
 /**
- * Takes journal.yml and chart.yml and converts them to ledger.yml.
- *
+ * Takes journal.yml and chart.yml and creates a journal model.
  * @param {string} journalYaml The journal.yml
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-export default function createJournalFromYaml (journalYaml, chartYaml = {}) {
+module.exports = (journalYaml, chartYaml = {}) => {
   const chart = createChartFromYaml(chartYaml)
   const tradeFactory = new TradeFactory(chart)
   const journal = new Journal()

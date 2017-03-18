@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../lib/bin/ldm')
+require('../src/bin/ldm')

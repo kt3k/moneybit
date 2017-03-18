@@ -2,20 +2,19 @@
   "name": "ledgerman",
   "version": "0.7.0",
   "description": "A Cli tool for creating a general ledger from the journal.",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "bin": {
     "ldm": "bin/ldm.js"
   },
   "scripts": {
     "test": "mocha src/{,**/}__tests__/**",
     "lint": "standard",
-    "clean": "rimraf lib doc coverage",
-    "dist": "babel src -d lib",
+    "clean": "rimraf doc coverage",
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
     "codecov": "nyc --reporter=lcov npm test && codecov",
     "prepublish": "npm run clean && npm run dist",
-    "demo": "babel-node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml",
-    "demo-update": "babel-node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
+    "demo": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml",
+    "demo-update": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
   },
   "repository": {
     "type": "git",
@@ -29,8 +28,6 @@
     "moment": "^2.11.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.5.1",
-    "babel-preset-es2015": "^6.5.0",
     "chai": "^3.5.0",
     "codecov": "^2.0.2",
     "dirty-chai": "^1.2.2",
@@ -42,11 +39,6 @@
   "standard": {
     "env": [
       "mocha"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "es2015"
     ]
   }
 }
