@@ -1,11 +1,11 @@
-const { AccountTypeChartFactory, JournalFactory, TradeFactory, Ledger } = require('../')
+const { AccountTypeChart, Journal, Trade, Ledger } = require('../')
 const { expect } = require('chai')
 
 const chartObj = require('../../__mocks__/chart')
 const journalObj = require('../../__mocks__/journal')
 
-const chart = new AccountTypeChartFactory().createFromObject(chartObj)
-const journal = new JournalFactory(chart).createFromArray(journalObj)
+const chart = new AccountTypeChart.Factory().createFromObject(chartObj)
+const journal = new Journal.Factory(chart).createFromArray(journalObj)
 
 describe('Journal', () => {
   describe('toLedger', () => {
@@ -16,7 +16,7 @@ describe('Journal', () => {
 
   describe('addTrade', () => {
     it('adds a trade', () => {
-      const trade = new TradeFactory(chart).createFromObject({
+      const trade = new Trade.Factory(chart).createFromObject({
         id: 99,
         desc: 'Foo',
         date: '2015-02-15',
@@ -32,7 +32,7 @@ describe('Journal', () => {
     })
 
     it('throws when the id is already taken', () => {
-      const trade = new TradeFactory(chart).createFromObject(journalObj[0])
+      const trade = new Trade.Factory(chart).createFromObject(journalObj[0])
 
       expect(() => {
         journal.addTrade(trade)

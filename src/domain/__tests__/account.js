@@ -1,9 +1,9 @@
-const { AccountTypeChartFactory, AccountFactory, Money, Trade, TradeSide: { DEBIT, CREDIT } } = require('../')
+const { AccountTypeChart, Account, Money, Trade, TradeSide: { DEBIT, CREDIT } } = require('../')
 const chartObj = require('../../__mocks__/chart')
 const { expect } = require('chai')
 
-const chart = new AccountTypeChartFactory().createFromObject(chartObj)
-const factory = new AccountFactory(chart)
+const chart = new AccountTypeChart.Factory().createFromObject(chartObj)
+const factory = new Account.Factory(chart)
 
 describe('Account', () => {
   describe('getDebitAmount', () => {

@@ -1,19 +1,19 @@
 const fs = require('fs')
 const rimraf = require('rimraf')
-const { AccountTypeChartFactory, JournalFactory, LedgerRepository, LedgerFactory } = require('../')
+const { AccountTypeChart, Journal, Ledger } = require('../')
 const { expect } = require('chai')
 const chartObj = require('../../__mocks__/chart')
 const journalObj = require('../../__mocks__/journal')
 
-const chart = new AccountTypeChartFactory().createFromObject(chartObj)
-const journal = new JournalFactory(chart).createFromArray(journalObj)
+const chart = new AccountTypeChart.Factory().createFromObject(chartObj)
+const journal = new Journal.Factory(chart).createFromArray(journalObj)
 
 describe('LedgerRepository', () => {
-  const repository = new LedgerRepository()
+  const repository = new Ledger.Repository()
 
   describe('saveAsYamlToPath', () => {
     it('saves the ledger to the given path', () => {
-      const ledger = new LedgerFactory().createFromJournal(journal)
+      const ledger = new Ledger.Factory().createFromJournal(journal)
 
       const path = `${__dirname}/ledger.yml`
 

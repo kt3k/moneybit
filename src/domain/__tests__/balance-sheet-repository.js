@@ -2,10 +2,10 @@ const fs = require('fs')
 const rimraf = require('rimraf')
 const { expect } = require('chai')
 
-const { BalanceSheetRepository } = require('../')
+const { BalanceSheet } = require('../')
 const { journal } = require('../../__tests__/helper')
 
-const repository = new BalanceSheetRepository()
+const repository = new BalanceSheet.Repository()
 
 describe('BalanceSheetRepository', () => {
   describe('saveYamlToPath', () => {

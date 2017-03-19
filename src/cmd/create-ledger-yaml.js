@@ -1,8 +1,8 @@
-const { LedgerRepository } = require('../domain')
+const { Ledger } = require('../domain')
 
 const createJournalFromYaml = require('./create-journal-from-yaml')
 
-const ledgerRepo = new LedgerRepository()
+const ledgerRepo = new Ledger.Repository()
 
 /**
  * Takes journal.yml and chart.yml and converts them to ledger.yml.

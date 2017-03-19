@@ -1,8 +1,8 @@
-const { AccountTypeChartFactory, MajorAccountType } = require('../')
+const { AccountTypeChart, MajorAccountType } = require('../')
 const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = MajorAccountType
 const { expect } = require('chai')
 
-const factory = new AccountTypeChartFactory()
+const factory = new AccountTypeChart.Factory()
 
 describe('AccountTypeChartFactory', () => {
   describe('createFromObject', () => {

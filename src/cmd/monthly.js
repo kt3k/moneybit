@@ -4,9 +4,9 @@ const moment = require('moment')
 const createJournalFromYaml = require('./create-journal-from-yaml')
 const createChartFromYaml = require('./create-chart-from-yaml')
 
-const { AccountTypeFactory, LedgerRepository } = require('../domain')
+const { AccountType, Ledger } = require('../domain')
 
-const ledgerRepository = new LedgerRepository()
+const ledgerRepository = new Ledger.Repository()
 const detailFlag = false
 
 /**
@@ -17,7 +17,7 @@ const detailFlag = false
 module.exports = (journalYaml, chartYaml, typeName) => {
   const chart = createChartFromYaml(chartYaml)
 
-  const type = new AccountTypeFactory(chart).createFromName(typeName)
+  const type = new AccountType.Factory(chart).createFromName(typeName)
 
   const ledger = createJournalFromYaml(journalYaml, chartYaml).toLedger()
 

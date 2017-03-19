@@ -1,14 +1,14 @@
-const { LedgerFactory, JournalFactory, Ledger, AccountTypeChartFactory } = require('../')
+const { Journal, Ledger, AccountTypeChart } = require('../')
 const { expect } = require('chai')
 
 const chartObj = require('../../__mocks__/chart')
 const journalObj = require('../../__mocks__/journal')
 
-const chart = new AccountTypeChartFactory().createFromObject(chartObj)
-const journal = new JournalFactory(chart).createFromArray(journalObj)
+const chart = new AccountTypeChart.Factory().createFromObject(chartObj)
+const journal = new Journal.Factory(chart).createFromArray(journalObj)
 
 describe('LedgerFactory', () => {
-  const factory = new LedgerFactory()
+  const factory = new Ledger.Factory()
 
   describe('createFromJournal', () => {
     it('creates a ledger from the journal', () => {

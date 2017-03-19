@@ -1,8 +1,8 @@
-const { BalanceSheetRepository } = require('../domain')
+const { BalanceSheet } = require('../domain')
 
 const createJournalFromYaml = require('./create-journal-from-yaml')
 
-const bsRepo = new BalanceSheetRepository()
+const bsRepo = new BalanceSheet.Repository()
 
 /**
  * Takes journal.yml and chart.yml and creates the balance-sheet.yml.

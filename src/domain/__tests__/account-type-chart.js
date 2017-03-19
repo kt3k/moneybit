@@ -1,10 +1,10 @@
-const { AccountTypeChartFactory, MajorAccountType } = require('../')
+const { AccountTypeChart, MajorAccountType } = require('../')
 const { EQUITY } = MajorAccountType
 const chartObj = require('../../__mocks__/chart')
 
 const { expect } = require('chai')
 
-const factory = new AccountTypeChartFactory()
+const factory = new AccountTypeChart.Factory()
 
 describe('AccountTypeChart', () => {
   let chart
