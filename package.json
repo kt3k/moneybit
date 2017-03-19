@@ -7,7 +7,7 @@
     "ldm": "bin/ldm.js"
   },
   "scripts": {
-    "test": "mocha src/{,**/}__tests__/**",
+    "test": "mocha \"src/{,**/}__tests__/**/*.js\"",
     "lint": "standard",
     "clean": "rimraf doc coverage",
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
