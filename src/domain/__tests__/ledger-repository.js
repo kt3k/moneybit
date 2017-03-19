@@ -1,12 +1,8 @@
 const fs = require('fs')
 const rimraf = require('rimraf')
-const { AccountTypeChart, Journal, Ledger } = require('../')
+const { Ledger } = require('../')
 const { expect } = require('chai')
-const chartObj = require('../../__mocks__/chart')
-const journalObj = require('../../__mocks__/journal')
-
-const chart = new AccountTypeChart.Factory().createFromObject(chartObj)
-const journal = new Journal.Factory(chart).createFromArray(journalObj)
+const { journal } = require('../../__tests__/helper')
 
 describe('LedgerRepository', () => {
   const repository = new Ledger.Repository()

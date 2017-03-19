@@ -1,11 +1,8 @@
-const { BalanceSheet, Money, AccountTypeChart, Journal } = require('../')
-
-const journalObj = require('../../__mocks__/journal')
-const chartObj = require('../../__mocks__/chart')
-
+const { BalanceSheet, Money } = require('../')
+const { journal } = require('../../__tests__/helper')
 const { expect } = require('chai')
 
-const ledger = new Journal.Factory(new AccountTypeChart.Factory().createFromObject(chartObj)).createFromArray(journalObj).toLedger()
+const ledger = journal.toLedger()
 
 describe('BalanceSheet', () => {
   describe('retainedEarnings', () => {
