@@ -12,8 +12,10 @@
     "clean": "rimraf doc coverage",
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
     "codecov": "nyc --reporter=lcov npm test && codecov",
-    "prepublish": "npm run clean && npm run dist",
+    "prepublish": "npm run clean",
     "demo": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml",
+    "demo-monthly": "node src/bin/ldm.js monthly --journal samples/journal.yml --chart samples/chart.yml",
+    "demo-bs": "node src/bin/ldm.js bs --journal samples/journal.yml --chart samples/chart.yml",
     "demo-update": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
   },
   "repository": {
@@ -24,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "js-yaml": "^3.2.5",
-    "minimist": "^1.1.0",
+    "minimisted": "^1.1.1",
     "moment": "^2.11.2"
   },
   "devDependencies": {

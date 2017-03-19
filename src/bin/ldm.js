@@ -1,5 +1,4 @@
 const fs = require('fs')
-const minimist = require('minimist')
 const Const = require('../const')
 const createLedgerYaml = require('../cmd/create-ledger-yaml')
 const createBalanceSheetYaml = require('../cmd/create-balance-sheet-yaml')
@@ -55,9 +54,7 @@ function invokeCommand (name, journal, chart, args) {
   }
 }
 
-function main () {
-  const argv = minimist(process.argv.slice(2))
-
+function main (argv) {
   const journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
   const chartFile = argv.chart || Const.DEFAULT_CHART_FILE
   const commandName = argv._.shift() || Const.DEFAULT_COMMAND_NAME
@@ -74,4 +71,4 @@ function main () {
   }
 }
 
-main()
+require('minimisted')(main)
