@@ -9,20 +9,20 @@ const AccountTypeFactory = require('./account-type-factory')
  * The factory class for Account model.
  */
 class AccountFactory {
-    /**
-     * @param {AccountTypeChart} chart
-     */
+  /**
+   * @param {AccountTypeChart} chart
+   */
   constructor (chart) {
     this.accountTypeFactory = new AccountTypeFactory(chart)
   }
 
-    /**
-     * @param {string} typeName The type name of journal entry (e.g. 売上, 売掛金)
-     * @param {number} amount The amount of the entry
-     * @param {string} date The date of the entry
-     * @param {string} desc The description of the entry
-     * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
-     */
+  /**
+   * @param {string} typeName The type name of journal entry (e.g. 売上, 売掛金)
+   * @param {number} amount The amount of the entry
+   * @param {string} date The date of the entry
+   * @param {string} desc The description of the entry
+   * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
+   */
   createFromParams (typeName, amount, {date, desc}, side) {
     const type = this.accountTypeFactory.createFromName(typeName)
     const money = new Money(amount)
