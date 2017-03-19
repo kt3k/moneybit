@@ -7,7 +7,6 @@
  * @abstract
  */
 class Account {
-
   /**
    * @constructor
    * @param {moment} date The date of the entry

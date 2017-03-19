@@ -4,7 +4,6 @@
  * An account type represents the detailed type of account. e.g. sales, deposit etc
  */
 class AccountType {
-
   /**
    * @param {string} name The name of the account type
    * @param {MajorAccountType} majorType The major account type

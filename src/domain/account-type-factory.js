@@ -4,7 +4,6 @@ const AccountType = require('./account-type')
  * The factory class of the account type.
  */
 class AccountTypeFactory {
-
   /**
    * @param {AccountTypeChart} chart
    */

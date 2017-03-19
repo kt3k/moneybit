@@ -4,7 +4,6 @@ const { sum } = require('../util')
  * Money model.
  */
 class Money {
-
   /**
    * @constructor
    * @param {Number} amount

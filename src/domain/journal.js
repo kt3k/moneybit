@@ -11,7 +11,6 @@ const ledgerFactory = new LedgerFactory()
  * 仕訳帳
  */
 class Journal {
-
   /**
    * @constructor
    * @param {Array<Trade>} trades The list of trades

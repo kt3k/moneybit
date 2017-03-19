@@ -6,7 +6,6 @@ const AccountFactory = require('./account-factory')
  * The factory class for trade model.
  */
 class TradeFactory {
-
   /**
    * @param {AccountTypeChart} chart
    */

@@ -5,7 +5,6 @@ const TradeFactory = require('./trade-factory')
  * JournalFactory is the factroy class for Journal model.
  */
 class JournalFactory {
-
   /**
    * @param {AccountTypeChart} chart
    */

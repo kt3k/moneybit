@@ -7,7 +7,6 @@ const { DEBIT } = require('./trade-side')
  * A subledger is a subset of a ledger which consists of the accounts of the same type.
  */
 class Subledger {
-
   /**
    * @constructor
    * @param {AccountType} type The account type of the subledger

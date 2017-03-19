@@ -6,7 +6,6 @@
  * 取引
  */
 class Trade {
-
   /**
    * @constructor
    * @param {Array<Debit>} debits The debits

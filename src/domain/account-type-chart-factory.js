@@ -5,7 +5,6 @@ const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-
  * The factory class of the account type chart.
  */
 class AccountTypeChartFactory {
-
   /**
    * @param {Object} obj The chart object
    * @return {AccountTypeChart}

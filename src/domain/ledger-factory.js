@@ -5,7 +5,6 @@ const Subledger = require('./subledger')
  * The factory class for the ledger model.
  */
 class LedgerFactory {
-
   createFromJournal (journal) {
     return this.createFromAccounts(journal.accounts())
   }

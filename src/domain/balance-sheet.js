@@ -2,7 +2,6 @@ const { ASSET, LIABILITY, EQUITY } = require('./major-account-type')
 const Money = require('./money')
 
 class BalanceSheet {
-
   constructor (ledger) {
     this.ledger = ledger
   }

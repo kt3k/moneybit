@@ -7,7 +7,6 @@ const { ASSET, LIABILITY, EQUITY } = require('./major-account-type')
  * The repository class of the balance sheet model.
  */
 class BalanceSheetRepository {
-
   /**
    * Coverts the balance sheet to the object.
    *

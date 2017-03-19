@@ -8,7 +8,6 @@ const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-
  * 総勘定元帳
  */
 class Ledger {
-
   /**
    * @constructor
    * @param {Array<Subledger>} subledgers
