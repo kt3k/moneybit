@@ -1,9 +1,12 @@
 # TODO
 
+- use minimisted
+- use minirocket
 - add integration tests
 - separate cli from this repo or separate core domain from this repo
+- use lerna, oao, repo-man or yarn to do monorepo, will publish ledgerman(cli) and ledgerman-domain
 - create TradeValidationService
-  - Check a trade balances i.e. total dr = total cr
+  - Check if the trade balances i.e. total dr = total cr
   - Check account type is in the chart
   - Check date is valid
   - Check desc is not empty
