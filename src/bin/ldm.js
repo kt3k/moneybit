@@ -1,74 +1,25 @@
 const fs = require('fs')
-const Const = require('../const')
-const createLedgerYaml = require('../cmd/create-ledger-yaml')
-const createBalanceSheetYaml = require('../cmd/create-balance-sheet-yaml')
-const monthly = require('../cmd/monthly')
+const chalk = require('chalk')
+const minirocket = require('minirocket')
+const { errorExit } = require('./util')
+
+const { DEFAULT_CHART_FILE } = require('../const')
 
 /**
- * Reads the given file and returns the contents.
- * @param {string} file The file
- * @return {Buffer}
+ * The main entry point.
  */
-function readFile (file) {
-  let data
+const main = argv => {
+  const { v, version, h, help, _: [action, journal] } = argv
 
-  try {
-    data = fs.readFileSync(file)
-  } catch (e) {
-    if (e.code === 'ENOENT') {
-      console.error('File not found: ' + file)
-      process.exit()
-    }
-
-    console.error(e)
-    console.error(e.stack)
-    process.exit()
-  }
-
-  return data
-}
-
-/**
- * Invokes the command by the name with the arguments journal and chart.
- * @param {string} name The command name
- * @param {Buffer} journal The journal data
- * @param {Buffer} chart The chart data
- */
-function invokeCommand (name, journal, chart, args) {
-  switch (name) {
-    case Const.DEFAULT_COMMAND_NAME:
-      console.log(createLedgerYaml(journal, chart))
-      break
-
-    case Const.COMMAND_BALANCE_SHEET:
-      console.log(createBalanceSheetYaml(journal, chart))
-      break
-
-    case Const.COMMAND_MONTHLY:
-      console.log(monthly(journal, chart, ...args))
-      break
-
-    default:
-      console.log('Command not found: ' + name)
-      break
-  }
-}
-
-function main (argv) {
-  const journalFile = argv.journal || Const.DEFAULT_JOURNAL_FILE
-  const chartFile = argv.chart || Const.DEFAULT_CHART_FILE
-  const commandName = argv._.shift() || Const.DEFAULT_COMMAND_NAME
-
-  const journal = readFile(journalFile)
-  const chart = readFile(chartFile)
-
-  try {
-    invokeCommand(commandName, journal, chart, argv._)
-  } catch (e) {
-    console.error(e)
-    console.error(e.stack)
-    process.exit()
-  }
+  minirocket({
+    version: v || version,
+    help: h || help,
+    [action]: true
+  }, action => {
+    action(argv)
+  }).on('no-action', name => {
+    errorExit(`No such action: ${name}`)
+  })
 }
 
 require('minimisted')(main)

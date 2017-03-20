@@ -13,9 +13,9 @@
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
     "codecov": "nyc --reporter=lcov npm test && codecov",
     "prepublish": "npm run clean",
-    "demo": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml",
-    "demo-monthly": "node src/bin/ldm.js monthly --journal samples/journal.yml --chart samples/chart.yml",
-    "demo-bs": "node src/bin/ldm.js bs --journal samples/journal.yml --chart samples/chart.yml",
+    "demo-ledger": "node src/bin/ldm.js ledger samples/journal.yml --chart samples/chart.yml",
+    "demo-monthly": "node src/bin/ldm.js monthly samples/journal.yml 売上 --chart samples/chart.yml",
+    "demo-bs": "node src/bin/ldm.js bs samples/journal.yml --chart samples/chart.yml",
     "demo-update": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
   },
   "repository": {
@@ -27,6 +27,7 @@
   "dependencies": {
     "js-yaml": "^3.2.5",
     "minimisted": "^1.1.1",
+    "minirocket": "^2.0.0",
     "moment": "^2.11.2"
   },
   "devDependencies": {

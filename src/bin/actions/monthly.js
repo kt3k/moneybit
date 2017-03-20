@@ -1,23 +1,36 @@
 const yaml = require('js-yaml')
 const moment = require('moment')
 
-const createJournalFromYaml = require('./create-journal-from-yaml')
-const createChartFromYaml = require('./create-chart-from-yaml')
+const { errorExit, readFile } = require('../util')
+const { DEFAULT_CHART_FILE } = require('../../const')
+const createJournalFromYaml = require('../../util/create-journal-from-yaml')
+const createChartFromYaml = require('../../util/create-chart-from-yaml')
 
-const { AccountType, Ledger } = require('../domain')
+const { AccountType, Ledger } = require('../../domain')
 
 const ledgerRepository = new Ledger.Repository()
 const detailFlag = false
 
 /**
- * @param {Buffer} journalYaml
- * @param {Buffer} chartYaml
- * @param {string} typeName
+ * @param {string} journal
+ * @param {string} chart
+ * @param {string} accountType The name of account type
  */
-module.exports = (journalYaml, chartYaml, typeName) => {
-  const chart = createChartFromYaml(chartYaml)
+module.exports = ({ _: [action, journal, accountType], chart }) => {
+  if (journal == null) {
+    return errorExit(`<journal.yml> is not specified`)
+  }
 
-  const type = new AccountType.Factory(chart).createFromName(typeName)
+  if (accountType == null) {
+    return errorExit(`<acctounType> is not specified`)
+  }
+
+  const journalYaml = readFile(journal)
+  const chartYaml = readFile(chart || DEFAULT_CHART_FILE)
+
+  const chartModel = createChartFromYaml(chartYaml)
+
+  const type = new AccountType.Factory(chartModel).createFromName(accountType)
 
   const ledger = createJournalFromYaml(journalYaml, chartYaml).toLedger()
 
@@ -48,5 +61,5 @@ module.exports = (journalYaml, chartYaml, typeName) => {
 
   buffer.total = subledger.total().amount
 
-  return yaml.safeDump(buffer)
+  console.log(yaml.safeDump(buffer))
 }

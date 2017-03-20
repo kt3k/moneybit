@@ -34,10 +34,14 @@ class AccountTypeChart {
    * @throws {Error} when the account type name is not found in the chart
    */
   getMajorTypeByAccountTypeName (name) {
+    if (typeof name !== 'string') {
+      throw Error(`The account type name must be a string: typeof name is ${typeof name}`)
+    }
+
     const majorType = this.majorTypes[name]
 
     if (majorType == null) {
-      throw Error('The account type name is not found in the chart: ' + name)
+      throw Error(`The account type name is not found in the chart: ${name}`)
     }
 
     return majorType

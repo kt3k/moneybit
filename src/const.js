@@ -1,5 +1,1 @@
-exports.DEFAULT_JOURNAL_FILE = './journal.yml'
 exports.DEFAULT_CHART_FILE = './chart.yml'
-exports.DEFAULT_COMMAND_NAME = 'default'
-exports.COMMAND_BALANCE_SHEET = 'bs'
-exports.COMMAND_MONTHLY = 'monthly'
