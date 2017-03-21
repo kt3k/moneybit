@@ -8,17 +8,21 @@
 
 # How to use
 
-First, install the cli by the following command:
+First, install the cli via npm:
 
-    npm install -g ledgerman
+    npm install ledgerman
 
-This installs `ldm` command.
+Or via yarn:
+
+    yarn add ledgerman
+
+This installs `./node_modules/.bin/ldm` command.
 
 Then:
 
-    ldm --chart chart.yml --journal journal.yml
+    ./node_modules/.bin/ldm ledger journal.yml --chart chart.yml
 
-This outputs the general ledger in yaml format to stdout. See the below for the detail of the format.
+This outputs the general ledger in yaml format to stdout according to the given yaml files `journal.yml` and `chart.yml`. See the below for details.
 
 # Journal YAML
 
@@ -34,7 +38,7 @@ cr:
   Capital: 1000
 ```
 
-- `id` is an arbitrary number and has to be unique in the journal.
+- `id` is an arbitrary string and has to be unique in the journal.
 - `date` is the date of the trade.
 - `desc` is the description of the trade.
 - `dr` means the debits of the trade.
@@ -114,18 +118,20 @@ expense: ...
 
 # CLI
 
+## ldm ledger
+
 The usage of cli is as follows:
 
-    ldm --journal path/to/journal.yml --chart path/to/chart.yml
+    ldm ledger path/to/journal.yml [--chart path/to/chart.yml]
 
-The default value for `--journal` option is `journal.yml` and the default for `--chart` is `chart.yml`.
+The default for `--chart` is `chart.yml`.
 
 ## ldm bs
 
 `bs` subcommand outputs the balance sheet as yaml.
 
 ```
-$ ldm bs
+$ ldm bs path/to/journal [--chart path/to/chart.yml]
 asset:
   Cash in hand: 37072
   Accounts receivable: 0
@@ -140,6 +146,18 @@ equity:
   total: 923456
 total: 929072
 ```
+
+## ldm monthly
+
+`monthly` subcommand outputs the monthly total of the given type. (This information is required in Japanese official tax document.)
+
+    ldm monthly path/to/journal "Cash in hand" [--chart path/to/chart.yml]
+
+## ldm monthly-ledger
+
+`monthly-ledger` subcommand outputs the monthly ledger of the given type.
+
+    ldm monthly-ledger path/to/journal "Sales" [--chart path/to/chart.yml]
 
 # LICENSE
 
