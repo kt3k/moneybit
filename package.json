@@ -4,7 +4,7 @@
   "description": "A Cli tool for creating a general ledger from the journal.",
   "main": "src/index.js",
   "bin": {
-    "ldm": "bin/ldm.js"
+    "ldm": "src/cli.js"
   },
   "scripts": {
     "test": "mocha \"src/{,**/}__tests__/**/*.js\"",
@@ -13,11 +13,11 @@
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
     "codecov": "nyc --reporter=lcov npm test && codecov",
     "prepublish": "npm run clean",
-    "demo-ledger": "node src/bin/ldm.js ledger samples/journal.yml --chart samples/chart.yml",
-    "demo-monthly": "node src/bin/ldm.js monthly samples/journal.yml 売上 --chart samples/chart.yml",
-    "demo-monthly-ledger": "node src/bin/ldm.js monthly-ledger samples/journal.yml 売上 --chart samples/chart.yml",
-    "demo-bs": "node src/bin/ldm.js bs samples/journal.yml --chart samples/chart.yml",
-    "demo-update": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
+    "demo-ledger": "node src/cli.js ledger samples/journal.yml --chart samples/chart.yml",
+    "demo-monthly": "node src/cli.js monthly samples/journal.yml 売上 --chart samples/chart.yml",
+    "demo-monthly-ledger": "node src/cli.js monthly-ledger samples/journal.yml 売上 --chart samples/chart.yml",
+    "demo-bs": "node src/cli.js bs samples/journal.yml --chart samples/chart.yml",
+    "demo-update": "node src/cli.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
   },
   "repository": {
     "type": "git",

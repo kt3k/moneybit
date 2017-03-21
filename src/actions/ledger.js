@@ -1,7 +1,6 @@
-const { Ledger } = require('../../domain')
-const { DEFAULT_CHART_FILE } = require('../../const')
-
-const { errorExit, readFile, createJournalFromYaml } = require('../../util')
+const { Ledger } = require('../domain')
+const { DEFAULT_CHART_FILE } = require('../const')
+const { errorExit, readFile, createJournalFromYaml } = require('../util')
 
 const ledgerRepo = new Ledger.Repository()
 

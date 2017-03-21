@@ -1,15 +1,11 @@
-const fs = require('fs')
-const chalk = require('chalk')
 const minirocket = require('minirocket')
-const { errorExit } = require('../util')
-
-const { DEFAULT_CHART_FILE } = require('../const')
+const { errorExit } = require('./util')
 
 /**
  * The main entry point.
  */
 const main = argv => {
-  const { v, version, h, help, _: [action, journal] } = argv
+  const { v, version, h, help, _: [action] } = argv
 
   minirocket({
     version: v || version,

@@ -1,10 +1,9 @@
 const yaml = require('js-yaml')
 const moment = require('moment')
 
-const { errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../../util')
-const { DEFAULT_CHART_FILE } = require('../../const')
-
-const { AccountType, Ledger } = require('../../domain')
+const { DEFAULT_CHART_FILE } = require('../const')
+const { AccountType, Ledger } = require('../domain')
+const { errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
 
 const ledgerRepository = new Ledger.Repository()
 
@@ -43,7 +42,11 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
   while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {
     const subledgerByMonth = subledger.filterByMonth(month)
 
-    buffer[month.format('YYYY/MM')] = ledgerRepository.subledgerToObject(subledgerByMonth)
+    const obj = buffer[month.format('YYYY/MM')] = {}
+    const total = subledgerByMonth.total().amount
+    obj[subledger.type.name] = total
+    currentTotal += total
+    obj.total = currentTotal
 
     month.add(1, 'month')
   }
