@@ -1,8 +1,7 @@
 const { BalanceSheet } = require('../../domain')
 const { DEFAULT_CHART_FILE } = require('../../const')
 
-const { errorExit, readFile } = require('../util')
-const createJournalFromYaml = require('../../util/create-journal-from-yaml')
+const { errorExit, readFile, createJournalFromYaml } = require('../../util')
 
 const bsRepo = new BalanceSheet.Repository()
 
