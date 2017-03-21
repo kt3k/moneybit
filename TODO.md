@@ -1,8 +1,5 @@
 # TODO
 
-- use minimisted
-- use minirocket
-- add integration tests
 - separate cli from this repo or separate core domain from this repo
 - use lerna, oao, repo-man or yarn to do monorepo, will publish ledgerman(cli) and ledgerman-domain
 - create TradeValidationService
@@ -20,6 +17,9 @@
 - Change journal.yml as first parameter, not --journal option
 
 # DONE
+- add integration tests
+- use minimisted
+- use minirocket
 - stop babel, use node v6
 - switch the linter to standard
 - enhance cli to show monthly sales (Japanese tax declaration format requires these numbers)

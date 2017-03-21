@@ -18,12 +18,9 @@ exports.readFile = file => {
     return fs.readFileSync(file)
   } catch (e) {
     if (e.code === 'ENOENT') {
-      exports.errorExit(`File not found: ${file}`)
-      process.exit()
+      return exports.errorExit(`File not found: ${file}`)
     }
 
-    console.error(e)
-    console.error(e.stack)
-    process.exit()
+    return exports.errorExit(`${e}\n${e.stack}`)
   }
 }

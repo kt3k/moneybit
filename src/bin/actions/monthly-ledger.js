@@ -45,11 +45,7 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
   while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {
     const subledgerByMonth = subledger.filterByMonth(month)
 
-    const obj = buffer[month.format('YYYY/MM')] = {}
-    const total = subledgerByMonth.total().amount
-    obj[subledger.type.name] = total
-    currentTotal += total
-    obj.total = currentTotal
+    buffer[month.format('YYYY/MM')] = ledgerRepository.subledgerToObject(subledgerByMonth)
 
     month.add(1, 'month')
   }

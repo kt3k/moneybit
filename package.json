@@ -15,6 +15,7 @@
     "prepublish": "npm run clean",
     "demo-ledger": "node src/bin/ldm.js ledger samples/journal.yml --chart samples/chart.yml",
     "demo-monthly": "node src/bin/ldm.js monthly samples/journal.yml 売上 --chart samples/chart.yml",
+    "demo-monthly-ledger": "node src/bin/ldm.js monthly-ledger samples/journal.yml 売上 --chart samples/chart.yml",
     "demo-bs": "node src/bin/ldm.js bs samples/journal.yml --chart samples/chart.yml",
     "demo-update": "node src/bin/ldm.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
   },
