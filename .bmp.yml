@@ -1,5 +1,5 @@
 ---
 version: 0.7.0
 files:
-  README.md: ledgerman v%.%.%
+  README.md: MoneyBit v%.%.%
   package.json: '"version": "%.%.%"'

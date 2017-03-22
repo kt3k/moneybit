@@ -1,26 +1,26 @@
-# ledgerman v0.7.0
+# MoneyBit v0.1.0
 
 > A Cli tool for creating a general ledger from the journal.
 
-[![CircleCI](https://circleci.com/gh/kt3k/ledgerman.svg?style=svg)](https://circleci.com/gh/kt3k/ledgerman)
-[![codecov](https://codecov.io/gh/kt3k/ledgerman/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/ledgerman)
+[![CircleCI](https://circleci.com/gh/kt3k/moneybit.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit)
+[![codecov](https://codecov.io/gh/kt3k/moneybit/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 
 # How to use
 
 First, install the cli via npm:
 
-    npm install ledgerman
+    npm install moneybit
 
 Or via yarn:
 
-    yarn add ledgerman
+    yarn add moneybit
 
-This installs `./node_modules/.bin/ldm` command.
+This installs `./node_modules/.bin/mb` command.
 
 Then:
 
-    ./node_modules/.bin/ldm ledger journal.yml --chart chart.yml
+    ./node_modules/.bin/mb ledger journal.yml --chart chart.yml
 
 This outputs the general ledger in yaml format to stdout according to the given yaml files `journal.yml` and `chart.yml`. See the below for details.
 
@@ -118,20 +118,20 @@ expense: ...
 
 # CLI
 
-## ldm ledger
+## mb ledger
 
 The usage of cli is as follows:
 
-    ldm ledger path/to/journal.yml [--chart path/to/chart.yml]
+    mb ledger path/to/journal.yml [--chart path/to/chart.yml]
 
 The default for `--chart` is `chart.yml`.
 
-## ldm bs
+## mb bs
 
 `bs` subcommand outputs the balance sheet as yaml.
 
 ```
-$ ldm bs path/to/journal [--chart path/to/chart.yml]
+$ mb bs path/to/journal [--chart path/to/chart.yml]
 asset:
   Cash in hand: 37072
   Accounts receivable: 0
@@ -147,17 +147,17 @@ equity:
 total: 929072
 ```
 
-## ldm monthly
+## mb monthly
 
 `monthly` subcommand outputs the monthly total of the given type. (This information is required in Japanese official tax document.)
 
-    ldm monthly path/to/journal "Cash in hand" [--chart path/to/chart.yml]
+    mb monthly path/to/journal "Cash in hand" [--chart path/to/chart.yml]
 
-## ldm monthly-ledger
+## mb monthly-ledger
 
 `monthly-ledger` subcommand outputs the monthly ledger of the given type.
 
-    ldm monthly-ledger path/to/journal "Sales" [--chart path/to/chart.yml]
+    mb monthly-ledger path/to/journal "Sales" [--chart path/to/chart.yml]
 
 # LICENSE
 
