@@ -9,12 +9,12 @@ const createChartFromYaml = require('./create-chart-from-yaml')
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-module.exports = (journalYaml, chartYaml = {}) => {
+module.exports = (journalYaml, chartYaml) => {
   const chart = createChartFromYaml(chartYaml)
   const tradeFactory = new Trade.Factory(chart)
   const journal = new Journal()
 
-  yaml.safeLoadAll(journalYaml, (data) => {
+  yaml.safeLoadAll(journalYaml, data => {
     journal.addTrade(tradeFactory.createFromObject(data))
   })
 
