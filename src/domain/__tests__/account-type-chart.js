@@ -1,6 +1,6 @@
 const { AccountTypeChart, MajorAccountType } = require('../')
 const { EQUITY } = MajorAccountType
-const chartObj = require('../../__mocks__/chart')
+const chartObj = require('../__mocks__/chart')
 
 const { expect } = require('chai')
 

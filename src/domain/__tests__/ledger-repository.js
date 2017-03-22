@@ -2,7 +2,7 @@ const fs = require('fs')
 const rimraf = require('rimraf')
 const { Ledger } = require('../')
 const { expect } = require('chai')
-const { journal } = require('../../__tests__/helper')
+const { journal } = require('../__mocks__')
 
 describe('LedgerRepository', () => {
   const repository = new Ledger.Repository()

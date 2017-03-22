@@ -1,5 +1,5 @@
 const { BalanceSheet, Money } = require('../')
-const { journal } = require('../../__tests__/helper')
+const { journal } = require('../__mocks__')
 const { expect } = require('chai')
 
 const ledger = journal.toLedger()

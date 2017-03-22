@@ -3,7 +3,7 @@ const rimraf = require('rimraf')
 const { expect } = require('chai')
 
 const { BalanceSheet } = require('../')
-const { journal } = require('../../__tests__/helper')
+const { journal } = require('../__mocks__')
 
 const repository = new BalanceSheet.Repository()
 

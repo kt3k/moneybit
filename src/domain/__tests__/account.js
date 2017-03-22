@@ -1,5 +1,5 @@
 const { AccountTypeChart, Account, Money, Trade, TradeSide: { DEBIT, CREDIT } } = require('../')
-const chartObj = require('../../__mocks__/chart')
+const chartObj = require('../__mocks__/chart')
 const { expect } = require('chai')
 
 const chart = new AccountTypeChart.Factory().createFromObject(chartObj)

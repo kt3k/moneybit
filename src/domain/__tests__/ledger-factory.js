@@ -1,6 +1,6 @@
 const { Ledger } = require('../')
 const { expect } = require('chai')
-const { journal } = require('../../__tests__/helper')
+const { journal } = require('../__mocks__')
 
 describe('LedgerFactory', () => {
   const factory = new Ledger.Factory()
