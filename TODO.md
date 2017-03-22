@@ -1,6 +1,5 @@
 # TODO
 
-- refactor cli common process
 - separate cli from this repo or separate core domain from this repo
 - use lerna
 - create TradeValidationService
@@ -18,6 +17,7 @@
 - Change journal.yml as first parameter, not --journal option
 
 # DONE
+- refactor cli common process
 - add integration tests
 - use minimisted
 - use minirocket

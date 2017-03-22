@@ -25,19 +25,11 @@ describe(cliName, () => {
     it('does not throw', () => {
       execSync('node src/cli.js bs samples/journal.yml --chart samples/chart.yml')
     })
-
-    it('throws when the <journal.yml> is not given', () => {
-      expect(() => execSync('node src/cli.js bs --chart samples/chart.yml')).to.throw()
-    })
   })
 
   describe('monthly', () => {
     it('does not throw', () => {
       execSync('node src/cli.js monthly samples/journal.yml 売上 --chart samples/chart.yml')
-    })
-
-    it('throws when the <journal.yml> is not given', () => {
-      expect(() => execSync('node src/cli.js monthly --chart samples/chart.yml')).to.throw()
     })
 
     it('throws when the <accountType> is not given', () => {
@@ -54,10 +46,6 @@ describe(cliName, () => {
   describe('monthly-ledger', () => {
     it('does not throw', () => {
       execSync('node src/cli.js monthly-ledger samples/journal.yml 売上 --chart samples/chart.yml')
-    })
-
-    it('throws when the <journal.yml> is not given', () => {
-      expect(() => execSync('node src/cli.js monthly-ledger --chart samples/chart.yml')).to.throw()
     })
 
     it('throws when the <accountType> is not given', () => {

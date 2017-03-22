@@ -3,7 +3,7 @@ const moment = require('moment')
 
 const { DEFAULT_CHART_FILE } = require('../const')
 const { AccountType, Ledger } = require('../domain')
-const { errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
+const { checkJournalFilePath, errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
 
 const ledgerRepository = new Ledger.Repository()
 
@@ -13,9 +13,7 @@ const ledgerRepository = new Ledger.Repository()
  * @param {string} accountType The name of account type
  */
 module.exports = ({ _: [action, journal, accountType], chart }) => {
-  if (journal == null) {
-    return errorExit(`<journal.yml> is not specified`)
-  }
+  checkJournalFilePath(journal)
 
   if (accountType == null) {
     return errorExit(`<acctounType> is not specified`)

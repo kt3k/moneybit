@@ -1,6 +1,6 @@
 const { Ledger } = require('../domain')
 const { DEFAULT_CHART_FILE } = require('../const')
-const { errorExit, readFile, createJournalFromYaml } = require('../util')
+const { checkJournalFilePath, readFile, createJournalFromYaml } = require('../util')
 
 const ledgerRepo = new Ledger.Repository()
 
@@ -12,9 +12,7 @@ const ledgerRepo = new Ledger.Repository()
  * @throws {Error} when the input yaml is broken
  */
 module.exports = ({ _: [action, journal], chart }) => {
-  if (journal == null) {
-    return errorExit(`journal.yml is not specified`)
-  }
+  checkJournalFilePath(journal)
 
   const journalYaml = readFile(journal)
   const chartYaml = readFile(chart || DEFAULT_CHART_FILE)
