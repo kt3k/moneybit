@@ -1,7 +1,7 @@
 # TODO
 
-- separate cli from this repo or separate core domain from this repo
-- use lerna
+- think repository
+- remove js-yaml deps from domain
 - create TradeValidationService
   - Check if the trade balances i.e. total dr = total cr
   - Check account type is in the chart
@@ -17,6 +17,8 @@
 - Change journal.yml as first parameter, not --journal option
 
 # DONE
+- separate cli from this repo or separate core domain from this repo
+- use lerna
 - refactor cli common process
 - add integration tests
 - use minimisted
