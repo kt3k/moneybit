@@ -1,4 +1,4 @@
-const { sum } = require('../util')
+const { sum } = require('./util')
 
 /**
  * Money model.

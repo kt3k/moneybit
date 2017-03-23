@@ -2,13 +2,8 @@
   "name": "moneybit",
   "version": "0.1.0",
   "description": "A Cli tool for creating a general ledger from the journal.",
-  "main": "src/index.js",
-  "bin": {
-    "mb": "src/cli.js",
-    "moneybit": "src/cli.js"
-  },
   "scripts": {
-    "test": "mocha \"src/{,**/}__tests__/**/*.js\"",
+    "test": "mocha \"packages/{,**/}__tests__/**/*.js\"",
     "lint": "standard",
     "clean": "rimraf doc coverage",
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
@@ -26,12 +21,6 @@
   },
   "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
   "license": "MIT",
-  "dependencies": {
-    "js-yaml": "^3.2.5",
-    "minimisted": "^1.1.1",
-    "minirocket": "^2.0.0",
-    "moment": "^2.11.2"
-  },
   "devDependencies": {
     "chai": "^3.5.0",
     "codecov": "^2.0.2",
@@ -39,7 +28,8 @@
     "mocha": "^3.2.0",
     "nyc": "^10.0.0",
     "rimraf": "^2.5.2",
-    "standard": "^9.0.1"
+    "standard": "^9.0.1",
+    "lerna": "2.0.0-beta.38"
   },
   "standard": {
     "env": [

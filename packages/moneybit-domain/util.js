@@ -3,4 +3,4 @@
  * @param {Array<number>} list The list of numbers
  * @return {number}
  */
-module.exports = list => list.reduce((x, y) => x + y, 0)
+exports.sum = list => list.reduce((x, y) => x + y, 0)

@@ -3,7 +3,7 @@ const yaml = require('js-yaml')
 
 const { ALL_TYPES } = require('./major-account-type')
 const { DEBIT } = require('./trade-side')
-const { sum } = require('../util')
+const { sum } = require('./util')
 
 /**
  * The repository class of the ledger model.

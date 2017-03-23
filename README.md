@@ -1,4 +1,4 @@
-# MoneyBit v0.1.0
+# MoneyBit
 
 > A Cli tool for creating a general ledger from the journal.
 

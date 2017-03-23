@@ -1,12 +1,9 @@
 # npm
-/node_modules
-/npm-debug.log
+node_modules
+npm-debug.log
 
-# dist
-/lib
-
-# esdoc
-/doc
+# lerna
+lerna-debug.log
 
 # nyc
 /coverage

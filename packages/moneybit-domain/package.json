@@ -1,0 +1,27 @@
+{
+  "name": "moneybit-domain",
+  "version": "0.1.0",
+  "description": "The domain layer of moneybit apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kt3k/moneybit.git"
+  },
+  "keywords": [
+    "ddd",
+    "money",
+    "accounting",
+    "fintech",
+    "ledger",
+    "balance sheet"
+  ],
+  "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kt3k/moneybit/issues"
+  },
+  "homepage": "https://github.com/kt3k/moneybit#readme"
+}

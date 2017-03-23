@@ -1,0 +1,35 @@
+{
+  "name": "moneybit",
+  "version": "0.1.0",
+  "description": "A Cli tool for creating the general ledger of a journal",
+  "main": "index.js",
+  "bin": {
+    "mb": "cli.js",
+    "moneybit": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kt3k/moneybit.git"
+  },
+  "keywords": [
+    "ledger",
+    "accounting",
+    "money",
+    "ddd",
+    "fintech",
+    "balance sheet"
+  ],
+  "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kt3k/moneybit/issues"
+  },
+  "homepage": "https://github.com/kt3k/moneybit#readme",
+  "dependencies": {
+    "js-yaml": "^3.2.5",
+    "minimisted": "^1.1.1",
+    "minirocket": "^2.0.0",
+    "moment": "^2.11.2",
+    "moneybit-domain": "0.1.0"
+  }
+}
