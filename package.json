@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A Cli tool for creating a general ledger from the journal.",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "test": "mocha \"packages/{,**/}__tests__/**/*.js\"",
     "lint": "standard",
     "clean": "rimraf doc coverage",
