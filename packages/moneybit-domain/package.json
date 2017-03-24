@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/kt3k/moneybit/issues"
   },
-  "homepage": "https://github.com/kt3k/moneybit#readme"
+  "homepage": "https://github.com/kt3k/moneybit#readme",
+  "dependencies": {
+    "js-yaml": "^3.8.2"
+  }
 }
