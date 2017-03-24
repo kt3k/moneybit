@@ -26,11 +26,12 @@
     "chai": "^3.5.0",
     "codecov": "^2.0.2",
     "dirty-chai": "^1.2.2",
+    "domaindoc": "^1.5.0",
+    "lerna": "2.0.0-beta.38",
     "mocha": "^3.2.0",
     "nyc": "^10.0.0",
     "rimraf": "^2.5.2",
-    "standard": "^9.0.1",
-    "lerna": "2.0.0-beta.38"
+    "standard": "^9.0.1"
   },
   "standard": {
     "env": [
