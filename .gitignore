@@ -8,3 +8,6 @@ lerna-debug.log
 # nyc
 /coverage
 /.nyc_output
+
+# domaindoc
+/docs
