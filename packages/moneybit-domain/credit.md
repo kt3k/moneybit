@@ -2,6 +2,7 @@
 name: Credit
 parent: Account
 desc: The credit of a trade
+src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/credit.js
 props:
 - name: date
   type: moment

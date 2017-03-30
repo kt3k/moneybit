@@ -1,6 +1,7 @@
 ---
 name: MajorAccountType
 desc: The major account type.
+src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/major-account-type.js
 props:
 - name: name
   type: string

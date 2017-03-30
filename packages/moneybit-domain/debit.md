@@ -2,6 +2,7 @@
 name: Debit
 parent: Account
 desc: The debit of a trade
+src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/debit.js
 props:
 - name: date
   type: moment

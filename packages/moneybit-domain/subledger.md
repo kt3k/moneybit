@@ -1,6 +1,7 @@
 ---
 name: Subledger
 desc: Subledger is a component of a ledger which has accounts of the single account type
+src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/subledger.jd
 props:
 - name: type
   type: AccountType

@@ -1,6 +1,7 @@
 ---
 name: TradeSide
 desc: TradeSide represents the side of the trade
+src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/trade-side.js
 props:
 - name: name
   type: string

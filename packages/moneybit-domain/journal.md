@@ -1,6 +1,7 @@
 ---
 name: Journal
 desc: Journal is a series of trades.
+src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/journal.js
 props:
 - name: trades
   type: Trade[]

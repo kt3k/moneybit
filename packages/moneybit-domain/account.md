@@ -1,6 +1,7 @@
 ---
 name: Account
 desc: Account represents a debit or credit in a trade.
+src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/account.js
 props:
 - name: date
   type: moment
