@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const minirocket = require('minirocket')
 const { errorExit } = require('./util')
 
