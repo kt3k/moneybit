@@ -1,6 +1,6 @@
 {
   "name": "moneybit-domain",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "The domain layer of moneybit apps",
   "main": "index.js",
   "scripts": {
