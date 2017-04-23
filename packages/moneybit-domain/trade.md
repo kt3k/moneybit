@@ -2,6 +2,7 @@
 name: Trade
 desc: Trade is a transation
 src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/trade.js
+edit: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/trade.md
 props:
 - name: id
   type: string
