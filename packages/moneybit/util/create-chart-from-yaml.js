@@ -1,4 +1,4 @@
-const yaml = require('js-yaml')
+const { loadFirst } = require('./yaml')
 const { AccountTypeChart } = require('../domain')
 
 /**
@@ -6,4 +6,4 @@ const { AccountTypeChart } = require('../domain')
  * @param {Buffer} chartYaml The chart yaml byte buffer
  * @return {AccountTypeChart}
  */
-module.exports = chartYaml => new AccountTypeChart.Factory().createFromObject(yaml.safeLoad(chartYaml))
+module.exports = chartYaml => new AccountTypeChart.Factory().createFromObject(loadFirst(chartYaml))

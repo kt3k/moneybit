@@ -1,5 +1,5 @@
-const yaml = require('js-yaml')
-const { Journal, Trade } = require('../domain')
+const { loadAll } = require('./yaml')
+const { Journal } = require('../domain')
 
 const createChartFromYaml = require('./create-chart-from-yaml')
 
@@ -11,12 +11,7 @@ const createChartFromYaml = require('./create-chart-from-yaml')
  */
 module.exports = (journalYaml, chartYaml) => {
   const chart = createChartFromYaml(chartYaml)
-  const tradeFactory = new Trade.Factory(chart)
-  const journal = new Journal()
+  const journalFactory = new Journal.Factory(chart)
 
-  yaml.safeLoadAll(journalYaml, data => {
-    journal.addTrade(tradeFactory.createFromObject(data))
-  })
-
-  return journal
+  return journalFactory.createFromArray(loadAll(journalYaml))
 }

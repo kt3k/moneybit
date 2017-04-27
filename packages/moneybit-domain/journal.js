@@ -13,13 +13,15 @@ const ledgerFactory = new LedgerFactory()
 class Journal {
   /**
    * @constructor
+   * @param {string} id The id
    * @param {Array<Trade>} trades The list of trades
    */
-  constructor (trades = []) {
+  constructor ({ id, trades }) {
+    this.id = id
     this.trades = []
     this.ids = {}
 
-    this.addTrades(trades)
+    this.addTrades(trades || [])
   }
 
   /**

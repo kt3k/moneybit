@@ -19,7 +19,17 @@ class JournalFactory {
   createFromArray (array) {
     const trades = array.map(obj => this.tradeFactory.createFromObject(obj))
 
-    return new Journal(trades)
+    return new Journal({ id: '', trades })
+  }
+
+  /**
+   * @param {Array<Object>}
+   * @return
+   */
+  createFromIdAndArray (id, array) {
+    const trades = array.map(obj => this.tradeFactory.createFromObject(obj))
+
+    return new Journal({ id, trades })
   }
 }
 
