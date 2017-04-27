@@ -1,0 +1,4 @@
+title: MoneyBit Domain Models
+source: packages/moneybit-domain
+dest: docs
+port: 9011
