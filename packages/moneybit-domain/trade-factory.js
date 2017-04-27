@@ -10,7 +10,7 @@ class TradeFactory {
    * @param {AccountTypeChart} chart
    */
   constructor (chart) {
-    this.journalEntryFactory = new AccountFactory(chart)
+    this.accountFactory = new AccountFactory(chart)
   }
 
   /**
@@ -21,13 +21,13 @@ class TradeFactory {
     const debits = Object.keys(obj.dr).map(title => {
       const amount = obj.dr[title]
 
-      return this.journalEntryFactory.createFromParams(title, amount, obj, DEBIT)
+      return this.accountFactory.createFromParams(title, amount, obj, DEBIT)
     })
 
     const credits = Object.keys(obj.cr).map(title => {
       const amount = obj.cr[title]
 
-      return this.journalEntryFactory.createFromParams(title, amount, obj, CREDIT)
+      return this.accountFactory.createFromParams(title, amount, obj, CREDIT)
     })
 
     const trade = new Trade(obj.id, debits, credits)
