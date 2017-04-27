@@ -362,9 +362,9 @@ builtin-modules@^1.0.0, builtin-modules@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
 
-bulbo@^6.8.0:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/bulbo/-/bulbo-6.8.0.tgz#95c3f52a9ab6d3c0494a7f35370201c622621710"
+bulbo@^6.11.0:
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/bulbo/-/bulbo-6.11.0.tgz#b90c529e97f2458b019ec3321fd4a8a00382a7dc"
   dependencies:
     chalk "^1.1.1"
     chokidar "^1.4.2"
@@ -975,12 +975,12 @@ doctrine@^2.0.0:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
-domaindoc@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-1.8.0.tgz#5159dce5364c8ec28eaedddb036e20e78a3a2a0f"
+domaindoc@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.0.0.tgz#6743b6d842513c49d593e93c97aaee672e43ea06"
   dependencies:
     branch-pipe "^1.0.1"
-    bulbo "^6.8.0"
+    bulbo "^6.11.0"
     chalk "^1.1.3"
     gulp-consolidate "^0.2.0"
     gulp-front-matter "^1.3.0"
@@ -990,6 +990,7 @@ domaindoc@1.8.0:
     minimisted "^1.1.1"
     minirocket "^2.0.0"
     nunjucks "^3.0.0"
+    require-yaml "^0.0.1"
     vinyl-accumulate "^1.4.1"
 
 dot-prop@^3.0.0:
@@ -2333,7 +2334,7 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@^3.2.6, js-yaml@^3.4.6, js-yaml@^3.5.1:
+js-yaml@, js-yaml@^3.2.6, js-yaml@^3.4.6, js-yaml@^3.5.1:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.2.tgz#02d3e2c0f6beab20248d412c352203827d786721"
   dependencies:
@@ -3591,6 +3592,12 @@ require-uncached@^1.0.2:
   dependencies:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
+
+require-yaml@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/require-yaml/-/require-yaml-0.0.1.tgz#2e1b18d913c3baa72a5a4d373b6f138ddd2c32bd"
+  dependencies:
+    js-yaml ""
 
 resolve-dir@^0.1.0:
   version "0.1.1"
