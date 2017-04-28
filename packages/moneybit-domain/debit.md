@@ -14,4 +14,10 @@ props:
 - name: amount
   type: Money
   desc: The amount of the debit
+- name: description
+  type: string
+  desc: The description of the debit
+- name: trade
+  type: Trade
+  desc: The trade which the debit belongs
 ---

@@ -13,6 +13,12 @@ props:
 - name: amount
   type: Money
   desc: The amount of the account
+- name: description
+  type: string
+  desc: The description of the account
+- name: trade
+  type: Trade
+  desc: The trade which the account belongs
 ---
 
 Account represents a debit or credit in a trade.

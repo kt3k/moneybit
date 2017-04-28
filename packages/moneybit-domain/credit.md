@@ -14,4 +14,10 @@ props:
 - name: amount
   type: Money
   desc: The amount of the credit
+- name: description
+  type: string
+  desc: The description of the credit
+- name: trade
+  type: Trade
+  desc: The trade which the credit belongs
 ---
