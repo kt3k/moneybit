@@ -23,7 +23,7 @@ class AccountFactory {
    * @param {string} desc The description of the entry
    * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
    */
-  createFromParams (typeName, amount, {date, desc}, side) {
+  createFromParams (typeName, amount, { date, desc }, side) {
     const type = this.accountTypeFactory.createFromName(typeName)
     const money = new Money(amount)
 

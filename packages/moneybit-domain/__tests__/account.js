@@ -43,7 +43,7 @@ describe('Account', () => {
       const c0 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
       const c1 = factory.createFromParams('Sales', 1, {date: '2015-01-01'}, CREDIT)
 
-      const trade = new Trade(null, [d0, d1], [c0, c1])
+      const trade = new Trade({ id: null, debits: [d0, d1], credits: [c0, c1] })
 
       d0.setTrade(trade)
       d1.setTrade(trade)

@@ -8,11 +8,16 @@
 class Trade {
   /**
    * @constructor
+   * @param {string} id The id of the trade
+   * @param {moment} date The date of the trade
+   * @param {string} description The description of the trade
    * @param {Array<Debit>} debits The debits
    * @param {Array<Credit>} credits The credits
    */
-  constructor (id, debits, credits) {
+  constructor ({ id, date, description, debits, credits }) {
     this.id = id
+    this.date = date
+    this.description = description
     this.debits = debits
     this.credits = credits
   }

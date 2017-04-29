@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 const { DEBIT, CREDIT } = require('./trade-side')
 const Trade = require('./trade')
 const AccountFactory = require('./account-factory')
@@ -30,7 +32,13 @@ class TradeFactory {
       return this.accountFactory.createFromParams(title, amount, obj, CREDIT)
     })
 
-    const trade = new Trade(obj.id, debits, credits)
+    const trade = new Trade({
+      id: obj.id,
+      date: moment(obj.date),
+      description: obj.desc,
+      debits: debits,
+      credits: credits
+    })
 
     trade.debits.forEach(entry => entry.setTrade(trade))
     trade.credits.forEach(entry => entry.setTrade(trade))

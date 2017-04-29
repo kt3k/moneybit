@@ -7,6 +7,12 @@ props:
 - name: id
   type: string
   desc: The id of the trade in a journal
+- name: date
+  type: moment
+  desc: The date of the trade
+- name: description
+  type: string
+  desc: The description of the trade
 - name: credits
   type: Credit[]
   desc: The credits of the trade
