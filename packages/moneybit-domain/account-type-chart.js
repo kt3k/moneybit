@@ -1,11 +1,9 @@
-const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
-
 /**
  * The account type chart model.
  */
 class AccountTypeChart {
   constructor () {
-    this.majorTypes = {}
+    this.majorTypes = new Map()
   }
 
   /**
@@ -15,7 +13,7 @@ class AccountTypeChart {
    * @param {MajorAccountType} majorType The major account type
    */
   addNameByMajorType (name, majorType) {
-    this.majorTypes[name] = majorType
+    this.majorTypes.set(name, majorType)
   }
 
   /**
@@ -30,7 +28,7 @@ class AccountTypeChart {
       throw Error(`The account type name must be a string: typeof name is ${typeof name}`)
     }
 
-    const majorType = this.majorTypes[name]
+    const majorType = this.majorTypes.get(name)
 
     if (majorType == null) {
       throw Error(`The account type name is not found in the chart: ${name}`)
