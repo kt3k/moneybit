@@ -1,7 +1,6 @@
 exports.AccountTypeChart = require('./account-type-chart')
 exports.AccountTypeChart.Factory = require('./account-type-chart-factory')
 exports.AccountType = require('./account-type')
-exports.AccountType.Factory = require('./account-type-factory')
 exports.Account = require('./account')
 exports.Account.Factory = require('./account-factory')
 exports.BalanceSheet = require('./balance-sheet')

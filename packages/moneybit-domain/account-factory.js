@@ -3,7 +3,6 @@ const Money = require('./money')
 const Debit = require('./debit')
 const Credit = require('./credit')
 const { DEBIT } = require('./trade-side')
-const AccountTypeFactory = require('./account-type-factory')
 
 /**
  * The factory class for Account model.
@@ -13,7 +12,7 @@ class AccountFactory {
    * @param {AccountTypeChart} chart
    */
   constructor (chart) {
-    this.accountTypeFactory = new AccountTypeFactory(chart)
+    this.chart = chart
   }
 
   /**
@@ -24,7 +23,7 @@ class AccountFactory {
    * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
    */
   createFromParams (typeName, amount, { date, desc }, side) {
-    const type = this.accountTypeFactory.createFromName(typeName)
+    const type = this.chart.getByName(typeName)
     const money = new Money(amount)
 
     date = moment(date)

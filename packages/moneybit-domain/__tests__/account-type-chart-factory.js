@@ -14,11 +14,11 @@ describe('AccountTypeChartFactory', () => {
         expense: ['E']
       })
 
-      expect(chart.getMajorTypeByAccountTypeName('A')).to.equal(ASSET)
-      expect(chart.getMajorTypeByAccountTypeName('B')).to.equal(LIABILITY)
-      expect(chart.getMajorTypeByAccountTypeName('C')).to.equal(EQUITY)
-      expect(chart.getMajorTypeByAccountTypeName('D')).to.equal(REVENUE)
-      expect(chart.getMajorTypeByAccountTypeName('E')).to.equal(EXPENSE)
+      expect(chart.getByName('A').majorType).to.equal(ASSET)
+      expect(chart.getByName('B').majorType).to.equal(LIABILITY)
+      expect(chart.getByName('C').majorType).to.equal(EQUITY)
+      expect(chart.getByName('D').majorType).to.equal(REVENUE)
+      expect(chart.getByName('E').majorType).to.equal(EXPENSE)
     })
   })
 })

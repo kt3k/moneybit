@@ -1,4 +1,4 @@
-const { AccountTypeChart, MajorAccountType } = require('../')
+const { AccountTypeChart, MajorAccountType, AccountType } = require('../')
 const { EQUITY } = MajorAccountType
 const chartObj = require('../__mocks__/chart')
 
@@ -13,16 +13,20 @@ describe('AccountTypeChart', () => {
     chart = factory.createFromObject(chartObj)
   })
 
-  describe('getMajorTypeByAccountTypeName', () => {
-    it('gets the major type when the type name is found in the chart', () => {
-      const majorType = chart.getMajorTypeByAccountTypeName('Capital')
+  describe('getByName', () => {
+    it('gets the account type by the name when the type name is found in the chart', () => {
+      const accountType = chart.getByName('Capital')
 
-      expect(majorType).to.be.instanceof(MajorAccountType)
-      expect(majorType).to.equal(EQUITY)
+      expect(accountType).to.be.instanceof(AccountType)
+      expect(accountType.majorType).to.equal(EQUITY)
     })
 
     it('throws when the type name is not found by the chart', () => {
-      expect(() => chart.getMajorTypeByAccountTypeName('A')).to.throw()
+      expect(() => chart.getByName('A')).to.throw()
+    })
+
+    it('throws when the type name is not a string', () => {
+      expect(() => chart.getByName(null)).to.throw()
     })
   })
 })

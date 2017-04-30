@@ -22,7 +22,7 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
 
   const chartModel = createChartFromYaml(chartYaml)
 
-  const type = new AccountType.Factory(chartModel).createFromName(accountType)
+  const type = chartModel.getByName(accountType)
 
   const ledger = createJournalFromYaml(journalYaml, chartYaml).toLedger()
 
