@@ -5,13 +5,6 @@ const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-
  */
 class AccountTypeChart {
   constructor () {
-    this.names = {}
-    this.names[ASSET.name] = []
-    this.names[LIABILITY.name] = []
-    this.names[EQUITY.name] = []
-    this.names[REVENUE.name] = []
-    this.names[EXPENSE.name] = []
-
     this.majorTypes = {}
   }
 
@@ -22,7 +15,6 @@ class AccountTypeChart {
    * @param {MajorAccountType} majorType The major account type
    */
   addNameByMajorType (name, majorType) {
-    this.names[majorType.name].push(name)
     this.majorTypes[name] = majorType
   }
 
