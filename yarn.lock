@@ -793,7 +793,7 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-cross-spawn@^4, cross-spawn@^4.0.0:
+cross-spawn@^4:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-4.0.2.tgz#7b9247621c23adfdd3856004a823cbe397424d41"
   dependencies:
@@ -975,9 +975,9 @@ doctrine@^2.0.0:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
-domaindoc@^2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.2.1.tgz#91b53e7270389b4a0a7bc2f881b678bb4992bc89"
+domaindoc@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.3.0.tgz#b4337f6be86f8589da42e57887b77f25b37be765"
   dependencies:
     branch-pipe "^1.0.1"
     bulbo "^6.11.0"
@@ -1582,6 +1582,10 @@ get-pkg-repo@^1.0.0:
     normalize-package-data "^2.3.0"
     parse-github-repo-url "^1.3.0"
     through2 "^2.0.0"
+
+get-port@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/get-port/-/get-port-3.1.0.tgz#ef01b18a84ca6486970ff99e54446141a73ffd3e"
 
 get-stdin@^4.0.1:
   version "4.0.1"
@@ -2429,9 +2433,9 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-lerna@2.0.0-rc.2:
-  version "2.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/lerna/-/lerna-2.0.0-rc.2.tgz#6c2191f6af2bf736bea4f49ba36e6576e204a13d"
+lerna@2.0.0-rc.4:
+  version "2.0.0-rc.4"
+  resolved "https://registry.yarnpkg.com/lerna/-/lerna-2.0.0-rc.4.tgz#567fc62c1d46190ce5f5ee0f654e0a9c9a63bdba"
   dependencies:
     async "^1.5.0"
     chalk "^1.1.1"
@@ -2440,20 +2444,21 @@ lerna@2.0.0-rc.2:
     command-join "^2.0.0"
     conventional-changelog-cli "^1.3.1"
     conventional-recommended-bump "^1.0.0"
-    cross-spawn "^4.0.0"
     dedent "^0.7.0"
     execa "^0.6.3"
     find-up "^2.1.0"
     fs-promise "^2.0.2"
+    get-port "^3.1.0"
     glob "^7.0.6"
+    globby "^6.1.0"
     graceful-fs "^4.1.11"
     inquirer "^3.0.6"
     load-json-file "^2.0.0"
     lodash "^4.17.4"
     minimatch "^3.0.0"
+    npmlog "^4.0.2"
     p-finally "^1.0.0"
     path-exists "^3.0.0"
-    progress "^2.0.0"
     read-cmd-shim "^1.0.1"
     read-pkg "^2.0.0"
     rimraf "^2.6.1"
@@ -2462,9 +2467,10 @@ lerna@2.0.0-rc.2:
     signal-exit "^3.0.2"
     strong-log-transformer "^1.0.6"
     temp-write "^3.2.0"
+    write-file-atomic "^1.3.3"
     write-json-file "^2.0.0"
     write-pkg "^2.1.0"
-    yargs "^7.0.2"
+    yargs "^7.1.0"
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
@@ -3344,10 +3350,6 @@ process-nextick-args@^1.0.6, process-nextick-args@~1.0.6:
 progress@^1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
-
-progress@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
 
 pseudomap@^1.0.1:
   version "1.0.2"
@@ -4336,6 +4338,14 @@ write-file-atomic@^1.1.2, write-file-atomic@^1.1.4:
     imurmurhash "^0.1.4"
     slide "^1.1.5"
 
+write-file-atomic@^1.3.3:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-1.3.4.tgz#f807a4f0b1d9e913ae7a48112e6cc3af1991b45f"
+  dependencies:
+    graceful-fs "^4.1.11"
+    imurmurhash "^0.1.4"
+    slide "^1.1.5"
+
 write-json-file@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/write-json-file/-/write-json-file-2.0.0.tgz#0eaec981fcf9288dbc2806cbd26e06ab9bdca4ed"
@@ -4402,6 +4412,24 @@ yargs@^3.32.0:
 yargs@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-7.0.2.tgz#115b97df1321823e8b8648e8968c782521221f67"
+  dependencies:
+    camelcase "^3.0.0"
+    cliui "^3.2.0"
+    decamelize "^1.1.1"
+    get-caller-file "^1.0.1"
+    os-locale "^1.4.0"
+    read-pkg-up "^1.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^1.0.2"
+    which-module "^1.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^5.0.0"
+
+yargs@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-7.1.0.tgz#6ba318eb16961727f5d284f8ea003e8d6154d0c8"
   dependencies:
     camelcase "^3.0.0"
     cliui "^3.2.0"
