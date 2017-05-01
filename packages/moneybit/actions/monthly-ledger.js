@@ -2,7 +2,7 @@ const yaml = require('js-yaml')
 const moment = require('moment')
 
 const { DEFAULT_CHART_FILE } = require('../const')
-const { AccountType, Ledger } = require('../domain')
+const { Ledger } = require('../domain')
 const { checkJournalFilePath, errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
 
 const ledgerRepository = new Ledger.Repository()

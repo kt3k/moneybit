@@ -1,4 +1,5 @@
 const AccountTypeChart = require('./account-type-chart')
+const AccountType = require('./account-type')
 const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
 
 /**
@@ -6,23 +7,22 @@ const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-
  */
 class AccountTypeChartFactory {
   /**
+   * Creates the chart from the object with id an empty string.
    * @param {Object} obj The chart object
    * @return {AccountTypeChart}
    */
   createFromObject (obj) {
-    const assetNames = obj[ASSET.name] || []
-    const liabilityNames = obj[LIABILITY.name] || []
-    const equityNames = obj[EQUITY.name] || []
-    const revenueNames = obj[REVENUE.name] || []
-    const expenseNames = obj[EXPENSE.name] || []
+    const chart = new AccountTypeChart(obj.id || '')
 
-    const chart = new AccountTypeChart()
+    ;[ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE].forEach(majorType => {
+      const accountTypeNames = obj[majorType.name]
 
-    assetNames.forEach(name => chart.addNameByMajorType(name, ASSET))
-    liabilityNames.forEach(name => chart.addNameByMajorType(name, LIABILITY))
-    equityNames.forEach(name => chart.addNameByMajorType(name, EQUITY))
-    revenueNames.forEach(name => chart.addNameByMajorType(name, REVENUE))
-    expenseNames.forEach(name => chart.addNameByMajorType(name, EXPENSE))
+      if (accountTypeNames) {
+        accountTypeNames.forEach(name => {
+          chart.addAccountType(new AccountType(name, majorType))
+        })
+      }
+    })
 
     return chart
   }

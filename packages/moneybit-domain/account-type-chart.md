@@ -2,6 +2,9 @@
 name: AccountTypeChart
 desc: The chart of the account types.
 props:
+- name: id
+  type: string
+  desc: The id of the chart
 - name: accountTypes
   type: Map<string, AccountType>
   desc: The mapping from account type name to account type

@@ -1,20 +1,18 @@
-const AccountType = require('./account-type')
 /**
  * The account type chart model.
  */
 class AccountTypeChart {
-  constructor () {
+  constructor (id) {
+    this.id = id
     this.accountTypes = new Map()
   }
 
   /**
-   * Adds the account type name by the major account type.
-   *
-   * @param {string} name The name of the account type
-   * @param {MajorAccountType} majorType The major account type
+   * Adds the account type to the chart.
+   * @param {AccountType} accountType The account type
    */
-  addNameByMajorType (name, majorType) {
-    this.accountTypes.set(name, new AccountType(name, majorType))
+  addAccountType (accountType) {
+    this.accountTypes.set(accountType.name, accountType)
   }
 
   /**

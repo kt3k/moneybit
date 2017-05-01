@@ -2,7 +2,6 @@ const yaml = require('js-yaml')
 const moment = require('moment')
 
 const { DEFAULT_CHART_FILE } = require('../const')
-const { AccountType } = require('../domain')
 const { checkJournalFilePath, errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
 
 /**
