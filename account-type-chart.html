@@ -3,7 +3,7 @@
 
 <html>
   <head>
-    <title>MajorAccountType | MoneyBit Domain Models</title>
+    <title>AccountTypeChart | MoneyBit Domain Models</title>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="./asset/fontawesome/css/font-awesome.css" />
@@ -66,32 +66,26 @@
 <div class="card">
   <header class="card-header">
     <div class="card-header-title">
-      MajorAccountType
+      AccountTypeChart
     </div>
 
 
-    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/major-account-type.md" target="_blank">
-      <span class="icon"><i class="fa fa-pencil"></i></span>
-    </a>
 
-
-
-    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/major-account-type.js" target="_blank">
-      <span class="icon"><i class="fa fa-code"></i></span>
-    </a>
 
   </header>
 
   <div class="card-content">
     <div class="content">
 
-      <p>The major account type.</p>
+      <p>The chart of the account types.</p>
 
 
         <table class="table">
           <tr><th>property<th>type<th>description
 
-            <tr><td>name<td>string<td>
+            <tr><td>id<td>string<td>The id of the chart
+
+            <tr><td>accountTypes<td>Map&lt;string, <a href="./account-type.html">AccountType</a>&gt;<td>The mapping from account type name to account type
 
         </table>
 
@@ -102,7 +96,7 @@
     <footer class="card-footer">
       <div class="card-footer-item">
         <div class="content">
-          <p>MajorAccountType is basically one of ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE.</p>
+          <p>The chart of the account types.</p>
 
 	</div>
       </div>
