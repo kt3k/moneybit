@@ -1,6 +1,7 @@
 const yaml = require('js-yaml')
 const moment = require('moment')
 
+const { AccountType } = require('../domain')
 const { DEFAULT_CHART_FILE } = require('../const')
 const { checkJournalFilePath, errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
 
@@ -21,9 +22,9 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
 
   const chartModel = createChartFromYaml(chartYaml)
 
-  const type = chartModel.getByName(accountType)
+  const type = new AccountType(accountType)
 
-  const ledger = createJournalFromYaml(journalYaml, chartYaml).toLedger()
+  const ledger = createJournalFromYaml(journalYaml).toLedger(chartModel)
 
   const subledger = ledger.getSubledgerByAccountType(type)
 

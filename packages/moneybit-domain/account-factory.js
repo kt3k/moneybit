@@ -2,19 +2,13 @@ const moment = require('moment')
 const Money = require('./money')
 const Debit = require('./debit')
 const Credit = require('./credit')
+const AccountType = require('./account-type')
 const { DEBIT } = require('./trade-side')
 
 /**
  * The factory class for Account model.
  */
 class AccountFactory {
-  /**
-   * @param {AccountTypeChart} chart
-   */
-  constructor (chart) {
-    this.chart = chart
-  }
-
   /**
    * @param {string} typeName The type name of journal entry (e.g. 売上, 売掛金)
    * @param {number} amount The amount of the entry
@@ -23,7 +17,7 @@ class AccountFactory {
    * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
    */
   createFromParams (typeName, amount, { date, desc }, side) {
-    const type = this.chart.getByName(typeName)
+    const type = new AccountType(typeName)
     const money = new Money(amount)
 
     date = moment(date)

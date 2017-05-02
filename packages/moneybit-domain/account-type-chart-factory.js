@@ -19,7 +19,7 @@ class AccountTypeChartFactory {
 
       if (accountTypeNames) {
         accountTypeNames.forEach(name => {
-          chart.addAccountType(new AccountType(name, majorType))
+          chart.set(new AccountType(name), majorType)
         })
       }
     })

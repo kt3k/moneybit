@@ -3,7 +3,7 @@ const rimraf = require('rimraf')
 const { expect } = require('chai')
 
 const { BalanceSheet } = require('../')
-const { journal } = require('../__mocks__')
+const { journal, chart } = require('../__mocks__')
 
 const repository = new BalanceSheet.Repository()
 
@@ -12,7 +12,7 @@ describe('BalanceSheetRepository', () => {
     it('saves the yaml to the path', () => {
       const path = `${__dirname}/bs.yml`
 
-      repository.saveYamlToPath(journal.toBalanceSheet(), path)
+      repository.saveYamlToPath(journal.toBalanceSheet(chart), path)
 
       const yaml = fs.readFileSync(path).toString()
 

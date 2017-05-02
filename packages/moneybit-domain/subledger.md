@@ -7,6 +7,9 @@ props:
 - name: type
   type: AccountType
   desc: The account type of the subledger
+- name: majorType
+  type: MajorAccountType
+  desc: The major account type of the subledger
 - name: accounts
   type: Account[]
   desc: The accounts which belong to the subledger

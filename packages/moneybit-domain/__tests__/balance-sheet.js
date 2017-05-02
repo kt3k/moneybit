@@ -1,8 +1,8 @@
 const { BalanceSheet, Money } = require('../')
-const { journal } = require('../__mocks__')
+const { journal, chart } = require('../__mocks__')
 const { expect } = require('chai')
 
-const ledger = journal.toLedger()
+const ledger = journal.toLedger(chart)
 
 describe('BalanceSheet', () => {
   describe('retainedEarnings', () => {

@@ -2,14 +2,14 @@ const fs = require('fs')
 const rimraf = require('rimraf')
 const { Ledger } = require('../')
 const { expect } = require('chai')
-const { journal } = require('../__mocks__')
+const { journal, chart } = require('../__mocks__')
 
 describe('LedgerRepository', () => {
   const repository = new Ledger.Repository()
 
   describe('saveAsYamlToPath', () => {
     it('saves the ledger to the given path', () => {
-      const ledger = new Ledger.Factory().createFromJournal(journal)
+      const ledger = new Ledger.Factory().createFromJournalAndChart(journal, chart)
 
       const path = `${__dirname}/ledger.yml`
 

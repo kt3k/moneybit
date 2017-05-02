@@ -10,10 +10,12 @@ class Subledger {
   /**
    * @constructor
    * @param {AccountType} type The account type of the subledger
+   * @param {MajorAccountType} majorType The major account type
    * @param {Array<Account>} accounts
    */
-  constructor (type, accounts) {
+  constructor (type, majorType, accounts) {
     this.type = type
+    this.majorType = majorType
     this.accounts = accounts.sort((x, y) => x.dateDiff(y))
   }
 
@@ -40,7 +42,7 @@ class Subledger {
    * @return {TradeSide}
    */
   side () {
-    return this.type.side()
+    return this.majorType.side
   }
 
   /**
@@ -82,7 +84,7 @@ class Subledger {
    * @param {moment} month The month
    */
   filterByMonth (month) {
-    return new Subledger(this.type, this.accounts.filter(account => account.isInMonth(month)))
+    return new Subledger(this.type, this.majorType, this.accounts.filter(account => account.isInMonth(month)))
   }
 
   /**

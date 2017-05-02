@@ -25,19 +25,21 @@ class Journal {
   }
 
   /**
-   * Creates a ledger.
-   *
+   * Creates the ledger.
+   * @param {AccountTypeChart} chart The chart
    * @return {Ledger}
    */
-  toLedger () {
-    return ledgerFactory.createFromJournal(this)
+  toLedger (chart) {
+    return ledgerFactory.createFromJournalAndChart(this, chart)
   }
 
   /**
+   * Creates the balancesheet.
+   * @param {AccountTypeChart} chart The chart
    * @return {BalanceSheet}
    */
-  toBalanceSheet () {
-    return new BalanceSheet(this.toLedger())
+  toBalanceSheet (chart) {
+    return new BalanceSheet(this.toLedger(chart))
   }
 
   /**

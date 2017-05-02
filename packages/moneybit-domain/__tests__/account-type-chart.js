@@ -13,20 +13,15 @@ describe('AccountTypeChart', () => {
     chart = factory.createFromObject(chartObj)
   })
 
-  describe('getByName', () => {
+  describe('getMajorTypeByAccountType', () => {
     it('gets the account type by the name when the type name is found in the chart', () => {
-      const accountType = chart.getByName('Capital')
+      const majorType = chart.getMajorTypeByAccountType(new AccountType('Capital'))
 
-      expect(accountType).to.be.instanceof(AccountType)
-      expect(accountType.majorType).to.equal(EQUITY)
+      expect(majorType).to.equal(EQUITY)
     })
 
     it('throws when the type name is not found by the chart', () => {
-      expect(() => chart.getByName('A')).to.throw()
-    })
-
-    it('throws when the type name is not a string', () => {
-      expect(() => chart.getByName(null)).to.throw()
+      expect(() => chart.getMajorTypeByAccountType(new AccountType('A'))).to.throw()
     })
   })
 })

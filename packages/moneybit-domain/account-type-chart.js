@@ -4,33 +4,29 @@
 class AccountTypeChart {
   constructor (id) {
     this.id = id
-    this.accountTypes = new Map()
+    this.majorTypes = new Map()
   }
 
   /**
-   * Adds the account type to the chart.
+   * Sets the account type to the major type.
    * @param {AccountType} accountType The account type
+   * @param {MajorAccountType} majorType The major account type
    */
-  addAccountType (accountType) {
-    this.accountTypes.set(accountType.name, accountType)
+  set (accountType, majorType) {
+    this.majorTypes.set(accountType.name, majorType)
   }
 
   /**
-   * Gets the account type by the name.
-   * @param {string} name The name of the account type
-   * @return {Account}
-   * @throws {Error} when the account type name is not found in the chart
+   * Gets the major type by the account type.
+   * @param {AccountType} accountType The account type
+   * @return {MajorAccountType}
    */
-  getByName (name) {
-    if (typeof name !== 'string') {
-      throw new Error(`The account type name must be a string: typeof name is ${typeof name}`)
+  getMajorTypeByAccountType (accountType) {
+    if (!this.majorTypes.has(accountType.name)) {
+      throw new Error(`The account type name is not found in the chart: ${accountType.name}`)
     }
 
-    if (!this.accountTypes.has(name)) {
-      throw new Error(`The account type name is not found in the chart: ${name}`)
-    }
-
-    return this.accountTypes.get(name)
+    return this.majorTypes.get(accountType.name)
   }
 }
 

@@ -31,7 +31,7 @@ class Ledger {
    * @param {Subledger} subledger The subledger
    */
   add (subledger) {
-    switch (subledger.type.majorType) {
+    switch (subledger.majorType) {
       case ASSET:
         this.subledgers[ASSET.name].push(subledger)
         break
@@ -71,7 +71,7 @@ class Ledger {
     const subledgers = this.subledgerList.filter(subledger => subledger.type.equals(type))
 
     if (subledgers.length === 0) {
-      throw new Error('No such account: ' + type.name)
+      throw new Error(`No such account: ${type.name}`)
     }
 
     return subledgers[0]
