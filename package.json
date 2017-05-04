@@ -6,7 +6,7 @@
     "test": "mocha \"packages/{,**/}__tests__/**/*.js\"",
     "lint": "standard",
     "doc": "domaindoc",
-    "gh-pages": "npm run clean && domaindoc build && gh-pages -d docs",
+    "gh-pages": "npm run clean && domaindoc build && cp -r media docs/ && gh-pages -d docs",
     "clean": "rimraf doc coverage",
     "cov": "nyc --reporter=lcov npm test && open coverage/lcov-report/index.html",
     "codecov": "nyc --reporter=lcov npm test && codecov",
