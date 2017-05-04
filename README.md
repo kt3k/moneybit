@@ -1,4 +1,4 @@
-# MoneyBit
+# <img src="http://kt3k.github.io/moneybit/media/wide-logo.svg">
 
 > A Cli tool for creating a general ledger from the journal.
 
