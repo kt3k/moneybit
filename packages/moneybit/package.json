@@ -1,6 +1,6 @@
 {
   "name": "moneybit",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A Cli tool for creating the general ledger of a journal",
   "main": "index.js",
   "bin": {
