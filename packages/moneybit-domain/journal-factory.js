@@ -14,13 +14,12 @@ class JournalFactory {
    * @return {Journal}
    */
   createFromArray (array) {
-    const trades = array.map(obj => this.tradeFactory.createFromObject(obj))
-
-    return new Journal({ id: '', trades })
+    return this.createFromIdAndArray('', array)
   }
 
   /**
-   * @param {Array<Object>}
+   * @param {string} id The id
+   * @param {Array<Object>} array The array of trade objects
    * @return
    */
   createFromIdAndArray (id, array) {
