@@ -1,6 +1,6 @@
 const AccountTypeChart = require('./account-type-chart')
 const AccountType = require('./account-type')
-const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
+const { ALL_TYPES } = require('./major-account-type')
 
 /**
  * The factory class of the account type chart.
@@ -14,7 +14,7 @@ class AccountTypeChartFactory {
   createFromObject (obj) {
     const chart = new AccountTypeChart(obj.id || '')
 
-    ;[ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE].forEach(majorType => {
+    ALL_TYPES.forEach(majorType => {
       const accountTypeNames = obj[majorType.name]
 
       if (accountTypeNames) {
