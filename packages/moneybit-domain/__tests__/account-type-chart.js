@@ -24,4 +24,13 @@ describe('AccountTypeChart', () => {
       expect(() => chart.getMajorTypeByAccountType(new AccountType('A'))).to.throw()
     })
   })
+
+  describe('clone', () => {
+    it('clones itself with the given id', () => {
+      const clone = chart.clone('foobar')
+
+      expect(chart).to.not.equal(clone)
+      expect(clone).to.be.instanceof(AccountTypeChart)
+    })
+  })
 })

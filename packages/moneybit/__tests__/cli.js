@@ -62,10 +62,19 @@ describe(cliName, () => {
       execSync(`node ${cliPath} help`)
     })
 
-    it('does not throw when called with existing subcommands', () => {
+    it('does not throw when called with existing subcommands, ledger', () => {
       execSync(`node ${cliPath} help ledger`)
+    })
+
+    it('does not throw when called with existing subcommands, bs', () => {
       execSync(`node ${cliPath} help bs`)
+    })
+
+    it('does not throw when called with existing subcommands, monthly', () => {
       execSync(`node ${cliPath} help monthly`)
+    })
+
+    it('does not throw when called with existing subcommands, monthly-ledger', () => {
       execSync(`node ${cliPath} help monthly-ledger`)
     })
 

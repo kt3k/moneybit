@@ -28,6 +28,19 @@ class AccountTypeChart {
 
     return this.majorTypes.get(accountType.name)
   }
+
+  /**
+   * Clones the chart with overwriting its id by the given one.
+   * @param {string} id The new chart's id
+   * @return {AccountTypeChart}
+   */
+  clone (id) {
+    const clone = new AccountTypeChart(id)
+
+    clone.majorTypes = new Map(this.majorTypes)
+
+    return clone
+  }
 }
 
 module.exports = AccountTypeChart
