@@ -1,5 +1,5 @@
 /**
- * The account type model.
+ * The account type model. Value Object.
  *
  * An account type represents the detailed type of account. e.g. sales, deposit etc
  */
