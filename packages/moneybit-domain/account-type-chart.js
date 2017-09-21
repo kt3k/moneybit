@@ -1,3 +1,5 @@
+const AccountType = require('./account-type')
+
 /**
  * The account type chart model.
  */
@@ -27,6 +29,17 @@ class AccountTypeChart {
     }
 
     return this.majorTypes.get(accountType.name)
+  }
+
+  /**
+   * Gets the list of account types by the given major type
+   * @param {MajorType} majorTyope The major account type
+   * @return {AccountType[]}
+   */
+  getAccountTypesByMajorType (majorType) {
+    return Array.from(this.majorTypes.entries())
+      .filter(([name, type]) => type === majorType)
+      .map(([name, type]) => new AccountType(name))
   }
 
   /**

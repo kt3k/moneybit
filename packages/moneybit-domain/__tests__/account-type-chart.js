@@ -25,6 +25,17 @@ describe('AccountTypeChart', () => {
     })
   })
 
+  describe('getAccountTypesByMajorType', () => {
+    it('gets the account types by the given major type', () => {
+      const assets = chart.getAccountTypesByMajorType(MajorAccountType.ASSET)
+      expect(assets[0].equals(new AccountType('Deposit')))
+      expect(assets[1].equals(new AccountType('Accounts receivable')))
+
+      const liabilities = chart.getAccountTypesByMajorType(MajorAccountType.LIABILITY)
+      expect(assets[0].equals(new AccountType('Accounts payable')))
+    })
+  })
+
   describe('clone', () => {
     it('clones itself with the given id', () => {
       const clone = chart.clone('foobar')
