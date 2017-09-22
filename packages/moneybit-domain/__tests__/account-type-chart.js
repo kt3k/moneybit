@@ -28,11 +28,13 @@ describe('AccountTypeChart', () => {
   describe('getAccountTypesByMajorType', () => {
     it('gets the account types by the given major type', () => {
       const assets = chart.getAccountTypesByMajorType(MajorAccountType.ASSET)
-      expect(assets[0].equals(new AccountType('Deposit')))
-      expect(assets[1].equals(new AccountType('Accounts receivable')))
+
+      expect(assets[0].equals(new AccountType('Deposit'))).to.equal(true)
+      expect(assets[1].equals(new AccountType('Accounts receivable'))).to.equal(true)
 
       const liabilities = chart.getAccountTypesByMajorType(MajorAccountType.LIABILITY)
-      expect(assets[0].equals(new AccountType('Accounts payable')))
+
+      expect(liabilities[0].equals(new AccountType('Accounts payable'))).to.equal(true)
     })
   })
 
