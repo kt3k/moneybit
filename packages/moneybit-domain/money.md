@@ -1,5 +1,6 @@
 ---
 name: Money
+type: ValueObject
 desc: The money
 src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/money.js
 edit: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/money.md

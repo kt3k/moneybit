@@ -27,7 +27,7 @@
     "chai": "^3.5.0",
     "codecov": "^2.0.2",
     "dirty-chai": "^1.2.2",
-    "domaindoc": "^2.3.1",
+    "domaindoc": "^3.0.0",
     "gh-pages": "^1.0.0",
     "lerna": "2.0.0-rc.5",
     "mocha": "^3.2.0",

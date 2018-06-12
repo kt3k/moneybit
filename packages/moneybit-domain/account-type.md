@@ -1,5 +1,6 @@
 ---
 name: AccountType
+type: ValueObject
 desc: The account type
 src: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/account-type.js
 edit: https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/account-type.md
