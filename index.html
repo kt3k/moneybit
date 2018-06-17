@@ -1,6 +1,7 @@
 
 
 
+
 <html>
   <head>
     <title>MoneyBit Domain Models</title>
@@ -12,11 +13,14 @@
 
   </head>
   <body>
-    <nav class="nav">
-      <div class="nav-center">
-        <div class="nav-item">
-          <a href="./index.html">MoneyBit Domain Models</a>
-        </div>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./">
+          <img src="./asset/domaindoc.svg" />
+        </a>
+      </div>
+      <div class="navbar-start">
+        <a class="navbar-item" href="./">MoneyBit Domain Models</a>
       </div>
     </nav>
 
@@ -27,11 +31,10 @@
 <div class="columns">
 
   <div class="column is-4">
-    <a name="Account"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./account.html">Account</a>
+          <a href="./packages/moneybit-domain/account.html">Account</a>
         </p>
 
 
@@ -48,28 +51,46 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>date</b>
-	      <small>moment</small>
+                <b>date</b>
+                <small>moment</small>
+              </p>
 
               <p>
-	      <b>type</b>
-	      <small><a href="./account-type.html">AccountType</a></small>
+                <b>type</b>
+                <small><a href="./packages/moneybit-domain/account-type.html">AccountType</a></small>
+              </p>
 
               <p>
-	      <b>amount</b>
-	      <small><a href="./money.html">Money</a></small>
+                <b>amount</b>
+                <small><a href="./packages/moneybit-domain/money.html">Money</a></small>
+              </p>
 
               <p>
-	      <b>description</b>
-	      <small>string</small>
+                <b>description</b>
+                <small>string</small>
+              </p>
 
               <p>
-	      <b>trade</b>
-	      <small><a href="./trade.html">Trade</a></small>
+                <b>trade</b>
+                <small><a href="./packages/moneybit-domain/trade.html">Trade</a></small>
+              </p>
 
 
         </div>
@@ -78,18 +99,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           Account represents a debit or credit in a trade.
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="AccountType"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./account-type.html">AccountType</a>
+          <a href="./packages/moneybit-domain/account-type.html">AccountType</a>
         </p>
 
 
@@ -106,12 +126,26 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>name</b>
-	      <small>string</small>
+                <b>name</b>
+                <small>string</small>
+              </p>
 
 
         </div>
@@ -120,18 +154,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           The account type
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="AccountTypeChart"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./account-type-chart.html">AccountTypeChart</a>
+          <a href="./packages/moneybit-domain/account-type-chart.html">AccountTypeChart</a>
         </p>
 
 
@@ -148,16 +181,35 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">Entity</span>
+    </div>
+  </div>
+
+
+  <div class="control">
+    <span class="tag is-info">⛰ Independent</span>
+  </div>
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>id</b>
-	      <small>string</small>
+                <b>id</b>
+                <small>string</small>
+              </p>
 
               <p>
-	      <b>majorTypes</b>
-	      <small>Map&lt;string, <a href="./major-account-type.html">MajorAccountType</a>&gt;</small>
+                <b>majorTypes</b>
+                <small>Map&lt;string, <a href="./packages/moneybit-domain/major-account-type.html">MajorAccountType</a>&gt;</small>
+              </p>
 
 
         </div>
@@ -166,18 +218,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           The chart of the account types.
-	</div>
+        </div>
       </footer>
     </div>
   </div>
   </div><div class="columns">
 
   <div class="column is-4">
-    <a name="Credit"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./credit.html">Credit</a>
+          <a href="./packages/moneybit-domain/credit.html">Credit</a>
         </p>
 
 
@@ -194,28 +245,46 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>date</b>
-	      <small>moment</small>
+                <b>date</b>
+                <small>moment</small>
+              </p>
 
               <p>
-	      <b>type</b>
-	      <small><a href="./account-type.html">AccountType</a></small>
+                <b>type</b>
+                <small><a href="./packages/moneybit-domain/account-type.html">AccountType</a></small>
+              </p>
 
               <p>
-	      <b>amount</b>
-	      <small><a href="./money.html">Money</a></small>
+                <b>amount</b>
+                <small><a href="./packages/moneybit-domain/money.html">Money</a></small>
+              </p>
 
               <p>
-	      <b>description</b>
-	      <small>string</small>
+                <b>description</b>
+                <small>string</small>
+              </p>
 
               <p>
-	      <b>trade</b>
-	      <small><a href="./trade.html">Trade</a></small>
+                <b>trade</b>
+                <small><a href="./packages/moneybit-domain/trade.html">Trade</a></small>
+              </p>
 
 
         </div>
@@ -224,18 +293,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           The credit of a trade
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="Debit"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./debit.html">Debit</a>
+          <a href="./packages/moneybit-domain/debit.html">Debit</a>
         </p>
 
 
@@ -252,28 +320,46 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>date</b>
-	      <small>moment</small>
+                <b>date</b>
+                <small>moment</small>
+              </p>
 
               <p>
-	      <b>type</b>
-	      <small><a href="./account-type.html">AccountType</a></small>
+                <b>type</b>
+                <small><a href="./packages/moneybit-domain/account-type.html">AccountType</a></small>
+              </p>
 
               <p>
-	      <b>amount</b>
-	      <small><a href="./money.html">Money</a></small>
+                <b>amount</b>
+                <small><a href="./packages/moneybit-domain/money.html">Money</a></small>
+              </p>
 
               <p>
-	      <b>description</b>
-	      <small>string</small>
+                <b>description</b>
+                <small>string</small>
+              </p>
 
               <p>
-	      <b>trade</b>
-	      <small><a href="./trade.html">Trade</a></small>
+                <b>trade</b>
+                <small><a href="./packages/moneybit-domain/trade.html">Trade</a></small>
+              </p>
 
 
         </div>
@@ -282,18 +368,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           The debit of a trade
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="Journal"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./journal.html">Journal</a>
+          <a href="./packages/moneybit-domain/journal.html">Journal</a>
         </p>
 
 
@@ -310,16 +395,35 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">Entity</span>
+    </div>
+  </div>
+
+
+  <div class="control">
+    <span class="tag is-info">⛰ Independent</span>
+  </div>
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>id</b>
-	      <small>string</small>
+                <b>id</b>
+                <small>string</small>
+              </p>
 
               <p>
-	      <b>trades</b>
-	      <small><a href="./trade.html">Trade</a>[]</small>
+                <b>trades</b>
+                <small><a href="./packages/moneybit-domain/trade.html">Trade</a>[]</small>
+              </p>
 
 
         </div>
@@ -328,18 +432,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           Journal is a series of trades.
-	</div>
+        </div>
       </footer>
     </div>
   </div>
   </div><div class="columns">
 
   <div class="column is-4">
-    <a name="Ledger"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./ledger.html">Ledger</a>
+          <a href="./packages/moneybit-domain/ledger.html">Ledger</a>
         </p>
 
 
@@ -356,12 +459,30 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+  <div class="control">
+    <span class="tag is-info">⛰ Independent</span>
+  </div>
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>subledgers</b>
-	      <small><a href="./subledger.html">Subledger</a>[]</small>
+                <b>subledgers</b>
+                <small><a href="./packages/moneybit-domain/subledger.html">Subledger</a>[]</small>
+              </p>
 
 
         </div>
@@ -370,18 +491,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           Ledger represents the general ledger of the account period of a journal.
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="MajorAccountType"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./major-account-type.html">MajorAccountType</a>
+          <a href="./packages/moneybit-domain/major-account-type.html">MajorAccountType</a>
         </p>
 
 
@@ -398,12 +518,31 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>name</b>
-	      <small>string</small>
+                <b>name</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>side</b>
+                <small><a href="./packages/moneybit-domain/trade-side.html">TradeSide</a></small>
+              </p>
 
 
         </div>
@@ -412,18 +551,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           The major account type.
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="Money"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./money.html">Money</a>
+          <a href="./packages/moneybit-domain/money.html">Money</a>
         </p>
 
 
@@ -440,12 +578,26 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>amount</b>
-	      <small>number</small>
+                <b>amount</b>
+                <small>number</small>
+              </p>
 
 
         </div>
@@ -454,18 +606,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           The money
-	</div>
+        </div>
       </footer>
     </div>
   </div>
   </div><div class="columns">
 
   <div class="column is-4">
-    <a name="Subledger"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./subledger.html">Subledger</a>
+          <a href="./packages/moneybit-domain/subledger.html">Subledger</a>
         </p>
 
 
@@ -482,20 +633,36 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>type</b>
-	      <small><a href="./account-type.html">AccountType</a></small>
+                <b>type</b>
+                <small><a href="./packages/moneybit-domain/account-type.html">AccountType</a></small>
+              </p>
 
               <p>
-	      <b>majorType</b>
-	      <small><a href="./major-account-type.html">MajorAccountType</a></small>
+                <b>majorType</b>
+                <small><a href="./packages/moneybit-domain/major-account-type.html">MajorAccountType</a></small>
+              </p>
 
               <p>
-	      <b>accounts</b>
-	      <small><a href="./account.html">Account</a>[]</small>
+                <b>accounts</b>
+                <small><a href="./packages/moneybit-domain/account.html">Account</a>[]</small>
+              </p>
 
 
         </div>
@@ -504,18 +671,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           Subledger is a component of a ledger which has accounts of the single account type
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="Trade"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./trade.html">Trade</a>
+          <a href="./packages/moneybit-domain/trade.html">Trade</a>
         </p>
 
 
@@ -532,28 +698,46 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>id</b>
-	      <small>string</small>
+                <b>id</b>
+                <small>string</small>
+              </p>
 
               <p>
-	      <b>date</b>
-	      <small>moment</small>
+                <b>date</b>
+                <small>moment</small>
+              </p>
 
               <p>
-	      <b>description</b>
-	      <small>string</small>
+                <b>description</b>
+                <small>string</small>
+              </p>
 
               <p>
-	      <b>credits</b>
-	      <small><a href="./credit.html">Credit</a>[]</small>
+                <b>credits</b>
+                <small><a href="./packages/moneybit-domain/credit.html">Credit</a>[]</small>
+              </p>
 
               <p>
-	      <b>debits</b>
-	      <small><a href="./debit.html">Debit</a>[]</small>
+                <b>debits</b>
+                <small><a href="./packages/moneybit-domain/debit.html">Debit</a>[]</small>
+              </p>
 
 
         </div>
@@ -562,18 +746,17 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           Trade is a transation
-	</div>
+        </div>
       </footer>
     </div>
   </div>
 
 
   <div class="column is-4">
-    <a name="TradeSide"></a>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./trade-side.html">TradeSide</a>
+          <a href="./packages/moneybit-domain/trade-side.html">TradeSide</a>
         </p>
 
 
@@ -590,12 +773,26 @@
       </header>
 
       <div class="card-content">
+        <div class="field is-grouped is-grouped-multiline">
+
+
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">Type</span>
+      <span class="tag is-info">ValueObject</span>
+    </div>
+  </div>
+
+
+
+</div>
         <div class="content">
 
 
               <p>
-	      <b>name</b>
-	      <small>string</small>
+                <b>name</b>
+                <small>string</small>
+              </p>
 
 
         </div>
@@ -604,7 +801,7 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           TradeSide represents the side of the trade
-	</div>
+        </div>
       </footer>
     </div>
   </div>
@@ -615,7 +812,7 @@
 
         <hr>
 <footer>
-<p>Generated by <a href="https://npm.im/domaindoc">domaindoc</a>@v2.3.1
+<p>Generated by <a href="https://npm.im/domaindoc">domaindoc</a>@v3.0.3
 </footer>
 
       </div>

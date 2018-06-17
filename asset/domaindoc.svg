@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>domaindoc</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-376.000000, -83.000000)">
+            <g id="domaindoc" transform="translate(376.000000, 83.000000)">
+                <path d="M100,140 L100,200 C155.228475,200 200,155.228475 200,100 C200,44.771525 155.228475,0 100,0 L100,60 C122.09139,60 140,77.90861 140,100 C140,122.09139 122.09139,140 100,140 Z" id="Combined-Shape" fill="#149DD3"></path>
+                <path d="M100,60 L100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 L100,140 C77.90861,140 60,122.09139 60,100 C60,77.90861 77.90861,60 100,60 Z" id="Combined-Shape" fill="#062A38"></path>
+                <path d="M100,140 L100,170 C138.659932,170 170,138.659932 170,100 C170,61.3400675 138.659932,30 100,30 L100,60 C122.09139,60 140,77.90861 140,100 C140,122.09139 122.09139,140 100,140 L100,140 Z" id="Combined-Shape" fill="#062A38"></path>
+                <path d="M100,60 L100,30 C61.3400675,30 30,61.3400675 30,100 C30,138.659932 61.3400675,170 100,170 L100,140 C77.90861,140 60,122.09139 60,100 C60,77.90861 77.90861,60 100,60 L100,60 Z" id="Combined-Shape" fill="#149DD3"></path>
+            </g>
+        </g>
+    </g>
+</svg>
