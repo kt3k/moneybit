@@ -25,7 +25,9 @@ class AccountTypeChart {
    */
   getMajorTypeByAccountType (accountType) {
     if (!this.majorTypes.has(accountType.name)) {
-      throw new Error(`The account type name is not found in the chart: ${accountType.name}`)
+      throw new Error(
+        `The account type name is not found in the chart: ${accountType.name}`
+      )
     }
 
     return this.majorTypes.get(accountType.name)

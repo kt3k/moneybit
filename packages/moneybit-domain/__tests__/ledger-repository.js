@@ -9,7 +9,10 @@ describe('LedgerRepository', () => {
 
   describe('saveAsYamlToPath', () => {
     it('saves the ledger to the given path', () => {
-      const ledger = new Ledger.Factory().createFromJournalAndChart(journal, chart)
+      const ledger = new Ledger.Factory().createFromJournalAndChart(
+        journal,
+        chart
+      )
 
       const path = `${__dirname}/ledger.yml`
 

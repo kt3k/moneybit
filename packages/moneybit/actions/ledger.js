@@ -1,6 +1,11 @@
 const { Ledger } = require('../domain')
 const { DEFAULT_CHART_FILE } = require('../const')
-const { checkJournalFilePath, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
+const {
+  checkJournalFilePath,
+  readFile,
+  createJournalFromYaml,
+  createChartFromYaml
+} = require('../util')
 
 const ledgerRepo = new Ledger.Repository()
 
@@ -17,7 +22,9 @@ module.exports = ({ _: [action, journal], chart }) => {
   const journalYaml = readFile(journal)
   const chartYaml = readFile(chart || DEFAULT_CHART_FILE)
 
-  const ledger = createJournalFromYaml(journalYaml).toLedger(createChartFromYaml(chartYaml))
+  const ledger = createJournalFromYaml(journalYaml).toLedger(
+    createChartFromYaml(chartYaml)
+  )
 
   console.log(ledgerRepo.toYaml(ledger))
 }

@@ -102,14 +102,12 @@ class Account {
   /**
    * @abstract
    */
-  isDebit () {
-  }
+  isDebit () {}
 
   /**
    * @abstract
    */
-  isCredit () {
-  }
+  isCredit () {}
 }
 
 module.exports = Account

@@ -6,4 +6,5 @@ const { AccountTypeChart } = require('../domain')
  * @param {Buffer} chartYaml The chart yaml byte buffer
  * @return {AccountTypeChart}
  */
-module.exports = chartYaml => new AccountTypeChart.Factory().createFromObject(loadFirst(chartYaml))
+module.exports = chartYaml =>
+  new AccountTypeChart.Factory().createFromObject(loadFirst(chartYaml))

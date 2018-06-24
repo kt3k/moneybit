@@ -9,45 +9,47 @@ const { sum } = require('./util')
  * The repository class of the ledger model.
  */
 class LedgerRepository {
-    /**
-     * @param {Ledger} ledger The ledger
-     * @param {String} path The path to save
-     */
+  /**
+   * @param {Ledger} ledger The ledger
+   * @param {String} path The path to save
+   */
   saveAsYamlToPath (ledger, path) {
     var yaml = this.toYaml(ledger)
 
     fs.writeFileSync(path, yaml)
   }
 
-    /**
-     * Converts the ledger to yaml format.
-     *
-     * @param {Ledger} ledger
-     * @return {String}
-     */
+  /**
+   * Converts the ledger to yaml format.
+   *
+   * @param {Ledger} ledger
+   * @return {String}
+   */
   toYaml (ledger) {
     return yaml.safeDump(this.ledgerToObject(ledger))
   }
 
-    /**
-     * Converts the ledger to object suitable for yaml serialization.
-     *
-     * @param {Ledger} ledger
-     * @return {Object}
-     */
+  /**
+   * Converts the ledger to object suitable for yaml serialization.
+   *
+   * @param {Ledger} ledger
+   * @return {Object}
+   */
   ledgerToObject (ledger) {
     const obj = {}
 
     ALL_TYPES.forEach(majorType => {
-      obj[majorType.name] = this.subledgerListToObject(ledger.getSubledgersByMajorType(majorType))
+      obj[majorType.name] = this.subledgerListToObject(
+        ledger.getSubledgersByMajorType(majorType)
+      )
     })
 
     return obj
   }
 
-    /**
-     *
-     */
+  /**
+   *
+   */
   subledgerListToObject (subledgers) {
     const obj = {
       total: sum(subledgers.map(subledger => subledger.total().amount))
@@ -60,13 +62,13 @@ class LedgerRepository {
     return obj
   }
 
-    /**
-     * Converts the subledger to an object.
-     * @param {Subledger} subledger
-     * @return {Object}
-     */
+  /**
+   * Converts the subledger to an object.
+   * @param {Subledger} subledger
+   * @return {Object}
+   */
   subledgerToObject (subledger) {
-    const obj = {total: subledger.total().amount}
+    const obj = { total: subledger.total().amount }
 
     if (subledger.side() === DEBIT) {
       obj.dr = subledger.totalDebit().amount
@@ -76,22 +78,27 @@ class LedgerRepository {
       obj.dr = subledger.totalDebit().amount
     }
 
-    obj.accounts = subledger.accounts.map(account => this.accountToObject(account))
+    obj.accounts = subledger.accounts.map(account =>
+      this.accountToObject(account)
+    )
 
     return obj
   }
 
-    /**
-     * Converts the account to the object suitable for yaml serialization.
-     *
-     * @param {Account} account
-     * @return {Object}
-     */
+  /**
+   * Converts the account to the object suitable for yaml serialization.
+   *
+   * @param {Account} account
+   * @return {Object}
+   */
   accountToObject (account) {
     const obj = {
       date: account.date.format('YYYY/MM/DD'),
       desc: account.description,
-      cor: account.getCorrespondingAccountTypes().map(type => type.name).join(' '),
+      cor: account
+        .getCorrespondingAccountTypes()
+        .map(type => type.name)
+        .join(' '),
       ref: account.getTradeId()
     }
 

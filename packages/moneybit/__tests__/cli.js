@@ -17,11 +17,15 @@ describe(cliName, () => {
     })
 
     it('throws when the journal.yml is not available', () => {
-      expect(() => execSync(`node ${cliPath} ledger no-journal.yml --chart ${chartPath}`)).to.throw()
+      expect(() =>
+        execSync(`node ${cliPath} ledger no-journal.yml --chart ${chartPath}`)
+      ).to.throw()
     })
 
     it('throws when the journal.yml is not given', () => {
-      expect(() => execSync(`node ${cliPath} ledger --chart ${chartPath}`)).to.throw()
+      expect(() =>
+        execSync(`node ${cliPath} ledger --chart ${chartPath}`)
+      ).to.throw()
     })
   })
 
@@ -33,11 +37,15 @@ describe(cliName, () => {
 
   describe('monthly', () => {
     it('does not throw', () => {
-      execSync(`node ${cliPath} monthly ${journalPath} 売上 --chart ${chartPath}`)
+      execSync(
+        `node ${cliPath} monthly ${journalPath} 売上 --chart ${chartPath}`
+      )
     })
 
     it('throws when the <accountType> is not given', () => {
-      expect(() => execSync(`node ${cliPath} monthly ${journalPath} --chart ${chartPath}`)).to.throw()
+      expect(() =>
+        execSync(`node ${cliPath} monthly ${journalPath} --chart ${chartPath}`)
+      ).to.throw()
     })
   })
 
@@ -49,11 +57,17 @@ describe(cliName, () => {
 
   describe('monthly-ledger', () => {
     it('does not throw', () => {
-      execSync(`node ${cliPath} monthly-ledger ${journalPath} 売上 --chart ${chartPath}`)
+      execSync(
+        `node ${cliPath} monthly-ledger ${journalPath} 売上 --chart ${chartPath}`
+      )
     })
 
     it('throws when the <accountType> is not given', () => {
-      expect(() => execSync(`node ${cliPath} monthly-ledger ${journalPath} --chart ${chartPath}`)).to.throw()
+      expect(() =>
+        execSync(
+          `node ${cliPath} monthly-ledger ${journalPath} --chart ${chartPath}`
+        )
+      ).to.throw()
     })
   })
 

@@ -3,7 +3,13 @@ const moment = require('moment')
 
 const { DEFAULT_CHART_FILE } = require('../const')
 const { Ledger, AccountType } = require('../domain')
-const { checkJournalFilePath, errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
+const {
+  checkJournalFilePath,
+  errorExit,
+  readFile,
+  createJournalFromYaml,
+  createChartFromYaml
+} = require('../util')
 
 const ledgerRepository = new Ledger.Repository()
 
@@ -39,7 +45,9 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
   while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {
     const subledgerByMonth = subledger.filterByMonth(month)
 
-    buffer[month.format('YYYY/MM')] = ledgerRepository.subledgerToObject(subledgerByMonth)
+    buffer[month.format('YYYY/MM')] = ledgerRepository.subledgerToObject(
+      subledgerByMonth
+    )
 
     month.add(1, 'month')
   }

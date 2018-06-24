@@ -1,4 +1,10 @@
-const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
+const {
+  ASSET,
+  LIABILITY,
+  EQUITY,
+  REVENUE,
+  EXPENSE
+} = require('./major-account-type')
 
 /**
  * The ledger model.
@@ -68,7 +74,9 @@ class Ledger {
    * @throws {Error} when the subledger of the given type is not found.
    */
   getSubledgerByAccountType (type) {
-    const subledgers = this.subledgerList.filter(subledger => subledger.type.equals(type))
+    const subledgers = this.subledgerList.filter(subledger =>
+      subledger.type.equals(type)
+    )
 
     if (subledgers.length === 0) {
       throw new Error(`No such account: ${type.name}`)

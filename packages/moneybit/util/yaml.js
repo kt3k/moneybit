@@ -15,7 +15,9 @@ exports.loadFirst = yamlData => yaml.safeLoad(yamlData)
 exports.loadAll = yamlData => {
   const docs = []
 
-  yaml.safeLoadAll(yamlData, doc => { docs.push(doc) })
+  yaml.safeLoadAll(yamlData, doc => {
+    docs.push(doc)
+  })
 
   return docs
 }

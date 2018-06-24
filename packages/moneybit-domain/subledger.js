@@ -84,7 +84,11 @@ class Subledger {
    * @param {moment} month The month
    */
   filterByMonth (month) {
-    return new Subledger(this.type, this.majorType, this.accounts.filter(account => account.isInMonth(month)))
+    return new Subledger(
+      this.type,
+      this.majorType,
+      this.accounts.filter(account => account.isInMonth(month))
+    )
   }
 
   /**
@@ -112,7 +116,9 @@ class Subledger {
    * @return {Money}
    */
   static totalAmount (accounts) {
-    return new Money(accounts.map(x => x.amount.amount).reduce((x, y) => x + y, 0))
+    return new Money(
+      accounts.map(x => x.amount.amount).reduce((x, y) => x + y, 0)
+    )
   }
 }
 

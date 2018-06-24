@@ -15,7 +15,8 @@
     "demo-monthly": "node src/cli.js monthly samples/journal.yml 売上 --chart samples/chart.yml",
     "demo-monthly-ledger": "node src/cli.js monthly-ledger samples/journal.yml 売上 --chart samples/chart.yml",
     "demo-bs": "node src/cli.js bs samples/journal.yml --chart samples/chart.yml",
-    "demo-update": "node src/cli.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
+    "demo-update": "node src/cli.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -28,11 +29,21 @@
     "codecov": "^2.0.2",
     "domaindoc": "^3.0.3",
     "gh-pages": "^1.0.0",
+    "husky": "^0.14.3",
     "lerna": "2.0.0-rc.5",
+    "lint-staged": "^7.2.0",
     "mocha": "^3.2.0",
     "nyc": "^11.0.0",
+    "prettier": "^1.13.5",
     "rimraf": "^2.5.2",
     "standard": "^10.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --no-semi --single-quote",
+      "standard --fix",
+      "git add"
+    ]
   },
   "standard": {
     "env": [

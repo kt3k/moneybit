@@ -23,11 +23,20 @@ class AccountFactory {
     date = moment(date)
 
     if (typeof amount !== 'number') {
-      throw new Error('The amount of an account has to be a number: amount=' + amount + ' type=' + typeName + ' desc=' + desc)
+      throw new Error(
+        'The amount of an account has to be a number: amount=' +
+          amount +
+          ' type=' +
+          typeName +
+          ' desc=' +
+          desc
+      )
     }
 
     if (date == null) {
-      throw new Error('No date for the account: type=' + typeName + ' desc=' + desc)
+      throw new Error(
+        'No date for the account: type=' + typeName + ' desc=' + desc
+      )
     }
 
     if (side === DEBIT) {

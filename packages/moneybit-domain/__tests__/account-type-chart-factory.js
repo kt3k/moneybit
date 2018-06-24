@@ -1,4 +1,8 @@
-const { AccountTypeChart, AccountType, MajorAccountType: { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } } = require('../')
+const {
+  AccountTypeChart,
+  AccountType,
+  MajorAccountType: { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE }
+} = require('../')
 const { expect } = require('chai')
 
 const factory = new AccountTypeChart.Factory()
@@ -14,11 +18,21 @@ describe('AccountTypeChartFactory', () => {
         expense: ['E']
       })
 
-      expect(chart.getMajorTypeByAccountType(new AccountType('A'))).to.equal(ASSET)
-      expect(chart.getMajorTypeByAccountType(new AccountType('B'))).to.equal(LIABILITY)
-      expect(chart.getMajorTypeByAccountType(new AccountType('C'))).to.equal(EQUITY)
-      expect(chart.getMajorTypeByAccountType(new AccountType('D'))).to.equal(REVENUE)
-      expect(chart.getMajorTypeByAccountType(new AccountType('E'))).to.equal(EXPENSE)
+      expect(chart.getMajorTypeByAccountType(new AccountType('A'))).to.equal(
+        ASSET
+      )
+      expect(chart.getMajorTypeByAccountType(new AccountType('B'))).to.equal(
+        LIABILITY
+      )
+      expect(chart.getMajorTypeByAccountType(new AccountType('C'))).to.equal(
+        EQUITY
+      )
+      expect(chart.getMajorTypeByAccountType(new AccountType('D'))).to.equal(
+        REVENUE
+      )
+      expect(chart.getMajorTypeByAccountType(new AccountType('E'))).to.equal(
+        EXPENSE
+      )
     })
   })
 })

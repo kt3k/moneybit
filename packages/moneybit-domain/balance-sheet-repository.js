@@ -33,7 +33,7 @@ class BalanceSheetRepository {
    * @param {MajorAccountType} majorType The type
    */
   insertBSDataByMajorType (balanceSheet, obj, majorType) {
-    const subObj = obj[majorType.name] = {}
+    const subObj = (obj[majorType.name] = {})
 
     balanceSheet.subledgers(majorType).forEach(subledger => {
       subObj[subledger.typeName()] = subledger.total().amount
@@ -43,7 +43,8 @@ class BalanceSheetRepository {
       const retainedEarnings = balanceSheet.retainedEarnings().amount
 
       subObj['Retained earnings'] = retainedEarnings
-      subObj.total = balanceSheet.totalByMajorType(majorType).amount + retainedEarnings
+      subObj.total =
+        balanceSheet.totalByMajorType(majorType).amount + retainedEarnings
     } else {
       subObj.total = balanceSheet.totalByMajorType(majorType).amount
     }

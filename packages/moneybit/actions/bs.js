@@ -1,6 +1,11 @@
 const { BalanceSheet } = require('../domain')
 const { DEFAULT_CHART_FILE } = require('../const')
-const { checkJournalFilePath, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
+const {
+  checkJournalFilePath,
+  readFile,
+  createJournalFromYaml,
+  createChartFromYaml
+} = require('../util')
 
 const bsRepo = new BalanceSheet.Repository()
 
@@ -17,7 +22,9 @@ module.exports = function ({ _: [action, journal], chart }) {
   const journalYaml = readFile(journal)
   const chartYaml = readFile(chart || DEFAULT_CHART_FILE)
 
-  const bs = createJournalFromYaml(journalYaml).toBalanceSheet(createChartFromYaml(chartYaml))
+  const bs = createJournalFromYaml(journalYaml).toBalanceSheet(
+    createChartFromYaml(chartYaml)
+  )
 
   console.log(bsRepo.toYaml(bs))
 }

@@ -21,7 +21,9 @@ class BalanceSheet {
    * @return {Money}
    */
   totalByMajorType (majorType) {
-    return Money.sum(this.subledgers(majorType).map(subledger => subledger.total()))
+    return Money.sum(
+      this.subledgers(majorType).map(subledger => subledger.total())
+    )
   }
 
   /**
@@ -30,7 +32,9 @@ class BalanceSheet {
    * @return {Money}
    */
   retainedEarnings () {
-    return this.totalByMajorType(ASSET).minus(this.totalByMajorType(LIABILITY)).minus(this.totalByMajorType(EQUITY))
+    return this.totalByMajorType(ASSET)
+      .minus(this.totalByMajorType(LIABILITY))
+      .minus(this.totalByMajorType(EQUITY))
   }
 }
 

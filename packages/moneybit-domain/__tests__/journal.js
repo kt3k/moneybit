@@ -1,4 +1,4 @@
-const { AccountTypeChart, Journal, Trade, Ledger } = require('../')
+const { Journal, Trade, Ledger } = require('../')
 const { expect } = require('chai')
 
 const journalObj = require('../__mocks__/journal')
@@ -24,10 +24,10 @@ describe('Journal', () => {
         desc: 'Foo',
         date: '2015-02-15',
         dr: {
-          'Deposit': 500
+          Deposit: 500
         },
         cr: {
-          'Sales': 500
+          Sales: 500
         }
       })
 
@@ -52,10 +52,10 @@ describe('Journal', () => {
         desc: 'Foo',
         date: '2015-02-15',
         dr: {
-          'Deposit': 500
+          Deposit: 500
         },
         cr: {
-          'Sales': 500
+          Sales: 500
         }
       })
 
@@ -66,16 +66,16 @@ describe('Journal', () => {
       expect(journal.getTradeById(trade.id).description).to.equal('Foo')
     })
 
-    it('adds the given trade when the id doesn\'t exists in the journal', () => {
+    it("adds the given trade when the id doesn't exists in the journal", () => {
       const trade = new Trade.Factory().createFromObject({
         id: '4',
         desc: 'Foo',
         date: '2015-02-15',
         dr: {
-          'Deposit': 500
+          Deposit: 500
         },
         cr: {
-          'Sales': 500
+          Sales: 500
         }
       })
 

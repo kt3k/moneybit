@@ -3,7 +3,13 @@ const moment = require('moment')
 
 const { AccountType } = require('../domain')
 const { DEFAULT_CHART_FILE } = require('../const')
-const { checkJournalFilePath, errorExit, readFile, createJournalFromYaml, createChartFromYaml } = require('../util')
+const {
+  checkJournalFilePath,
+  errorExit,
+  readFile,
+  createJournalFromYaml,
+  createChartFromYaml
+} = require('../util')
 
 /**
  * @param {string} journal
@@ -38,7 +44,7 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
   while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {
     const subledgerByMonth = subledger.filterByMonth(month)
 
-    const obj = buffer[month.format('YYYY/MM')] = {}
+    const obj = (buffer[month.format('YYYY/MM')] = {})
     const total = subledgerByMonth.total().amount
     obj[subledger.type.name] = total
     currentTotal += total

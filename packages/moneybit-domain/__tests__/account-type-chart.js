@@ -15,13 +15,17 @@ describe('AccountTypeChart', () => {
 
   describe('getMajorTypeByAccountType', () => {
     it('gets the account type by the name when the type name is found in the chart', () => {
-      const majorType = chart.getMajorTypeByAccountType(new AccountType('Capital'))
+      const majorType = chart.getMajorTypeByAccountType(
+        new AccountType('Capital')
+      )
 
       expect(majorType).to.equal(EQUITY)
     })
 
     it('throws when the type name is not found by the chart', () => {
-      expect(() => chart.getMajorTypeByAccountType(new AccountType('A'))).to.throw()
+      expect(() =>
+        chart.getMajorTypeByAccountType(new AccountType('A'))
+      ).to.throw()
     })
   })
 
@@ -30,11 +34,17 @@ describe('AccountTypeChart', () => {
       const assets = chart.getAccountTypesByMajorType(MajorAccountType.ASSET)
 
       expect(assets[0].equals(new AccountType('Deposit'))).to.equal(true)
-      expect(assets[1].equals(new AccountType('Accounts receivable'))).to.equal(true)
+      expect(assets[1].equals(new AccountType('Accounts receivable'))).to.equal(
+        true
+      )
 
-      const liabilities = chart.getAccountTypesByMajorType(MajorAccountType.LIABILITY)
+      const liabilities = chart.getAccountTypesByMajorType(
+        MajorAccountType.LIABILITY
+      )
 
-      expect(liabilities[0].equals(new AccountType('Accounts payable'))).to.equal(true)
+      expect(
+        liabilities[0].equals(new AccountType('Accounts payable'))
+      ).to.equal(true)
     })
   })
 

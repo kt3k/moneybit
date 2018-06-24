@@ -23,7 +23,13 @@ class LedgerFactory {
     let subledgers = {}
 
     accounts.forEach(account => {
-      subledgers[account.type.name] = subledgers[account.type.name] || new Subledger(account.type, chart.getMajorTypeByAccountType(account.type), [])
+      subledgers[account.type.name] =
+        subledgers[account.type.name] ||
+        new Subledger(
+          account.type,
+          chart.getMajorTypeByAccountType(account.type),
+          []
+        )
 
       subledgers[account.type.name].add(account)
     })
