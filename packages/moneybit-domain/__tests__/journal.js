@@ -84,4 +84,18 @@ describe('Journal', () => {
       expect(journal.length).to.equal(4)
     })
   })
+
+  describe('removeTradeById', () => {
+    it('removes the trade by the given id', () => {
+      journal.removeTradeById('3')
+
+      expect(journal.length).to.equal(2)
+    })
+
+    it('does not remove if the given id does not exist', () => {
+      journal.removeTradeById('4')
+
+      expect(journal.length).to.equal(3)
+    })
+  })
 })

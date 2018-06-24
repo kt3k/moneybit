@@ -42,6 +42,18 @@ class Journal {
   }
 
   /**
+   * Removes the trade by the given id.
+   * @param {string} id The id
+   */
+  removeTradeById (id) {
+    if (!this.ids[id]) {
+      return
+    }
+
+    this.trades.splice(this.trades.findIndex(t => t.id === id), 1)
+  }
+
+  /**
    * Creates the ledger.
    * @param {AccountTypeChart} chart The chart
    * @return {Ledger}
