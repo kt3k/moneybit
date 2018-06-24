@@ -24,7 +24,7 @@
   "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
     "codecov": "^2.0.2",
     "domaindoc": "^3.0.3",
     "gh-pages": "^1.0.0",
