@@ -25,6 +25,23 @@ class Journal {
   }
 
   /**
+   * The number of the trades.
+   * @return {number}
+   */
+  get length () {
+    return this.trades.length
+  }
+
+  /**
+   * Gets the trade by the given id.
+   * @param {string} id
+   * @return {Trade}
+   */
+  getTradeById (id) {
+    return this.trades.find(t => t.id === id)
+  }
+
+  /**
    * Creates the ledger.
    * @param {AccountTypeChart} chart The chart
    * @return {Ledger}
@@ -63,6 +80,20 @@ class Journal {
     this.ids[trade.id] = trade
 
     this.trades.push(trade)
+  }
+
+  /**
+   * Saves the given trade.
+   * @param {Trade} trade The trade
+   */
+  saveTrade (trade) {
+    if (!this.ids[trade.id]) {
+      return this.addTrade(trade)
+    }
+
+    const delIndex = this.trades.findIndex(t => t.id === trade.id)
+
+    this.trades.splice(delIndex, 1, trade)
   }
 
   /**
