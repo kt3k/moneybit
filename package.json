@@ -26,7 +26,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "codecov": "^2.0.2",
-    "dirty-chai": "^1.2.2",
     "domaindoc": "^3.0.3",
     "gh-pages": "^1.0.0",
     "lerna": "2.0.0-rc.5",

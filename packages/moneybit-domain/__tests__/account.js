@@ -17,7 +17,7 @@ describe('Account', () => {
     it('returns null if it is credit entry', () => {
       var entry = factory.createFromParams('Sales', 500, {date: '2015-01-01'}, CREDIT)
 
-      expect(entry.getDebitAmount()).to.be.null()
+      expect(entry.getDebitAmount()).to.equal(null)
     })
   })
 
@@ -32,7 +32,7 @@ describe('Account', () => {
     it('returns null if it is debit entry', () => {
       const entry = factory.createFromParams('Deposit', 500, {date: '2015-01-01'}, DEBIT)
 
-      expect(entry.getCreditAmount()).to.be.null()
+      expect(entry.getCreditAmount()).to.equal(null)
     })
   })
 
