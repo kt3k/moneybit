@@ -6,7 +6,9 @@ const cliPath = 'packages/moneybit/cli.js'
 const chartPath = 'samples/chart.yml'
 const journalPath = 'samples/journal.yml'
 
-describe(cliName, () => {
+describe(cliName, function () {
+  this.timeout(4000)
+
   describe('ledger', () => {
     it('does not throw', () => {
       execSync(`node ${cliPath} ledger ${journalPath} --chart ${chartPath}`)
