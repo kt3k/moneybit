@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-{{ checksum "package.json" }}
+      - run: npm run bootstrap
+      - save_cache:
+          paths:
+            - node_modules
+          key: npm-{{ checksum "package.json" }}
+      - run: npm test
+      - run: npm run codecov
