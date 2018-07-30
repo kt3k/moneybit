@@ -159,6 +159,7 @@ total: 929072
 
     mb monthly-ledger path/to/journal "Sales" [--chart path/to/chart.yml]
 
+
 # LICENSE
 
 MIT

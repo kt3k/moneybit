@@ -26,5 +26,6 @@
   "homepage": "https://github.com/kt3k/moneybit#readme",
   "dependencies": {
     "js-yaml": "^3.8.2"
-  }
+  },
+  "gitHead": "62ce6d650aa79e869d4691223d770c0aa59db93e"
 }

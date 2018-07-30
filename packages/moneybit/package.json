@@ -32,5 +32,6 @@
     "minirocket": "^2.0.0",
     "moment": "^2.11.2",
     "moneybit-domain": "^0.9.2"
-  }
+  },
+  "gitHead": "62ce6d650aa79e869d4691223d770c0aa59db93e"
 }
