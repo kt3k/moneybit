@@ -1,6 +1,6 @@
 {
   "name": "moneybit",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "A Cli tool for creating the general ledger of a journal",
   "main": "index.js",
   "bin": {
@@ -31,6 +31,6 @@
     "minimisted": "^1.1.1",
     "minirocket": "^2.0.0",
     "moment": "^2.11.2",
-    "moneybit-domain": "^0.9.1"
+    "moneybit-domain": "^0.9.2"
   }
 }
