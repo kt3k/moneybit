@@ -158,6 +158,10 @@ total: 929072
 
     mb monthly-ledger path/to/journal "Sales" [--chart path/to/chart.yml]
 
+# History
+
+- 2018-07-30   v0.9.1   journal.trades is sorted by date.
+
 # LICENSE
 
 MIT
