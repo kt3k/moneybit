@@ -12,7 +12,7 @@
   "cr": {"Sales": 1000}
 }, {
   "id": "3",
-  "date": "2015-02-29",
+  "date": "2015-02-28",
   "desc": "Internet Service Provider fee",
   "dr": {"Communications": 50},
   "cr": {"Accounts payable": 50}

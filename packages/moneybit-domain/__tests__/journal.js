@@ -18,7 +18,7 @@ describe('Journal', () => {
   })
 
   describe('addTrade', () => {
-    it('adds a trade', () => {
+    it('adds a trade and trades are sorted', () => {
       const trade = new Trade.Factory().createFromObject({
         id: 99,
         desc: 'Foo',
@@ -34,6 +34,10 @@ describe('Journal', () => {
       journal.addTrade(trade)
 
       expect(journal.length).to.equal(4)
+      expect(journal.trades[0].date.format('YYYY-MM-DD')).to.equal('2015-01-01')
+      expect(journal.trades[1].date.format('YYYY-MM-DD')).to.equal('2015-01-31')
+      expect(journal.trades[2].date.format('YYYY-MM-DD')).to.equal('2015-02-15')
+      expect(journal.trades[3].date.format('YYYY-MM-DD')).to.equal('2015-02-28')
     })
 
     it('throws when the id is already taken', () => {

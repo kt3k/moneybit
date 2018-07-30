@@ -76,7 +76,27 @@ class Journal {
    * @param {Array<Trade>}
    */
   addTrades (trades) {
-    trades.forEach(trade => this.addTrade(trade))
+    trades.forEach(trade => {
+      this.addTradeInIdMap(trade)
+      this.trades.push(trade)
+    })
+    this.trades.sort((x, y) => {
+      if (x.date < y.date) {
+        return -1
+      } else if (x.date > y.date) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+  }
+
+  addTradeInIdMap (trade) {
+    if (this.ids[trade.id] != null) {
+      throw new Error('The trade of the same id already exists: ' + trade.id)
+    }
+
+    this.ids[trade.id] = trade
   }
 
   /**
@@ -85,13 +105,15 @@ class Journal {
    * @throws {Error} when the id of the trade already exists.
    */
   addTrade (trade) {
-    if (this.ids[trade.id] != null) {
-      throw new Error('The trade of the same id already exists: ' + trade.id)
+    this.addTradeInIdMap(trade)
+
+    const foundIndex = this.trades.findIndex(t => trade.date < t.date)
+
+    if (foundIndex === -1) {
+      this.trades.push(trade)
+    } else {
+      this.trades.splice(foundIndex, 0, trade)
     }
-
-    this.ids[trade.id] = trade
-
-    this.trades.push(trade)
   }
 
   /**
