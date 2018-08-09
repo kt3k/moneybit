@@ -15,12 +15,28 @@ class BalanceSheet {
   }
 
   /**
-   * Gets the total of subledgers by the given type.
+   * Gets the total of the given major type.
    *
    * @param {MajorAccountType} majorType The type
    * @return {Money}
    */
   totalByMajorType (majorType) {
+    if (majorType === EQUITY) {
+      return this.totalOfSubledgersByMajorType(ASSET).minus(
+        this.totalOfSubledgersByMajorType(LIABILITY)
+      )
+    }
+
+    return this.totalOfSubledgersByMajorType(majorType)
+  }
+
+  /**
+   * Gets the total of subledgers by the given type.
+   *
+   * @param {MajorAccountType} majorType The type
+   * @return {Money}
+   */
+  totalOfSubledgersByMajorType (majorType) {
     return Money.sum(
       this.subledgers(majorType).map(subledger => subledger.total())
     )
@@ -32,9 +48,9 @@ class BalanceSheet {
    * @return {Money}
    */
   retainedEarnings () {
-    return this.totalByMajorType(ASSET)
-      .minus(this.totalByMajorType(LIABILITY))
-      .minus(this.totalByMajorType(EQUITY))
+    return this.totalByMajorType(EQUITY).minus(
+      this.totalOfSubledgersByMajorType(EQUITY)
+    )
   }
 }
 
