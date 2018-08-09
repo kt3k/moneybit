@@ -18,9 +18,6 @@ class AccountFactory {
    */
   createFromParams (typeName, amount, { date, desc }, side) {
     const type = new AccountType(typeName)
-    const money = new Money(amount)
-
-    date = moment(date)
 
     if (typeof amount !== 'number') {
       throw new Error(
@@ -33,11 +30,15 @@ class AccountFactory {
       )
     }
 
+    const money = new Money(amount)
+
     if (date == null) {
       throw new Error(
         'No date for the account: type=' + typeName + ' desc=' + desc
       )
     }
+
+    date = moment(date)
 
     if (side === DEBIT) {
       return new Debit(date, type, money, desc, null)
