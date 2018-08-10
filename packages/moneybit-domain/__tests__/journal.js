@@ -19,25 +19,40 @@ describe('Journal', () => {
 
   describe('addTrade', () => {
     it('adds a trade and trades are sorted', () => {
-      const trade = new Trade.Factory().createFromObject({
-        id: 99,
-        desc: 'Foo',
-        date: '2015-02-15',
-        dr: {
-          Deposit: 500
-        },
-        cr: {
-          Sales: 500
-        }
-      })
+      journal.addTrade(
+        new Trade.Factory().createFromObject({
+          id: 99,
+          desc: 'Foo',
+          date: '2015-02-15',
+          dr: {
+            Deposit: 500
+          },
+          cr: {
+            Sales: 500
+          }
+        })
+      )
 
-      journal.addTrade(trade)
+      journal.addTrade(
+        new Trade.Factory().createFromObject({
+          id: 100,
+          desc: 'Foo',
+          date: '2015-03-01',
+          dr: {
+            Deposit: 500
+          },
+          cr: {
+            Sales: 500
+          }
+        })
+      )
 
-      expect(journal.length).to.equal(4)
+      expect(journal.length).to.equal(5)
       expect(journal.trades[0].date.format('YYYY-MM-DD')).to.equal('2015-01-01')
       expect(journal.trades[1].date.format('YYYY-MM-DD')).to.equal('2015-01-31')
       expect(journal.trades[2].date.format('YYYY-MM-DD')).to.equal('2015-02-15')
       expect(journal.trades[3].date.format('YYYY-MM-DD')).to.equal('2015-02-28')
+      expect(journal.trades[4].date.format('YYYY-MM-DD')).to.equal('2015-03-01')
     })
 
     it('throws when the id is already taken', () => {
@@ -100,6 +115,36 @@ describe('Journal', () => {
       journal.removeTradeById('4')
 
       expect(journal.length).to.equal(3)
+    })
+  })
+
+  describe('firstTrade', () => {
+    it('returns the first trade', () => {
+      const trade = journal.firstTrade()
+
+      expect(trade).to.be.instanceof(Trade)
+      expect(trade.date.format('YYYY-MM-DD')).to.equal('2015-01-01')
+    })
+
+    it('returns null if the journal is empty', () => {
+      const journal = new Journal.Factory().createFromArray([])
+
+      expect(journal.firstTrade()).to.equal(null)
+    })
+  })
+
+  describe('lastTrade', () => {
+    it('returns the last trade', () => {
+      const trade = journal.lastTrade()
+
+      expect(trade).to.be.instanceof(Trade)
+      expect(trade.date.format('YYYY-MM-DD')).to.equal('2015-02-28')
+    })
+
+    it('returns null if the journal is empty', () => {
+      const journal = new Journal.Factory().createFromArray([])
+
+      expect(journal.lastTrade()).to.equal(null)
     })
   })
 })

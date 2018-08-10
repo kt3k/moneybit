@@ -33,6 +33,13 @@ class Journal {
   }
 
   /**
+   * @return {boolean}
+   */
+  isEmpty () {
+    return this.length === 0
+  }
+
+  /**
    * Gets the trade by the given id.
    * @param {string} id
    * @return {Trade}
@@ -139,6 +146,28 @@ class Journal {
     const accounts = this.trades.map(trade => trade.accounts())
 
     return [].concat(...accounts) // i.e. flatten(accounts)
+  }
+
+  /**
+   * @return {Trade}
+   */
+  firstTrade () {
+    if (this.isEmpty()) {
+      return null
+    }
+
+    return this.trades[0]
+  }
+
+  /**
+   * @return {Trade}
+   */
+  lastTrade () {
+    if (this.isEmpty()) {
+      return null
+    }
+
+    return this.trades[this.length - 1]
   }
 }
 
