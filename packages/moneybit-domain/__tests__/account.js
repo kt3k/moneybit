@@ -26,7 +26,7 @@ describe('Account', () => {
     })
 
     it('returns null if it is credit entry', () => {
-      var entry = factory.createFromParams(
+      const entry = factory.createFromParams(
         'Sales',
         500,
         { date: '2015-01-01' },

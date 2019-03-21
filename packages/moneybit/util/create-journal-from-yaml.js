@@ -1,8 +1,6 @@
 const { loadAll } = require('./yaml')
 const { Journal } = require('../domain')
 
-const createChartFromYaml = require('./create-chart-from-yaml')
-
 /**
  * Takes journal.yml and creates a journal model.
  * @param {string} journalYaml The journal.yml
