@@ -3,23 +3,20 @@
 > A Cli tool for creating a general ledger from the journal.
 
 [![CircleCI](https://circleci.com/gh/kt3k/moneybit.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit)
-[![codecov](https://codecov.io/gh/kt3k/moneybit/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit) [![Greenkeeper badge](https://badges.greenkeeper.io/kt3k/moneybit.svg)](https://greenkeeper.io/)
+[![codecov](https://codecov.io/gh/kt3k/moneybit/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit)
+[![Greenkeeper badge](https://badges.greenkeeper.io/kt3k/moneybit.svg)](https://greenkeeper.io/)
 
 # How to use
 
 First, install the cli via npm:
 
-    npm install moneybit
+    npm i -g moneybit
 
-Or via yarn:
+This installs `mb` command.
 
-    yarn add moneybit
+Then run:
 
-This installs `./node_modules/.bin/mb` command.
-
-Then:
-
-    ./node_modules/.bin/mb ledger journal.yml --chart chart.yml
+    mb ledger journal.yml --chart chart.yml
 
 This outputs the general ledger in yaml format to stdout according to the given yaml files `journal.yml` and `chart.yml`. See the below for details.
 
@@ -160,7 +157,8 @@ total: 929072
 
 # History
 
-- 2018-07-30   v0.9.1   journal.trades is sorted by date.
+- 2019-03-21   v0.10.0   Added ledger.hasSubledgerOfAccountType method.
+- 2018-07-30   v0.9.1    journal.trades is sorted by date.
 
 # LICENSE
 
