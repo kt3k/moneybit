@@ -11,7 +11,7 @@ class AccountTypeChartFactory {
    * @param {Object} obj The chart object
    * @return {AccountTypeChart}
    */
-  createFromObject (obj) {
+  createFromObject(obj) {
     const chart = new AccountTypeChart(obj.id || '')
 
     ALL_TYPES.forEach(majorType => {

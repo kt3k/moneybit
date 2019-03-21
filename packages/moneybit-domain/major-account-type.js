@@ -10,7 +10,7 @@ class MajorAccountType {
    * @param {string} name The name
    * @param {TradeSide} side Debity type or Credit type
    */
-  constructor (name, side) {
+  constructor(name, side) {
     this.name = name
     this.side = side
   }

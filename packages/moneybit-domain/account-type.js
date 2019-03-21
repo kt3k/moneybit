@@ -7,7 +7,7 @@ class AccountType {
   /**
    * @param {string} name The name of the account type
    */
-  constructor (name) {
+  constructor(name) {
     this.name = name
   }
 
@@ -16,7 +16,7 @@ class AccountType {
    * @param {AccountType}
    * @return {boolean}
    */
-  equals (type) {
+  equals(type) {
     return this.name === type.name
   }
 }

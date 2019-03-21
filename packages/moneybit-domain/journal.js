@@ -16,7 +16,7 @@ class Journal {
    * @param {string} id The id
    * @param {Array<Trade>} trades The list of trades
    */
-  constructor ({ id, trades }) {
+  constructor({ id, trades }) {
     this.id = id
     this.trades = []
     this.ids = {}
@@ -28,14 +28,14 @@ class Journal {
    * The number of the trades.
    * @return {number}
    */
-  get length () {
+  get length() {
     return this.trades.length
   }
 
   /**
    * @return {boolean}
    */
-  isEmpty () {
+  isEmpty() {
     return this.length === 0
   }
 
@@ -44,7 +44,7 @@ class Journal {
    * @param {string} id
    * @return {Trade}
    */
-  getTradeById (id) {
+  getTradeById(id) {
     return this.trades.find(t => t.id === id)
   }
 
@@ -52,7 +52,7 @@ class Journal {
    * Removes the trade by the given id.
    * @param {string} id The id
    */
-  removeTradeById (id) {
+  removeTradeById(id) {
     if (!this.ids[id]) {
       return
     }
@@ -65,7 +65,7 @@ class Journal {
    * @param {AccountTypeChart} chart The chart
    * @return {Ledger}
    */
-  toLedger (chart) {
+  toLedger(chart) {
     return ledgerFactory.createFromJournalAndChart(this, chart)
   }
 
@@ -74,7 +74,7 @@ class Journal {
    * @param {AccountTypeChart} chart The chart
    * @return {BalanceSheet}
    */
-  toBalanceSheet (chart) {
+  toBalanceSheet(chart) {
     return new BalanceSheet(this.toLedger(chart))
   }
 
@@ -82,7 +82,7 @@ class Journal {
    * Adds the trades.
    * @param {Array<Trade>}
    */
-  addTrades (trades) {
+  addTrades(trades) {
     trades.forEach(trade => {
       this.addTradeInIdMap(trade)
       this.trades.push(trade)
@@ -98,7 +98,7 @@ class Journal {
     })
   }
 
-  addTradeInIdMap (trade) {
+  addTradeInIdMap(trade) {
     if (this.ids[trade.id] != null) {
       throw new Error('The trade of the same id already exists: ' + trade.id)
     }
@@ -111,7 +111,7 @@ class Journal {
    * @param {Trade}
    * @throws {Error} when the id of the trade already exists.
    */
-  addTrade (trade) {
+  addTrade(trade) {
     this.addTradeInIdMap(trade)
 
     const foundIndex = this.trades.findIndex(t => trade.date < t.date)
@@ -127,7 +127,7 @@ class Journal {
    * Saves the given trade.
    * @param {Trade} trade The trade
    */
-  saveTrade (trade) {
+  saveTrade(trade) {
     if (!this.ids[trade.id]) {
       return this.addTrade(trade)
     }
@@ -142,7 +142,7 @@ class Journal {
    *
    * @return {Array<Account>}
    */
-  accounts () {
+  accounts() {
     const accounts = this.trades.map(trade => trade.accounts())
 
     return [].concat(...accounts) // i.e. flatten(accounts)
@@ -151,7 +151,7 @@ class Journal {
   /**
    * @return {Trade}
    */
-  firstTrade () {
+  firstTrade() {
     if (this.isEmpty()) {
       return null
     }
@@ -162,7 +162,7 @@ class Journal {
   /**
    * @return {Trade}
    */
-  lastTrade () {
+  lastTrade() {
     if (this.isEmpty()) {
       return null
     }

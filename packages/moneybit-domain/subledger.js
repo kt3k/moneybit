@@ -13,7 +13,7 @@ class Subledger {
    * @param {MajorAccountType} majorType The major account type
    * @param {Array<Account>} accounts
    */
-  constructor (type, majorType, accounts) {
+  constructor(type, majorType, accounts) {
     this.type = type
     this.majorType = majorType
     this.accounts = accounts.sort((x, y) => x.dateDiff(y))
@@ -24,7 +24,7 @@ class Subledger {
    *
    * @return {Money}
    */
-  total () {
+  total() {
     if (this.side() === DEBIT) {
       // If the account type is debit type (i.e. Asset or Revenue)
       // the debit is positive amount and the credit is negative amount.
@@ -41,7 +41,7 @@ class Subledger {
    *
    * @return {TradeSide}
    */
-  side () {
+  side() {
     return this.majorType.side
   }
 
@@ -49,7 +49,7 @@ class Subledger {
    * Returns the total debit amount.
    * @return {Money}
    */
-  totalDebit () {
+  totalDebit() {
     return Subledger.totalAmount(this.accounts.filter(x => x.isDebit()))
   }
 
@@ -57,7 +57,7 @@ class Subledger {
    * Returns the total credit amount.
    * @return {Money}
    */
-  totalCredit () {
+  totalCredit() {
     return Subledger.totalAmount(this.accounts.filter(x => x.isCredit()))
   }
 
@@ -66,7 +66,7 @@ class Subledger {
    *
    * @param {Account} account The account
    */
-  add (account) {
+  add(account) {
     this.accounts.push(account)
   }
 
@@ -74,7 +74,7 @@ class Subledger {
    * Retruns the account type name of the subledger.
    * @return {string}
    */
-  typeName () {
+  typeName() {
     return this.type.name
   }
 
@@ -83,7 +83,7 @@ class Subledger {
    *
    * @param {moment} month The month
    */
-  filterByMonth (month) {
+  filterByMonth(month) {
     return new Subledger(
       this.type,
       this.majorType,
@@ -96,7 +96,7 @@ class Subledger {
    *
    * @return {Account}
    */
-  firstAccount () {
+  firstAccount() {
     return this.accounts[0]
   }
 
@@ -105,7 +105,7 @@ class Subledger {
    *
    * @return {Account}
    */
-  lastAccount () {
+  lastAccount() {
     return this.accounts[this.accounts.length - 1]
   }
 
@@ -115,7 +115,7 @@ class Subledger {
    * @param {Array<Account>} accounts The accounts
    * @return {Money}
    */
-  static totalAmount (accounts) {
+  static totalAmount(accounts) {
     return new Money(
       accounts.map(x => x.amount.amount).reduce((x, y) => x + y, 0)
     )

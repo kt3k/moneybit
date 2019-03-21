@@ -13,7 +13,7 @@ class BalanceSheetRepository {
    * @param {BalanceSheet} balanceSheet The balance sheet
    * @return {Object}
    */
-  toObject (balanceSheet) {
+  toObject(balanceSheet) {
     const obj = {}
 
     this.insertBSDataByMajorType(balanceSheet, obj, ASSET)
@@ -32,7 +32,7 @@ class BalanceSheetRepository {
    * @param {Object} obj The object to insert the data
    * @param {MajorAccountType} majorType The type
    */
-  insertBSDataByMajorType (balanceSheet, obj, majorType) {
+  insertBSDataByMajorType(balanceSheet, obj, majorType) {
     const subObj = (obj[majorType.name] = {})
 
     balanceSheet.subledgers(majorType).forEach(subledger => {
@@ -56,7 +56,7 @@ class BalanceSheetRepository {
    * @param {BalanceSheet} balanceSheet The balance sheet
    * @return {string} The yaml representation
    */
-  toYaml (balanceSheet) {
+  toYaml(balanceSheet) {
     return yaml.safeDump(this.toObject(balanceSheet))
   }
 
@@ -65,7 +65,7 @@ class BalanceSheetRepository {
    * @param {BalanceSheet} balanceSheet The balance sheet
    * @param {string} path The path to save
    */
-  saveYamlToPath (balanceSheet, path) {
+  saveYamlToPath(balanceSheet, path) {
     fs.writeFileSync(path, this.toYaml(balanceSheet))
   }
 }

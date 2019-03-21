@@ -10,7 +10,7 @@ class LedgerFactory {
    * @param {Array<Account>} accounts The accounts
    * @param {AccountTypeChart} chart The account type chart
    */
-  createFromJournalAndChart (journal, chart) {
+  createFromJournalAndChart(journal, chart) {
     return this.createFromAccountsAndChart(journal.accounts(), chart)
   }
 
@@ -19,7 +19,7 @@ class LedgerFactory {
    * @param {Array<Account>} accounts The accounts
    * @param {AccountTypeChart} chart The account type chart
    */
-  createFromAccountsAndChart (accounts, chart) {
+  createFromAccountsAndChart(accounts, chart) {
     let subledgers = {}
 
     accounts.forEach(account => {

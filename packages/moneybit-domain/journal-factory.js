@@ -5,7 +5,7 @@ const TradeFactory = require('./trade-factory')
  * JournalFactory is the factroy class for Journal model.
  */
 class JournalFactory {
-  constructor () {
+  constructor() {
     this.tradeFactory = new TradeFactory()
   }
 
@@ -13,7 +13,7 @@ class JournalFactory {
    * @param {Array<Object>}
    * @return {Journal}
    */
-  createFromArray (array) {
+  createFromArray(array) {
     return this.createFromIdAndArray('', array)
   }
 
@@ -22,7 +22,7 @@ class JournalFactory {
    * @param {Array<Object>} array The array of trade objects
    * @return
    */
-  createFromIdAndArray (id, array) {
+  createFromIdAndArray(id, array) {
     const trades = array.map(obj => this.tradeFactory.createFromObject(obj))
 
     return new Journal({ id, trades })

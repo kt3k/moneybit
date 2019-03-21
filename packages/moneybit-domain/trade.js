@@ -14,7 +14,7 @@ class Trade {
    * @param {Array<Debit>} debits The debits
    * @param {Array<Credit>} credits The credits
    */
-  constructor ({ id, date, description, debits, credits }) {
+  constructor({ id, date, description, debits, credits }) {
     this.id = id
     this.date = date
     this.description = description
@@ -27,7 +27,7 @@ class Trade {
    *
    * @return {Array<Account>}
    */
-  accounts () {
+  accounts() {
     return this.debits.concat(this.credits)
   }
 
@@ -38,7 +38,7 @@ class Trade {
    * @param {Array<Account>} accounts The array of accounts
    * @return {Array<AccountType>}
    */
-  static getAccountTypes (accounts) {
+  static getAccountTypes(accounts) {
     return accounts.map(account => account.type)
   }
 
@@ -47,7 +47,7 @@ class Trade {
    *
    * @return {Array<AccountType>}
    */
-  debitTypes () {
+  debitTypes() {
     return Trade.getAccountTypes(this.debits)
   }
 
@@ -56,7 +56,7 @@ class Trade {
    *
    * @return {Array<AccountType>}
    */
-  creditTypes () {
+  creditTypes() {
     return Trade.getAccountTypes(this.credits)
   }
 }

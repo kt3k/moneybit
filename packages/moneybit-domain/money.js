@@ -8,7 +8,7 @@ class Money {
    * @constructor
    * @param {Number} amount
    */
-  constructor (amount) {
+  constructor(amount) {
     this.amount = amount
   }
 
@@ -17,7 +17,7 @@ class Money {
    * @param {Money} money The money to add
    * @return {Money}
    */
-  plus (money) {
+  plus(money) {
     return new Money(this.amount + money.amount)
   }
 
@@ -26,7 +26,7 @@ class Money {
    * @param {Money} money The money to subtract
    * @return {Money}
    */
-  minus (money) {
+  minus(money) {
     return new Money(this.amount - money.amount)
   }
 
@@ -35,7 +35,7 @@ class Money {
    * @param {Array<Money>} moneyList The list of money
    * @return {Money}
    */
-  static sum (moneyList) {
+  static sum(moneyList) {
     return new Money(sum(moneyList.map(money => money.amount)))
   }
 }

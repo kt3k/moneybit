@@ -18,7 +18,7 @@ class Ledger {
    * @constructor
    * @param {Array<Subledger>} subledgers
    */
-  constructor (subledgers) {
+  constructor(subledgers) {
     this.subledgers = {}
     this.subledgers[ASSET.name] = []
     this.subledgers[LIABILITY.name] = []
@@ -36,7 +36,7 @@ class Ledger {
    *
    * @param {Subledger} subledger The subledger
    */
-  add (subledger) {
+  add(subledger) {
     switch (subledger.majorType) {
       case ASSET:
         this.subledgers[ASSET.name].push(subledger)
@@ -64,7 +64,7 @@ class Ledger {
    * @param {MajorAccountType} majorType The major account type
    * @return {Array<Subledger>}
    */
-  getSubledgersByMajorType (majorType) {
+  getSubledgersByMajorType(majorType) {
     return this.subledgers[majorType.name]
   }
 
@@ -73,7 +73,7 @@ class Ledger {
    * @return {Subledger}
    * @throws {Error} when the subledger of the given type is not found.
    */
-  getSubledgerByAccountType (type) {
+  getSubledgerByAccountType(type) {
     const subledgers = this.subledgerList.filter(subledger =>
       subledger.type.equals(type)
     )

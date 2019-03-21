@@ -2,7 +2,7 @@ const { ASSET, LIABILITY, EQUITY } = require('./major-account-type')
 const Money = require('./money')
 
 class BalanceSheet {
-  constructor (ledger) {
+  constructor(ledger) {
     this.ledger = ledger
   }
 
@@ -10,7 +10,7 @@ class BalanceSheet {
    * Gets the subledger list of the given type.
    * @param {MajorAccountType} majorType The type
    */
-  subledgers (majorType) {
+  subledgers(majorType) {
     return this.ledger.getSubledgersByMajorType(majorType)
   }
 
@@ -20,7 +20,7 @@ class BalanceSheet {
    * @param {MajorAccountType} majorType The type
    * @return {Money}
    */
-  totalByMajorType (majorType) {
+  totalByMajorType(majorType) {
     if (majorType === EQUITY) {
       return this.totalOfSubledgersByMajorType(ASSET).minus(
         this.totalOfSubledgersByMajorType(LIABILITY)
@@ -36,7 +36,7 @@ class BalanceSheet {
    * @param {MajorAccountType} majorType The type
    * @return {Money}
    */
-  totalOfSubledgersByMajorType (majorType) {
+  totalOfSubledgersByMajorType(majorType) {
     return Money.sum(
       this.subledgers(majorType).map(subledger => subledger.total())
     )
@@ -47,7 +47,7 @@ class BalanceSheet {
    *
    * @return {Money}
    */
-  retainedEarnings () {
+  retainedEarnings() {
     return this.totalByMajorType(EQUITY).minus(
       this.totalOfSubledgersByMajorType(EQUITY)
     )

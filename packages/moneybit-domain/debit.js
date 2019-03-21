@@ -7,11 +7,11 @@ const Account = require('./account')
  * A trade can have multiple debit.
  */
 class Debit extends Account {
-  isDebit () {
+  isDebit() {
     return true
   }
 
-  isCredit () {
+  isCredit() {
     return false
   }
 }
