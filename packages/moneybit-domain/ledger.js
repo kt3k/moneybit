@@ -27,6 +27,7 @@ class Ledger {
     this.subledgers[EXPENSE.name] = []
 
     this.subledgerList = []
+    this.subledgerMap = {}
 
     subledgers.forEach(subledger => this.add(subledger))
   }
@@ -55,6 +56,7 @@ class Ledger {
         break
     }
 
+    this.subledgerMap[subledger.type.name] = subledger
     this.subledgerList.push(subledger)
   }
 
@@ -74,15 +76,21 @@ class Ledger {
    * @throws {Error} when the subledger of the given type is not found.
    */
   getSubledgerByAccountType(type) {
-    const subledgers = this.subledgerList.filter(subledger =>
-      subledger.type.equals(type)
-    )
+    const subledger = this.subledgerMap[type.name]
 
-    if (subledgers.length === 0) {
+    if (!subledger) {
       throw new Error(`No such account: ${type.name}`)
     }
 
-    return subledgers[0]
+    return subledger
+  }
+
+  /**
+   * @param {AccountType} type
+   * @return {boolean}
+   */
+  hasSubledgerOfAccountType(type) {
+    return this.subledgerMap[type.name] != null
   }
 }
 
