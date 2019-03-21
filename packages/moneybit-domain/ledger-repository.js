@@ -13,8 +13,8 @@ class LedgerRepository {
    * @param {Ledger} ledger The ledger
    * @param {String} path The path to save
    */
-  saveAsYamlToPath (ledger, path) {
-    var yaml = this.toYaml(ledger)
+  saveAsYamlToPath(ledger, path) {
+    const yaml = this.toYaml(ledger)
 
     fs.writeFileSync(path, yaml)
   }
@@ -25,7 +25,7 @@ class LedgerRepository {
    * @param {Ledger} ledger
    * @return {String}
    */
-  toYaml (ledger) {
+  toYaml(ledger) {
     return yaml.safeDump(this.ledgerToObject(ledger))
   }
 
@@ -35,7 +35,7 @@ class LedgerRepository {
    * @param {Ledger} ledger
    * @return {Object}
    */
-  ledgerToObject (ledger) {
+  ledgerToObject(ledger) {
     const obj = {}
 
     ALL_TYPES.forEach(majorType => {
@@ -50,7 +50,7 @@ class LedgerRepository {
   /**
    *
    */
-  subledgerListToObject (subledgers) {
+  subledgerListToObject(subledgers) {
     const obj = {
       total: sum(subledgers.map(subledger => subledger.total().amount))
     }
@@ -67,7 +67,7 @@ class LedgerRepository {
    * @param {Subledger} subledger
    * @return {Object}
    */
-  subledgerToObject (subledger) {
+  subledgerToObject(subledger) {
     const obj = { total: subledger.total().amount }
 
     if (subledger.side() === DEBIT) {
@@ -91,7 +91,7 @@ class LedgerRepository {
    * @param {Account} account
    * @return {Object}
    */
-  accountToObject (account) {
+  accountToObject(account) {
     const obj = {
       date: account.date.format('YYYY/MM/DD'),
       desc: account.description,

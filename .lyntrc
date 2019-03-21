@@ -1,0 +1,7 @@
+{
+  "global": [
+    "it",
+    "beforeEach",
+    "describe"
+  ]
+}

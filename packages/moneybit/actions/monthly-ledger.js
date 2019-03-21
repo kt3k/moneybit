@@ -39,7 +39,7 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
   const first = subledger.firstAccount().date
   const last = subledger.lastAccount().date
 
-  let month = moment(first)
+  const month = moment(first)
   const buffer = {}
 
   while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {

@@ -37,7 +37,7 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
   const first = subledger.firstAccount().date
   const last = subledger.lastAccount().date
 
-  let month = moment(first)
+  const month = moment(first)
   let currentTotal = 0
   const buffer = {}
 
