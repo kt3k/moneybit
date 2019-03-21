@@ -7,11 +7,11 @@ const Account = require('./account')
  * A trade can have multiple credits.
  */
 class Credit extends Account {
-  isDebit () {
+  isDebit() {
     return false
   }
 
-  isCredit () {
+  isCredit() {
     return true
   }
 }

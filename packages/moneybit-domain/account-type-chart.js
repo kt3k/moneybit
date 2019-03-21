@@ -4,7 +4,7 @@ const AccountType = require('./account-type')
  * The account type chart model.
  */
 class AccountTypeChart {
-  constructor (id) {
+  constructor(id) {
     this.id = id
     this.majorTypes = new Map()
   }
@@ -14,7 +14,7 @@ class AccountTypeChart {
    * @param {AccountType} accountType The account type
    * @param {MajorAccountType} majorType The major account type
    */
-  set (accountType, majorType) {
+  set(accountType, majorType) {
     this.majorTypes.set(accountType.name, majorType)
   }
 
@@ -23,7 +23,7 @@ class AccountTypeChart {
    * @param {AccountType} accountType The account type
    * @return {MajorAccountType}
    */
-  getMajorTypeByAccountType (accountType) {
+  getMajorTypeByAccountType(accountType) {
     if (!this.majorTypes.has(accountType.name)) {
       throw new Error(
         `The account type name is not found in the chart: ${accountType.name}`
@@ -38,7 +38,7 @@ class AccountTypeChart {
    * @param {MajorType} majorTyope The major account type
    * @return {AccountType[]}
    */
-  getAccountTypesByMajorType (majorType) {
+  getAccountTypesByMajorType(majorType) {
     return Array.from(this.majorTypes.entries())
       .filter(([name, type]) => type === majorType)
       .map(([name, type]) => new AccountType(name))
@@ -49,7 +49,7 @@ class AccountTypeChart {
    * @param {string} id The new chart's id
    * @return {AccountTypeChart}
    */
-  clone (id) {
+  clone(id) {
     const clone = new AccountTypeChart(id)
 
     clone.majorTypes = new Map(this.majorTypes)

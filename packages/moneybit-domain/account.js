@@ -15,7 +15,7 @@ class Account {
    * @param {String} description The description of the entry
    * @param {Trade} trade The trade the account belongs
    */
-  constructor (date, type, amount, description, trade) {
+  constructor(date, type, amount, description, trade) {
     this.date = date
     this.type = type
     this.amount = amount
@@ -28,7 +28,7 @@ class Account {
    *
    * @param {Trade} trade
    */
-  setTrade (trade) {
+  setTrade(trade) {
     this.trade = trade
   }
 
@@ -37,7 +37,7 @@ class Account {
    *
    * @return {Money}
    */
-  getDebitAmount () {
+  getDebitAmount() {
     if (this.isDebit()) {
       return this.amount
     }
@@ -50,7 +50,7 @@ class Account {
    *
    * @return {Money}
    */
-  getCreditAmount () {
+  getCreditAmount() {
     if (this.isCredit()) {
       return this.amount
     }
@@ -63,7 +63,7 @@ class Account {
    *
    * @return {Array<AccountType>}
    */
-  getCorrespondingAccountTypes () {
+  getCorrespondingAccountTypes() {
     if (this.isCredit()) {
       return this.trade.debitTypes()
     } else {
@@ -76,7 +76,7 @@ class Account {
    *
    * @return {string}
    */
-  getTradeId () {
+  getTradeId() {
     return this.trade.id
   }
 
@@ -86,7 +86,7 @@ class Account {
    * @param {moment} month The month to check
    * @return {boolean}
    */
-  isInMonth (month) {
+  isInMonth(month) {
     return this.date.isSame(month, 'month')
   }
 
@@ -95,19 +95,19 @@ class Account {
    * @param {Account}
    * @return {number}
    */
-  dateDiff (account) {
+  dateDiff(account) {
     return this.date.diff(account.date)
   }
 
   /**
    * @abstract
    */
-  isDebit () {}
+  isDebit() {}
 
   /**
    * @abstract
    */
-  isCredit () {}
+  isCredit() {}
 }
 
 module.exports = Account

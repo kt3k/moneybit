@@ -8,7 +8,7 @@ const AccountFactory = require('./account-factory')
  * The factory class for trade model.
  */
 class TradeFactory {
-  constructor () {
+  constructor() {
     this.accountFactory = new AccountFactory()
   }
 
@@ -16,7 +16,7 @@ class TradeFactory {
    * @param {Object} obj The object
    * @return {Trade}
    */
-  createFromObject (obj) {
+  createFromObject(obj) {
     const debits = Object.keys(obj.dr).map(title => {
       const amount = obj.dr[title]
 

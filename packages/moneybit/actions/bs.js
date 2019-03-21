@@ -16,7 +16,7 @@ const bsRepo = new BalanceSheet.Repository()
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-module.exports = function ({ _: [action, journal], chart }) {
+module.exports = function({ _: [action, journal], chart }) {
   checkJournalFilePath(journal)
 
   const journalYaml = readFile(journal)

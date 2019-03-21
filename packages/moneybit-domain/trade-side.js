@@ -5,7 +5,7 @@ class TradeSide {
   /**
    * @param {string} name The name
    */
-  constructor (name) {
+  constructor(name) {
     this.name = name
   }
 }
