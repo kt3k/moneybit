@@ -5,6 +5,7 @@ const chartObj = require('../__mocks__/chart')
 const { expect } = require('chai')
 
 const factory = new AccountTypeChart.Factory()
+const capitalType = new AccountType('Capital')
 
 describe('AccountTypeChart', () => {
   let chart
@@ -15,9 +16,7 @@ describe('AccountTypeChart', () => {
 
   describe('getMajorTypeByAccountType', () => {
     it('gets the account type by the name when the type name is found in the chart', () => {
-      const majorType = chart.getMajorTypeByAccountType(
-        new AccountType('Capital')
-      )
+      const majorType = chart.getMajorTypeByAccountType(capitalType)
 
       expect(majorType).to.equal(EQUITY)
     })
@@ -26,6 +25,16 @@ describe('AccountTypeChart', () => {
       expect(() =>
         chart.getMajorTypeByAccountType(new AccountType('A'))
       ).to.throw()
+    })
+  })
+
+  describe('delete', () => {
+    it('deletes the account type from the chart', () => {
+      expect(chart.getMajorTypeByAccountType(capitalType)).to.equal(EQUITY)
+
+      chart.delete(capitalType)
+
+      expect(() => chart.getMajorTypeByAccountType(capitalType)).to.throw()
     })
   })
 

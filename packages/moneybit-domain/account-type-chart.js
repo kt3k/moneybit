@@ -19,6 +19,14 @@ class AccountTypeChart {
   }
 
   /**
+   * Deletes the account type from the chart.
+   * @param {AccountType}
+   */
+  delete(accountType) {
+    this.majorTypes.delete(accountType.name)
+  }
+
+  /**
    * Gets the major type by the account type.
    * @param {AccountType} accountType The account type
    * @return {MajorAccountType}
