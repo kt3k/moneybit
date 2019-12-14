@@ -157,6 +157,7 @@ total: 929072
 
 # History
 
+- 2019-12-14   v0.11.0   Added accountTypeChart.replace method.
 - 2019-03-21   v0.10.0   Added ledger.hasSubledgerOfAccountType method.
 - 2018-07-30   v0.9.1    journal.trades is sorted by date.
 

@@ -6,7 +6,7 @@ const AccountType = require('./account-type')
 class AccountTypeChart {
   constructor(id) {
     this.id = id
-    this.majorTypes = new Map()
+    this.majorTypes = []
   }
 
   /**
@@ -15,7 +15,15 @@ class AccountTypeChart {
    * @param {MajorAccountType} majorType The major account type
    */
   set(accountType, majorType) {
-    this.majorTypes.set(accountType.name, majorType)
+    const index = this.majorTypes.findIndex(
+      ([name, type]) => name === accountType.name
+    )
+    if (index !== -1) {
+      throw new Error(
+        `The account type name already exists in the chart: ${accountType.name}`
+      )
+    }
+    this.majorTypes.push([accountType.name, majorType])
   }
 
   /**
@@ -23,7 +31,33 @@ class AccountTypeChart {
    * @param {AccountType}
    */
   delete(accountType) {
-    this.majorTypes.delete(accountType.name)
+    const index = this.majorTypes.findIndex(
+      ([name, type]) => name === accountType.name
+    )
+    if (index === -1) {
+      throw new Error(
+        `The account type name is not found in the chart: ${accountType.name}`
+      )
+    }
+    this.majorTypes.splice(index, 1)
+  }
+
+  /**
+   * Replaces the account type with the given account type.
+   * @param {AccountType} toBeReplaced
+   * @param {AccountType} toReplace
+   */
+  replace(toBeReplaced, toReplace) {
+    const index = this.majorTypes.findIndex(
+      ([name, type]) => name === toBeReplaced.name
+    )
+    const item = this.majorTypes[index]
+    if (item == null) {
+      throw new Error(
+        `The account type name is not found in the chart: ${toBeReplaced.name}`
+      )
+    }
+    this.majorTypes.splice(index, 1, [toReplace.name, item[1]])
   }
 
   /**
@@ -32,13 +66,16 @@ class AccountTypeChart {
    * @return {MajorAccountType}
    */
   getMajorTypeByAccountType(accountType) {
-    if (!this.majorTypes.has(accountType.name)) {
+    const item = this.majorTypes.find(
+      ([name, type]) => name === accountType.name
+    )
+    if (item == null) {
       throw new Error(
         `The account type name is not found in the chart: ${accountType.name}`
       )
     }
 
-    return this.majorTypes.get(accountType.name)
+    return item[1]
   }
 
   /**
@@ -47,7 +84,7 @@ class AccountTypeChart {
    * @return {AccountType[]}
    */
   getAccountTypesByMajorType(majorType) {
-    return Array.from(this.majorTypes.entries())
+    return this.majorTypes
       .filter(([name, type]) => type === majorType)
       .map(([name, type]) => new AccountType(name))
   }
@@ -60,7 +97,7 @@ class AccountTypeChart {
   clone(id) {
     const clone = new AccountTypeChart(id)
 
-    clone.majorTypes = new Map(this.majorTypes)
+    clone.majorTypes = Array.from(this.majorTypes)
 
     return clone
   }
