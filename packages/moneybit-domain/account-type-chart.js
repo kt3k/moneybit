@@ -43,6 +43,24 @@ class AccountTypeChart {
   }
 
   /**
+   * Replaces the account type with the given account type.
+   * @param {AccountType} toBeReplaced
+   * @param {AccountType} toReplace
+   */
+  replace(toBeReplaced, toReplace) {
+    const index = this.majorTypes.findIndex(
+      ([name, type]) => name === toBeReplaced.name
+    )
+    const item = this.majorTypes[index]
+    if (item == null) {
+      throw new Error(
+        `The account type name is not found in the chart: ${toBeReplaced.name}`
+      )
+    }
+    this.majorTypes.splice(index, 1, [toReplace.name, item[1]])
+  }
+
+  /**
    * Gets the major type by the account type.
    * @param {AccountType} accountType The account type
    * @return {MajorAccountType}

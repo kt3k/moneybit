@@ -65,4 +65,19 @@ describe('AccountTypeChart', () => {
       expect(clone).to.be.instanceof(AccountTypeChart)
     })
   })
+
+  describe('replace', () => {
+    it('replaces the account type by the given one', () => {
+      const clone = chart.clone('foobar')
+
+      clone.replace(new AccountType('Deposit'), new AccountType('Cash'))
+      const assets = clone.getAccountTypesByMajorType(MajorAccountType.ASSET)
+
+      expect(assets.length).to.equal(2)
+      expect(assets[0].equals(new AccountType('Cash'))).to.equal(true)
+      expect(assets[1].equals(new AccountType('Accounts receivable'))).to.equal(
+        true
+      )
+    })
+  })
 })
