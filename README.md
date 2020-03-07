@@ -4,7 +4,7 @@
 
 [![CircleCI](https://circleci.com/gh/kt3k/moneybit.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit)
 [![codecov](https://codecov.io/gh/kt3k/moneybit/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit)
-[![Greenkeeper badge](https://badges.greenkeeper.io/kt3k/moneybit.svg)](https://greenkeeper.io/)
+
 
 # How to use
 
