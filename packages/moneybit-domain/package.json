@@ -28,7 +28,7 @@
     "moment": ">=2"
   },
   "dependencies": {
-    "js-yaml": "^3.14.0"
+    "js-yaml": "^3.14.1"
   },
   "gitHead": "684402db4189db32f81e2f7dd97b852c8c5b7ff0"
 }
