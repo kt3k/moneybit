@@ -8,13 +8,12 @@
     "gh-pages": "npm run clean && domaindoc build && cp -r media docs/ && gh-pages -d docs",
     "clean": "rimraf doc coverage",
     "cov": "nyc --reporter=lcov --reporter=text-summary npm test",
-    "codecov": "npm run cov && codecov",
     "prepublish": "npm run clean",
     "demo-ledger": "node src/cli.js ledger samples/journal.yml --chart samples/chart.yml",
     "demo-monthly": "node src/cli.js monthly samples/journal.yml 売上 --chart samples/chart.yml",
     "demo-monthly-ledger": "node src/cli.js monthly-ledger samples/journal.yml 売上 --chart samples/chart.yml",
     "demo-bs": "node src/cli.js bs samples/journal.yml --chart samples/chart.yml",
-    "demo-update": "node src/cli.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml",
+    "demo-update": "node src/cli.js --journal samples/journal.yml --chart samples/chart.yml > samples/ledger.yml"
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,6 @@
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {
     "chai": "^4.0.0",
-    "codecov": "^3.2.0",
     "domaindoc": "^3.0.3",
     "gh-pages": "^5.0.0",
     "mocha": "^7.0.1",
