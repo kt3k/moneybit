@@ -1,17 +1,17 @@
-const yaml = require('js-yaml')
-const moment = require('moment')
+const yaml = require("js-yaml");
+const moment = require("moment");
 
-const { DEFAULT_CHART_FILE } = require('../const')
-const { Ledger, AccountType } = require('../domain')
+const { DEFAULT_CHART_FILE } = require("../const");
+const { Ledger, AccountType } = require("../domain");
 const {
   checkJournalFilePath,
   errorExit,
   readFile,
   createJournalFromYaml,
-  createChartFromYaml
-} = require('../util')
+  createChartFromYaml,
+} = require("../util");
 
-const ledgerRepository = new Ledger.Repository()
+const ledgerRepository = new Ledger.Repository();
 
 /**
  * @param {string} journal
@@ -19,40 +19,40 @@ const ledgerRepository = new Ledger.Repository()
  * @param {string} accountType The name of account type
  */
 module.exports = ({ _: [_action, journal, accountType], chart }) => {
-  checkJournalFilePath(journal)
+  checkJournalFilePath(journal);
 
   if (accountType == null) {
-    return errorExit(`<acctounType> is not specified`)
+    return errorExit(`<acctounType> is not specified`);
   }
 
-  const journalYaml = readFile(journal)
-  const chartYaml = readFile(chart || DEFAULT_CHART_FILE)
+  const journalYaml = readFile(journal);
+  const chartYaml = readFile(chart || DEFAULT_CHART_FILE);
 
-  const chartModel = createChartFromYaml(chartYaml)
+  const chartModel = createChartFromYaml(chartYaml);
 
-  const type = new AccountType(accountType)
+  const type = new AccountType(accountType);
 
-  const ledger = createJournalFromYaml(journalYaml).toLedger(chartModel)
+  const ledger = createJournalFromYaml(journalYaml).toLedger(chartModel);
 
-  const subledger = ledger.getSubledgerByAccountType(type)
+  const subledger = ledger.getSubledgerByAccountType(type);
 
-  const first = subledger.firstAccount().date
-  const last = subledger.lastAccount().date
+  const first = subledger.firstAccount().date;
+  const last = subledger.lastAccount().date;
 
-  const month = moment(first)
-  const buffer = {}
+  const month = moment(first);
+  const buffer = {};
 
-  while (month.isBefore(last, 'month') || month.isSame(last, 'month')) {
-    const subledgerByMonth = subledger.filterByMonth(month)
+  while (month.isBefore(last, "month") || month.isSame(last, "month")) {
+    const subledgerByMonth = subledger.filterByMonth(month);
 
-    buffer[month.format('YYYY/MM')] = ledgerRepository.subledgerToObject(
-      subledgerByMonth
-    )
+    buffer[month.format("YYYY/MM")] = ledgerRepository.subledgerToObject(
+      subledgerByMonth,
+    );
 
-    month.add(1, 'month')
+    month.add(1, "month");
   }
 
-  buffer.total = subledger.total().amount
+  buffer.total = subledger.total().amount;
 
-  console.log(yaml.dump(buffer))
-}
+  console.log(yaml.dump(buffer));
+};

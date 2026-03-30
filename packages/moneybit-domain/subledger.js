@@ -1,5 +1,5 @@
-const Money = require('./money')
-const { DEBIT } = require('./trade-side')
+const Money = require("./money");
+const { DEBIT } = require("./trade-side");
 
 /**
  * The subledger model.
@@ -14,9 +14,9 @@ class Subledger {
    * @param {Array<Account>} accounts
    */
   constructor(type, majorType, accounts) {
-    this.type = type
-    this.majorType = majorType
-    this.accounts = accounts.sort((x, y) => x.dateDiff(y))
+    this.type = type;
+    this.majorType = majorType;
+    this.accounts = accounts.sort((x, y) => x.dateDiff(y));
   }
 
   /**
@@ -28,11 +28,11 @@ class Subledger {
     if (this.side() === DEBIT) {
       // If the account type is debit type (i.e. Asset or Revenue)
       // the debit is positive amount and the credit is negative amount.
-      return new Money(this.totalDebit().amount - this.totalCredit().amount)
+      return new Money(this.totalDebit().amount - this.totalCredit().amount);
     } else {
       // If the account type is credit type (i.e. Liability, Equity or Revenue)
       // the credit is positive amount and the credit is negative amount.
-      return new Money(this.totalCredit().amount - this.totalDebit().amount)
+      return new Money(this.totalCredit().amount - this.totalDebit().amount);
     }
   }
 
@@ -42,7 +42,7 @@ class Subledger {
    * @return {TradeSide}
    */
   side() {
-    return this.majorType.side
+    return this.majorType.side;
   }
 
   /**
@@ -50,7 +50,7 @@ class Subledger {
    * @return {Money}
    */
   totalDebit() {
-    return Subledger.totalAmount(this.accounts.filter(x => x.isDebit()))
+    return Subledger.totalAmount(this.accounts.filter((x) => x.isDebit()));
   }
 
   /**
@@ -58,7 +58,7 @@ class Subledger {
    * @return {Money}
    */
   totalCredit() {
-    return Subledger.totalAmount(this.accounts.filter(x => x.isCredit()))
+    return Subledger.totalAmount(this.accounts.filter((x) => x.isCredit()));
   }
 
   /**
@@ -67,7 +67,7 @@ class Subledger {
    * @param {Account} account The account
    */
   add(account) {
-    this.accounts.push(account)
+    this.accounts.push(account);
   }
 
   /**
@@ -75,7 +75,7 @@ class Subledger {
    * @return {string}
    */
   typeName() {
-    return this.type.name
+    return this.type.name;
   }
 
   /**
@@ -87,8 +87,8 @@ class Subledger {
     return new Subledger(
       this.type,
       this.majorType,
-      this.accounts.filter(account => account.isInMonth(month))
-    )
+      this.accounts.filter((account) => account.isInMonth(month)),
+    );
   }
 
   /**
@@ -97,7 +97,7 @@ class Subledger {
    * @return {Account}
    */
   firstAccount() {
-    return this.accounts[0]
+    return this.accounts[0];
   }
 
   /**
@@ -106,7 +106,7 @@ class Subledger {
    * @return {Account}
    */
   lastAccount() {
-    return this.accounts[this.accounts.length - 1]
+    return this.accounts[this.accounts.length - 1];
   }
 
   /**
@@ -117,9 +117,9 @@ class Subledger {
    */
   static totalAmount(accounts) {
     return new Money(
-      accounts.map(x => x.amount.amount).reduce((x, y) => x + y, 0)
-    )
+      accounts.map((x) => x.amount.amount).reduce((x, y) => x + y, 0),
+    );
   }
 }
 
-module.exports = Subledger
+module.exports = Subledger;

@@ -5,37 +5,37 @@ asset:
     dr: 929072
     cr: 892000
     accounts:
-      - date: '2015-01-05'
+      - date: "2015-01-05"
         desc: 開業
         cor: 元入金
         ref: 0
         dr: 2432
-      - date: '2015-01-23'
+      - date: "2015-01-23"
         desc: 振込 開発費 __C0__
         cor: 売掛金
         ref: 2
         dr: 926640
-      - date: '2015-01-24'
+      - date: "2015-01-24"
         desc: MIカード年会費
         cor: 事業主貸
         ref: 3
         cr: 2000
-      - date: '2015-01-26'
+      - date: "2015-01-26"
         desc: 生活費
         cor: 事業主貸
         ref: 4
         cr: 320000
-      - date: '2015-02-02'
+      - date: "2015-02-02"
         desc: 生活費
         cor: 事業主貸
         ref: 5
         cr: 200000
-      - date: '2015-02-05'
+      - date: "2015-02-05"
         desc: 生活費
         cor: 事業主貸
         ref: 6
         cr: 340000
-      - date: '2015-02-22'
+      - date: "2015-02-22"
         desc: 生活費
         cor: 事業主貸
         ref: 8
@@ -45,12 +45,12 @@ asset:
     dr: 926640
     cr: 926640
     accounts:
-      - date: '2015-01-20'
+      - date: "2015-01-20"
         desc: 請求 開発費 __C0__
         cor: 売上
         ref: 1
         dr: 926640
-      - date: '2015-01-23'
+      - date: "2015-01-23"
         desc: 振込 開発費 __C0__
         cor: 預金
         ref: 2
@@ -60,27 +60,27 @@ asset:
     dr: 892000
     cr: 0
     accounts:
-      - date: '2015-01-24'
+      - date: "2015-01-24"
         desc: MIカード年会費
         cor: 預金
         ref: 3
         dr: 2000
-      - date: '2015-01-26'
+      - date: "2015-01-26"
         desc: 生活費
         cor: 預金
         ref: 4
         dr: 320000
-      - date: '2015-02-02'
+      - date: "2015-02-02"
         desc: 生活費
         cor: 預金
         ref: 5
         dr: 200000
-      - date: '2015-02-05'
+      - date: "2015-02-05"
         desc: 生活費
         cor: 預金
         ref: 6
         dr: 340000
-      - date: '2015-02-22'
+      - date: "2015-02-22"
         desc: 生活費
         cor: 預金
         ref: 8
@@ -92,7 +92,7 @@ liability:
     cr: 5616
     dr: 0
     accounts:
-      - date: '2015-02-07'
+      - date: "2015-02-07"
         desc: 参考書 ドメイン駆動開発 Eric Evans 著 翔泳社
         cor: 新聞図書費
         ref: 7
@@ -104,7 +104,7 @@ equity:
     cr: 2432
     dr: 0
     accounts:
-      - date: '2015-01-05'
+      - date: "2015-01-05"
         desc: 開業
         cor: 預金
         ref: 0
@@ -116,7 +116,7 @@ revenue:
     cr: 926640
     dr: 0
     accounts:
-      - date: '2015-01-20'
+      - date: "2015-01-20"
         desc: 請求 開発費 __C0__
         cor: 売掛金
         ref: 1
@@ -128,9 +128,8 @@ expense:
     dr: 5616
     cr: 0
     accounts:
-      - date: '2015-02-07'
+      - date: "2015-02-07"
         desc: 参考書 ドメイン駆動開発 Eric Evans 著 翔泳社
         cor: 事業主借
         ref: 7
         dr: 5616
-

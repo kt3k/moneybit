@@ -1,1 +1,1 @@
-exports.DEFAULT_CHART_FILE = './chart.yml'
+exports.DEFAULT_CHART_FILE = "./chart.yml";

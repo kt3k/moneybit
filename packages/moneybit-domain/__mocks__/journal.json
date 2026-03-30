@@ -2,18 +2,18 @@
   "id": "1",
   "date": "2015-01-01",
   "desc": "Start the business",
-  "dr": {"Deposit": 1000},
-  "cr": {"Capital": 1000}
+  "dr": { "Deposit": 1000 },
+  "cr": { "Capital": 1000 }
 }, {
   "id": "2",
   "date": "2015-01-31",
   "desc": "Did job",
-  "dr": {"Accounts receivable": 1000},
-  "cr": {"Sales": 1000}
+  "dr": { "Accounts receivable": 1000 },
+  "cr": { "Sales": 1000 }
 }, {
   "id": "3",
   "date": "2015-02-28",
   "desc": "Internet Service Provider fee",
-  "dr": {"Communications": 50},
-  "cr": {"Accounts payable": 50}
+  "dr": { "Communications": 50 },
+  "cr": { "Accounts payable": 50 }
 }]

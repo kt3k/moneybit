@@ -1,5 +1,5 @@
-const Ledger = require('./ledger')
-const Subledger = require('./subledger')
+const Ledger = require("./ledger");
+const Subledger = require("./subledger");
 
 /**
  * The factory class for the ledger model.
@@ -11,7 +11,7 @@ class LedgerFactory {
    * @param {AccountTypeChart} chart The account type chart
    */
   createFromJournalAndChart(journal, chart) {
-    return this.createFromAccountsAndChart(journal.accounts(), chart)
+    return this.createFromAccountsAndChart(journal.accounts(), chart);
   }
 
   /**
@@ -20,24 +20,25 @@ class LedgerFactory {
    * @param {AccountTypeChart} chart The account type chart
    */
   createFromAccountsAndChart(accounts, chart) {
-    let subledgers = {}
+    let subledgers = {};
 
-    accounts.forEach(account => {
-      subledgers[account.type.name] =
-        subledgers[account.type.name] ||
+    accounts.forEach((account) => {
+      subledgers[account.type.name] = subledgers[account.type.name] ||
         new Subledger(
           account.type,
           chart.getMajorTypeByAccountType(account.type),
-          []
-        )
+          [],
+        );
 
-      subledgers[account.type.name].add(account)
-    })
+      subledgers[account.type.name].add(account);
+    });
 
-    subledgers = Object.keys(subledgers).map(typeName => subledgers[typeName])
+    subledgers = Object.keys(subledgers).map((typeName) =>
+      subledgers[typeName]
+    );
 
-    return new Ledger(subledgers)
+    return new Ledger(subledgers);
   }
 }
 
-module.exports = LedgerFactory
+module.exports = LedgerFactory;

@@ -6,10 +6,10 @@ class TradeSide {
    * @param {string} name The name
    */
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
 }
 
-module.exports = TradeSide
-module.exports.CREDIT = new TradeSide('CREDIT')
-module.exports.DEBIT = new TradeSide('DEBIT')
+module.exports = TradeSide;
+module.exports.CREDIT = new TradeSide("CREDIT");
+module.exports.DEBIT = new TradeSide("DEBIT");

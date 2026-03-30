@@ -1,26 +1,26 @@
-const { Account } = require('../')
-const { expect } = require('chai')
+const { Account } = require("../");
+const { expect } = require("chai");
 
-const factory = new Account.Factory()
+const factory = new Account.Factory();
 
-describe('AccountFactory', () => {
-  describe('createFromObject', () => {
-    it('throws when the amount is not a number', () => {
+describe("AccountFactory", () => {
+  describe("createFromObject", () => {
+    it("throws when the amount is not a number", () => {
       expect(() => {
-        factory.createFromParams('name', '1000', {
-          date: '2018-01-01',
-          desc: 'desc'
-        })
-      }).to.throw()
-    })
+        factory.createFromParams("name", "1000", {
+          date: "2018-01-01",
+          desc: "desc",
+        });
+      }).to.throw();
+    });
 
-    it('throws when the date is not a number', () => {
+    it("throws when the date is not a number", () => {
       expect(() => {
-        factory.createFromParams('name', 1000, {
+        factory.createFromParams("name", 1000, {
           date: null,
-          desc: 'desc'
-        })
-      }).to.throw()
-    })
-  })
-})
+          desc: "desc",
+        });
+      }).to.throw();
+    });
+  });
+});

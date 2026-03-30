@@ -1,10 +1,10 @@
-const errorExit = require('./error-exit')
+const errorExit = require("./error-exit");
 
 /**
  * @param {string} journal journal.yml path
  */
-module.exports = journal => {
+module.exports = (journal) => {
   if (journal == null) {
-    return errorExit(`journal.yml is not specified`)
+    return errorExit(`journal.yml is not specified`);
   }
-}
+};

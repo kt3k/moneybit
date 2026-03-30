@@ -1,9 +1,9 @@
-const fs = require('fs')
-const yaml = require('js-yaml')
+const fs = require("fs");
+const yaml = require("js-yaml");
 
-const { ALL_TYPES } = require('./major-account-type')
-const { DEBIT } = require('./trade-side')
-const { sum } = require('./util')
+const { ALL_TYPES } = require("./major-account-type");
+const { DEBIT } = require("./trade-side");
+const { sum } = require("./util");
 
 /**
  * The repository class of the ledger model.
@@ -14,9 +14,9 @@ class LedgerRepository {
    * @param {String} path The path to save
    */
   saveAsYamlToPath(ledger, path) {
-    const yaml = this.toYaml(ledger)
+    const yaml = this.toYaml(ledger);
 
-    fs.writeFileSync(path, yaml)
+    fs.writeFileSync(path, yaml);
   }
 
   /**
@@ -26,7 +26,7 @@ class LedgerRepository {
    * @return {String}
    */
   toYaml(ledger) {
-    return yaml.dump(this.ledgerToObject(ledger))
+    return yaml.dump(this.ledgerToObject(ledger));
   }
 
   /**
@@ -36,30 +36,28 @@ class LedgerRepository {
    * @return {Object}
    */
   ledgerToObject(ledger) {
-    const obj = {}
+    const obj = {};
 
-    ALL_TYPES.forEach(majorType => {
+    ALL_TYPES.forEach((majorType) => {
       obj[majorType.name] = this.subledgerListToObject(
-        ledger.getSubledgersByMajorType(majorType)
-      )
-    })
+        ledger.getSubledgersByMajorType(majorType),
+      );
+    });
 
-    return obj
+    return obj;
   }
 
-  /**
-   *
-   */
+  /** */
   subledgerListToObject(subledgers) {
     const obj = {
-      total: sum(subledgers.map(subledger => subledger.total().amount))
-    }
+      total: sum(subledgers.map((subledger) => subledger.total().amount)),
+    };
 
-    subledgers.forEach(subledger => {
-      obj[subledger.type.name] = this.subledgerToObject(subledger)
-    })
+    subledgers.forEach((subledger) => {
+      obj[subledger.type.name] = this.subledgerToObject(subledger);
+    });
 
-    return obj
+    return obj;
   }
 
   /**
@@ -68,21 +66,21 @@ class LedgerRepository {
    * @return {Object}
    */
   subledgerToObject(subledger) {
-    const obj = { total: subledger.total().amount }
+    const obj = { total: subledger.total().amount };
 
     if (subledger.side() === DEBIT) {
-      obj.dr = subledger.totalDebit().amount
-      obj.cr = subledger.totalCredit().amount
+      obj.dr = subledger.totalDebit().amount;
+      obj.cr = subledger.totalCredit().amount;
     } else {
-      obj.cr = subledger.totalCredit().amount
-      obj.dr = subledger.totalDebit().amount
+      obj.cr = subledger.totalCredit().amount;
+      obj.dr = subledger.totalDebit().amount;
     }
 
-    obj.accounts = subledger.accounts.map(account =>
+    obj.accounts = subledger.accounts.map((account) =>
       this.accountToObject(account)
-    )
+    );
 
-    return obj
+    return obj;
   }
 
   /**
@@ -93,23 +91,23 @@ class LedgerRepository {
    */
   accountToObject(account) {
     const obj = {
-      date: account.date.format('YYYY/MM/DD'),
+      date: account.date.format("YYYY/MM/DD"),
       desc: account.description,
       cor: account
         .getCorrespondingAccountTypes()
-        .map(type => type.name)
-        .join(' '),
-      ref: account.getTradeId()
-    }
+        .map((type) => type.name)
+        .join(" "),
+      ref: account.getTradeId(),
+    };
 
     if (account.isDebit()) {
-      obj.dr = account.getDebitAmount().amount
+      obj.dr = account.getDebitAmount().amount;
     } else {
-      obj.cr = account.getCreditAmount().amount
+      obj.cr = account.getCreditAmount().amount;
     }
 
-    return obj
+    return obj;
   }
 }
 
-module.exports = LedgerRepository
+module.exports = LedgerRepository;

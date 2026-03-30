@@ -1,5 +1,5 @@
-const { loadAll } = require('./yaml')
-const { Journal } = require('../domain')
+const { loadAll } = require("./yaml");
+const { Journal } = require("../domain");
 
 /**
  * Takes journal.yml and creates a journal model.
@@ -7,6 +7,6 @@ const { Journal } = require('../domain')
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-module.exports = journalYaml => {
-  return new Journal.Factory().createFromArray(loadAll(journalYaml))
-}
+module.exports = (journalYaml) => {
+  return new Journal.Factory().createFromArray(loadAll(journalYaml));
+};

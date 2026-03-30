@@ -1,4 +1,4 @@
-const Account = require('./account')
+const Account = require("./account");
 
 /**
  * The credit model.
@@ -8,12 +8,12 @@ const Account = require('./account')
  */
 class Credit extends Account {
   isDebit() {
-    return false
+    return false;
   }
 
   isCredit() {
-    return true
+    return true;
   }
 }
 
-module.exports = Credit
+module.exports = Credit;

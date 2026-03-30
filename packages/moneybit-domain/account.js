@@ -16,11 +16,11 @@ class Account {
    * @param {Trade} trade The trade the account belongs
    */
   constructor(date, type, amount, description, trade) {
-    this.date = date
-    this.type = type
-    this.amount = amount
-    this.description = description
-    this.trade = trade
+    this.date = date;
+    this.type = type;
+    this.amount = amount;
+    this.description = description;
+    this.trade = trade;
   }
 
   /**
@@ -29,7 +29,7 @@ class Account {
    * @param {Trade} trade
    */
   setTrade(trade) {
-    this.trade = trade
+    this.trade = trade;
   }
 
   /**
@@ -39,10 +39,10 @@ class Account {
    */
   getDebitAmount() {
     if (this.isDebit()) {
-      return this.amount
+      return this.amount;
     }
 
-    return null
+    return null;
   }
 
   /**
@@ -52,10 +52,10 @@ class Account {
    */
   getCreditAmount() {
     if (this.isCredit()) {
-      return this.amount
+      return this.amount;
     }
 
-    return null
+    return null;
   }
 
   /**
@@ -65,9 +65,9 @@ class Account {
    */
   getCorrespondingAccountTypes() {
     if (this.isCredit()) {
-      return this.trade.debitTypes()
+      return this.trade.debitTypes();
     } else {
-      return this.trade.creditTypes()
+      return this.trade.creditTypes();
     }
   }
 
@@ -77,7 +77,7 @@ class Account {
    * @return {string}
    */
   getTradeId() {
-    return this.trade.id
+    return this.trade.id;
   }
 
   /**
@@ -87,7 +87,7 @@ class Account {
    * @return {boolean}
    */
   isInMonth(month) {
-    return this.date.isSame(month, 'month')
+    return this.date.isSame(month, "month");
   }
 
   /**
@@ -96,7 +96,7 @@ class Account {
    * @return {number}
    */
   dateDiff(account) {
-    return this.date.diff(account.date)
+    return this.date.diff(account.date);
   }
 
   /**
@@ -110,4 +110,4 @@ class Account {
   isCredit() {}
 }
 
-module.exports = Account
+module.exports = Account;

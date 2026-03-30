@@ -1,9 +1,9 @@
-const moment = require('moment')
-const Money = require('./money')
-const Debit = require('./debit')
-const Credit = require('./credit')
-const AccountType = require('./account-type')
-const { DEBIT } = require('./trade-side')
+const moment = require("moment");
+const Money = require("./money");
+const Debit = require("./debit");
+const Credit = require("./credit");
+const AccountType = require("./account-type");
+const { DEBIT } = require("./trade-side");
 
 /**
  * The factory class for Account model.
@@ -17,35 +17,35 @@ class AccountFactory {
    * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
    */
   createFromParams(typeName, amount, { date, desc }, side) {
-    const type = new AccountType(typeName)
+    const type = new AccountType(typeName);
 
-    if (typeof amount !== 'number') {
+    if (typeof amount !== "number") {
       throw new Error(
-        'The amount of an account has to be a number: amount=' +
+        "The amount of an account has to be a number: amount=" +
           amount +
-          ' type=' +
+          " type=" +
           typeName +
-          ' desc=' +
-          desc
-      )
+          " desc=" +
+          desc,
+      );
     }
 
-    const money = new Money(amount)
+    const money = new Money(amount);
 
     if (date == null) {
       throw new Error(
-        'No date for the account: type=' + typeName + ' desc=' + desc
-      )
+        "No date for the account: type=" + typeName + " desc=" + desc,
+      );
     }
 
-    date = moment(date)
+    date = moment(date);
 
     if (side === DEBIT) {
-      return new Debit(date, type, money, desc, null)
+      return new Debit(date, type, money, desc, null);
     } else {
-      return new Credit(date, type, money, desc, null)
+      return new Credit(date, type, money, desc, null);
     }
   }
 }
 
-module.exports = AccountFactory
+module.exports = AccountFactory;

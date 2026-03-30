@@ -1,7 +1,7 @@
-const { Journal, AccountTypeChart } = require('../')
+const { Journal, AccountTypeChart } = require("../");
 
-const journalObj = require('./journal')
-const chartObj = require('./chart')
+const journalObj = require("./journal");
+const chartObj = require("./chart");
 
-exports.chart = new AccountTypeChart.Factory().createFromObject(chartObj)
-exports.journal = new Journal.Factory().createFromArray(journalObj)
+exports.chart = new AccountTypeChart.Factory().createFromObject(chartObj);
+exports.journal = new Journal.Factory().createFromArray(journalObj);

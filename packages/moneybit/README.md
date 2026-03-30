@@ -22,11 +22,13 @@ Then:
 
     ./node_modules/.bin/mb ledger journal.yml --chart chart.yml
 
-This outputs the general ledger in yaml format to stdout according to the given yaml files `journal.yml` and `chart.yml`. See the below for details.
+This outputs the general ledger in yaml format to stdout according to the given
+yaml files `journal.yml` and `chart.yml`. See the below for details.
 
 # Journal YAML
 
-The journal is the series of trades in chronological order. Each trade should have the following format
+The journal is the series of trades in chronological order. Each trade should
+have the following format
 
 ```yml
 id: 1001
@@ -42,10 +44,12 @@ cr:
 - `date` is the date of the trade.
 - `desc` is the description of the trade.
 - `dr` means the debits of the trade.
-  - `dr` has at least one account. In this case, it has `Cash in bank` account with the amount `1000`.
+  - `dr` has at least one account. In this case, it has `Cash in bank` account
+    with the amount `1000`.
   - `dr` can have multiple accounts.
 - `cr` means the credits of the trade.
-  - `cr` has at least one account. In this case, it has `Capital` account with the amount `1000`.
+  - `cr` has at least one account. In this case, it has `Capital` account with
+    the amount `1000`.
   - `cr` can have multiple accounts.
 - The total amount of the credits and debits must be the same in a account.
 
@@ -75,30 +79,33 @@ Each document in a yaml represents a trade.
 
 # Chart YAML
 
-This file defines which account belongs to which major account type. For example, the account `Sales` belongs `Revenue`, `Cash` belongs to `Asset` etc.
+This file defines which account belongs to which major account type. For
+example, the account `Sales` belongs `Revenue`, `Cash` belongs to `Asset` etc.
 
 The format is like the following:
 
 ```yml
 asset:
-- Account receivable
-- Cash in deposit
+  - Account receivable
+  - Cash in deposit
 liability:
-- Account payable
+  - Account payable
 equity:
-- Capital
+  - Capital
 revenue:
-- Sales
+  - Sales
 expense:
-- Freight
-- Communications
-- Business trip
-- Library cost
+  - Freight
+  - Communications
+  - Business trip
+  - Library cost
 ```
 
 # Ledger YAML
 
-This is the output of this cli and represents the general ledger. The accounts in the input journal are collected by its account type and its major type. It has the following format.
+This is the output of this cli and represents the general ledger. The accounts
+in the input journal are collected by its account type and its major type. It
+has the following format.
 
 ```yml
 asset:
@@ -149,7 +156,8 @@ total: 929072
 
 ## mb monthly
 
-`monthly` subcommand outputs the monthly total of the given type. (This information is required in Japanese official tax document.)
+`monthly` subcommand outputs the monthly total of the given type. (This
+information is required in Japanese official tax document.)
 
     mb monthly path/to/journal "Cash in hand" [--chart path/to/chart.yml]
 
@@ -158,7 +166,6 @@ total: 929072
 `monthly-ledger` subcommand outputs the monthly ledger of the given type.
 
     mb monthly-ledger path/to/journal "Sales" [--chart path/to/chart.yml]
-
 
 # LICENSE
 

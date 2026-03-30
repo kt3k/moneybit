@@ -1,4 +1,4 @@
-const { sum } = require('./util')
+const { sum } = require("./util");
 
 /**
  * Money model.
@@ -9,7 +9,7 @@ class Money {
    * @param {Number} amount
    */
   constructor(amount) {
-    this.amount = amount
+    this.amount = amount;
   }
 
   /**
@@ -18,7 +18,7 @@ class Money {
    * @return {Money}
    */
   plus(money) {
-    return new Money(this.amount + money.amount)
+    return new Money(this.amount + money.amount);
   }
 
   /**
@@ -27,7 +27,7 @@ class Money {
    * @return {Money}
    */
   minus(money) {
-    return new Money(this.amount - money.amount)
+    return new Money(this.amount - money.amount);
   }
 
   /**
@@ -36,8 +36,8 @@ class Money {
    * @return {Money}
    */
   static sum(moneyList) {
-    return new Money(sum(moneyList.map(money => money.amount)))
+    return new Money(sum(moneyList.map((money) => money.amount)));
   }
 }
 
-module.exports = Money
+module.exports = Money;

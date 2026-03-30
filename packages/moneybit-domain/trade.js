@@ -15,11 +15,11 @@ class Trade {
    * @param {Array<Credit>} credits The credits
    */
   constructor({ id, date, description, debits, credits }) {
-    this.id = id
-    this.date = date
-    this.description = description
-    this.debits = debits
-    this.credits = credits
+    this.id = id;
+    this.date = date;
+    this.description = description;
+    this.debits = debits;
+    this.credits = credits;
   }
 
   /**
@@ -28,7 +28,7 @@ class Trade {
    * @return {Array<Account>}
    */
   accounts() {
-    return this.debits.concat(this.credits)
+    return this.debits.concat(this.credits);
   }
 
   /**
@@ -39,7 +39,7 @@ class Trade {
    * @return {Array<AccountType>}
    */
   static getAccountTypes(accounts) {
-    return accounts.map(account => account.type)
+    return accounts.map((account) => account.type);
   }
 
   /**
@@ -48,7 +48,7 @@ class Trade {
    * @return {Array<AccountType>}
    */
   debitTypes() {
-    return Trade.getAccountTypes(this.debits)
+    return Trade.getAccountTypes(this.debits);
   }
 
   /**
@@ -57,8 +57,8 @@ class Trade {
    * @return {Array<AccountType>}
    */
   creditTypes() {
-    return Trade.getAccountTypes(this.credits)
+    return Trade.getAccountTypes(this.credits);
   }
 }
 
-module.exports = Trade
+module.exports = Trade;

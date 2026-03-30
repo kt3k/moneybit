@@ -1,13 +1,13 @@
-const { Ledger } = require('../domain')
-const { DEFAULT_CHART_FILE } = require('../const')
+const { Ledger } = require("../domain");
+const { DEFAULT_CHART_FILE } = require("../const");
 const {
   checkJournalFilePath,
   readFile,
   createJournalFromYaml,
-  createChartFromYaml
-} = require('../util')
+  createChartFromYaml,
+} = require("../util");
 
-const ledgerRepo = new Ledger.Repository()
+const ledgerRepo = new Ledger.Repository();
 
 /**
  * Takes journal.yml and chart.yml paths and converts them to ledger.yml.
@@ -17,14 +17,14 @@ const ledgerRepo = new Ledger.Repository()
  * @throws {Error} when the input yaml is broken
  */
 module.exports = ({ _: [_action, journal], chart }) => {
-  checkJournalFilePath(journal)
+  checkJournalFilePath(journal);
 
-  const journalYaml = readFile(journal)
-  const chartYaml = readFile(chart || DEFAULT_CHART_FILE)
+  const journalYaml = readFile(journal);
+  const chartYaml = readFile(chart || DEFAULT_CHART_FILE);
 
   const ledger = createJournalFromYaml(journalYaml).toLedger(
-    createChartFromYaml(chartYaml)
-  )
+    createChartFromYaml(chartYaml),
+  );
 
-  console.log(ledgerRepo.toYaml(ledger))
-}
+  console.log(ledgerRepo.toYaml(ledger));
+};

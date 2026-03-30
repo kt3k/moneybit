@@ -1,7 +1,7 @@
-const fs = require('fs')
-const yaml = require('js-yaml')
+const fs = require("fs");
+const yaml = require("js-yaml");
 
-const { ASSET, LIABILITY, EQUITY } = require('./major-account-type')
+const { ASSET, LIABILITY, EQUITY } = require("./major-account-type");
 
 /**
  * The repository class of the balance sheet model.
@@ -14,15 +14,15 @@ class BalanceSheetRepository {
    * @return {Object}
    */
   toObject(balanceSheet) {
-    const obj = {}
+    const obj = {};
 
-    this.insertBSDataByMajorType(balanceSheet, obj, ASSET)
-    this.insertBSDataByMajorType(balanceSheet, obj, LIABILITY)
-    this.insertBSDataByMajorType(balanceSheet, obj, EQUITY)
+    this.insertBSDataByMajorType(balanceSheet, obj, ASSET);
+    this.insertBSDataByMajorType(balanceSheet, obj, LIABILITY);
+    this.insertBSDataByMajorType(balanceSheet, obj, EQUITY);
 
-    obj.total = balanceSheet.totalByMajorType(ASSET).amount
+    obj.total = balanceSheet.totalByMajorType(ASSET).amount;
 
-    return obj
+    return obj;
   }
 
   /**
@@ -33,20 +33,20 @@ class BalanceSheetRepository {
    * @param {MajorAccountType} majorType The type
    */
   insertBSDataByMajorType(balanceSheet, obj, majorType) {
-    const subObj = (obj[majorType.name] = {})
+    const subObj = (obj[majorType.name] = {});
 
-    balanceSheet.subledgers(majorType).forEach(subledger => {
-      subObj[subledger.typeName()] = subledger.total().amount
-    })
+    balanceSheet.subledgers(majorType).forEach((subledger) => {
+      subObj[subledger.typeName()] = subledger.total().amount;
+    });
 
     if (majorType === EQUITY) {
-      const retainedEarnings = balanceSheet.retainedEarnings().amount
+      const retainedEarnings = balanceSheet.retainedEarnings().amount;
 
-      subObj['Retained earnings'] = retainedEarnings
-      subObj.total =
-        balanceSheet.totalByMajorType(majorType).amount + retainedEarnings
+      subObj["Retained earnings"] = retainedEarnings;
+      subObj.total = balanceSheet.totalByMajorType(majorType).amount +
+        retainedEarnings;
     } else {
-      subObj.total = balanceSheet.totalByMajorType(majorType).amount
+      subObj.total = balanceSheet.totalByMajorType(majorType).amount;
     }
   }
 
@@ -57,7 +57,7 @@ class BalanceSheetRepository {
    * @return {string} The yaml representation
    */
   toYaml(balanceSheet) {
-    return yaml.dump(this.toObject(balanceSheet))
+    return yaml.dump(this.toObject(balanceSheet));
   }
 
   /**
@@ -66,8 +66,8 @@ class BalanceSheetRepository {
    * @param {string} path The path to save
    */
   saveYamlToPath(balanceSheet, path) {
-    fs.writeFileSync(path, this.toYaml(balanceSheet))
+    fs.writeFileSync(path, this.toYaml(balanceSheet));
   }
 }
 
-module.exports = BalanceSheetRepository
+module.exports = BalanceSheetRepository;

@@ -8,7 +8,7 @@ class AccountType {
    * @param {string} name The name of the account type
    */
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
 
   /**
@@ -17,8 +17,8 @@ class AccountType {
    * @return {boolean}
    */
   equals(type) {
-    return this.name === type.name
+    return this.name === type.name;
   }
 }
 
-module.exports = AccountType
+module.exports = AccountType;

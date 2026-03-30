@@ -1,7 +1,7 @@
-const LedgerFactory = require('./ledger-factory')
-const BalanceSheet = require('./balance-sheet')
+const LedgerFactory = require("./ledger-factory");
+const BalanceSheet = require("./balance-sheet");
 
-const ledgerFactory = new LedgerFactory()
+const ledgerFactory = new LedgerFactory();
 
 /**
  * The journal model.
@@ -17,11 +17,11 @@ class Journal {
    * @param {Array<Trade>} trades The list of trades
    */
   constructor({ id, trades }) {
-    this.id = id
-    this.trades = []
-    this.ids = {}
+    this.id = id;
+    this.trades = [];
+    this.ids = {};
 
-    this.addTrades(trades || [])
+    this.addTrades(trades || []);
   }
 
   /**
@@ -29,14 +29,14 @@ class Journal {
    * @return {number}
    */
   get length() {
-    return this.trades.length
+    return this.trades.length;
   }
 
   /**
    * @return {boolean}
    */
   isEmpty() {
-    return this.length === 0
+    return this.length === 0;
   }
 
   /**
@@ -45,7 +45,7 @@ class Journal {
    * @return {Trade}
    */
   getTradeById(id) {
-    return this.trades.find(t => t.id === id)
+    return this.trades.find((t) => t.id === id);
   }
 
   /**
@@ -54,10 +54,10 @@ class Journal {
    */
   removeTradeById(id) {
     if (!this.ids[id]) {
-      return
+      return;
     }
 
-    this.trades.splice(this.trades.findIndex(t => t.id === id), 1)
+    this.trades.splice(this.trades.findIndex((t) => t.id === id), 1);
   }
 
   /**
@@ -66,7 +66,7 @@ class Journal {
    * @return {Ledger}
    */
   toLedger(chart) {
-    return ledgerFactory.createFromJournalAndChart(this, chart)
+    return ledgerFactory.createFromJournalAndChart(this, chart);
   }
 
   /**
@@ -75,7 +75,7 @@ class Journal {
    * @return {BalanceSheet}
    */
   toBalanceSheet(chart) {
-    return new BalanceSheet(this.toLedger(chart))
+    return new BalanceSheet(this.toLedger(chart));
   }
 
   /**
@@ -83,27 +83,27 @@ class Journal {
    * @param {Array<Trade>}
    */
   addTrades(trades) {
-    trades.forEach(trade => {
-      this.addTradeInIdMap(trade)
-      this.trades.push(trade)
-    })
+    trades.forEach((trade) => {
+      this.addTradeInIdMap(trade);
+      this.trades.push(trade);
+    });
     this.trades.sort((x, y) => {
       if (x.date < y.date) {
-        return -1
+        return -1;
       } else if (x.date > y.date) {
-        return 1
+        return 1;
       } else {
-        return 0
+        return 0;
       }
-    })
+    });
   }
 
   addTradeInIdMap(trade) {
     if (this.ids[trade.id] != null) {
-      throw new Error('The trade of the same id already exists: ' + trade.id)
+      throw new Error("The trade of the same id already exists: " + trade.id);
     }
 
-    this.ids[trade.id] = trade
+    this.ids[trade.id] = trade;
   }
 
   /**
@@ -112,14 +112,14 @@ class Journal {
    * @throws {Error} when the id of the trade already exists.
    */
   addTrade(trade) {
-    this.addTradeInIdMap(trade)
+    this.addTradeInIdMap(trade);
 
-    const foundIndex = this.trades.findIndex(t => trade.date < t.date)
+    const foundIndex = this.trades.findIndex((t) => trade.date < t.date);
 
     if (foundIndex === -1) {
-      this.trades.push(trade)
+      this.trades.push(trade);
     } else {
-      this.trades.splice(foundIndex, 0, trade)
+      this.trades.splice(foundIndex, 0, trade);
     }
   }
 
@@ -129,12 +129,12 @@ class Journal {
    */
   saveTrade(trade) {
     if (!this.ids[trade.id]) {
-      return this.addTrade(trade)
+      return this.addTrade(trade);
     }
 
-    const delIndex = this.trades.findIndex(t => t.id === trade.id)
+    const delIndex = this.trades.findIndex((t) => t.id === trade.id);
 
-    this.trades.splice(delIndex, 1, trade)
+    this.trades.splice(delIndex, 1, trade);
   }
 
   /**
@@ -143,9 +143,9 @@ class Journal {
    * @return {Array<Account>}
    */
   accounts() {
-    const accounts = this.trades.map(trade => trade.accounts())
+    const accounts = this.trades.map((trade) => trade.accounts());
 
-    return [].concat(...accounts) // i.e. flatten(accounts)
+    return [].concat(...accounts); // i.e. flatten(accounts)
   }
 
   /**
@@ -153,10 +153,10 @@ class Journal {
    */
   firstTrade() {
     if (this.isEmpty()) {
-      return null
+      return null;
     }
 
-    return this.trades[0]
+    return this.trades[0];
   }
 
   /**
@@ -164,11 +164,11 @@ class Journal {
    */
   lastTrade() {
     if (this.isEmpty()) {
-      return null
+      return null;
     }
 
-    return this.trades[this.length - 1]
+    return this.trades[this.length - 1];
   }
 }
 
-module.exports = Journal
+module.exports = Journal;

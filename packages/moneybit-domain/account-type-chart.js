@@ -1,12 +1,12 @@
-const AccountType = require('./account-type')
+const AccountType = require("./account-type");
 
 /**
  * The account type chart model.
  */
 class AccountTypeChart {
   constructor(id) {
-    this.id = id
-    this.majorTypes = []
+    this.id = id;
+    this.majorTypes = [];
   }
 
   /**
@@ -16,14 +16,14 @@ class AccountTypeChart {
    */
   set(accountType, majorType) {
     const index = this.majorTypes.findIndex(
-      ([name, _type]) => name === accountType.name
-    )
+      ([name, _type]) => name === accountType.name,
+    );
     if (index !== -1) {
       throw new Error(
-        `The account type name already exists in the chart: ${accountType.name}`
-      )
+        `The account type name already exists in the chart: ${accountType.name}`,
+      );
     }
-    this.majorTypes.push([accountType.name, majorType])
+    this.majorTypes.push([accountType.name, majorType]);
   }
 
   /**
@@ -32,14 +32,14 @@ class AccountTypeChart {
    */
   delete(accountType) {
     const index = this.majorTypes.findIndex(
-      ([name, _type]) => name === accountType.name
-    )
+      ([name, _type]) => name === accountType.name,
+    );
     if (index === -1) {
       throw new Error(
-        `The account type name is not found in the chart: ${accountType.name}`
-      )
+        `The account type name is not found in the chart: ${accountType.name}`,
+      );
     }
-    this.majorTypes.splice(index, 1)
+    this.majorTypes.splice(index, 1);
   }
 
   /**
@@ -49,15 +49,15 @@ class AccountTypeChart {
    */
   replace(toBeReplaced, toReplace) {
     const index = this.majorTypes.findIndex(
-      ([name, _type]) => name === toBeReplaced.name
-    )
-    const item = this.majorTypes[index]
+      ([name, _type]) => name === toBeReplaced.name,
+    );
+    const item = this.majorTypes[index];
     if (item == null) {
       throw new Error(
-        `The account type name is not found in the chart: ${toBeReplaced.name}`
-      )
+        `The account type name is not found in the chart: ${toBeReplaced.name}`,
+      );
     }
-    this.majorTypes.splice(index, 1, [toReplace.name, item[1]])
+    this.majorTypes.splice(index, 1, [toReplace.name, item[1]]);
   }
 
   /**
@@ -67,15 +67,15 @@ class AccountTypeChart {
    */
   getMajorTypeByAccountType(accountType) {
     const item = this.majorTypes.find(
-      ([name, _type]) => name === accountType.name
-    )
+      ([name, _type]) => name === accountType.name,
+    );
     if (item == null) {
       throw new Error(
-        `The account type name is not found in the chart: ${accountType.name}`
-      )
+        `The account type name is not found in the chart: ${accountType.name}`,
+      );
     }
 
-    return item[1]
+    return item[1];
   }
 
   /**
@@ -86,7 +86,7 @@ class AccountTypeChart {
   getAccountTypesByMajorType(majorType) {
     return this.majorTypes
       .filter(([_name, type]) => type === majorType)
-      .map(([name, _type]) => new AccountType(name))
+      .map(([name, _type]) => new AccountType(name));
   }
 
   /**
@@ -95,12 +95,12 @@ class AccountTypeChart {
    * @return {AccountTypeChart}
    */
   clone(id) {
-    const clone = new AccountTypeChart(id)
+    const clone = new AccountTypeChart(id);
 
-    clone.majorTypes = Array.from(this.majorTypes)
+    clone.majorTypes = Array.from(this.majorTypes);
 
-    return clone
+    return clone;
   }
 }
 
-module.exports = AccountTypeChart
+module.exports = AccountTypeChart;
