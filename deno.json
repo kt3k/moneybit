@@ -1,4 +1,7 @@
 {
+  "fmt": {
+    "exclude": ["pnpm-workspace.yaml"]
+  },
   "lint": {
     "rules": {
       "exclude": ["no-process-global"]
