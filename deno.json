@@ -1,6 +1,6 @@
 {
   "fmt": {
-    "exclude": ["pnpm-workspace.yaml"]
+    "exclude": ["pnpm-lock.yaml"]
   },
   "lint": {
     "rules": {
