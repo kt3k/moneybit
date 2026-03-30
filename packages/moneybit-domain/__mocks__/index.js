@@ -1,7 +1,7 @@
-const { Journal, AccountTypeChart } = require("../");
+import { AccountTypeChart, Journal } from "../index.js";
 
-const journalObj = require("./journal");
-const chartObj = require("./chart");
+import journalObj from "./journal.json" with { type: "json" };
+import chartObj from "./chart.json" with { type: "json" };
 
-exports.chart = new AccountTypeChart.Factory().createFromObject(chartObj);
-exports.journal = new Journal.Factory().createFromArray(journalObj);
+export const chart = new AccountTypeChart.Factory().createFromObject(chartObj);
+export const journal = new Journal.Factory().createFromArray(journalObj);

@@ -1,4 +1,4 @@
-const Account = require("./account");
+import Account from "./account.js";
 
 /**
  * The credit model.
@@ -16,4 +16,4 @@ class Credit extends Account {
   }
 }
 
-module.exports = Credit;
+export default Credit;

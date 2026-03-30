@@ -1,12 +1,7 @@
 import { describe, expect, it } from "vitest";
-const {
-  AccountTypeChart,
-  Account,
-  Money,
-  Trade,
-  TradeSide: { DEBIT, CREDIT },
-} = require("../");
-const chartObj = require("../__mocks__/chart");
+import { Account, AccountTypeChart, Money, Trade } from "../index.js";
+import { CREDIT, DEBIT } from "../trade-side.js";
+import chartObj from "../__mocks__/chart.json" with { type: "json" };
 
 const chart = new AccountTypeChart.Factory().createFromObject(chartObj);
 const factory = new Account.Factory(chart);

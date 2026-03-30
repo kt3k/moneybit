@@ -1,5 +1,5 @@
-const Money = require("./money");
-const { DEBIT } = require("./trade-side");
+import Money from "./money.js";
+import { DEBIT } from "./trade-side.js";
 
 /**
  * The subledger model.
@@ -26,12 +26,8 @@ class Subledger {
    */
   total() {
     if (this.side() === DEBIT) {
-      // If the account type is debit type (i.e. Asset or Revenue)
-      // the debit is positive amount and the credit is negative amount.
       return new Money(this.totalDebit().amount - this.totalCredit().amount);
     } else {
-      // If the account type is credit type (i.e. Liability, Equity or Revenue)
-      // the credit is positive amount and the credit is negative amount.
       return new Money(this.totalCredit().amount - this.totalDebit().amount);
     }
   }
@@ -122,4 +118,4 @@ class Subledger {
   }
 }
 
-module.exports = Subledger;
+export default Subledger;

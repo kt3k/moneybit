@@ -1,4 +1,4 @@
-const Account = require("./account");
+import Account from "./account.js";
 
 /**
  * The debit model.
@@ -16,4 +16,4 @@ class Debit extends Account {
   }
 }
 
-module.exports = Debit;
+export default Debit;

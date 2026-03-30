@@ -1,4 +1,4 @@
-const { sum } = require("./util");
+import { sum } from "./util.js";
 
 /**
  * Money model.
@@ -40,4 +40,4 @@ class Money {
   }
 }
 
-module.exports = Money;
+export default Money;

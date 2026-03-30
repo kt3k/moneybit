@@ -1,10 +1,7 @@
 import { describe, expect, it } from "vitest";
-const {
-  BalanceSheet,
-  Money,
-  MajorAccountType: { ASSET, LIABILITY, EQUITY },
-} = require("../");
-const { journal, chart } = require("../__mocks__");
+import { BalanceSheet, Money } from "../index.js";
+import { ASSET, EQUITY, LIABILITY } from "../major-account-type.js";
+import { chart, journal } from "../__mocks__/index.js";
 
 const ledger = journal.toLedger(chart);
 

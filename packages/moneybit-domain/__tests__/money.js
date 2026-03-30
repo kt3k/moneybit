@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-const { Money } = require("../");
+import { Money } from "../index.js";
 
 describe("Money", () => {
   describe("plus", () => {

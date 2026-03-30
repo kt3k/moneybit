@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-const { sum } = require("../util");
+import { sum } from "../util.js";
 
 describe("sum", () => {
   it("adds up the given numbers", () => {

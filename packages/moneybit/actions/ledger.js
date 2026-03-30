@@ -1,11 +1,11 @@
-const { Ledger } = require("../domain");
-const { DEFAULT_CHART_FILE } = require("../const");
-const {
+import { Ledger } from "../domain.js";
+import { DEFAULT_CHART_FILE } from "../const.js";
+import {
   checkJournalFilePath,
-  readFile,
-  createJournalFromYaml,
   createChartFromYaml,
-} = require("../util");
+  createJournalFromYaml,
+  readFile,
+} from "../util/index.js";
 
 const ledgerRepo = new Ledger.Repository();
 
@@ -16,7 +16,7 @@ const ledgerRepo = new Ledger.Repository();
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-module.exports = ({ _: [_action, journal], chart }) => {
+export default ({ _: [_action, journal], chart }) => {
   checkJournalFilePath(journal);
 
   const journalYaml = readFile(journal);

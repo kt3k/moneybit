@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-const execSync = require("child_process").execSync;
-const { cliName } = require("../util");
+import { execSync } from "child_process";
+import { cliName } from "../util/index.js";
 
 const cliPath = "packages/moneybit/cli.js";
 const chartPath = "samples/chart.yml";

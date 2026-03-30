@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-const { Account } = require("../");
+import { Account } from "../index.js";
 
 const factory = new Account.Factory();
 

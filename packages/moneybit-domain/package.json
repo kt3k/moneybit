@@ -2,6 +2,7 @@
   "name": "moneybit-domain",
   "version": "0.11.1",
   "description": "The domain layer of moneybit apps",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,11 +25,9 @@
     "url": "https://github.com/kt3k/moneybit/issues"
   },
   "homepage": "https://github.com/kt3k/moneybit#readme",
-  "peerDependency": {
-    "moment": ">=2"
-  },
   "dependencies": {
-    "js-yaml": "^4.1.1"
+    "js-yaml": "^4.1.1",
+    "moment": "^2.30.1"
   },
   "gitHead": "684402db4189db32f81e2f7dd97b852c8c5b7ff0"
 }

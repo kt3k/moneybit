@@ -1,8 +1,7 @@
 import { describe, expect, it } from "vitest";
-const { Journal, AccountTypeChart } = require("../");
-
-const journalArray = require("../__mocks__/journal");
-const chartObj = require("../__mocks__/chart");
+import { AccountTypeChart, Journal } from "../index.js";
+import journalArray from "../__mocks__/journal.json" with { type: "json" };
+import chartObj from "../__mocks__/chart.json" with { type: "json" };
 
 const chart = new AccountTypeChart.Factory().createFromObject(chartObj);
 

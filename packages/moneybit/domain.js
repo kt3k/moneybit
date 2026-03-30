@@ -1,1 +1,1 @@
-module.exports = require("moneybit-domain");
+export * from "moneybit-domain";

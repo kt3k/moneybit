@@ -1,7 +1,7 @@
-const chalk = require("chalk");
-const { errorExit, cliName } = require("../util");
+import chalk from "chalk";
+import { cliName, errorExit } from "../util/index.js";
 
-module.exports = ({ _: [_action, subcommand] }) => {
+export default ({ _: [_action, subcommand] }) => {
   if (subcommand == null) {
     return console.log(usage);
   }

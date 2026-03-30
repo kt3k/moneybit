@@ -1,11 +1,11 @@
-const { BalanceSheet } = require("../domain");
-const { DEFAULT_CHART_FILE } = require("../const");
-const {
+import { BalanceSheet } from "../domain.js";
+import { DEFAULT_CHART_FILE } from "../const.js";
+import {
   checkJournalFilePath,
-  readFile,
-  createJournalFromYaml,
   createChartFromYaml,
-} = require("../util");
+  createJournalFromYaml,
+  readFile,
+} from "../util/index.js";
 
 const bsRepo = new BalanceSheet.Repository();
 
@@ -16,7 +16,7 @@ const bsRepo = new BalanceSheet.Repository();
  * @return {string} The ledger.yml string
  * @throws {Error} when the input yaml is broken
  */
-module.exports = function ({ _: [_action, journal], chart }) {
+export default function ({ _: [_action, journal], chart }) {
   checkJournalFilePath(journal);
 
   const journalYaml = readFile(journal);
@@ -27,4 +27,4 @@ module.exports = function ({ _: [_action, journal], chart }) {
   );
 
   console.log(bsRepo.toYaml(bs));
-};
+}

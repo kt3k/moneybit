@@ -1,4 +1,4 @@
-const { DEBIT, CREDIT } = require("./trade-side");
+import { CREDIT, DEBIT } from "./trade-side.js";
 
 /**
  * The major account types. i.e. Asset, Liability, Owner's Equity, Revenue, Expense
@@ -16,16 +16,10 @@ class MajorAccountType {
   }
 }
 
-const ASSET = new MajorAccountType("asset", DEBIT);
-const LIABILITY = new MajorAccountType("liability", CREDIT);
-const EQUITY = new MajorAccountType("equity", CREDIT);
-const REVENUE = new MajorAccountType("revenue", CREDIT);
-const EXPENSE = new MajorAccountType("expense", DEBIT);
-
-module.exports = MajorAccountType;
-module.exports.ASSET = ASSET;
-module.exports.LIABILITY = LIABILITY;
-module.exports.EQUITY = EQUITY;
-module.exports.REVENUE = REVENUE;
-module.exports.EXPENSE = EXPENSE;
-module.exports.ALL_TYPES = [ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE];
+export default MajorAccountType;
+export const ASSET = new MajorAccountType("asset", DEBIT);
+export const LIABILITY = new MajorAccountType("liability", CREDIT);
+export const EQUITY = new MajorAccountType("equity", CREDIT);
+export const REVENUE = new MajorAccountType("revenue", CREDIT);
+export const EXPENSE = new MajorAccountType("expense", DEBIT);
+export const ALL_TYPES = [ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE];

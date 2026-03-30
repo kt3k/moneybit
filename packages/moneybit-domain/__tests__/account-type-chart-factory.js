@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
-const {
-  AccountTypeChart,
-  AccountType,
-  MajorAccountType: { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE },
-} = require("../");
+import { AccountType, AccountTypeChart } from "../index.js";
+import {
+  ASSET,
+  EQUITY,
+  EXPENSE,
+  LIABILITY,
+  REVENUE,
+} from "../major-account-type.js";
 
 const factory = new AccountTypeChart.Factory();
 

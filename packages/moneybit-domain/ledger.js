@@ -1,10 +1,10 @@
-const {
+import {
   ASSET,
-  LIABILITY,
   EQUITY,
-  REVENUE,
   EXPENSE,
-} = require("./major-account-type");
+  LIABILITY,
+  REVENUE,
+} from "./major-account-type.js";
 
 /**
  * The ledger model.
@@ -94,4 +94,4 @@ class Ledger {
   }
 }
 
-module.exports = Ledger;
+export default Ledger;

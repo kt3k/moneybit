@@ -1,22 +1,22 @@
-const yaml = require("js-yaml");
-const moment = require("moment");
+import yaml from "js-yaml";
+import moment from "moment";
 
-const { AccountType } = require("../domain");
-const { DEFAULT_CHART_FILE } = require("../const");
-const {
+import { AccountType } from "../domain.js";
+import { DEFAULT_CHART_FILE } from "../const.js";
+import {
   checkJournalFilePath,
+  createChartFromYaml,
+  createJournalFromYaml,
   errorExit,
   readFile,
-  createJournalFromYaml,
-  createChartFromYaml,
-} = require("../util");
+} from "../util/index.js";
 
 /**
  * @param {string} journal
  * @param {string} chart
  * @param {string} accountType The name of account type
  */
-module.exports = ({ _: [_action, journal, accountType], chart }) => {
+export default ({ _: [_action, journal, accountType], chart }) => {
   checkJournalFilePath(journal);
 
   if (accountType == null) {

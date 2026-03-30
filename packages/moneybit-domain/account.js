@@ -110,4 +110,4 @@ class Account {
   isCredit() {}
 }
 
-module.exports = Account;
+export default Account;

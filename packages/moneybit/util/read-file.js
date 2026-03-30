@@ -1,12 +1,12 @@
-const fs = require("fs");
-const errorExit = require("./error-exit");
+import fs from "fs";
+import errorExit from "./error-exit.js";
 
 /**
  * Reads the given file and returns the contents.
  * @param {string} file The file
  * @return {Buffer}
  */
-module.exports = (file) => {
+export default (file) => {
   try {
     return fs.readFileSync(file);
   } catch (e) {

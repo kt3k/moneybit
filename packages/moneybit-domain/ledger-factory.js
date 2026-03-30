@@ -1,5 +1,5 @@
-const Ledger = require("./ledger");
-const Subledger = require("./subledger");
+import Ledger from "./ledger.js";
+import Subledger from "./subledger.js";
 
 /**
  * The factory class for the ledger model.
@@ -41,4 +41,4 @@ class LedgerFactory {
   }
 }
 
-module.exports = LedgerFactory;
+export default LedgerFactory;

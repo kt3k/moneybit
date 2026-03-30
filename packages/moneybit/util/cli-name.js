@@ -1,1 +1,5 @@
-module.exports = Object.keys(require("../package.json").bin)[0];
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const pkg = require("../package.json");
+
+export default Object.keys(pkg.bin)[0];

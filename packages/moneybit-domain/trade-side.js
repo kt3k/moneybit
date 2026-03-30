@@ -10,6 +10,6 @@ class TradeSide {
   }
 }
 
-module.exports = TradeSide;
-module.exports.CREDIT = new TradeSide("CREDIT");
-module.exports.DEBIT = new TradeSide("DEBIT");
+export default TradeSide;
+export const CREDIT = new TradeSide("CREDIT");
+export const DEBIT = new TradeSide("DEBIT");

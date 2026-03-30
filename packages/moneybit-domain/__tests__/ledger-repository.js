@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-const fs = require("fs");
-const { Ledger } = require("../");
-const { journal, chart } = require("../__mocks__");
+import fs from "fs";
+import { Ledger } from "../index.js";
+import { chart, journal } from "../__mocks__/index.js";
 
 describe("LedgerRepository", () => {
   const repository = new Ledger.Repository();

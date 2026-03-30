@@ -1,9 +1,9 @@
-const fs = require("fs");
-const yaml = require("js-yaml");
+import fs from "fs";
+import yaml from "js-yaml";
 
-const { ALL_TYPES } = require("./major-account-type");
-const { DEBIT } = require("./trade-side");
-const { sum } = require("./util");
+import { ALL_TYPES } from "./major-account-type.js";
+import { DEBIT } from "./trade-side.js";
+import { sum } from "./util.js";
 
 /**
  * The repository class of the ledger model.
@@ -110,4 +110,4 @@ class LedgerRepository {
   }
 }
 
-module.exports = LedgerRepository;
+export default LedgerRepository;

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
-const { AccountTypeChart, MajorAccountType, AccountType } = require("../");
-const { EQUITY } = MajorAccountType;
-const chartObj = require("../__mocks__/chart");
+import { AccountType, AccountTypeChart } from "../index.js";
+import { ASSET, EQUITY, LIABILITY } from "../major-account-type.js";
+import chartObj from "../__mocks__/chart.json" with { type: "json" };
 
 const factory = new AccountTypeChart.Factory();
 const capitalType = new AccountType("Capital");
@@ -38,7 +38,7 @@ describe("AccountTypeChart", () => {
 
   describe("getAccountTypesByMajorType", () => {
     it("gets the account types by the given major type", () => {
-      const assets = chart.getAccountTypesByMajorType(MajorAccountType.ASSET);
+      const assets = chart.getAccountTypesByMajorType(ASSET);
 
       expect(assets[0].equals(new AccountType("Deposit"))).toBe(true);
       expect(assets[1].equals(new AccountType("Accounts receivable"))).toBe(
@@ -46,7 +46,7 @@ describe("AccountTypeChart", () => {
       );
 
       const liabilities = chart.getAccountTypesByMajorType(
-        MajorAccountType.LIABILITY,
+        LIABILITY,
       );
 
       expect(liabilities[0].equals(new AccountType("Accounts payable"))).toBe(
@@ -69,7 +69,7 @@ describe("AccountTypeChart", () => {
       const clone = chart.clone("foobar");
 
       clone.replace(new AccountType("Deposit"), new AccountType("Cash"));
-      const assets = clone.getAccountTypesByMajorType(MajorAccountType.ASSET);
+      const assets = clone.getAccountTypesByMajorType(ASSET);
 
       expect(assets.length).toBe(2);
       expect(assets[0].equals(new AccountType("Cash"))).toBe(true);

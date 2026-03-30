@@ -1,5 +1,5 @@
-const Journal = require("./journal");
-const TradeFactory = require("./trade-factory");
+import Journal from "./journal.js";
+import TradeFactory from "./trade-factory.js";
 
 /**
  * JournalFactory is the factroy class for Journal model.
@@ -29,4 +29,4 @@ class JournalFactory {
   }
 }
 
-module.exports = JournalFactory;
+export default JournalFactory;

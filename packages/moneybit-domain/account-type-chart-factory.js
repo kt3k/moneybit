@@ -1,6 +1,6 @@
-const AccountTypeChart = require("./account-type-chart");
-const AccountType = require("./account-type");
-const { ALL_TYPES } = require("./major-account-type");
+import AccountTypeChart from "./account-type-chart.js";
+import AccountType from "./account-type.js";
+import { ALL_TYPES } from "./major-account-type.js";
 
 /**
  * The factory class of the account type chart.
@@ -28,4 +28,4 @@ class AccountTypeChartFactory {
   }
 }
 
-module.exports = AccountTypeChartFactory;
+export default AccountTypeChartFactory;

@@ -1,9 +1,9 @@
-const moment = require("moment");
-const Money = require("./money");
-const Debit = require("./debit");
-const Credit = require("./credit");
-const AccountType = require("./account-type");
-const { DEBIT } = require("./trade-side");
+import moment from "moment";
+import Money from "./money.js";
+import Debit from "./debit.js";
+import Credit from "./credit.js";
+import AccountType from "./account-type.js";
+import { DEBIT } from "./trade-side.js";
 
 /**
  * The factory class for Account model.
@@ -48,4 +48,4 @@ class AccountFactory {
   }
 }
 
-module.exports = AccountFactory;
+export default AccountFactory;

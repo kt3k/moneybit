@@ -1,8 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
-const { Journal, Trade, Ledger } = require("../");
-
-const journalObj = require("../__mocks__/journal");
-const { chart } = require("../__mocks__");
+import { Journal, Ledger, Trade } from "../index.js";
+import journalObj from "../__mocks__/journal.json" with { type: "json" };
+import { chart } from "../__mocks__/index.js";
 
 describe("Journal", () => {
   let journal;

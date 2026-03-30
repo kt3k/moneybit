@@ -21,4 +21,4 @@ class AccountType {
   }
 }
 
-module.exports = AccountType;
+export default AccountType;

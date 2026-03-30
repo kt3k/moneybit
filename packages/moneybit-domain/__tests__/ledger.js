@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-const { journal, chart } = require("../__mocks__");
-const { AccountType, MajorAccountType, Subledger } = require("../");
+import { chart, journal } from "../__mocks__/index.js";
+import { AccountType, MajorAccountType, Subledger } from "../index.js";
 
 const depositType = new AccountType("Deposit", MajorAccountType.ASSET);
 

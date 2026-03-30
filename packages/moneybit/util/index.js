@@ -1,6 +1,6 @@
-exports.cliName = require("./cli-name");
-exports.createJournalFromYaml = require("./create-journal-from-yaml");
-exports.createChartFromYaml = require("./create-chart-from-yaml");
-exports.errorExit = require("./error-exit");
-exports.readFile = require("./read-file");
-exports.checkJournalFilePath = require("./check-journal-file-path");
+export { default as cliName } from "./cli-name.js";
+export { default as createJournalFromYaml } from "./create-journal-from-yaml.js";
+export { default as createChartFromYaml } from "./create-chart-from-yaml.js";
+export { default as errorExit } from "./error-exit.js";
+export { default as readFile } from "./read-file.js";
+export { default as checkJournalFilePath } from "./check-journal-file-path.js";

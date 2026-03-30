@@ -20,6 +20,7 @@
     "url": "https://github.com/kt3k/moneybit.git"
   },
   "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
+  "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {

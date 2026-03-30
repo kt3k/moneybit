@@ -1,9 +1,9 @@
-const errorExit = require("./error-exit");
+import errorExit from "./error-exit.js";
 
 /**
  * @param {string} journal journal.yml path
  */
-module.exports = (journal) => {
+export default (journal) => {
   if (journal == null) {
     return errorExit(`journal.yml is not specified`);
   }

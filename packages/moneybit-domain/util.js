@@ -3,4 +3,4 @@
  * @param {Array<number>} list The list of numbers
  * @return {number}
  */
-exports.sum = (list) => list.reduce((x, y) => x + y, 0);
+export const sum = (list) => list.reduce((x, y) => x + y, 0);

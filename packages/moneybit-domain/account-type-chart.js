@@ -1,4 +1,4 @@
-const AccountType = require("./account-type");
+import AccountType from "./account-type.js";
 
 /**
  * The account type chart model.
@@ -103,4 +103,4 @@ class AccountTypeChart {
   }
 }
 
-module.exports = AccountTypeChart;
+export default AccountTypeChart;

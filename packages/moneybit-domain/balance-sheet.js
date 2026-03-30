@@ -1,5 +1,5 @@
-const { ASSET, LIABILITY, EQUITY } = require("./major-account-type");
-const Money = require("./money");
+import { ASSET, EQUITY, LIABILITY } from "./major-account-type.js";
+import Money from "./money.js";
 
 class BalanceSheet {
   constructor(ledger) {
@@ -54,4 +54,4 @@ class BalanceSheet {
   }
 }
 
-module.exports = BalanceSheet;
+export default BalanceSheet;

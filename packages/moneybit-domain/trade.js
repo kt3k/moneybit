@@ -61,4 +61,4 @@ class Trade {
   }
 }
 
-module.exports = Trade;
+export default Trade;

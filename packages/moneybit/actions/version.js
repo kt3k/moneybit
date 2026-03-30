@@ -1,3 +1,5 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const pkg = require("../package.json");
 
-module.exports = () => console.log(pkg.version);
+export default () => console.log(pkg.version);

@@ -1,1 +1,1 @@
-exports.DEFAULT_CHART_FILE = "./chart.yml";
+export const DEFAULT_CHART_FILE = "./chart.yml";

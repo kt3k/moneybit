@@ -1,8 +1,8 @@
-const moment = require("moment");
+import moment from "moment";
 
-const { DEBIT, CREDIT } = require("./trade-side");
-const Trade = require("./trade");
-const AccountFactory = require("./account-factory");
+import { CREDIT, DEBIT } from "./trade-side.js";
+import Trade from "./trade.js";
+import AccountFactory from "./account-factory.js";
 
 /**
  * The factory class for trade model.
@@ -44,4 +44,4 @@ class TradeFactory {
   }
 }
 
-module.exports = TradeFactory;
+export default TradeFactory;

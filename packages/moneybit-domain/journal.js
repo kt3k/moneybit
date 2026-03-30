@@ -1,5 +1,5 @@
-const LedgerFactory = require("./ledger-factory");
-const BalanceSheet = require("./balance-sheet");
+import LedgerFactory from "./ledger-factory.js";
+import BalanceSheet from "./balance-sheet.js";
 
 const ledgerFactory = new LedgerFactory();
 
@@ -171,4 +171,4 @@ class Journal {
   }
 }
 
-module.exports = Journal;
+export default Journal;

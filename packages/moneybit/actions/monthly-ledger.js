@@ -1,15 +1,15 @@
-const yaml = require("js-yaml");
-const moment = require("moment");
+import yaml from "js-yaml";
+import moment from "moment";
 
-const { DEFAULT_CHART_FILE } = require("../const");
-const { Ledger, AccountType } = require("../domain");
-const {
+import { DEFAULT_CHART_FILE } from "../const.js";
+import { AccountType, Ledger } from "../domain.js";
+import {
   checkJournalFilePath,
+  createChartFromYaml,
+  createJournalFromYaml,
   errorExit,
   readFile,
-  createJournalFromYaml,
-  createChartFromYaml,
-} = require("../util");
+} from "../util/index.js";
 
 const ledgerRepository = new Ledger.Repository();
 
@@ -18,7 +18,7 @@ const ledgerRepository = new Ledger.Repository();
  * @param {string} chart
  * @param {string} accountType The name of account type
  */
-module.exports = ({ _: [_action, journal, accountType], chart }) => {
+export default ({ _: [_action, journal, accountType], chart }) => {
   checkJournalFilePath(journal);
 
   if (accountType == null) {

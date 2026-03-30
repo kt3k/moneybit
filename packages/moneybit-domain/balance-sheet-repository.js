@@ -1,7 +1,7 @@
-const fs = require("fs");
-const yaml = require("js-yaml");
+import fs from "fs";
+import yaml from "js-yaml";
 
-const { ASSET, LIABILITY, EQUITY } = require("./major-account-type");
+import { ASSET, EQUITY, LIABILITY } from "./major-account-type.js";
 
 /**
  * The repository class of the balance sheet model.
@@ -70,4 +70,4 @@ class BalanceSheetRepository {
   }
 }
 
-module.exports = BalanceSheetRepository;
+export default BalanceSheetRepository;
