@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const { errorExit, cliName } = require('../util')
 
-module.exports = ({ _: [action, subcommand] }) => {
+module.exports = ({ _: [_action, subcommand] }) => {
   if (subcommand == null) {
     return console.log(usage)
   }

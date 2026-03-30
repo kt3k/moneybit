@@ -1,0 +1,8 @@
+{
+  "lint": {
+    "rules": {
+      "exclude": ["no-process-global"]
+    },
+    "exclude": ["node_modules"]
+  }
+}

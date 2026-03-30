@@ -16,7 +16,7 @@ class AccountTypeChart {
    */
   set(accountType, majorType) {
     const index = this.majorTypes.findIndex(
-      ([name, type]) => name === accountType.name
+      ([name, _type]) => name === accountType.name
     )
     if (index !== -1) {
       throw new Error(
@@ -32,7 +32,7 @@ class AccountTypeChart {
    */
   delete(accountType) {
     const index = this.majorTypes.findIndex(
-      ([name, type]) => name === accountType.name
+      ([name, _type]) => name === accountType.name
     )
     if (index === -1) {
       throw new Error(
@@ -49,7 +49,7 @@ class AccountTypeChart {
    */
   replace(toBeReplaced, toReplace) {
     const index = this.majorTypes.findIndex(
-      ([name, type]) => name === toBeReplaced.name
+      ([name, _type]) => name === toBeReplaced.name
     )
     const item = this.majorTypes[index]
     if (item == null) {
@@ -67,7 +67,7 @@ class AccountTypeChart {
    */
   getMajorTypeByAccountType(accountType) {
     const item = this.majorTypes.find(
-      ([name, type]) => name === accountType.name
+      ([name, _type]) => name === accountType.name
     )
     if (item == null) {
       throw new Error(
@@ -85,8 +85,8 @@ class AccountTypeChart {
    */
   getAccountTypesByMajorType(majorType) {
     return this.majorTypes
-      .filter(([name, type]) => type === majorType)
-      .map(([name, type]) => new AccountType(name))
+      .filter(([_name, type]) => type === majorType)
+      .map(([name, _type]) => new AccountType(name))
   }
 
   /**

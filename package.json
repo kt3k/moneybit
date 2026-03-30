@@ -3,7 +3,7 @@
   "description": "A Cli tool for creating a general ledger from the journal.",
   "scripts": {
     "test": "mocha \"packages/{,**/}__tests__/**/*.js\"",
-    "lint": "lynt",
+    "lint": "deno lint",
     "doc": "domaindoc",
     "gh-pages": "npm run clean && domaindoc build && cp -r media docs/ && gh-pages -d docs",
     "clean": "rimraf doc coverage",
@@ -23,6 +23,7 @@
   },
   "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
   "license": "MIT",
+  "packageManager": "pnpm@10.23.0",
   "devDependencies": {
     "chai": "^4.0.0",
     "codecov": "^3.2.0",
@@ -30,7 +31,6 @@
     "gh-pages": "^5.0.0",
     "husky": "^4.0.2",
     "lint-staged": "^10.0.3",
-    "lynt": "^0.5.5",
     "mocha": "^7.0.1",
     "nyc": "^15.0.0",
     "prettier": "^1.13.5",
@@ -39,7 +39,7 @@
   "lint-staged": {
     "*.js": [
       "prettier --write --no-semi --single-quote",
-      "lynt --fix",
+      "deno lint",
       "git add"
     ]
   }

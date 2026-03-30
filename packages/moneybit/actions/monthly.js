@@ -16,7 +16,7 @@ const {
  * @param {string} chart
  * @param {string} accountType The name of account type
  */
-module.exports = ({ _: [action, journal, accountType], chart }) => {
+module.exports = ({ _: [_action, journal, accountType], chart }) => {
   checkJournalFilePath(journal)
 
   if (accountType == null) {
