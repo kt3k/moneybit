@@ -2,7 +2,6 @@
   "name": "moneybit",
   "description": "A Cli tool for creating a general ledger from the journal.",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "test": "mocha \"packages/{,**/}__tests__/**/*.js\"",
     "lint": "lynt",
     "doc": "domaindoc",
@@ -30,7 +29,6 @@
     "domaindoc": "^3.0.3",
     "gh-pages": "^5.0.0",
     "husky": "^4.0.2",
-    "lerna": "^3.0.0-rc.0",
     "lint-staged": "^10.0.3",
     "lynt": "^0.5.5",
     "mocha": "^7.0.1",

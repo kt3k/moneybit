@@ -26,7 +26,7 @@ class LedgerRepository {
    * @return {String}
    */
   toYaml(ledger) {
-    return yaml.safeDump(this.ledgerToObject(ledger))
+    return yaml.dump(this.ledgerToObject(ledger))
   }
 
   /**

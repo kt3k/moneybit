@@ -2,7 +2,7 @@
 
 > A Cli tool for creating a general ledger from the journal.
 
-[![CircleCI](https://circleci.com/gh/kt3k/moneybit.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit)
+[![CI](https://github.com/kt3k/moneybit/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/moneybit/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/kt3k/moneybit/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit)
 
 

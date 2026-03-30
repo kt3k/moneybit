@@ -31,7 +31,7 @@
     "minimisted": "^2.0.1",
     "minirocket": "^2.0.0",
     "moment": "^2.30.1",
-    "moneybit-domain": "^0.11.0"
+    "moneybit-domain": "workspace:*"
   },
   "gitHead": "684402db4189db32f81e2f7dd97b852c8c5b7ff0"
 }

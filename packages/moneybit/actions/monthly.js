@@ -55,5 +55,5 @@ module.exports = ({ _: [action, journal, accountType], chart }) => {
 
   buffer.total = subledger.total().amount
 
-  console.log(yaml.safeDump(buffer))
+  console.log(yaml.dump(buffer))
 }

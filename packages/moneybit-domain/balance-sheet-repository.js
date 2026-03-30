@@ -57,7 +57,7 @@ class BalanceSheetRepository {
    * @return {string} The yaml representation
    */
   toYaml(balanceSheet) {
-    return yaml.safeDump(this.toObject(balanceSheet))
+    return yaml.dump(this.toObject(balanceSheet))
   }
 
   /**
