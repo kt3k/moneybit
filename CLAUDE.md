@@ -1,0 +1,1 @@
+- Run `deno lint` and `deno fmt` at the end of each change
