@@ -23,9 +23,6 @@ importers:
       nyc:
         specifier: ^15.0.0
         version: 15.1.0
-      prettier:
-        specifier: ^1.13.5
-        version: 1.19.1
       rimraf:
         specifier: ^3.0.0
         version: 3.0.2
@@ -2064,11 +2061,6 @@ packages:
   preserve@0.2.0:
     resolution: {integrity: sha512-s/46sYeylUfHNjI+sA/78FAHlmIuKqI9wNnzEOGehAlUUYeObv5C2mOinXBjyUyWmJ2SfcS2/ydApH4hTF4WXQ==}
     engines: {node: '>=0.10.0'}
-
-  prettier@1.19.1:
-    resolution: {integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==}
-    engines: {node: '>=4'}
-    hasBin: true
 
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
@@ -5047,8 +5039,6 @@ snapshots:
   possible-typed-array-names@1.1.0: {}
 
   preserve@0.2.0: {}
-
-  prettier@1.19.1: {}
 
   process-nextick-args@2.0.1: {}
 
