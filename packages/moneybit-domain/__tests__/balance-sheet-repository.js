@@ -1,5 +1,4 @@
 const fs = require("fs");
-const rimraf = require("rimraf");
 const { expect } = require("chai");
 
 const { BalanceSheet } = require("../");
@@ -19,7 +18,7 @@ describe("BalanceSheetRepository", () => {
       expect(yaml).to.be.a("string");
       expect(yaml.length).to.gt(0);
 
-      rimraf.sync(path);
+      fs.rmSync(path, { force: true });
     });
   });
 });

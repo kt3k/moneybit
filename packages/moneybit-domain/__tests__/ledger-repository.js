@@ -1,5 +1,4 @@
 const fs = require("fs");
-const rimraf = require("rimraf");
 const { Ledger } = require("../");
 const { expect } = require("chai");
 const { journal, chart } = require("../__mocks__");
@@ -23,7 +22,7 @@ describe("LedgerRepository", () => {
       expect(yaml).to.be.a("string");
       expect(yaml.length).to.be.gt(0);
 
-      rimraf.sync(path);
+      fs.rmSync(path, { force: true });
     });
   });
 });
