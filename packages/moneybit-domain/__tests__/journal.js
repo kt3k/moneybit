@@ -1,5 +1,5 @@
+import { beforeEach, describe, expect, it } from "vitest";
 const { Journal, Trade, Ledger } = require("../");
-const { expect } = require("chai");
 
 const journalObj = require("../__mocks__/journal");
 const { chart } = require("../__mocks__");
@@ -13,7 +13,7 @@ describe("Journal", () => {
 
   describe("toLedger", () => {
     it("returns a ledger", () => {
-      expect(journal.toLedger(chart)).to.be.instanceof(Ledger);
+      expect(journal.toLedger(chart)).toBeInstanceOf(Ledger);
     });
   });
 
@@ -47,22 +47,12 @@ describe("Journal", () => {
         }),
       );
 
-      expect(journal.length).to.equal(5);
-      expect(journal.trades[0].date.format("YYYY-MM-DD")).to.equal(
-        "2015-01-01",
-      );
-      expect(journal.trades[1].date.format("YYYY-MM-DD")).to.equal(
-        "2015-01-31",
-      );
-      expect(journal.trades[2].date.format("YYYY-MM-DD")).to.equal(
-        "2015-02-15",
-      );
-      expect(journal.trades[3].date.format("YYYY-MM-DD")).to.equal(
-        "2015-02-28",
-      );
-      expect(journal.trades[4].date.format("YYYY-MM-DD")).to.equal(
-        "2015-03-01",
-      );
+      expect(journal.length).toBe(5);
+      expect(journal.trades[0].date.format("YYYY-MM-DD")).toBe("2015-01-01");
+      expect(journal.trades[1].date.format("YYYY-MM-DD")).toBe("2015-01-31");
+      expect(journal.trades[2].date.format("YYYY-MM-DD")).toBe("2015-02-15");
+      expect(journal.trades[3].date.format("YYYY-MM-DD")).toBe("2015-02-28");
+      expect(journal.trades[4].date.format("YYYY-MM-DD")).toBe("2015-03-01");
     });
 
     it("throws when the id is already taken", () => {
@@ -70,7 +60,7 @@ describe("Journal", () => {
 
       expect(() => {
         journal.addTrade(trade);
-      }).to.throw();
+      }).toThrow();
     });
   });
 
@@ -90,9 +80,9 @@ describe("Journal", () => {
 
       journal.saveTrade(trade);
 
-      expect(journal.length).to.equal(3);
+      expect(journal.length).toBe(3);
 
-      expect(journal.getTradeById(trade.id).description).to.equal("Foo");
+      expect(journal.getTradeById(trade.id).description).toBe("Foo");
     });
 
     it("adds the given trade when the id doesn't exists in the journal", () => {
@@ -110,7 +100,7 @@ describe("Journal", () => {
 
       journal.saveTrade(trade);
 
-      expect(journal.length).to.equal(4);
+      expect(journal.length).toBe(4);
     });
   });
 
@@ -118,13 +108,13 @@ describe("Journal", () => {
     it("removes the trade by the given id", () => {
       journal.removeTradeById("3");
 
-      expect(journal.length).to.equal(2);
+      expect(journal.length).toBe(2);
     });
 
     it("does not remove if the given id does not exist", () => {
       journal.removeTradeById("4");
 
-      expect(journal.length).to.equal(3);
+      expect(journal.length).toBe(3);
     });
   });
 
@@ -132,14 +122,14 @@ describe("Journal", () => {
     it("returns the first trade", () => {
       const trade = journal.firstTrade();
 
-      expect(trade).to.be.instanceof(Trade);
-      expect(trade.date.format("YYYY-MM-DD")).to.equal("2015-01-01");
+      expect(trade).toBeInstanceOf(Trade);
+      expect(trade.date.format("YYYY-MM-DD")).toBe("2015-01-01");
     });
 
     it("returns null if the journal is empty", () => {
       const journal = new Journal.Factory().createFromArray([]);
 
-      expect(journal.firstTrade()).to.equal(null);
+      expect(journal.firstTrade()).toBeNull();
     });
   });
 
@@ -147,14 +137,14 @@ describe("Journal", () => {
     it("returns the last trade", () => {
       const trade = journal.lastTrade();
 
-      expect(trade).to.be.instanceof(Trade);
-      expect(trade.date.format("YYYY-MM-DD")).to.equal("2015-02-28");
+      expect(trade).toBeInstanceOf(Trade);
+      expect(trade.date.format("YYYY-MM-DD")).toBe("2015-02-28");
     });
 
     it("returns null if the journal is empty", () => {
       const journal = new Journal.Factory().createFromArray([]);
 
-      expect(journal.lastTrade()).to.equal(null);
+      expect(journal.lastTrade()).toBeNull();
     });
   });
 });

@@ -1,5 +1,5 @@
+import { describe, expect, it } from "vitest";
 const fs = require("fs");
-const { expect } = require("chai");
 
 const { BalanceSheet } = require("../");
 const { journal, chart } = require("../__mocks__");
@@ -15,8 +15,8 @@ describe("BalanceSheetRepository", () => {
 
       const yaml = fs.readFileSync(path).toString();
 
-      expect(yaml).to.be.a("string");
-      expect(yaml.length).to.gt(0);
+      expect(typeof yaml).toBe("string");
+      expect(yaml.length).toBeGreaterThan(0);
 
       fs.rmSync(path, { force: true });
     });

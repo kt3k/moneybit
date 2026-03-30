@@ -2,12 +2,12 @@
   "name": "moneybit",
   "description": "A Cli tool for creating a general ledger from the journal.",
   "scripts": {
-    "test": "mocha \"packages/{,**/}__tests__/**/*.js\"",
+    "test": "vitest run",
     "lint": "deno lint",
     "doc": "domaindoc",
     "gh-pages": "npm run clean && domaindoc build && cp -r media docs/ && gh-pages -d docs",
     "clean": "rm -rf doc coverage",
-    "cov": "c8 --reporter=lcov --reporter=text-summary pnpm test",
+    "cov": "vitest run --coverage",
     "prepublish": "npm run clean",
     "demo-ledger": "node src/cli.js ledger samples/journal.yml --chart samples/chart.yml",
     "demo-monthly": "node src/cli.js monthly samples/journal.yml 売上 --chart samples/chart.yml",
@@ -23,10 +23,8 @@
   "license": "MIT",
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {
-    "chai": "^4.0.0",
     "domaindoc": "^3.0.3",
     "gh-pages": "^5.0.0",
-    "mocha": "^7.0.1",
-    "c8": "^10.0.0"
+    "vitest": "^3.0.0"
   }
 }

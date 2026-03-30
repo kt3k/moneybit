@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 const {
   AccountTypeChart,
   Account,
@@ -6,7 +7,6 @@ const {
   TradeSide: { DEBIT, CREDIT },
 } = require("../");
 const chartObj = require("../__mocks__/chart");
-const { expect } = require("chai");
 
 const chart = new AccountTypeChart.Factory().createFromObject(chartObj);
 const factory = new Account.Factory(chart);
@@ -21,8 +21,8 @@ describe("Account", () => {
         DEBIT,
       );
 
-      expect(entry.getDebitAmount()).to.be.instanceof(Money);
-      expect(entry.getDebitAmount().amount).to.equal(500);
+      expect(entry.getDebitAmount()).toBeInstanceOf(Money);
+      expect(entry.getDebitAmount().amount).toBe(500);
     });
 
     it("returns null if it is credit entry", () => {
@@ -33,7 +33,7 @@ describe("Account", () => {
         CREDIT,
       );
 
-      expect(entry.getDebitAmount()).to.equal(null);
+      expect(entry.getDebitAmount()).toBeNull();
     });
   });
 
@@ -46,8 +46,8 @@ describe("Account", () => {
         CREDIT,
       );
 
-      expect(entry.getCreditAmount()).to.be.instanceof(Money);
-      expect(entry.getCreditAmount().amount).to.equal(500);
+      expect(entry.getCreditAmount()).toBeInstanceOf(Money);
+      expect(entry.getCreditAmount().amount).toBe(500);
     });
 
     it("returns null if it is debit entry", () => {
@@ -58,7 +58,7 @@ describe("Account", () => {
         DEBIT,
       );
 
-      expect(entry.getCreditAmount()).to.equal(null);
+      expect(entry.getCreditAmount()).toBeNull();
     });
   });
 
@@ -100,10 +100,10 @@ describe("Account", () => {
       c0.setTrade(trade);
       c1.setTrade(trade);
 
-      expect(d0.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type]);
-      expect(d1.getCorrespondingAccountTypes()).to.eql([c0.type, c1.type]);
-      expect(c0.getCorrespondingAccountTypes()).to.eql([d0.type, d1.type]);
-      expect(c1.getCorrespondingAccountTypes()).to.eql([d0.type, d1.type]);
+      expect(d0.getCorrespondingAccountTypes()).toEqual([c0.type, c1.type]);
+      expect(d1.getCorrespondingAccountTypes()).toEqual([c0.type, c1.type]);
+      expect(c0.getCorrespondingAccountTypes()).toEqual([d0.type, d1.type]);
+      expect(c1.getCorrespondingAccountTypes()).toEqual([d0.type, d1.type]);
     });
   });
 });

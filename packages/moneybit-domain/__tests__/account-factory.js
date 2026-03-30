@@ -1,5 +1,5 @@
+import { describe, expect, it } from "vitest";
 const { Account } = require("../");
-const { expect } = require("chai");
 
 const factory = new Account.Factory();
 
@@ -11,7 +11,7 @@ describe("AccountFactory", () => {
           date: "2018-01-01",
           desc: "desc",
         });
-      }).to.throw();
+      }).toThrow();
     });
 
     it("throws when the date is not a number", () => {
@@ -20,7 +20,7 @@ describe("AccountFactory", () => {
           date: null,
           desc: "desc",
         });
-      }).to.throw();
+      }).toThrow();
     });
   });
 });

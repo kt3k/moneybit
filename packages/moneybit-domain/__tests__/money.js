@@ -1,11 +1,13 @@
+import { describe, expect, it } from "vitest";
 const { Money } = require("../");
-const { expect } = require("chai");
 
 describe("Money", () => {
   describe("plus", () => {
-    const one = new Money(1);
-    const two = new Money(2);
+    it("adds two money values", () => {
+      const one = new Money(1);
+      const two = new Money(2);
 
-    expect(one.plus(two).amount).to.equal(3);
+      expect(one.plus(two).amount).toBe(3);
+    });
   });
 });

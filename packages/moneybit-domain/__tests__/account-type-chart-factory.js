@@ -1,9 +1,9 @@
+import { describe, expect, it } from "vitest";
 const {
   AccountTypeChart,
   AccountType,
   MajorAccountType: { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE },
 } = require("../");
-const { expect } = require("chai");
 
 const factory = new AccountTypeChart.Factory();
 
@@ -18,19 +18,17 @@ describe("AccountTypeChartFactory", () => {
         expense: ["E"],
       });
 
-      expect(chart.getMajorTypeByAccountType(new AccountType("A"))).to.equal(
-        ASSET,
-      );
-      expect(chart.getMajorTypeByAccountType(new AccountType("B"))).to.equal(
+      expect(chart.getMajorTypeByAccountType(new AccountType("A"))).toBe(ASSET);
+      expect(chart.getMajorTypeByAccountType(new AccountType("B"))).toBe(
         LIABILITY,
       );
-      expect(chart.getMajorTypeByAccountType(new AccountType("C"))).to.equal(
+      expect(chart.getMajorTypeByAccountType(new AccountType("C"))).toBe(
         EQUITY,
       );
-      expect(chart.getMajorTypeByAccountType(new AccountType("D"))).to.equal(
+      expect(chart.getMajorTypeByAccountType(new AccountType("D"))).toBe(
         REVENUE,
       );
-      expect(chart.getMajorTypeByAccountType(new AccountType("E"))).to.equal(
+      expect(chart.getMajorTypeByAccountType(new AccountType("E"))).toBe(
         EXPENSE,
       );
     });

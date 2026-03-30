@@ -1,4 +1,4 @@
-const { expect } = require("chai");
+import { describe, expect, it } from "vitest";
 const { journal, chart } = require("../__mocks__");
 const { AccountType, MajorAccountType, Subledger } = require("../");
 
@@ -11,11 +11,11 @@ describe("Ledger", () => {
 
   describe("hasSubledgerOfAccountType", () => {
     it("returns true when it has the subldeger of the given type", () => {
-      expect(ledger.hasSubledgerOfAccountType(depositType)).to.equal(true);
+      expect(ledger.hasSubledgerOfAccountType(depositType)).toBe(true);
     });
 
     it("returns false when it does not have the subldeger of the given type", () => {
-      expect(ledger.hasSubledgerOfAccountType(fakeAccountType)).to.equal(false);
+      expect(ledger.hasSubledgerOfAccountType(fakeAccountType)).toBe(false);
     });
   });
 
@@ -23,12 +23,11 @@ describe("Ledger", () => {
     it("gets the subledger", () => {
       const subledger = ledger.getSubledgerByAccountType(depositType);
 
-      expect(subledger).to.be.instanceof(Subledger);
+      expect(subledger).toBeInstanceOf(Subledger);
     });
 
     it("throws when the subledger of the account type is not found", () => {
-      expect(() => ledger.getSubledgerByAccountType(fakeAccountType)).to
-        .throw();
+      expect(() => ledger.getSubledgerByAccountType(fakeAccountType)).toThrow();
     });
   });
 });

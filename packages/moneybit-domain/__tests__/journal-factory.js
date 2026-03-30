@@ -1,5 +1,5 @@
+import { describe, expect, it } from "vitest";
 const { Journal, AccountTypeChart } = require("../");
-const { expect } = require("chai");
 
 const journalArray = require("../__mocks__/journal");
 const chartObj = require("../__mocks__/chart");
@@ -13,13 +13,13 @@ describe("JournalFactory", () => {
     it("creates a journal from the array of the object which represents the trade", () => {
       const journal = factory.createFromArray(journalArray);
 
-      expect(journal).to.be.instanceof(Journal);
+      expect(journal).toBeInstanceOf(Journal);
     });
 
     it("creates a journal of empty string id", () => {
       const journal = factory.createFromArray(journalArray);
 
-      expect(journal.id).to.equal("");
+      expect(journal.id).toBe("");
     });
   });
 
@@ -27,8 +27,8 @@ describe("JournalFactory", () => {
     it("creates a journal from the given id and trade data array", () => {
       const journal = factory.createFromIdAndArray("foo", journalArray);
 
-      expect(journal).to.be.instanceof(Journal);
-      expect(journal.id).to.equal("foo");
+      expect(journal).toBeInstanceOf(Journal);
+      expect(journal.id).toBe("foo");
     });
   });
 });

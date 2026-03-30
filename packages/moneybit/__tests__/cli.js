@@ -1,33 +1,30 @@
+import { describe, expect, it } from "vitest";
 const execSync = require("child_process").execSync;
-const { expect } = require("chai");
 const { cliName } = require("../util");
 
 const cliPath = "packages/moneybit/cli.js";
 const chartPath = "samples/chart.yml";
 const journalPath = "samples/journal.yml";
 
-describe(cliName, function () {
-  this.timeout(4000);
-
+describe(cliName, () => {
   describe("ledger", () => {
     it("does not throw", () => {
       execSync(`node ${cliPath} ledger ${journalPath} --chart ${chartPath}`);
     });
 
     it("throws when the chart.yml is not available", () => {
-      expect(() => execSync(`node ${cliPath} ledger ${journalPath}`)).to
-        .throw();
+      expect(() => execSync(`node ${cliPath} ledger ${journalPath}`)).toThrow();
     });
 
     it("throws when the journal.yml is not available", () => {
       expect(() =>
         execSync(`node ${cliPath} ledger no-journal.yml --chart ${chartPath}`)
-      ).to.throw();
+      ).toThrow();
     });
 
     it("throws when the journal.yml is not given", () => {
-      expect(() => execSync(`node ${cliPath} ledger --chart ${chartPath}`)).to
-        .throw();
+      expect(() => execSync(`node ${cliPath} ledger --chart ${chartPath}`))
+        .toThrow();
     });
   });
 
@@ -47,13 +44,13 @@ describe(cliName, function () {
     it("throws when the <accountType> is not given", () => {
       expect(() =>
         execSync(`node ${cliPath} monthly ${journalPath} --chart ${chartPath}`)
-      ).to.throw();
+      ).toThrow();
     });
   });
 
   describe("not-a-command", () => {
     it("throws", () => {
-      expect(() => execSync(`node ${cliPath} not-a-command`)).to.throw();
+      expect(() => execSync(`node ${cliPath} not-a-command`)).toThrow();
     });
   });
 
@@ -69,7 +66,7 @@ describe(cliName, function () {
         execSync(
           `node ${cliPath} monthly-ledger ${journalPath} --chart ${chartPath}`,
         )
-      ).to.throw();
+      ).toThrow();
     });
   });
 
@@ -95,7 +92,7 @@ describe(cliName, function () {
     });
 
     it("throws when called with non-existing subcommand", () => {
-      expect(() => execSync(`node ${cliPath} help foo`)).to.throw();
+      expect(() => execSync(`node ${cliPath} help foo`)).toThrow();
     });
   });
 
