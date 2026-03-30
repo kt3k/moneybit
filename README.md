@@ -132,7 +132,7 @@ The default for `--chart` is `chart.yml`.
 
 `bs` subcommand outputs the balance sheet as yaml.
 
-```
+```shellsession
 $ mb bs path/to/journal [--chart path/to/chart.yml]
 asset:
   Cash in hand: 37072
