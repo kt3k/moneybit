@@ -1,3 +1,5 @@
+import { isSameMonth } from "date-fns";
+
 /**
  * The account model.
  *
@@ -83,11 +85,11 @@ class Account {
   /**
    * Returns true when the account is in the given month.
    *
-   * @param {moment} month The month to check
+   * @param {Date} month The month to check
    * @return {boolean}
    */
   isInMonth(month) {
-    return this.date.isSame(month, "month");
+    return isSameMonth(this.date, month);
   }
 
   /**
@@ -96,7 +98,7 @@ class Account {
    * @return {number}
    */
   dateDiff(account) {
-    return this.date.diff(account.date);
+    return this.date.getTime() - account.date.getTime();
   }
 
   /**

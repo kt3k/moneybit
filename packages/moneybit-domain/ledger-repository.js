@@ -1,5 +1,6 @@
 import fs from "fs";
 import yaml from "js-yaml";
+import { format } from "date-fns";
 
 import { ALL_TYPES } from "./major-account-type.js";
 import { DEBIT } from "./trade-side.js";
@@ -91,7 +92,7 @@ class LedgerRepository {
    */
   accountToObject(account) {
     const obj = {
-      date: account.date.format("YYYY/MM/DD"),
+      date: format(account.date, "yyyy/MM/dd"),
       desc: account.description,
       cor: account
         .getCorrespondingAccountTypes()

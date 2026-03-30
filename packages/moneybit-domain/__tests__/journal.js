@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
+import { format } from "date-fns";
 import { Journal, Ledger, Trade } from "../index.js";
 import journalObj from "../__mocks__/journal.json" with { type: "json" };
 import { chart } from "../__mocks__/index.js";
@@ -47,11 +48,11 @@ describe("Journal", () => {
       );
 
       expect(journal.length).toBe(5);
-      expect(journal.trades[0].date.format("YYYY-MM-DD")).toBe("2015-01-01");
-      expect(journal.trades[1].date.format("YYYY-MM-DD")).toBe("2015-01-31");
-      expect(journal.trades[2].date.format("YYYY-MM-DD")).toBe("2015-02-15");
-      expect(journal.trades[3].date.format("YYYY-MM-DD")).toBe("2015-02-28");
-      expect(journal.trades[4].date.format("YYYY-MM-DD")).toBe("2015-03-01");
+      expect(format(journal.trades[0].date, "yyyy-MM-dd")).toBe("2015-01-01");
+      expect(format(journal.trades[1].date, "yyyy-MM-dd")).toBe("2015-01-31");
+      expect(format(journal.trades[2].date, "yyyy-MM-dd")).toBe("2015-02-15");
+      expect(format(journal.trades[3].date, "yyyy-MM-dd")).toBe("2015-02-28");
+      expect(format(journal.trades[4].date, "yyyy-MM-dd")).toBe("2015-03-01");
     });
 
     it("throws when the id is already taken", () => {
@@ -122,7 +123,7 @@ describe("Journal", () => {
       const trade = journal.firstTrade();
 
       expect(trade).toBeInstanceOf(Trade);
-      expect(trade.date.format("YYYY-MM-DD")).toBe("2015-01-01");
+      expect(format(trade.date, "yyyy-MM-dd")).toBe("2015-01-01");
     });
 
     it("returns null if the journal is empty", () => {
@@ -137,7 +138,7 @@ describe("Journal", () => {
       const trade = journal.lastTrade();
 
       expect(trade).toBeInstanceOf(Trade);
-      expect(trade.date.format("YYYY-MM-DD")).toBe("2015-02-28");
+      expect(format(trade.date, "yyyy-MM-dd")).toBe("2015-02-28");
     });
 
     it("returns null if the journal is empty", () => {

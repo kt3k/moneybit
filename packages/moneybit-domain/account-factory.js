@@ -1,4 +1,4 @@
-import moment from "moment";
+import { parseISO } from "date-fns";
 import Money from "./money.js";
 import Debit from "./debit.js";
 import Credit from "./credit.js";
@@ -38,7 +38,7 @@ class AccountFactory {
       );
     }
 
-    date = moment(date);
+    date = date instanceof Date ? date : parseISO(String(date));
 
     if (side === DEBIT) {
       return new Debit(date, type, money, desc, null);

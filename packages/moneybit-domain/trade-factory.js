@@ -1,4 +1,4 @@
-import moment from "moment";
+import { parseISO } from "date-fns";
 
 import { CREDIT, DEBIT } from "./trade-side.js";
 import Trade from "./trade.js";
@@ -31,7 +31,7 @@ class TradeFactory {
 
     const trade = new Trade({
       id: obj.id,
-      date: moment(obj.date),
+      date: obj.date instanceof Date ? obj.date : parseISO(String(obj.date)),
       description: obj.desc,
       debits: debits,
       credits: credits,

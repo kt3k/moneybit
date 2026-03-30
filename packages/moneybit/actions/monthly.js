@@ -1,5 +1,5 @@
 import yaml from "js-yaml";
-import moment from "moment";
+import { addMonths, format, isBefore, isSameMonth } from "date-fns";
 
 import { AccountType } from "../domain.js";
 import { DEFAULT_CHART_FILE } from "../const.js";
@@ -37,20 +37,20 @@ export default ({ _: [_action, journal, accountType], chart }) => {
   const first = subledger.firstAccount().date;
   const last = subledger.lastAccount().date;
 
-  const month = moment(first);
+  let month = new Date(first);
   let currentTotal = 0;
   const buffer = {};
 
-  while (month.isBefore(last, "month") || month.isSame(last, "month")) {
+  while (isBefore(month, last) || isSameMonth(month, last)) {
     const subledgerByMonth = subledger.filterByMonth(month);
 
-    const obj = (buffer[month.format("YYYY/MM")] = {});
+    const obj = (buffer[format(month, "yyyy/MM")] = {});
     const total = subledgerByMonth.total().amount;
     obj[subledger.type.name] = total;
     currentTotal += total;
     obj.total = currentTotal;
 
-    month.add(1, "month");
+    month = addMonths(month, 1);
   }
 
   buffer.total = subledger.total().amount;
