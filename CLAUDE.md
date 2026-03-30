@@ -1,1 +1,2 @@
 - Run `deno lint` and `deno fmt` at the end of each change
+- When updating dependencies, update pnpm-lock.yaml as well (Run `pnpm install`)
