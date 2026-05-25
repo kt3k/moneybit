@@ -13,7 +13,7 @@ importers:
         version: 3.2.4(vitest@3.2.4)
       domaindoc:
         specifier: ^3.0.3
-        version: 3.0.3(chokidar@3.6.0)(lodash@4.17.23)
+        version: 3.0.3(chokidar@3.6.0)(lodash@4.18.1)
       gh-pages:
         specifier: ^5.0.0
         version: 5.0.0
@@ -1669,8 +1669,8 @@ packages:
   lodash.templatesettings@3.1.1:
     resolution: {integrity: sha512-TcrlEr31tDYnWkHFWDCV3dHYroKEXpJZ2YJYvJdhN+y4AkWMDZ5I4I8XDtUKqSAyG81N7w+I1mFEJtcED+tGqQ==}
 
-  lodash@4.17.23:
-    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
@@ -3109,11 +3109,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  consolidate@0.14.5(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0)):
+  consolidate@0.14.5(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0)):
     dependencies:
       bluebird: 3.7.2
     optionalDependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       nunjucks: 3.2.4(chokidar@3.6.0)
 
   convert-source-map@1.9.0: {}
@@ -3173,17 +3173,17 @@ snapshots:
 
   detect-file@1.0.0: {}
 
-  domaindoc@3.0.3(chokidar@3.6.0)(lodash@4.17.23):
+  domaindoc@3.0.3(chokidar@3.6.0)(lodash@4.18.1):
     dependencies:
       berber: 1.4.1
       branch-pipe: 1.0.1
       escape-html: 1.0.3
-      gulp-consolidate: 0.2.0(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0))
+      gulp-consolidate: 0.2.0(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0))
       gulp-data: 1.3.1
       gulp-front-matter: 1.3.0
       gulp-markdown: 2.0.1
       gulp-trimlines: 1.0.1
-      layout1: 1.1.0(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0))
+      layout1: 1.1.0(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0))
       micromatch: 3.1.10
       nunjucks: 3.2.4(chokidar@3.6.0)
       require-yaml: 0.0.1
@@ -3656,9 +3656,9 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  gulp-consolidate@0.2.0(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0)):
+  gulp-consolidate@0.2.0(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0)):
     dependencies:
-      consolidate: 0.14.5(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0))
+      consolidate: 0.14.5(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0))
       map-stream: 0.0.4
     transitivePeerDependencies:
       - arc-templates
@@ -3778,12 +3778,12 @@ snapshots:
 
   gulp-wrap@0.13.0(nunjucks@3.2.4(chokidar@3.6.0)):
     dependencies:
-      consolidate: 0.14.5(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0))
+      consolidate: 0.14.5(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0))
       es6-promise: 3.3.1
       fs-readfile-promise: 2.0.1
       gulp-util: 3.0.8
       js-yaml: 3.14.2
-      lodash: 4.17.23
+      lodash: 4.18.1
       node.extend: 1.1.8
       through2: 2.0.5
       tryit: 1.0.3
@@ -4079,9 +4079,9 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  layout1@1.1.0(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0)):
+  layout1@1.1.0(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0)):
     dependencies:
-      consolidate: 0.14.5(lodash@4.17.23)(nunjucks@3.2.4(chokidar@3.6.0))
+      consolidate: 0.14.5(lodash@4.18.1)(nunjucks@3.2.4(chokidar@3.6.0))
       gulp-wrap: 0.13.0(nunjucks@3.2.4(chokidar@3.6.0))
     transitivePeerDependencies:
       - arc-templates
@@ -4216,7 +4216,7 @@ snapshots:
       lodash._reinterpolate: 3.0.0
       lodash.escape: 3.2.0
 
-  lodash@4.17.23: {}
+  lodash@4.18.1: {}
 
   loupe@3.2.1: {}
 
